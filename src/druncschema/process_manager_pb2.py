@@ -12,9 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 import druncschema.request_response_pb2 as request__response__pb2
+from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15process_manager.proto\x12\x12\x44UNEProcessManager\x1a\x16request_response.proto\"G\n\x12ProcessRestriction\x12\x15\n\rallowed_hosts\x18\x01 \x03(\t\x12\x1a\n\x12\x61llowed_host_types\x18\x02 \x03(\t\"N\n\nLogRequest\x12/\n\x05query\x18\x01 \x01(\x0b\x32 .DUNEProcessManager.ProcessQuery\x12\x0f\n\x07how_far\x18\x02 \x01(\x05\"F\n\x07LogLine\x12-\n\x04uuid\x18\x01 \x01(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\x12\x0c\n\x04line\x18\x02 \x01(\t\"\x1b\n\x0bProcessUUID\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"m\n\x0fProcessMetadata\x12-\n\x04uuid\x18\x01 \x01(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\x12\x0c\n\x04user\x18\x02 \x01(\t\x12\x0f\n\x07session\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\"\x8b\x01\n\x0cProcessQuery\x12.\n\x05uuids\x18\x01 \x03(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\x12\r\n\x05names\x18\x02 \x03(\t\x12\x11\n\x04user\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x14\n\x07session\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x07\n\x05_userB\n\n\x08_session\"\xd4\x02\n\x12ProcessDescription\x12\x35\n\x08metadata\x18\x01 \x01(\x0b\x32#.DUNEProcessManager.ProcessMetadata\x12<\n\x03\x65nv\x18\x02 \x03(\x0b\x32/.DUNEProcessManager.ProcessDescription.EnvEntry\x12T\n\x18\x65xecutable_and_arguments\x18\x03 \x03(\x0b\x32\x32.DUNEProcessManager.ProcessDescription.ExecAndArgs\x1a\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t\x1a)\n\x0b\x45xecAndArgs\x12\x0c\n\x04\x65xec\x18\x01 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x02 \x03(\t\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xde\x02\n\x0fProcessInstance\x12\x43\n\x13process_description\x18\x01 \x01(\x0b\x32&.DUNEProcessManager.ProcessDescription\x12\x43\n\x13process_restriction\x18\x02 \x01(\x0b\x32&.DUNEProcessManager.ProcessRestriction\x12\x43\n\x0bstatus_code\x18\x03 \x01(\x0e\x32..DUNEProcessManager.ProcessInstance.StatusCode\x12\x18\n\x0breturn_code\x18\x04 \x01(\x05H\x00\x88\x01\x01\x12-\n\x04uuid\x18\x05 \x01(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\"#\n\nStatusCode\x12\x0b\n\x07RUNNING\x10\x00\x12\x08\n\x04\x44\x45\x41\x44\x10\x01\x42\x0e\n\x0c_return_code\"\x97\x01\n\x0b\x42ootRequest\x12\x43\n\x13process_description\x18\x01 \x01(\x0b\x32&.DUNEProcessManager.ProcessDescription\x12\x43\n\x13process_restriction\x18\x02 \x01(\x0b\x32&.DUNEProcessManager.ProcessRestriction\"J\n\x13ProcessInstanceList\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.DUNEProcessManager.ProcessInstance2\xce\x01\n\x0eProcessManager\x12\x1d\n\x04\x62oot\x12\x08.Request\x1a\t.Response\"\x00\x12 \n\x07restart\x12\x08.Request\x1a\t.Response\"\x00\x12\x1d\n\x04kill\x12\x08.Request\x1a\t.Response\"\x00\x12\x1e\n\x05\x66lush\x12\x08.Request\x1a\t.Response\"\x00\x12\x1b\n\x02ps\x12\x08.Request\x1a\t.Response\"\x00\x12\x1f\n\x04logs\x12\x08.Request\x1a\t.Response\"\x00\x30\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15process_manager.proto\x12\x12\x44UNEProcessManager\x1a\x16request_response.proto\x1a\x19google/protobuf/any.proto\"G\n\x12ProcessRestriction\x12\x15\n\rallowed_hosts\x18\x01 \x03(\t\x12\x1a\n\x12\x61llowed_host_types\x18\x02 \x03(\t\"\xc2\x03\n\x1eProcessManagerBroadcastMessage\x12Q\n\x04type\x18\x01 \x01(\x0e\x32\x43.DUNEProcessManager.ProcessManagerBroadcastMessage.NotificationType\x12\"\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\"\xa8\x02\n\x10NotificationType\x12\x13\n\x0f\x43OMMAND_REQUEST\x10\x00\x12$\n COMMAND_EXECUTION_NOT_AUTHORISED\x10\x01\x12\x1b\n\x17\x43OMMAND_EXECUTION_START\x10\x02\x12\x1d\n\x19\x43OMMAND_EXECUTION_SUCCESS\x10\x03\x12\x1c\n\x18\x43OMMAND_EXECUTION_FAILED\x10\x04\x12\x14\n\x10\x45XCEPTION_RAISED\x10\x05\x12\x1e\n\x1aUNHANDLED_EXCEPTION_RAISED\x10\x06\x12\x11\n\rSTATUS_UPDATE\x10\x07\x12\x1c\n\x18SUBPROCESS_STATUS_UPDATE\x10\x08\x12\x18\n\x14SERVER_SHUTTING_DOWN\x10\t\";\n\x1a\x43ommandNotificationMessage\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x02 \x01(\t\"-\n\x1aGenericNotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\xb8\x01\n\x15\x45xceptionNotification\x12\x12\n\nerror_text\x18\x01 \x01(\t\x12H\n\x0bstack_trace\x18\x02 \x03(\x0b\x32\x33.DUNEProcessManager.ExceptionNotification.StackLine\x1a\x41\n\tStackLine\x12\x11\n\tline_text\x18\x01 \x01(\t\x12\x13\n\x0bline_number\x18\x02 \x01(\t\x12\x0c\n\x04\x66ile\x18\x03 \x01(\t\"N\n\nLogRequest\x12/\n\x05query\x18\x01 \x01(\x0b\x32 .DUNEProcessManager.ProcessQuery\x12\x0f\n\x07how_far\x18\x02 \x01(\x05\"F\n\x07LogLine\x12-\n\x04uuid\x18\x01 \x01(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\x12\x0c\n\x04line\x18\x02 \x01(\t\"\x1b\n\x0bProcessUUID\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"m\n\x0fProcessMetadata\x12-\n\x04uuid\x18\x01 \x01(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\x12\x0c\n\x04user\x18\x02 \x01(\t\x12\x0f\n\x07session\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\"\x8b\x01\n\x0cProcessQuery\x12.\n\x05uuids\x18\x01 \x03(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\x12\r\n\x05names\x18\x02 \x03(\t\x12\x11\n\x04user\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x14\n\x07session\x18\x04 \x01(\tH\x01\x88\x01\x01\x42\x07\n\x05_userB\n\n\x08_session\"\xd4\x02\n\x12ProcessDescription\x12\x35\n\x08metadata\x18\x01 \x01(\x0b\x32#.DUNEProcessManager.ProcessMetadata\x12<\n\x03\x65nv\x18\x02 \x03(\x0b\x32/.DUNEProcessManager.ProcessDescription.EnvEntry\x12T\n\x18\x65xecutable_and_arguments\x18\x03 \x03(\x0b\x32\x32.DUNEProcessManager.ProcessDescription.ExecAndArgs\x1a\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t\x1a)\n\x0b\x45xecAndArgs\x12\x0c\n\x04\x65xec\x18\x01 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x02 \x03(\t\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xde\x02\n\x0fProcessInstance\x12\x43\n\x13process_description\x18\x01 \x01(\x0b\x32&.DUNEProcessManager.ProcessDescription\x12\x43\n\x13process_restriction\x18\x02 \x01(\x0b\x32&.DUNEProcessManager.ProcessRestriction\x12\x43\n\x0bstatus_code\x18\x03 \x01(\x0e\x32..DUNEProcessManager.ProcessInstance.StatusCode\x12\x18\n\x0breturn_code\x18\x04 \x01(\x05H\x00\x88\x01\x01\x12-\n\x04uuid\x18\x05 \x01(\x0b\x32\x1f.DUNEProcessManager.ProcessUUID\"#\n\nStatusCode\x12\x0b\n\x07RUNNING\x10\x00\x12\x08\n\x04\x44\x45\x41\x44\x10\x01\x42\x0e\n\x0c_return_code\"\x97\x01\n\x0b\x42ootRequest\x12\x43\n\x13process_description\x18\x01 \x01(\x0b\x32&.DUNEProcessManager.ProcessDescription\x12\x43\n\x13process_restriction\x18\x02 \x01(\x0b\x32&.DUNEProcessManager.ProcessRestriction\"J\n\x13ProcessInstanceList\x12\x33\n\x06values\x18\x01 \x03(\x0b\x32#.DUNEProcessManager.ProcessInstance2\xe0\x02\n\x0eProcessManager\x12\x1d\n\x04\x62oot\x12\x08.Request\x1a\t.Response\"\x00\x12 \n\x07restart\x12\x08.Request\x1a\t.Response\"\x00\x12\x1d\n\x04kill\x12\x08.Request\x1a\t.Response\"\x00\x12\x1e\n\x05\x66lush\x12\x08.Request\x1a\t.Response\"\x00\x12\x1b\n\x02ps\x12\x08.Request\x1a\t.Response\"\x00\x12\x1f\n\x04logs\x12\x08.Request\x1a\t.Response\"\x00\x30\x01\x12.\n\x15\x61\x64\x64_to_broadcast_list\x12\x08.Request\x1a\t.Response\"\x00\x12\x33\n\x1aremove_from_broadcast_list\x12\x08.Request\x1a\t.Response\"\x00\x12+\n\x12get_broadcast_list\x12\x08.Request\x1a\t.Response\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'process_manager_pb2', globals())
@@ -23,34 +24,46 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _PROCESSDESCRIPTION_ENVENTRY._options = None
   _PROCESSDESCRIPTION_ENVENTRY._serialized_options = b'8\001'
-  _PROCESSRESTRICTION._serialized_start=69
-  _PROCESSRESTRICTION._serialized_end=140
-  _LOGREQUEST._serialized_start=142
-  _LOGREQUEST._serialized_end=220
-  _LOGLINE._serialized_start=222
-  _LOGLINE._serialized_end=292
-  _PROCESSUUID._serialized_start=294
-  _PROCESSUUID._serialized_end=321
-  _PROCESSMETADATA._serialized_start=323
-  _PROCESSMETADATA._serialized_end=432
-  _PROCESSQUERY._serialized_start=435
-  _PROCESSQUERY._serialized_end=574
-  _PROCESSDESCRIPTION._serialized_start=577
-  _PROCESSDESCRIPTION._serialized_end=917
-  _PROCESSDESCRIPTION_STRINGLIST._serialized_start=802
-  _PROCESSDESCRIPTION_STRINGLIST._serialized_end=830
-  _PROCESSDESCRIPTION_EXECANDARGS._serialized_start=832
-  _PROCESSDESCRIPTION_EXECANDARGS._serialized_end=873
-  _PROCESSDESCRIPTION_ENVENTRY._serialized_start=875
-  _PROCESSDESCRIPTION_ENVENTRY._serialized_end=917
-  _PROCESSINSTANCE._serialized_start=920
-  _PROCESSINSTANCE._serialized_end=1270
-  _PROCESSINSTANCE_STATUSCODE._serialized_start=1219
-  _PROCESSINSTANCE_STATUSCODE._serialized_end=1254
-  _BOOTREQUEST._serialized_start=1273
-  _BOOTREQUEST._serialized_end=1424
-  _PROCESSINSTANCELIST._serialized_start=1426
-  _PROCESSINSTANCELIST._serialized_end=1500
-  _PROCESSMANAGER._serialized_start=1503
-  _PROCESSMANAGER._serialized_end=1709
+  _PROCESSRESTRICTION._serialized_start=96
+  _PROCESSRESTRICTION._serialized_end=167
+  _PROCESSMANAGERBROADCASTMESSAGE._serialized_start=170
+  _PROCESSMANAGERBROADCASTMESSAGE._serialized_end=620
+  _PROCESSMANAGERBROADCASTMESSAGE_NOTIFICATIONTYPE._serialized_start=324
+  _PROCESSMANAGERBROADCASTMESSAGE_NOTIFICATIONTYPE._serialized_end=620
+  _COMMANDNOTIFICATIONMESSAGE._serialized_start=622
+  _COMMANDNOTIFICATIONMESSAGE._serialized_end=681
+  _GENERICNOTIFICATIONMESSAGE._serialized_start=683
+  _GENERICNOTIFICATIONMESSAGE._serialized_end=728
+  _EXCEPTIONNOTIFICATION._serialized_start=731
+  _EXCEPTIONNOTIFICATION._serialized_end=915
+  _EXCEPTIONNOTIFICATION_STACKLINE._serialized_start=850
+  _EXCEPTIONNOTIFICATION_STACKLINE._serialized_end=915
+  _LOGREQUEST._serialized_start=917
+  _LOGREQUEST._serialized_end=995
+  _LOGLINE._serialized_start=997
+  _LOGLINE._serialized_end=1067
+  _PROCESSUUID._serialized_start=1069
+  _PROCESSUUID._serialized_end=1096
+  _PROCESSMETADATA._serialized_start=1098
+  _PROCESSMETADATA._serialized_end=1207
+  _PROCESSQUERY._serialized_start=1210
+  _PROCESSQUERY._serialized_end=1349
+  _PROCESSDESCRIPTION._serialized_start=1352
+  _PROCESSDESCRIPTION._serialized_end=1692
+  _PROCESSDESCRIPTION_STRINGLIST._serialized_start=1577
+  _PROCESSDESCRIPTION_STRINGLIST._serialized_end=1605
+  _PROCESSDESCRIPTION_EXECANDARGS._serialized_start=1607
+  _PROCESSDESCRIPTION_EXECANDARGS._serialized_end=1648
+  _PROCESSDESCRIPTION_ENVENTRY._serialized_start=1650
+  _PROCESSDESCRIPTION_ENVENTRY._serialized_end=1692
+  _PROCESSINSTANCE._serialized_start=1695
+  _PROCESSINSTANCE._serialized_end=2045
+  _PROCESSINSTANCE_STATUSCODE._serialized_start=1994
+  _PROCESSINSTANCE_STATUSCODE._serialized_end=2029
+  _BOOTREQUEST._serialized_start=2048
+  _BOOTREQUEST._serialized_end=2199
+  _PROCESSINSTANCELIST._serialized_start=2201
+  _PROCESSINSTANCELIST._serialized_end=2275
+  _PROCESSMANAGER._serialized_start=2278
+  _PROCESSMANAGER._serialized_end=2630
 # @@protoc_insertion_point(module_scope)

@@ -44,6 +44,21 @@ class ProcessManagerStub(object):
                 request_serializer=request__response__pb2.Request.SerializeToString,
                 response_deserializer=request__response__pb2.Response.FromString,
                 )
+        self.add_to_broadcast_list = channel.unary_unary(
+                '/DUNEProcessManager.ProcessManager/add_to_broadcast_list',
+                request_serializer=request__response__pb2.Request.SerializeToString,
+                response_deserializer=request__response__pb2.Response.FromString,
+                )
+        self.remove_from_broadcast_list = channel.unary_unary(
+                '/DUNEProcessManager.ProcessManager/remove_from_broadcast_list',
+                request_serializer=request__response__pb2.Request.SerializeToString,
+                response_deserializer=request__response__pb2.Response.FromString,
+                )
+        self.get_broadcast_list = channel.unary_unary(
+                '/DUNEProcessManager.ProcessManager/get_broadcast_list',
+                request_serializer=request__response__pb2.Request.SerializeToString,
+                response_deserializer=request__response__pb2.Response.FromString,
+                )
 
 
 class ProcessManagerServicer(object):
@@ -85,6 +100,24 @@ class ProcessManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def add_to_broadcast_list(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def remove_from_broadcast_list(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def get_broadcast_list(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ProcessManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -115,6 +148,21 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             ),
             'logs': grpc.unary_stream_rpc_method_handler(
                     servicer.logs,
+                    request_deserializer=request__response__pb2.Request.FromString,
+                    response_serializer=request__response__pb2.Response.SerializeToString,
+            ),
+            'add_to_broadcast_list': grpc.unary_unary_rpc_method_handler(
+                    servicer.add_to_broadcast_list,
+                    request_deserializer=request__response__pb2.Request.FromString,
+                    response_serializer=request__response__pb2.Response.SerializeToString,
+            ),
+            'remove_from_broadcast_list': grpc.unary_unary_rpc_method_handler(
+                    servicer.remove_from_broadcast_list,
+                    request_deserializer=request__response__pb2.Request.FromString,
+                    response_serializer=request__response__pb2.Response.SerializeToString,
+            ),
+            'get_broadcast_list': grpc.unary_unary_rpc_method_handler(
+                    servicer.get_broadcast_list,
                     request_deserializer=request__response__pb2.Request.FromString,
                     response_serializer=request__response__pb2.Response.SerializeToString,
             ),
@@ -225,6 +273,57 @@ class ProcessManager(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/DUNEProcessManager.ProcessManager/logs',
+            request__response__pb2.Request.SerializeToString,
+            request__response__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def add_to_broadcast_list(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DUNEProcessManager.ProcessManager/add_to_broadcast_list',
+            request__response__pb2.Request.SerializeToString,
+            request__response__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def remove_from_broadcast_list(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DUNEProcessManager.ProcessManager/remove_from_broadcast_list',
+            request__response__pb2.Request.SerializeToString,
+            request__response__pb2.Response.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def get_broadcast_list(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/DUNEProcessManager.ProcessManager/get_broadcast_list',
             request__response__pb2.Request.SerializeToString,
             request__response__pb2.Response.FromString,
             options, channel_credentials,
