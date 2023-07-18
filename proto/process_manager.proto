@@ -3,20 +3,63 @@ syntax = "proto3";
 package DUNEProcessManager;
 
 import "request_response.proto";
+import "google/protobuf/any.proto";
 
 service ProcessManager {
-  rpc boot    (Request) returns (Response) {}
-  rpc restart (Request) returns (Response) {}
-  rpc kill    (Request) returns (Response) {}
-  rpc flush   (Request) returns (Response) {}
-  rpc ps      (Request) returns (Response) {}
-  rpc logs    (Request) returns (stream Response) {}
+  rpc boot       (Request) returns (Response) {}
+  rpc restart    (Request) returns (Response) {}
+  rpc kill       (Request) returns (Response) {}
+  rpc flush       (Request) returns (Response) {}
+  rpc ps         (Request) returns (Response) {}
+  rpc logs       (Request) returns (stream Response) {}
+
+  rpc add_to_broadcast_list      (Request) returns (Response) {}
+  rpc remove_from_broadcast_list (Request) returns (Response) {}
+  rpc get_broadcast_list         (Request) returns (Response) {}
 }
 
 message ProcessRestriction {
   repeated string allowed_hosts = 1;
   repeated string allowed_host_types = 2;
 }
+
+// message ProcessManagerBroadcastMessage {
+//   enum NotificationType {
+//     COMMAND_REQUEST = 0;
+//     COMMAND_EXECUTION_NOT_AUTHORISED = 1;
+//     COMMAND_EXECUTION_START = 2;
+//     COMMAND_EXECUTION_SUCCESS = 3;
+//     COMMAND_EXECUTION_FAILED = 4;
+//     EXCEPTION_RAISED = 5;
+//     UNHANDLED_EXCEPTION_RAISED = 6;
+//     STATUS_UPDATE = 7;
+//     SUBPROCESS_STATUS_UPDATE = 8;
+//     SERVER_SHUTTING_DOWN = 9;
+//   };
+
+//   NotificationType type = 1;
+//   google.protobuf.Any data = 2;
+// }
+message CommandNotificationMessage {
+  string user = 1;
+  string command = 2;
+}
+
+message GenericNotificationMessage {
+  string message = 1;
+}
+
+message ExceptionNotification {
+  message StackLine{
+    string line_text = 1;
+    string line_number = 2;
+    string file = 3;
+  };
+
+  string error_text = 1;
+  repeated StackLine stack_trace = 2;
+}
+
 message LogRequest {
   ProcessQuery query = 1;
   int32 how_far = 2;
@@ -38,11 +81,10 @@ message ProcessMetadata {
 }
 
 message ProcessQuery {
-  optional ProcessUUID uuid = 1;
-  optional string user = 2;
-  optional string session = 3;
-  optional string name = 4;
-  bool force = 5;
+  repeated ProcessUUID uuids = 1;
+  repeated string names = 2;
+  optional string user = 3;
+  optional string session = 4;
 }
 
 message ProcessDescription {
