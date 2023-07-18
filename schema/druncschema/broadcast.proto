@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
-import "generic.proto";
-import "request_response.proto";
+package dunedaq.druncschema;
 
-package Drunc;
+import "google/protobuf/any.proto";
+import "druncschema/generic.proto";
+import "druncschema/request_response.proto";
 
 service BroadcastReceiver {
     rpc handle_broadcast (BroadcastMessage) returns (Empty) {}

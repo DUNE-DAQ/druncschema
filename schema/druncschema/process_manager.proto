@@ -1,9 +1,8 @@
 syntax = "proto3";
 
-package DUNEProcessManager;
+package dunedaq.druncschema;
 
-import "request_response.proto";
-import "google/protobuf/any.proto";
+import "druncschema/request_response.proto";
 
 service ProcessManager {
   rpc boot       (Request) returns (Response) {}
@@ -83,8 +82,8 @@ message ProcessMetadata {
 message ProcessQuery {
   repeated ProcessUUID uuids = 1;
   repeated string names = 2;
-  optional string user = 3;
-  optional string session = 4;
+  string user = 3;
+  string session = 4;
 }
 
 message ProcessDescription {
@@ -109,7 +108,7 @@ message ProcessInstance {
     DEAD = 1;
   };
   StatusCode status_code = 3;
-  optional int32 return_code = 4;
+  int32 return_code = 4;
   ProcessUUID uuid = 5;
 }
 
