@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-message Empty {}
-
-message PlainText {
-    string text = 1;
-}

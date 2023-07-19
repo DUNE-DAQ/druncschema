@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-import "google/protobuf/any.proto";
-import "generic.proto";
-import "request_response.proto";
+package dunedaq.druncschema;
 
-package Drunc;
+import "google/protobuf/any.proto";
+import "druncschema/generic.proto";
+import "druncschema/request_response.proto";
 
 service BroadcastReceiver {
     rpc handle_broadcast (BroadcastMessage) returns (Empty) {}
@@ -28,6 +28,11 @@ enum BroadcastType {
     UNHANDLED_EXCEPTION_RAISED = 8;
     STATUS_UPDATE = 9;
     SUBPROCESS_STATUS_UPDATE = 10;
+    DEBUG = 11;
+    CHILD_COMMAND_EXECUTION_START = 12;
+    CHILD_COMMAND_EXECUTION_SUCCESS = 13;
+    CHILD_COMMAND_EXECUTION_FAILED = 14;
+
 }
 
 message BroadcastMessage{
