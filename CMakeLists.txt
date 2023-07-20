@@ -5,9 +5,10 @@ find_package(daq-cmake REQUIRED)
 
 daq_setup_environment()
 
-find_package(Protobuf  REQUIRED)
+find_package(Protobuf REQUIRED)
 
 daq_protobuf_codegen( *.proto )
+#daq_grpc_codegen( *service.proto )
 
 daq_add_library(*.cpp)
 

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package dunedaq.druncschema;
+
+import "google/protobuf/any.proto";
+import "druncschema/generic.proto";
+import "druncschema/request_response.proto";
+import "druncschema/broadcast.proto";
+
+service BroadcastReceiver {
+    rpc handle_broadcast (BroadcastMessage) returns (Empty) {}
+}
+
+service BroadcastSender {
+    rpc add_to_broadcast_list      (Request) returns (Response) {}
+    rpc remove_from_broadcast_list (Request) returns (Response) {}
+    rpc get_broadcast_list         (Request) returns (Response) {}
+}
+
