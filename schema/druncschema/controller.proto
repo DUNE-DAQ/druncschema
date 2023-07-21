@@ -2,38 +2,28 @@ syntax = "proto3";
 
 package dunedaq.druncschema;
 
-import "google/protobuf/any.proto";
 import "druncschema/request_response.proto";
-
+import "google/protobuf/any.proto";
 
 service Controller {
-  rpc ls                         (Request) returns (Response) {}
+    rpc ls                         (Request) returns (Response) {}
 
-  rpc add_to_broadcast_list      (Request) returns (Response) {}
-  rpc remove_from_broadcast_list (Request) returns (Response) {}
-  rpc get_broadcast_list         (Request) returns (Response) {}
+    rpc add_to_broadcast_list      (Request) returns (Response) {}
+    rpc remove_from_broadcast_list (Request) returns (Response) {}
+    rpc get_broadcast_list         (Request) returns (Response) {}
 
-  rpc get_command_list           (Request) returns (Response) {}
-  rpc execute_command            (Request) returns (Response) {}
+    rpc get_command_list           (Request) returns (Response) {}
+    rpc execute_command            (Request) returns (Response) {}
 
-  rpc take_control               (Request) returns (Response) {}
-  rpc surrender_control          (Request) returns (Response) {}
-  rpc who_is_in_charge           (Request) returns (Response) {}
-}
+    rpc take_control               (Request) returns (Response) {}
+    rpc surrender_control          (Request) returns (Response) {}
+    rpc who_is_in_charge           (Request) returns (Response) {}
+  }
 
-message Location {
-  repeated string path = 1;
-  bool recursive = 2;
-}
-
-message LocationList {
-  repeated Location locations = 1;
-}
 
 message StringStringMap {
   map<string,string> map = 1;
 }
-
 
 message CommandResponse {
   Command command = 1;

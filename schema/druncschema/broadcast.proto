@@ -2,40 +2,52 @@ syntax = "proto3";
 
 package dunedaq.druncschema;
 
+import "druncschema/generic.proto";
+import "druncschema/request_response.proto";
 import "google/protobuf/any.proto";
 
-enum BroadcastType {
-    ACK                             = 0;
-    RECEIVER_REMOVED                = 1;
-    RECEIVER_ADDED                  = 2;
-    SERVER_READY                    = 3;
-    SERVER_SHUTDOWN                 = 4;
-    TEXT_MESSAGE                    = 15;
-    COMMAND_EXECUTION_START         = 5;
-    COMMAND_EXECUTION_SUCCESS       = 6;
-    EXCEPTION_RAISED                = 7;
-    UNHANDLED_EXCEPTION_RAISED      = 8;
-    STATUS_UPDATE                   = 9;
-    SUBPROCESS_STATUS_UPDATE        = 10;
-    DEBUG                           = 11;
-    CHILD_COMMAND_EXECUTION_START   = 12;
-    CHILD_COMMAND_EXECUTION_SUCCESS = 13;
-    CHILD_COMMAND_EXECUTION_FAILED  = 14;
+service BroadcastReceiver {
+  rpc handle_broadcast (BroadcastMessage) returns (Empty) {}
+}
 
+service BroadcastSender {
+  rpc add_to_broadcast_list      (Request) returns (Response) {}
+  rpc remove_from_broadcast_list (Request) returns (Response) {}
+  rpc get_broadcast_list         (Request) returns (Response) {}
+}
+
+
+enum BroadcastType {
+  ACK                             = 0;
+  RECEIVER_REMOVED                = 1;
+  RECEIVER_ADDED                  = 2;
+  SERVER_READY                    = 3;
+  SERVER_SHUTDOWN                 = 4;
+  TEXT_MESSAGE                    = 15;
+  COMMAND_EXECUTION_START         = 5;
+  COMMAND_EXECUTION_SUCCESS       = 6;
+  EXCEPTION_RAISED                = 7;
+  UNHANDLED_EXCEPTION_RAISED      = 8;
+  STATUS_UPDATE                   = 9;
+  SUBPROCESS_STATUS_UPDATE        = 10;
+  DEBUG                           = 11;
+  CHILD_COMMAND_EXECUTION_START   = 12;
+  CHILD_COMMAND_EXECUTION_SUCCESS = 13;
+  CHILD_COMMAND_EXECUTION_FAILED  = 14;
 }
 
 message BroadcastMessage{
-    string emitter = 1;
-    BroadcastType type = 2;
-    google.protobuf.Any data = 3;
-    string session = 4; // optional
+  string emitter = 1;
+  BroadcastType type = 2;
+  google.protobuf.Any data = 3;
+  string session = 4; // optional
 }
 
 message BroadcastRequest {
-    string broadcast_receiver_address = 1;
+  string broadcast_receiver_address = 1;
 }
 
 message BroadcastResponse {
-    bool success = 1;
+  bool success = 1;
 }
 
