@@ -1,0 +1,12 @@
+#!/bin/bash
+for FILE in schema/druncschema/*.proto;
+do
+    echo "Generating protocols for ${FILE}"
+    python -m grpc_tools.protoc -I./schema/ --python_out=python/ --grpc_python_out=python/ ${FILE}
+    FILE_NAME=$(basename -- "$FILE")
+    CLASS_NAME="${FILE_NAME%.*}"
+    # PY_OUT_FILE_NAME="python/druncschema/${CLASS_NAME}_pb2_grpc.py"
+    # sed -i '' "/google/! s/import \(.*_pb2\)/import druncschema.\1/" ${PY_OUT_FILE_NAME}
+    # PY_OUT_FILE_NAME="python/druncschema/${CLASS_NAME}_pb2.py"
+    # sed -i '' "/google/! s/import \(.*_pb2\)/import druncschema.\1/" ${PY_OUT_FILE_NAME}
+done
