@@ -6,11 +6,11 @@ import "druncschema/token.proto";
 import "google/protobuf/any.proto";
 
 message Request {
-    Token token = 1;
-    google.protobuf.Any data = 2;
+  Token token = 1;
+  google.protobuf.Any data = 2;
 }
 
 message Response {
-    Token token = 1;
-    google.protobuf.Any data = 2;
+  Token token = 1;
+  google.protobuf.Any data = 2;
 }

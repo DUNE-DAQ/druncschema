@@ -7,7 +7,7 @@ daq_setup_environment()
 
 find_package(Protobuf  REQUIRED)
 
-daq_protobuf_codegen( *.proto )
+daq_protobuf_codegen( *.proto GEN_GRPC)
 
 daq_add_library(*.cpp)
 
