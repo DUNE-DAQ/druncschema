@@ -6,23 +6,19 @@ import "druncschema/request_response.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-    rpc ls                         (Request) returns (Response) {}
+  rpc ls                         (Request) returns (Response) {}
+  rpc describe                   (Request) returns (Response) {}
 
-    rpc add_to_broadcast_list      (Request) returns (Response) {}
-    rpc remove_from_broadcast_list (Request) returns (Response) {}
-    rpc get_broadcast_list         (Request) returns (Response) {}
+  // rpc add_to_broadcast_list      (Request) returns (Response) {}
+  // rpc remove_from_broadcast_list (Request) returns (Response) {}
+  // rpc get_broadcast_list         (Request) returns (Response) {}
 
-    rpc get_command_list           (Request) returns (Response) {}
-    rpc execute_command            (Request) returns (Response) {}
+  rpc get_command_list           (Request) returns (Response) {}
+  rpc execute_command            (Request) returns (Response) {}
 
-    rpc take_control               (Request) returns (Response) {}
-    rpc surrender_control          (Request) returns (Response) {}
-    rpc who_is_in_charge           (Request) returns (Response) {}
-  }
-
-
-message StringStringMap {
-  map<string,string> map = 1;
+  rpc take_control               (Request) returns (Response) {}
+  rpc surrender_control          (Request) returns (Response) {}
+  rpc who_is_in_charge           (Request) returns (Response) {}
 }
 
 message CommandResponse {

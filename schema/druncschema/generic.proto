@@ -11,3 +11,7 @@ message PlainText {
 message PlainTextVector {
   repeated string text = 1;
 }
+
+message StringStringMap {
+  map<string,string> map = 1;
+}
