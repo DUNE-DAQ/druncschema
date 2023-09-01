@@ -8,6 +8,8 @@ import "google/protobuf/any.proto";
 service Controller {
   rpc ls                         (Request) returns (Response) {}
   rpc describe                   (Request) returns (Response) {}
+  rpc get_children_status        (Request) returns (Response) {}
+  rpc get_status                 (Request) returns (Response) {}
 
   // rpc add_to_broadcast_list      (Request) returns (Response) {}
   // rpc remove_from_broadcast_list (Request) returns (Response) {}
@@ -19,6 +21,19 @@ service Controller {
   rpc take_control               (Request) returns (Response) {}
   rpc surrender_control          (Request) returns (Response) {}
   rpc who_is_in_charge           (Request) returns (Response) {}
+}
+
+message Status {
+  string name = 1;
+  string uri = 2;
+  bool   ping = 3;
+  string state = 4;
+  bool   in_error = 5;
+  bool   included = 6;
+}
+
+message ChildrenStatus {
+  repeated Status children_status = 1;
 }
 
 message CommandResponse {
