@@ -17,6 +17,11 @@ service BroadcastSender {
 }
 
 
+message KafkaBroadcastHandlerConfiguration{
+  string kafka_address = 1;
+  string topic = 2;
+}
+
 enum BroadcastType {
   ACK                             = 0;
   RECEIVER_REMOVED                = 1;
@@ -35,6 +40,7 @@ enum BroadcastType {
   CHILD_COMMAND_EXECUTION_START   = 12;
   CHILD_COMMAND_EXECUTION_SUCCESS = 13;
   CHILD_COMMAND_EXECUTION_FAILED  = 14;
+  FSM_STATUS_UPDATE               = 17;
 }
 
 message Emitter {
