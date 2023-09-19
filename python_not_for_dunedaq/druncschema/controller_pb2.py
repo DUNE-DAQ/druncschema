@@ -15,7 +15,7 @@ from druncschema import request_response_pb2 as druncschema_dot_request__respons
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x64runcschema/controller.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\x1a\x19google/protobuf/any.proto\"y\n\x0fStringStringMap\x12:\n\x03map\x18\x01 \x03(\x0b\x32-.dunedaq.druncschema.StringStringMap.MapEntry\x1a*\n\x08MapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"}\n\x0f\x43ommandResponse\x12-\n\x07\x63ommand\x18\x01 \x01(\x0b\x32\x1c.dunedaq.druncschema.Command\x12\x14\n\x0c\x63ommand_code\x18\x02 \x01(\x05\x12%\n\x07payload\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"W\n\x07\x43ommand\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x30\n\targuments\x18\x02 \x03(\x0b\x32\x1d.dunedaq.druncschema.Argument\x12\x0c\n\x04help\x18\x03 \x01(\t\"G\n\x16ListOfCommandsResponse\x12-\n\x07\x63ommand\x18\x02 \x03(\x0b\x32\x1c.dunedaq.druncschema.Command\"\xd5\x01\n\x08\x41rgument\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x04type\x18\x02 \x01(\x0e\x32*.dunedaq.druncschema.Argument.ArgumentType\x12!\n\x03\x64\x65\x66\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\x12#\n\x05value\x18\x04 \x01(\x0b\x32\x14.google.protobuf.Any\x12\x0c\n\x04help\x18\x05 \x01(\t\"+\n\x0c\x41rgumentType\x12\r\n\tMANDATORY\x10\x00\x12\x0c\n\x08OPTIONAL\x10\x01\x32\xf6\x05\n\nController\x12\x43\n\x02ls\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12V\n\x15\x61\x64\x64_to_broadcast_list\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12[\n\x1aremove_from_broadcast_list\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12S\n\x12get_broadcast_list\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10get_command_list\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12P\n\x0f\x65xecute_command\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0ctake_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12R\n\x11surrender_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10who_is_in_charge\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x64runcschema/controller.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\x1a\x19google/protobuf/any.proto\"\xdd\x01\n\nFSMCommand\x12\x14\n\x0c\x63ommand_name\x18\x01 \x01(\t\x12\x41\n\targuments\x18\x02 \x03(\x0b\x32..dunedaq.druncschema.FSMCommand.ArgumentsEntry\x12\x1b\n\x0e\x63hildren_nodes\x18\x03 \x01(\tH\x00\x88\x01\x01\x1a\x46\n\x0e\x41rgumentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\x42\x11\n\x0f_children_nodes\"\xd5\x02\n\x12\x46SMCommandResponse\x12?\n\nsuccessful\x18\x01 \x01(\x0e\x32+.dunedaq.druncschema.FSMCommandResponseCode\x12\x14\n\x0c\x63ommand_name\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\x12\\\n\x13\x63hildren_successful\x18\x04 \x03(\x0b\x32?.dunedaq.druncschema.FSMCommandResponse.ChildrenSuccessfulEntry\x1a\x66\n\x17\x43hildrenSuccessfulEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0e\x32+.dunedaq.druncschema.FSMCommandResponseCode:\x02\x38\x01\"\xce\x02\n\x08\x41rgument\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x08presence\x18\x02 \x01(\x0e\x32&.dunedaq.druncschema.Argument.Presence\x12\x30\n\x04type\x18\x03 \x01(\x0e\x32\".dunedaq.druncschema.Argument.Type\x12\x30\n\rdefault_value\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x12%\n\x07\x63hoices\x18\x05 \x03(\x0b\x32\x14.google.protobuf.Any\x12\x0c\n\x04help\x18\x06 \x01(\t\"\'\n\x08Presence\x12\r\n\tMANDATORY\x10\x00\x12\x0c\n\x08OPTIONAL\x10\x01\"&\n\x04Type\x12\x07\n\x03INT\x10\x00\x12\t\n\x05\x46LOAT\x10\x01\x12\n\n\x06STRING\x10\x02\x42\x10\n\x0e_default_value\"\x8d\x01\n\x15\x46SMCommandDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x03(\t\x12\x0c\n\x04help\x18\x03 \x01(\t\x12\x13\n\x0breturn_type\x18\x04 \x01(\t\x12\x30\n\targuments\x18\x05 \x03(\x0b\x32\x1d.dunedaq.druncschema.Argument\"\x94\x01\n\x16\x46SMCommandsDescription\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x14\n\x07session\x18\x03 \x01(\tH\x00\x88\x01\x01\x12<\n\x08\x63ommands\x18\x04 \x03(\x0b\x32*.dunedaq.druncschema.FSMCommandDescriptionB\n\n\x08_session\"\\\n\x06Status\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\t\x12\x11\n\tsub_state\x18\x03 \x01(\t\x12\x10\n\x08in_error\x18\x04 \x01(\x08\x12\x10\n\x08included\x18\x05 \x01(\x08\"F\n\x0e\x43hildrenStatus\x12\x34\n\x0f\x63hildren_status\x18\x01 \x03(\x0b\x32\x1b.dunedaq.druncschema.Status*R\n\x16\x46SMCommandResponseCode\x12\x16\n\x12INVALID_TRANSITION\x10\x00\x12\x0e\n\nSUCCESSFUL\x10\x01\x12\x10\n\x0cUNSUCCESSFUL\x10\x02\x32\xee\x06\n\nController\x12\x43\n\x02ls\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12I\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12T\n\x13get_children_status\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12K\n\nget_status\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0c\x64\x65scribe_fsm\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12T\n\x13\x65xecute_fsm_command\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07include\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07\x65xclude\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0ctake_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12R\n\x11surrender_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10who_is_in_charge\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,22 +23,34 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'druncschema.controller_pb2'
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _STRINGSTRINGMAP_MAPENTRY._options = None
-  _STRINGSTRINGMAP_MAPENTRY._serialized_options = b'8\001'
-  _globals['_STRINGSTRINGMAP']._serialized_start=116
-  _globals['_STRINGSTRINGMAP']._serialized_end=237
-  _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_start=195
-  _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_end=237
-  _globals['_COMMANDRESPONSE']._serialized_start=239
-  _globals['_COMMANDRESPONSE']._serialized_end=364
-  _globals['_COMMAND']._serialized_start=366
-  _globals['_COMMAND']._serialized_end=453
-  _globals['_LISTOFCOMMANDSRESPONSE']._serialized_start=455
-  _globals['_LISTOFCOMMANDSRESPONSE']._serialized_end=526
-  _globals['_ARGUMENT']._serialized_start=529
-  _globals['_ARGUMENT']._serialized_end=742
-  _globals['_ARGUMENT_ARGUMENTTYPE']._serialized_start=699
-  _globals['_ARGUMENT_ARGUMENTTYPE']._serialized_end=742
-  _globals['_CONTROLLER']._serialized_start=745
-  _globals['_CONTROLLER']._serialized_end=1503
+  _FSMCOMMAND_ARGUMENTSENTRY._options = None
+  _FSMCOMMAND_ARGUMENTSENTRY._serialized_options = b'8\001'
+  _FSMCOMMANDRESPONSE_CHILDRENSUCCESSFULENTRY._options = None
+  _FSMCOMMANDRESPONSE_CHILDRENSUCCESSFULENTRY._serialized_options = b'8\001'
+  _globals['_FSMCOMMANDRESPONSECODE']._serialized_start=1482
+  _globals['_FSMCOMMANDRESPONSECODE']._serialized_end=1564
+  _globals['_FSMCOMMAND']._serialized_start=117
+  _globals['_FSMCOMMAND']._serialized_end=338
+  _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_start=249
+  _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_end=319
+  _globals['_FSMCOMMANDRESPONSE']._serialized_start=341
+  _globals['_FSMCOMMANDRESPONSE']._serialized_end=682
+  _globals['_FSMCOMMANDRESPONSE_CHILDRENSUCCESSFULENTRY']._serialized_start=580
+  _globals['_FSMCOMMANDRESPONSE_CHILDRENSUCCESSFULENTRY']._serialized_end=682
+  _globals['_ARGUMENT']._serialized_start=685
+  _globals['_ARGUMENT']._serialized_end=1019
+  _globals['_ARGUMENT_PRESENCE']._serialized_start=922
+  _globals['_ARGUMENT_PRESENCE']._serialized_end=961
+  _globals['_ARGUMENT_TYPE']._serialized_start=963
+  _globals['_ARGUMENT_TYPE']._serialized_end=1001
+  _globals['_FSMCOMMANDDESCRIPTION']._serialized_start=1022
+  _globals['_FSMCOMMANDDESCRIPTION']._serialized_end=1163
+  _globals['_FSMCOMMANDSDESCRIPTION']._serialized_start=1166
+  _globals['_FSMCOMMANDSDESCRIPTION']._serialized_end=1314
+  _globals['_STATUS']._serialized_start=1316
+  _globals['_STATUS']._serialized_end=1408
+  _globals['_CHILDRENSTATUS']._serialized_start=1410
+  _globals['_CHILDRENSTATUS']._serialized_end=1480
+  _globals['_CONTROLLER']._serialized_start=1567
+  _globals['_CONTROLLER']._serialized_end=2445
 # @@protoc_insertion_point(module_scope)
