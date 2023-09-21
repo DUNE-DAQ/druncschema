@@ -17,6 +17,11 @@ service BroadcastSender {
 }
 
 
+message KafkaBroadcastHandlerConfiguration{
+  string kafka_address = 1;
+  string topic = 2;
+}
+
 enum BroadcastType {
   ACK                             = 0;
   RECEIVER_REMOVED                = 1;
@@ -25,6 +30,7 @@ enum BroadcastType {
   SERVER_SHUTDOWN                 = 4;
   TEXT_MESSAGE                    = 15;
   COMMAND_EXECUTION_START         = 5;
+  COMMAND_RECEIVED                = 16;
   COMMAND_EXECUTION_SUCCESS       = 6;
   EXCEPTION_RAISED                = 7;
   UNHANDLED_EXCEPTION_RAISED      = 8;
@@ -34,13 +40,18 @@ enum BroadcastType {
   CHILD_COMMAND_EXECUTION_START   = 12;
   CHILD_COMMAND_EXECUTION_SUCCESS = 13;
   CHILD_COMMAND_EXECUTION_FAILED  = 14;
+  FSM_STATUS_UPDATE               = 17;
+}
+
+message Emitter {
+  string process = 1;
+  string session = 2;
 }
 
 message BroadcastMessage{
-  string emitter = 1;
+  Emitter emitter = 1;
   BroadcastType type = 2;
   google.protobuf.Any data = 3;
-  string session = 4; // optional
 }
 
 message BroadcastRequest {

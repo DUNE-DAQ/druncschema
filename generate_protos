@@ -2,7 +2,7 @@
 for FILE in schema/druncschema/*.proto;
 do
     echo "Generating protocols for ${FILE}"
-    python -m grpc_tools.protoc -I./schema/ --python_out=python/ --grpc_python_out=python/ ${FILE}
+    python -m grpc_tools.protoc -I./schema/ --python_out=python_not_for_dunedaq/ --grpc_python_out=python_not_for_dunedaq/ ${FILE}
     FILE_NAME=$(basename -- "$FILE")
     CLASS_NAME="${FILE_NAME%.*}"
     # PY_OUT_FILE_NAME="python/druncschema/${CLASS_NAME}_pb2_grpc.py"

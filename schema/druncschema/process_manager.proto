@@ -5,6 +5,7 @@ package dunedaq.druncschema;
 import "druncschema/request_response.proto";
 
 service ProcessManager {
+  rpc describe(Request) returns (Response) {}
   rpc boot   (Request) returns (Response) {}
   rpc restart(Request) returns (Response) {}
   rpc kill   (Request) returns (Response) {}

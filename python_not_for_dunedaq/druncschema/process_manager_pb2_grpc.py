@@ -5,7 +5,7 @@ import grpc
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 
-class ControllerStub(object):
+class ProcessManagerStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,170 +14,138 @@ class ControllerStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.ls = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/ls',
+        self.describe = channel.unary_unary(
+                '/dunedaq.druncschema.ProcessManager/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.add_to_broadcast_list = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/add_to_broadcast_list',
+        self.boot = channel.unary_unary(
+                '/dunedaq.druncschema.ProcessManager/boot',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.remove_from_broadcast_list = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/remove_from_broadcast_list',
+        self.restart = channel.unary_unary(
+                '/dunedaq.druncschema.ProcessManager/restart',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.get_broadcast_list = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/get_broadcast_list',
+        self.kill = channel.unary_unary(
+                '/dunedaq.druncschema.ProcessManager/kill',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.get_command_list = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/get_command_list',
+        self.flush = channel.unary_unary(
+                '/dunedaq.druncschema.ProcessManager/flush',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.execute_command = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/execute_command',
+        self.ps = channel.unary_unary(
+                '/dunedaq.druncschema.ProcessManager/ps',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.take_control = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/take_control',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
-                )
-        self.surrender_control = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/surrender_control',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
-                )
-        self.who_is_in_charge = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/who_is_in_charge',
+        self.logs = channel.unary_stream(
+                '/dunedaq.druncschema.ProcessManager/logs',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
 
 
-class ControllerServicer(object):
+class ProcessManagerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def ls(self, request, context):
+    def describe(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def add_to_broadcast_list(self, request, context):
+    def boot(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def remove_from_broadcast_list(self, request, context):
+    def restart(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def get_broadcast_list(self, request, context):
+    def kill(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def get_command_list(self, request, context):
+    def flush(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def execute_command(self, request, context):
+    def ps(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def take_control(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def surrender_control(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def who_is_in_charge(self, request, context):
+    def logs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_ControllerServicer_to_server(servicer, server):
+def add_ProcessManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ls': grpc.unary_unary_rpc_method_handler(
-                    servicer.ls,
+            'describe': grpc.unary_unary_rpc_method_handler(
+                    servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'add_to_broadcast_list': grpc.unary_unary_rpc_method_handler(
-                    servicer.add_to_broadcast_list,
+            'boot': grpc.unary_unary_rpc_method_handler(
+                    servicer.boot,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'remove_from_broadcast_list': grpc.unary_unary_rpc_method_handler(
-                    servicer.remove_from_broadcast_list,
+            'restart': grpc.unary_unary_rpc_method_handler(
+                    servicer.restart,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'get_broadcast_list': grpc.unary_unary_rpc_method_handler(
-                    servicer.get_broadcast_list,
+            'kill': grpc.unary_unary_rpc_method_handler(
+                    servicer.kill,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'get_command_list': grpc.unary_unary_rpc_method_handler(
-                    servicer.get_command_list,
+            'flush': grpc.unary_unary_rpc_method_handler(
+                    servicer.flush,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'execute_command': grpc.unary_unary_rpc_method_handler(
-                    servicer.execute_command,
+            'ps': grpc.unary_unary_rpc_method_handler(
+                    servicer.ps,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'take_control': grpc.unary_unary_rpc_method_handler(
-                    servicer.take_control,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
-            ),
-            'surrender_control': grpc.unary_unary_rpc_method_handler(
-                    servicer.surrender_control,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
-            ),
-            'who_is_in_charge': grpc.unary_unary_rpc_method_handler(
-                    servicer.who_is_in_charge,
+            'logs': grpc.unary_stream_rpc_method_handler(
+                    servicer.logs,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.druncschema.Controller', rpc_method_handlers)
+            'dunedaq.druncschema.ProcessManager', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class Controller(object):
+class ProcessManager(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def ls(request,
+    def describe(request,
             target,
             options=(),
             channel_credentials=None,
@@ -187,14 +155,14 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/ls',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.ProcessManager/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def add_to_broadcast_list(request,
+    def boot(request,
             target,
             options=(),
             channel_credentials=None,
@@ -204,14 +172,14 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/add_to_broadcast_list',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.ProcessManager/boot',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def remove_from_broadcast_list(request,
+    def restart(request,
             target,
             options=(),
             channel_credentials=None,
@@ -221,14 +189,14 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/remove_from_broadcast_list',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.ProcessManager/restart',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def get_broadcast_list(request,
+    def kill(request,
             target,
             options=(),
             channel_credentials=None,
@@ -238,14 +206,14 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/get_broadcast_list',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.ProcessManager/kill',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def get_command_list(request,
+    def flush(request,
             target,
             options=(),
             channel_credentials=None,
@@ -255,14 +223,14 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/get_command_list',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.ProcessManager/flush',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def execute_command(request,
+    def ps(request,
             target,
             options=(),
             channel_credentials=None,
@@ -272,14 +240,14 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/execute_command',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.ProcessManager/ps',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def take_control(request,
+    def logs(request,
             target,
             options=(),
             channel_credentials=None,
@@ -289,41 +257,7 @@ class Controller(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/take_control',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def surrender_control(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/surrender_control',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def who_is_in_charge(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/who_is_in_charge',
+        return grpc.experimental.unary_stream(request, target, '/dunedaq.druncschema.ProcessManager/logs',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
