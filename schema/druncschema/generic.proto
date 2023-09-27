@@ -28,3 +28,6 @@ message float_msg{
 message string_msg{
   string value=1;
 }
+message bool_msg{
+  bool value=1;
+}

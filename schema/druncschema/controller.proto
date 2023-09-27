@@ -29,9 +29,9 @@ message FSMCommand{
 }
 
 enum FSMCommandResponseCode {
-  INVALID_TRANSITION = 0;
-  SUCCESSFUL = 1;
-  UNSUCCESSFUL = 2;
+  SUCCESSFUL = 0;
+  UNSUCCESSFUL = 1;
+  INVALID_TRANSITION = 2;
 }
 
 message FSMCommandResponse{
@@ -52,6 +52,7 @@ message Argument {
     INT = 0;
     FLOAT = 1;
     STRING = 2;
+    BOOL = 3;
   }
   string name = 1;
   Presence presence = 2;
