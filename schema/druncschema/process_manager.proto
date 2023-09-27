@@ -77,6 +77,8 @@ message ProcessDescription {
   ProcessMetadata metadata = 1;
   map<string,string> env = 2;
   repeated ExecAndArgs executable_and_arguments = 3;
+  string process_execution_directory = 4;
+  string process_logs_path = 5;
   // map<string,string> runtime_environment = 4;
 }
 
