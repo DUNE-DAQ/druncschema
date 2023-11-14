@@ -32,7 +32,7 @@ enum BroadcastType {
   COMMAND_EXECUTION_START         = 5;
   COMMAND_RECEIVED                = 16;
   COMMAND_EXECUTION_SUCCESS       = 6;
-  EXCEPTION_RAISED                = 7;
+  DRUNC_EXCEPTION_RAISED          = 7;
   UNHANDLED_EXCEPTION_RAISED      = 8;
   STATUS_UPDATE                   = 9;
   SUBPROCESS_STATUS_UPDATE        = 10;
