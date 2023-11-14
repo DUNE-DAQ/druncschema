@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package dunedaq.druncschema;
+
+import "druncschema/request_response.proto";
+
+service SessionManager {
+  rpc describe          (Request) returns (Response) {}
+  rpc list_session      (Request) returns (Response) {}
+  rpc start_session     (Request) returns (Response) {}
+  rpc terminate_session (Request) returns (Response) {}
+  rpc load_configuration(Request) returns (Response) {}
+  rpc list_configuration(Request) returns (Response) {}
+}
+
+
+message SessionsAndUsers {
+  map<string,string> session_users = 1;
+}
+
+message ConfigurationKey {
+  string name = 1;
+  string version = 2;
+  string location = 3;
+  enum ConfigurationType{
+    OKS = 0;
+    DAQCONF = 1;
+  }
+  ConfigurationType ctype = 4;
+}
+
+message SessionDescription {
+  ConfigurationKey config = 1;
+  string session_name = 2;
+}
