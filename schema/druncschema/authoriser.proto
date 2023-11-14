@@ -5,16 +5,22 @@ package dunedaq.druncschema;
 import "druncschema/token.proto";
 
 enum ActionType {
-  ACTION_UNSPECIFIED = 0;
+  CREATE = 0;
   READ = 1;
-  CREATE = 2;
+  UPDATE = 2;
   DELETE = 3;
 };
 
+
 enum SystemType {
   CONTROLLER = 0;
-  PROCESS_MANAGER = 1;
+  APPLICATION = 1;
+  PROCESS_MANAGER = 2;
+  SESSION_MANAGER = 3;
+  RESOURCE_MANAGER = 4;
+  AUTHORISER_SERVICE = 5;
 };
+
 
 message AuthoriserRequest {
   Token token = 1;
