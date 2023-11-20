@@ -14,18 +14,17 @@ _sym_db = _symbol_database.Default()
 from druncschema import token_pb2 as druncschema_dot_token__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x64runcschema/authoriser.proto\x12\x13\x64unedaq.druncschema\x1a\x17\x64runcschema/token.proto\"\xa0\x01\n\x11\x41uthoriserRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12/\n\x06\x61\x63tion\x18\x02 \x01(\x0e\x32\x1f.dunedaq.druncschema.ActionType\x12/\n\x06system\x18\x03 \x01(\x0e\x32\x1f.dunedaq.druncschema.SystemType*F\n\nActionType\x12\x16\n\x12\x41\x43TION_UNSPECIFIED\x10\x00\x12\x08\n\x04READ\x10\x01\x12\n\n\x06\x43REATE\x10\x02\x12\n\n\x06\x44\x45LETE\x10\x03*1\n\nSystemType\x12\x0e\n\nCONTROLLER\x10\x00\x12\x13\n\x0fPROCESS_MANAGER\x10\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x64runcschema/authoriser.proto\x12\x13\x64unedaq.druncschema\x1a\x17\x64runcschema/token.proto\"\xa0\x01\n\x11\x41uthoriserRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12/\n\x06\x61\x63tion\x18\x02 \x01(\x0e\x32\x1f.dunedaq.druncschema.ActionType\x12/\n\x06system\x18\x03 \x01(\x0e\x32\x1f.dunedaq.druncschema.SystemType*:\n\nActionType\x12\n\n\x06\x43REATE\x10\x00\x12\x08\n\x04READ\x10\x01\x12\n\n\x06UPDATE\x10\x02\x12\n\n\x06\x44\x45LETE\x10\x03*\x85\x01\n\nSystemType\x12\x0e\n\nCONTROLLER\x10\x00\x12\x0f\n\x0b\x41PPLICATION\x10\x01\x12\x13\n\x0fPROCESS_MANAGER\x10\x02\x12\x13\n\x0fSESSION_MANAGER\x10\x03\x12\x14\n\x10RESOURCE_MANAGER\x10\x04\x12\x16\n\x12\x41UTHORISER_SERVICE\x10\x05\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'druncschema.authoriser_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   _globals['_ACTIONTYPE']._serialized_start=241
-  _globals['_ACTIONTYPE']._serialized_end=311
-  _globals['_SYSTEMTYPE']._serialized_start=313
-  _globals['_SYSTEMTYPE']._serialized_end=362
+  _globals['_ACTIONTYPE']._serialized_end=299
+  _globals['_SYSTEMTYPE']._serialized_start=302
+  _globals['_SYSTEMTYPE']._serialized_end=435
   _globals['_AUTHORISERREQUEST']._serialized_start=79
   _globals['_AUTHORISERREQUEST']._serialized_end=239
 # @@protoc_insertion_point(module_scope)
