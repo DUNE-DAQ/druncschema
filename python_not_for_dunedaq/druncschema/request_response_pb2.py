@@ -15,7 +15,7 @@ from druncschema import token_pb2 as druncschema_dot_token__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"druncschema/request_response.proto\x12\x13\x64unedaq.druncschema\x1a\x17\x64runcschema/token.proto\x1a\x19google/protobuf/any.proto\"X\n\x07Request\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\"\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any\"Y\n\x08Response\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\"\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Anyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"druncschema/request_response.proto\x12\x13\x64unedaq.druncschema\x1a\x17\x64runcschema/token.proto\x1a\x19google/protobuf/any.proto\"f\n\x07Request\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\'\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x42\x07\n\x05_data\"g\n\x08Response\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\'\n\x04\x64\x61ta\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x42\x07\n\x05_data\"X\n\x12\x43ommandDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x03(\t\x12\x0c\n\x04help\x18\x03 \x01(\t\x12\x13\n\x0breturn_type\x18\x04 \x01(\t\"\xc2\x01\n\x0b\x44\x65scription\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x14\n\x07session\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x39\n\x08\x63ommands\x18\x04 \x03(\x0b\x32\'.dunedaq.druncschema.CommandDescription\x12,\n\tbroadcast\x18\x05 \x01(\x0b\x32\x14.google.protobuf.AnyH\x01\x88\x01\x01\x42\n\n\x08_sessionB\x0c\n\n_broadcastb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,7 +24,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _globals['_REQUEST']._serialized_start=111
-  _globals['_REQUEST']._serialized_end=199
-  _globals['_RESPONSE']._serialized_start=201
-  _globals['_RESPONSE']._serialized_end=290
+  _globals['_REQUEST']._serialized_end=213
+  _globals['_RESPONSE']._serialized_start=215
+  _globals['_RESPONSE']._serialized_end=318
+  _globals['_COMMANDDESCRIPTION']._serialized_start=320
+  _globals['_COMMANDDESCRIPTION']._serialized_end=408
+  _globals['_DESCRIPTION']._serialized_start=411
+  _globals['_DESCRIPTION']._serialized_end=605
 # @@protoc_insertion_point(module_scope)
