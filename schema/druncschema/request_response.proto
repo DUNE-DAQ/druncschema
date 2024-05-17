@@ -9,12 +9,20 @@ message Request {
   Token token = 1;
   optional google.protobuf.Any data = 2;
 }
-
-message Response {
-  Token token = 1;
-  optional google.protobuf.Any data = 2;
+enum ResponseFlag {
+  SUCCESSFUL = 0;
+  NOT_EXECUTED_EXCLUDED = 1;
+  NOT_EXECUTED_NOT_IMPLEMENTED = 1;
+  NOT_AUTHORIZED = 2;
+  FAILED = 3;
 }
 
+message Response {
+  Token token = 1; // The token of the sender
+  optional google.protobuf.Any data = 2; // Any arbitrary data returned by the command
+  ResponseFlag response_flag = 3; // whether the command was successfull ON SELF ONLY!
+  map<string,Response> response_children = 4; // a map of the response flags of the children
+}
 
 message CommandDescription {
   string name = 1;
