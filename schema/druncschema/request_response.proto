@@ -11,7 +11,7 @@ message Request {
 }
 enum ResponseFlag {
   EXECUTED_SUCCESSFULLY = 0;
-  NOT_EXECUTED_EXCLUDED = 1;
+  FAILED = 1;
   NOT_EXECUTED_NOT_IMPLEMENTED = 2;
   NOT_EXECUTED_NOT_IN_CONTROL = 3;
   NOT_EXECUTED_NOT_AUTHORISED = 4;
@@ -20,11 +20,12 @@ enum ResponseFlag {
   NOT_EXECUTED_BAD_REQUEST_FORMAT = 7;
 }
 
-message Response {
-  Token token = 1; // The token of the sender
-  optional google.protobuf.Any data = 2; // Any arbitrary data returned by the command
-  ResponseFlag response_flag = 3; // whether the command was successfull ON SELF ONLY!
-  map<string,Response> response_children = 4; // a map of the response flags of the children
+message Response { // The "decoded" version (i.e. without Any) of this message is defined at the top of drunc/src/utils/shell_utils.py, modify it there if you want to change the format
+  string name = 1;
+  Token token = 2; // The token of the sender
+  optional google.protobuf.Any data = 3; // Any arbitrary data returned by the command
+  ResponseFlag flag = 4; // whether the command was successfull ON SELF ONLY!
+  repeated Response children = 5; // a map of the response flags of the children
 }
 
 message CommandDescription {

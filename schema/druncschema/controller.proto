@@ -28,14 +28,15 @@ message FSMCommand {
   optional string data = 4; // unfortunately, this is just some plain old json data introduced by the fsm interfaces
 }
 
-enum FSMCommandResponseCode {
-  SUCCESSFUL = 0;
-  UNSUCCESSFUL = 1;
-  INVALID_TRANSITION = 2;
+enum FSMResponseFlag {
+  FSM_EXECUTED_SUCCESSFULLY = 0;
+  FSM_FAILED = 1;
+  FSM_INVALID_TRANSITION = 2;
+  FSM_NOT_EXECUTED_EXCLUDED = 3;
 }
 
 message FSMCommandResponse{
-  FSMCommandResponseCode successful = 1;
+  FSMResponseFlag flag = 1;
   string command_name = 2;
   google.protobuf.Any data = 3;
 }
