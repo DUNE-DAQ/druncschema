@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(druncschema VERSION 0.6.0)
+project(druncschema VERSION 0.7.0)
 
 find_package(daq-cmake REQUIRED)
 
