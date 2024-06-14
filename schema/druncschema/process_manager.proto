@@ -3,6 +3,7 @@ syntax = "proto3";
 package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
+import "google/protobuf/any.proto";
 
 service ProcessManager {
   rpc describe(Request) returns (Response) {}
@@ -66,6 +67,23 @@ message ProcessQuery {
   string session = 4;
 }
 
+message VolumeMount {
+  string host_path = 1;
+  string container_path = 2;
+  enum Mode {
+    READ_ONLY = 0;
+    READ_WRITE = 1;
+  };
+  Mode mode = 3;
+}
+
+message ProcessDescriptionK8sDetails {
+  repeated VolumeMount volume_mounts = 1;
+  string image = 2;
+  string image_pull_policy = 3;
+  // ... add what you need here
+}
+
 message ProcessDescription {
   message StringList {
     repeated string values = 1;
@@ -79,6 +97,7 @@ message ProcessDescription {
   repeated ExecAndArgs executable_and_arguments = 3;
   string process_execution_directory = 4;
   string process_logs_path = 5;
+  optional google.protobuf.Any details = 6;
   // map<string,string> runtime_environment = 4;
 }
 
