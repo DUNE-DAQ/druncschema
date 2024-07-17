@@ -58,7 +58,7 @@ message ProcessMetadata {
   optional string session = 3;
   string name = 4;
   string hostname = 5;
-  string hierarchy = 6;
+  string id = 6;
 }
 
 message ProcessQuery {
