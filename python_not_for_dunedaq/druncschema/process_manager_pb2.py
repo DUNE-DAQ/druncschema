@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!druncschema/process_manager.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\"G\n\x12ProcessRestriction\x12\x15\n\rallowed_hosts\x18\x01 \x03(\t\x12\x1a\n\x12\x61llowed_host_types\x18\x02 \x03(\t\";\n\x1a\x43ommandNotificationMessage\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x02 \x01(\t\"-\n\x1aGenericNotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\xb9\x01\n\x15\x45xceptionNotification\x12\x12\n\nerror_text\x18\x01 \x01(\t\x12I\n\x0bstack_trace\x18\x02 \x03(\x0b\x32\x34.dunedaq.druncschema.ExceptionNotification.StackLine\x1a\x41\n\tStackLine\x12\x11\n\tline_text\x18\x01 \x01(\t\x12\x13\n\x0bline_number\x18\x02 \x01(\t\x12\x0c\n\x04\x66ile\x18\x03 \x01(\t\"O\n\nLogRequest\x12\x30\n\x05query\x18\x01 \x01(\x0b\x32!.dunedaq.druncschema.ProcessQuery\x12\x0f\n\x07how_far\x18\x02 \x01(\x05\"G\n\x07LogLine\x12.\n\x04uuid\x18\x01 \x01(\x0b\x32 .dunedaq.druncschema.ProcessUUID\x12\x0c\n\x04line\x18\x02 \x01(\t\"\x1b\n\x0bProcessUUID\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\x91\x01\n\x0fProcessMetadata\x12.\n\x04uuid\x18\x01 \x01(\x0b\x32 .dunedaq.druncschema.ProcessUUID\x12\x0c\n\x04user\x18\x02 \x01(\t\x12\x14\n\x07session\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x10\n\x08hostname\x18\x05 \x01(\tB\n\n\x08_session\"m\n\x0cProcessQuery\x12/\n\x05uuids\x18\x01 \x03(\x0b\x32 .dunedaq.druncschema.ProcessUUID\x12\r\n\x05names\x18\x02 \x03(\t\x12\x0c\n\x04user\x18\x03 \x01(\t\x12\x0f\n\x07session\x18\x04 \x01(\t\"\x97\x03\n\x12ProcessDescription\x12\x36\n\x08metadata\x18\x01 \x01(\x0b\x32$.dunedaq.druncschema.ProcessMetadata\x12=\n\x03\x65nv\x18\x02 \x03(\x0b\x32\x30.dunedaq.druncschema.ProcessDescription.EnvEntry\x12U\n\x18\x65xecutable_and_arguments\x18\x03 \x03(\x0b\x32\x33.dunedaq.druncschema.ProcessDescription.ExecAndArgs\x12#\n\x1bprocess_execution_directory\x18\x04 \x01(\t\x12\x19\n\x11process_logs_path\x18\x05 \x01(\t\x1a\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t\x1a)\n\x0b\x45xecAndArgs\x12\x0c\n\x04\x65xec\x18\x01 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x02 \x03(\t\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xcd\x02\n\x0fProcessInstance\x12\x44\n\x13process_description\x18\x01 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessDescription\x12\x44\n\x13process_restriction\x18\x02 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessRestriction\x12\x44\n\x0bstatus_code\x18\x03 \x01(\x0e\x32/.dunedaq.druncschema.ProcessInstance.StatusCode\x12\x13\n\x0breturn_code\x18\x04 \x01(\x05\x12.\n\x04uuid\x18\x05 \x01(\x0b\x32 .dunedaq.druncschema.ProcessUUID\"#\n\nStatusCode\x12\x0b\n\x07RUNNING\x10\x00\x12\x08\n\x04\x44\x45\x41\x44\x10\x01\"\x99\x01\n\x0b\x42ootRequest\x12\x44\n\x13process_description\x18\x01 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessDescription\x12\x44\n\x13process_restriction\x18\x02 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessRestriction\"K\n\x13ProcessInstanceList\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.dunedaq.druncschema.ProcessInstance2\x89\x04\n\x0eProcessManager\x12I\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x45\n\x04\x62oot\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07restart\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x45\n\x04kill\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x46\n\x05\x66lush\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x43\n\x02ps\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12G\n\x04logs\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x30\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!druncschema/process_manager.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\"G\n\x12ProcessRestriction\x12\x15\n\rallowed_hosts\x18\x01 \x03(\t\x12\x1a\n\x12\x61llowed_host_types\x18\x02 \x03(\t\";\n\x1a\x43ommandNotificationMessage\x12\x0c\n\x04user\x18\x01 \x01(\t\x12\x0f\n\x07\x63ommand\x18\x02 \x01(\t\"-\n\x1aGenericNotificationMessage\x12\x0f\n\x07message\x18\x01 \x01(\t\"\xb9\x01\n\x15\x45xceptionNotification\x12\x12\n\nerror_text\x18\x01 \x01(\t\x12I\n\x0bstack_trace\x18\x02 \x03(\x0b\x32\x34.dunedaq.druncschema.ExceptionNotification.StackLine\x1a\x41\n\tStackLine\x12\x11\n\tline_text\x18\x01 \x01(\t\x12\x13\n\x0bline_number\x18\x02 \x01(\t\x12\x0c\n\x04\x66ile\x18\x03 \x01(\t\"O\n\nLogRequest\x12\x30\n\x05query\x18\x01 \x01(\x0b\x32!.dunedaq.druncschema.ProcessQuery\x12\x0f\n\x07how_far\x18\x02 \x01(\x05\"G\n\x07LogLine\x12.\n\x04uuid\x18\x01 \x01(\x0b\x32 .dunedaq.druncschema.ProcessUUID\x12\x0c\n\x04line\x18\x02 \x01(\t\"\x1b\n\x0bProcessUUID\x12\x0c\n\x04uuid\x18\x01 \x01(\t\"\xb3\x01\n\x0fProcessMetadata\x12.\n\x04uuid\x18\x01 \x01(\x0b\x32 .dunedaq.druncschema.ProcessUUID\x12\x0c\n\x04user\x18\x02 \x01(\t\x12\x14\n\x07session\x18\x03 \x01(\tH\x00\x88\x01\x01\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x10\n\x08hostname\x18\x05 \x01(\t\x12\x14\n\x07tree_id\x18\x06 \x01(\tH\x01\x88\x01\x01\x42\n\n\x08_sessionB\n\n\x08_tree_id\"m\n\x0cProcessQuery\x12/\n\x05uuids\x18\x01 \x03(\x0b\x32 .dunedaq.druncschema.ProcessUUID\x12\r\n\x05names\x18\x02 \x03(\t\x12\x0c\n\x04user\x18\x03 \x01(\t\x12\x0f\n\x07session\x18\x04 \x01(\t\"\x97\x03\n\x12ProcessDescription\x12\x36\n\x08metadata\x18\x01 \x01(\x0b\x32$.dunedaq.druncschema.ProcessMetadata\x12=\n\x03\x65nv\x18\x02 \x03(\x0b\x32\x30.dunedaq.druncschema.ProcessDescription.EnvEntry\x12U\n\x18\x65xecutable_and_arguments\x18\x03 \x03(\x0b\x32\x33.dunedaq.druncschema.ProcessDescription.ExecAndArgs\x12#\n\x1bprocess_execution_directory\x18\x04 \x01(\t\x12\x19\n\x11process_logs_path\x18\x05 \x01(\t\x1a\x1c\n\nStringList\x12\x0e\n\x06values\x18\x01 \x03(\t\x1a)\n\x0b\x45xecAndArgs\x12\x0c\n\x04\x65xec\x18\x01 \x01(\t\x12\x0c\n\x04\x61rgs\x18\x02 \x03(\t\x1a*\n\x08\x45nvEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xcd\x02\n\x0fProcessInstance\x12\x44\n\x13process_description\x18\x01 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessDescription\x12\x44\n\x13process_restriction\x18\x02 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessRestriction\x12\x44\n\x0bstatus_code\x18\x03 \x01(\x0e\x32/.dunedaq.druncschema.ProcessInstance.StatusCode\x12\x13\n\x0breturn_code\x18\x04 \x01(\x05\x12.\n\x04uuid\x18\x05 \x01(\x0b\x32 .dunedaq.druncschema.ProcessUUID\"#\n\nStatusCode\x12\x0b\n\x07RUNNING\x10\x00\x12\x08\n\x04\x44\x45\x41\x44\x10\x01\"\x99\x01\n\x0b\x42ootRequest\x12\x44\n\x13process_description\x18\x01 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessDescription\x12\x44\n\x13process_restriction\x18\x02 \x01(\x0b\x32\'.dunedaq.druncschema.ProcessRestriction\"K\n\x13ProcessInstanceList\x12\x34\n\x06values\x18\x01 \x03(\x0b\x32$.dunedaq.druncschema.ProcessInstance2\x89\x04\n\x0eProcessManager\x12I\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x45\n\x04\x62oot\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07restart\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x45\n\x04kill\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x46\n\x05\x66lush\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x43\n\x02ps\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12G\n\x04logs\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x30\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,25 +41,25 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_PROCESSUUID']._serialized_start=617
   _globals['_PROCESSUUID']._serialized_end=644
   _globals['_PROCESSMETADATA']._serialized_start=647
-  _globals['_PROCESSMETADATA']._serialized_end=792
-  _globals['_PROCESSQUERY']._serialized_start=794
-  _globals['_PROCESSQUERY']._serialized_end=903
-  _globals['_PROCESSDESCRIPTION']._serialized_start=906
-  _globals['_PROCESSDESCRIPTION']._serialized_end=1313
-  _globals['_PROCESSDESCRIPTION_STRINGLIST']._serialized_start=1198
-  _globals['_PROCESSDESCRIPTION_STRINGLIST']._serialized_end=1226
-  _globals['_PROCESSDESCRIPTION_EXECANDARGS']._serialized_start=1228
-  _globals['_PROCESSDESCRIPTION_EXECANDARGS']._serialized_end=1269
-  _globals['_PROCESSDESCRIPTION_ENVENTRY']._serialized_start=1271
-  _globals['_PROCESSDESCRIPTION_ENVENTRY']._serialized_end=1313
-  _globals['_PROCESSINSTANCE']._serialized_start=1316
-  _globals['_PROCESSINSTANCE']._serialized_end=1649
-  _globals['_PROCESSINSTANCE_STATUSCODE']._serialized_start=1614
-  _globals['_PROCESSINSTANCE_STATUSCODE']._serialized_end=1649
-  _globals['_BOOTREQUEST']._serialized_start=1652
-  _globals['_BOOTREQUEST']._serialized_end=1805
-  _globals['_PROCESSINSTANCELIST']._serialized_start=1807
-  _globals['_PROCESSINSTANCELIST']._serialized_end=1882
-  _globals['_PROCESSMANAGER']._serialized_start=1885
-  _globals['_PROCESSMANAGER']._serialized_end=2406
+  _globals['_PROCESSMETADATA']._serialized_end=826
+  _globals['_PROCESSQUERY']._serialized_start=828
+  _globals['_PROCESSQUERY']._serialized_end=937
+  _globals['_PROCESSDESCRIPTION']._serialized_start=940
+  _globals['_PROCESSDESCRIPTION']._serialized_end=1347
+  _globals['_PROCESSDESCRIPTION_STRINGLIST']._serialized_start=1232
+  _globals['_PROCESSDESCRIPTION_STRINGLIST']._serialized_end=1260
+  _globals['_PROCESSDESCRIPTION_EXECANDARGS']._serialized_start=1262
+  _globals['_PROCESSDESCRIPTION_EXECANDARGS']._serialized_end=1303
+  _globals['_PROCESSDESCRIPTION_ENVENTRY']._serialized_start=1305
+  _globals['_PROCESSDESCRIPTION_ENVENTRY']._serialized_end=1347
+  _globals['_PROCESSINSTANCE']._serialized_start=1350
+  _globals['_PROCESSINSTANCE']._serialized_end=1683
+  _globals['_PROCESSINSTANCE_STATUSCODE']._serialized_start=1648
+  _globals['_PROCESSINSTANCE_STATUSCODE']._serialized_end=1683
+  _globals['_BOOTREQUEST']._serialized_start=1686
+  _globals['_BOOTREQUEST']._serialized_end=1839
+  _globals['_PROCESSINSTANCELIST']._serialized_start=1841
+  _globals['_PROCESSINSTANCELIST']._serialized_end=1916
+  _globals['_PROCESSMANAGER']._serialized_start=1919
+  _globals['_PROCESSMANAGER']._serialized_end=2440
 # @@protoc_insertion_point(module_scope)

@@ -58,6 +58,7 @@ message ProcessMetadata {
   optional string session = 3;
   string name = 4;
   string hostname = 5;
+  optional string tree_id = 6;
 }
 
 message ProcessQuery {
