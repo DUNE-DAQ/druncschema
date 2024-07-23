@@ -5,13 +5,14 @@ package dunedaq.druncschema;
 import "druncschema/request_response.proto";
 
 service ProcessManager {
-  rpc describe(Request) returns (Response) {}
-  rpc boot   (Request) returns (Response) {}
-  rpc restart(Request) returns (Response) {}
-  rpc kill   (Request) returns (Response) {}
-  rpc flush   (Request) returns (Response) {}
-  rpc ps     (Request) returns (Response) {}
-  rpc logs   (Request) returns (stream Response) {}
+  rpc describe  (Request) returns (Response) {}
+  rpc boot      (Request) returns (Response) {}
+  rpc terminate (Request) returns (Response) {}
+  rpc restart   (Request) returns (Response) {}
+  rpc kill      (Request) returns (Response) {}
+  rpc flush     (Request) returns (Response) {}
+  rpc ps        (Request) returns (Response) {}
+  rpc logs      (Request) returns (stream Response) {}
 }
 
 message ProcessRestriction {
