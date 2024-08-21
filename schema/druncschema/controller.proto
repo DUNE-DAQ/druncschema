@@ -33,6 +33,7 @@ enum FSMResponseFlag {
   FSM_FAILED = 1;
   FSM_INVALID_TRANSITION = 2;
   FSM_NOT_EXECUTED_EXCLUDED = 3;
+  FSM_NOT_EXECUTED_IN_ERROR = 4;
 }
 
 message FSMCommandResponse{
