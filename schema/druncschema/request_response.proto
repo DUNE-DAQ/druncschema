@@ -15,9 +15,10 @@ enum ResponseFlag {
   NOT_EXECUTED_NOT_IMPLEMENTED = 2;
   NOT_EXECUTED_NOT_IN_CONTROL = 3;
   NOT_EXECUTED_NOT_AUTHORISED = 4;
-  DRUNC_EXCEPTION_THROWN = 5;
-  UNHANDLED_EXCEPTION_THROWN = 6;
-  NOT_EXECUTED_BAD_REQUEST_FORMAT = 7;
+  NOT_EXECUTED_NODE_IN_ERROR = 5;
+  DRUNC_EXCEPTION_THROWN = 6;
+  UNHANDLED_EXCEPTION_THROWN = 7;
+  NOT_EXECUTED_BAD_REQUEST_FORMAT = 8;
 }
 
 message Response { // The "decoded" version (i.e. without Any) of this message is defined at the top of drunc/src/utils/shell_utils.py, modify it there if you want to change the format
