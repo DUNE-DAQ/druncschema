@@ -14,11 +14,6 @@ class ControllerStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.ls = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/ls',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
-                )
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
