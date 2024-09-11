@@ -6,7 +6,6 @@ import "druncschema/request_response.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc ls                         (Request) returns (Response) {}
   rpc describe                   (Request) returns (Response) {}
   rpc get_children_status        (Request) returns (Response) {}
   rpc get_status                 (Request) returns (Response) {}
@@ -41,8 +40,6 @@ message FSMCommandResponse{
   string command_name = 2;
   google.protobuf.Any data = 3;
 }
-
-
 
 message Argument {
   enum Presence{

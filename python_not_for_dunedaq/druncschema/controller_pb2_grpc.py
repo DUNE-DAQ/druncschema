@@ -74,12 +74,6 @@ class ControllerStub(object):
 class ControllerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def ls(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def describe(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -143,11 +137,6 @@ class ControllerServicer(object):
 
 def add_ControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'ls': grpc.unary_unary_rpc_method_handler(
-                    servicer.ls,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
-            ),
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
@@ -207,23 +196,6 @@ def add_ControllerServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class Controller(object):
     """Missing associated documentation comment in .proto file."""
-
-    @staticmethod
-    def ls(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.Controller/ls',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def describe(request,
