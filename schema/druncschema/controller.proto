@@ -6,10 +6,8 @@ import "druncschema/request_response.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc ls                         (Request) returns (Response) {}
   rpc describe                   (Request) returns (Response) {}
-  rpc get_children_status        (Request) returns (Response) {}
-  rpc get_status                 (Request) returns (Response) {}
+  rpc status                     (Request) returns (Response) {}
 
   rpc describe_fsm               (Request) returns (Response) {}
   rpc execute_fsm_command        (Request) returns (Response) {}
@@ -41,8 +39,6 @@ message FSMCommandResponse{
   string command_name = 2;
   google.protobuf.Any data = 3;
 }
-
-
 
 message Argument {
   enum Presence{
@@ -81,22 +77,9 @@ message FSMCommandsDescription {
 }
 
 
-
 message Status {
-  string name = 1;
   string state = 2;
   string sub_state = 3;
   bool   in_error = 4;
   bool   included = 5;
 }
-
-message ChildrenStatus {
-  repeated Status children_status = 1;
-}
-
-// message CommandResponse {
-//   Command command = 1;
-//   int32 command_code = 2;
-//   google.protobuf.Any payload = 3;
-// }
-
