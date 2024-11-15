@@ -77,7 +77,7 @@ message FSMCommandsDescription {
 }
 
 
-message Status {
+message Status { // Contains dynamic system descriptors
   string state = 2;
   string sub_state = 3;
   bool   in_error = 4;
