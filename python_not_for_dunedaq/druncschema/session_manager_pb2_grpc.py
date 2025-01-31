@@ -19,8 +19,8 @@ class SessionManagerStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.list_session = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/list_session',
+        self.list_all_sessions = channel.unary_unary(
+                '/dunedaq.druncschema.SessionManager/list_all_sessions',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
@@ -29,18 +29,18 @@ class SessionManagerStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.terminate_session = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/terminate_session',
+        self.stop_session = channel.unary_unary(
+                '/dunedaq.druncschema.SessionManager/stop_session',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.load_configuration = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/load_configuration',
+        self.list_all_configs = channel.unary_unary(
+                '/dunedaq.druncschema.SessionManager/list_all_configs',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
-        self.list_configuration = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/list_configuration',
+        self.load_config = channel.unary_unary(
+                '/dunedaq.druncschema.SessionManager/load_config',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 )
@@ -55,7 +55,7 @@ class SessionManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def list_session(self, request, context):
+    def list_all_sessions(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -67,19 +67,19 @@ class SessionManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def terminate_session(self, request, context):
+    def stop_session(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def load_configuration(self, request, context):
+    def list_all_configs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def list_configuration(self, request, context):
+    def load_config(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -93,8 +93,8 @@ def add_SessionManagerServicer_to_server(servicer, server):
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'list_session': grpc.unary_unary_rpc_method_handler(
-                    servicer.list_session,
+            'list_all_sessions': grpc.unary_unary_rpc_method_handler(
+                    servicer.list_all_sessions,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
@@ -103,18 +103,18 @@ def add_SessionManagerServicer_to_server(servicer, server):
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'terminate_session': grpc.unary_unary_rpc_method_handler(
-                    servicer.terminate_session,
+            'stop_session': grpc.unary_unary_rpc_method_handler(
+                    servicer.stop_session,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'load_configuration': grpc.unary_unary_rpc_method_handler(
-                    servicer.load_configuration,
+            'list_all_configs': grpc.unary_unary_rpc_method_handler(
+                    servicer.list_all_configs,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'list_configuration': grpc.unary_unary_rpc_method_handler(
-                    servicer.list_configuration,
+            'load_config': grpc.unary_unary_rpc_method_handler(
+                    servicer.load_config,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
@@ -146,7 +146,7 @@ class SessionManager(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def list_session(request,
+    def list_all_sessions(request,
             target,
             options=(),
             channel_credentials=None,
@@ -156,7 +156,7 @@ class SessionManager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/list_session',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/list_all_sessions',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
@@ -180,7 +180,7 @@ class SessionManager(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def terminate_session(request,
+    def stop_session(request,
             target,
             options=(),
             channel_credentials=None,
@@ -190,14 +190,14 @@ class SessionManager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/terminate_session',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/stop_session',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def load_configuration(request,
+    def list_all_configs(request,
             target,
             options=(),
             channel_credentials=None,
@@ -207,14 +207,14 @@ class SessionManager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/load_configuration',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/list_all_configs',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def list_configuration(request,
+    def load_config(request,
             target,
             options=(),
             channel_credentials=None,
@@ -224,7 +224,7 @@ class SessionManager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/list_configuration',
+        return grpc.experimental.unary_unary(request, target, '/dunedaq.druncschema.SessionManager/load_config',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options, channel_credentials,
