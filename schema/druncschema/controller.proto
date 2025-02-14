@@ -11,6 +11,7 @@ service Controller {
 
   rpc describe_fsm               (Request) returns (Response) {}
   rpc execute_fsm_command        (Request) returns (Response) {}
+  rpc execute_expert_command     (Request) returns (Response) {}
   rpc include                    (Request) returns (Response) {}
   rpc exclude                    (Request) returns (Response) {}
 
