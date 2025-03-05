@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package dunedaq.opmon;
+
+message RunInfo {
+
+  string run_type = 1;
+  double trigger_rate = 2;
+  int64  run_number = 3;
+  bool disable_data_storage = 4;
+}
+
+message Status { // Contains dynamic system descriptors
+  string state = 2;
+  string sub_state = 3;
+  bool   in_error = 4;
+  bool   included = 5;
+}

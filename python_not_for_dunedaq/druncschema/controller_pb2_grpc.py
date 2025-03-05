@@ -69,6 +69,11 @@ class ControllerStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
+        self.recompute_status = channel.unary_unary(
+                '/dunedaq.druncschema.Controller/recompute_status',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
         self.take_control = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/take_control',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
@@ -131,6 +136,12 @@ class ControllerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def recompute_status(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def take_control(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -184,6 +195,11 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'exclude': grpc.unary_unary_rpc_method_handler(
                     servicer.exclude,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+            ),
+            'recompute_status': grpc.unary_unary_rpc_method_handler(
+                    servicer.recompute_status,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
@@ -390,6 +406,33 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.Controller/exclude',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def recompute_status(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.Controller/recompute_status',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,

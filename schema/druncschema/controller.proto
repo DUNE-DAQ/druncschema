@@ -14,6 +14,7 @@ service Controller {
   rpc execute_expert_command     (Request) returns (Response) {}
   rpc include                    (Request) returns (Response) {}
   rpc exclude                    (Request) returns (Response) {}
+  rpc recompute_status           (Request) returns (Response) {}
 
   rpc take_control               (Request) returns (Response) {}
   rpc surrender_control          (Request) returns (Response) {}
