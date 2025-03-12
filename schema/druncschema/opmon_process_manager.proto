@@ -6,4 +6,5 @@ message ProcessStatus {
 
   int64 n_running = 1;
   int64 n_dead = 2;
+  int64 n_session = 3;
 }
