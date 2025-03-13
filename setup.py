@@ -7,10 +7,10 @@ setup(
         'druncschema': []
     },
     install_requires=[
-        "grpcio",
-        "grpcio_tools",
-        "googleapis-common-protos",
-        "grpcio-status",
+        "grpcio>=1.68.0",
+        "grpcio-status>=1.68.0",
+        "grpcio-tools>=1.68.0",
+        "protobuf>=5.28.1",
     ],
     extras_require={"develop": [
         "ipdb",
