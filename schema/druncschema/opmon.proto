@@ -16,3 +16,9 @@ message Status { // Contains dynamic system descriptors
   bool   in_error = 4;
   bool   included = 5;
 }
+
+message Command_time { 
+  float cmd_start_time = 1;
+  float cmd_end_time = 2;
+  float cmd_exe_time = 3;
+}
