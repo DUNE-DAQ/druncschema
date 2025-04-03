@@ -10,3 +10,15 @@ do
     # PY_OUT_FILE_NAME="python/druncschema/${CLASS_NAME}_pb2.py"
     # sed -i '' "/google/! s/import \(.*_pb2\)/import druncschema.\1/" ${PY_OUT_FILE_NAME}
 done
+
+for FILE in schema/druncschema/opmon/*.proto;
+do
+    echo "Generating protocols for ${FILE}"
+    python -m grpc_tools.protoc -I./schema/ --python_out=python_not_for_dunedaq/  ${FILE}
+    FILE_NAME=$(basename -- "$FILE")
+    CLASS_NAME="${FILE_NAME%.*}"
+    # PY_OUT_FILE_NAME="python/druncschema/${CLASS_NAME}_pb2_grpc.py"
+    # sed -i '' "/google/! s/import \(.*_pb2\)/import druncschema.\1/" ${PY_OUT_FILE_NAME}
+    # PY_OUT_FILE_NAME="python/druncschema/${CLASS_NAME}_pb2.py"
+    # sed -i '' "/google/! s/import \(.*_pb2\)/import druncschema.\1/" ${PY_OUT_FILE_NAME}
+done
