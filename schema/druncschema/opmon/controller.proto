@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package dunedaq.drunc.opmon;
+
+message FSMStatus { 
+  string state = 1;
+  string sub_state = 2;
+  bool   in_error = 3;
+  bool   included = 4;
+}
+
+message CommandTime { 
+  uint64 cmd_start_time = 1;
+  uint64 cmd_execution_time = 2;
+}

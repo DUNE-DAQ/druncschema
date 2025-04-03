@@ -35,27 +35,22 @@ class RunInfo(google.protobuf.message.Message):
 global___RunInfo = RunInfo
 
 @typing.final
-class Status(google.protobuf.message.Message):
-    """Contains dynamic system descriptors"""
-
+class ProcessStatus(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
-    STATE_FIELD_NUMBER: builtins.int
-    SUB_STATE_FIELD_NUMBER: builtins.int
-    IN_ERROR_FIELD_NUMBER: builtins.int
-    INCLUDED_FIELD_NUMBER: builtins.int
-    state: builtins.str
-    sub_state: builtins.str
-    in_error: builtins.bool
-    included: builtins.bool
+    N_RUNNING_FIELD_NUMBER: builtins.int
+    N_DEAD_FIELD_NUMBER: builtins.int
+    N_SESSION_FIELD_NUMBER: builtins.int
+    n_running: builtins.int
+    n_dead: builtins.int
+    n_session: builtins.int
     def __init__(
         self,
         *,
-        state: builtins.str = ...,
-        sub_state: builtins.str = ...,
-        in_error: builtins.bool = ...,
-        included: builtins.bool = ...,
+        n_running: builtins.int = ...,
+        n_dead: builtins.int = ...,
+        n_session: builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["in_error", b"in_error", "included", b"included", "state", b"state", "sub_state", b"sub_state"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["n_dead", b"n_dead", "n_running", b"n_running", "n_session", b"n_session"]) -> None: ...
 
-global___Status = Status
+global___ProcessStatus = ProcessStatus
