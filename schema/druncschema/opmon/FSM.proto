@@ -10,5 +10,5 @@ message FSMStatus {
 }
 
 message CommandTime { 
-  uint64 cmd_execution_time = 1;
+  uint64 execution_time_ns = 1;
 }
