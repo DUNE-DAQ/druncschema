@@ -11,6 +11,7 @@ service Controller {
 
   rpc describe_fsm               (Request) returns (Response) {}
   rpc execute_fsm_command        (Request) returns (Response) {}
+  rpc execute_expert_command     (Request) returns (Response) {}
   rpc include                    (Request) returns (Response) {}
   rpc exclude                    (Request) returns (Response) {}
   rpc recompute_status           (Request) returns (Response) {}
@@ -20,10 +21,17 @@ service Controller {
   rpc who_is_in_charge           (Request) returns (Response) {}
 }
 
+message AddressedCommand {
+  string command_name = 1;
+  optional google.protobuf.Any command_data = 2;
+  string target = 3;
+  bool execute_along_path = 4;
+  bool execute_on_all_subsequent_children_in_path = 5;
+}
+
 message FSMCommand {
   string command_name = 1;
   map<string, google.protobuf.Any> arguments = 2;
-  repeated string children_nodes = 3;
   optional string data = 4; // unfortunately, this is just some plain old json data introduced by the fsm interfaces
 }
 

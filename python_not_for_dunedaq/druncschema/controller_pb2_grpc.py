@@ -54,6 +54,11 @@ class ControllerStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
+        self.execute_expert_command = channel.unary_unary(
+                '/dunedaq.druncschema.Controller/execute_expert_command',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
         self.include = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/include',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
@@ -108,6 +113,12 @@ class ControllerServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def execute_fsm_command(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def execute_expert_command(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -169,6 +180,11 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'execute_fsm_command': grpc.unary_unary_rpc_method_handler(
                     servicer.execute_fsm_command,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+            ),
+            'execute_expert_command': grpc.unary_unary_rpc_method_handler(
+                    servicer.execute_expert_command,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
@@ -309,6 +325,33 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.Controller/execute_fsm_command',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def execute_expert_command(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.Controller/execute_expert_command',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
