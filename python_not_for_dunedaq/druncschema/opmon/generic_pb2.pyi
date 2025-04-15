@@ -33,29 +33,3 @@ class RunInfo(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["disable_data_storage", b"disable_data_storage", "run_number", b"run_number", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]) -> None: ...
 
 global___RunInfo = RunInfo
-
-@typing.final
-class Status(google.protobuf.message.Message):
-    """Contains dynamic system descriptors"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    STATE_FIELD_NUMBER: builtins.int
-    SUB_STATE_FIELD_NUMBER: builtins.int
-    IN_ERROR_FIELD_NUMBER: builtins.int
-    INCLUDED_FIELD_NUMBER: builtins.int
-    state: builtins.str
-    sub_state: builtins.str
-    in_error: builtins.bool
-    included: builtins.bool
-    def __init__(
-        self,
-        *,
-        state: builtins.str = ...,
-        sub_state: builtins.str = ...,
-        in_error: builtins.bool = ...,
-        included: builtins.bool = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["in_error", b"in_error", "included", b"included", "state", b"state", "sub_state", b"sub_state"]) -> None: ...
-
-global___Status = Status

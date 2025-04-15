@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "druncschema"
+requires-python = ">=3.10,<3.11"
+dynamic = ["version", "readme"]
+dependencies = [
+    "grpcio==1.68.0",
+    "grpcio-status==1.68.0",
+    "grpcio-tools==1.68.0",
+    "googleapis-common-protos==1.66.0"
+]
+authors = [
+    {name = "Pierre Lasorak", email = "p.lasorak@imperial.ac.uk"},
+    {name = "Pawel Plesniak", email = "pawel.plesniak15@imperial.ac.uk"},
+    {name = "Claudia Su", email = "claudia.su@physics.ox.ac.uk"}
+]
+description = "Schema definitions and compilation script for drunc"
+
+[project.optional-dependencies]
+dev = ["ruff", "pre-commit", "pytest", "mypy-protobuf", "types-protobuf"]
+
+[project.urls]
+Documentation = "https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-release/team_repos/?h=druncschema"
+Repository = "https://github.com/DUNE-DAQ/druncschema"
+
+[project.scripts]
+druncschema-generate-protos = "druncschema.apps.__main_generate_protos__:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "druncschema.__version__"}
+readme = {file = ["docs/README.md"]}
+
+[tool.setuptools.packages.find]
+where = ["python_not_for_dunedaq"]
