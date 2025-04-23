@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package dunedaq.drunc_messages;
+
+import "drunc_messages/request_response.proto";
+
+service SessionManager {
+  rpc describe          (Request) returns (Response) {}
+  rpc list_all_sessions (Request) returns (Response) {}
+  rpc start_session     (Request) returns (Response) {}
+  rpc stop_session      (Request) returns (Response) {}
+  rpc list_all_configs  (Request) returns (Response) {}
+  rpc load_config       (Request) returns (Response) {}
+}
+
+message ConfigKey {
+  string file = 1;
+  string session_id = 2;
+}
+
+message AllConfigKeys {
+  repeated ConfigKey config_keys = 1;
+}
+
+message ActiveSession {
+  string name = 1;
+  string user = 2;
+  ConfigKey config_key = 3;
+}
+
+message AllActiveSessions {
+  repeated ActiveSession active_sessions = 1;
+}

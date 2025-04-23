@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package dunedaq.drunc_messages;
+
+import "drunc_messages/token.proto";
+
+enum ActionType {
+  CREATE = 0;
+  READ = 1;
+  UPDATE = 2;
+  DELETE = 3;
+  EXPERT = 4;
+};
+
+
+enum SystemType {
+  CONTROLLER = 0;
+  APPLICATION = 1;
+  PROCESS_MANAGER = 2;
+  SESSION_MANAGER = 3;
+  RESOURCE_MANAGER = 4;
+  AUTHORISER_SERVICE = 5;
+};
+
+
+message AuthoriserRequest {
+  Token token = 1;
+  ActionType action = 2;
+  SystemType system = 3;
+}
