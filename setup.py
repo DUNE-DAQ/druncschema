@@ -2,9 +2,9 @@ from setuptools import setup
 
 # Metadata goes in setup.cfg. These are here for GitHub's dependency graph.
 setup(
-    name="druncschema",
+    name="drunc_messages",
     package_data={
-        'druncschema': []
+        'drunc_messages': []
     },
     install_requires=[
         "grpcio>=1.68.0",
@@ -12,8 +12,7 @@ setup(
         "grpcio-tools>=1.68.0",
         "protobuf>=5.28.1",
     ],
-    extras_require={"develop": [
-        "ipdb",
-        "ipython"
+    extras_require={"dev": [
+        "mypy-protobuf",
     ]},
 )
