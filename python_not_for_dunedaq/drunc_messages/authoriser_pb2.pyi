@@ -47,7 +47,7 @@ class _SystemTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
     CONTROLLER: _SystemType.ValueType  # 0
     APPLICATION: _SystemType.ValueType  # 1
-    PROCESS_MANAGER: _SystemType.ValueType  # 2
+    PROCESS_ORCHESTRATOR: _SystemType.ValueType  # 2
     SESSION_MANAGER: _SystemType.ValueType  # 3
     RESOURCE_MANAGER: _SystemType.ValueType  # 4
     AUTHORISER_SERVICE: _SystemType.ValueType  # 5
@@ -56,7 +56,7 @@ class SystemType(_SystemType, metaclass=_SystemTypeEnumTypeWrapper): ...
 
 CONTROLLER: SystemType.ValueType  # 0
 APPLICATION: SystemType.ValueType  # 1
-PROCESS_MANAGER: SystemType.ValueType  # 2
+PROCESS_ORCHESTRATOR: SystemType.ValueType  # 2
 SESSION_MANAGER: SystemType.ValueType  # 3
 RESOURCE_MANAGER: SystemType.ValueType  # 4
 AUTHORISER_SERVICE: SystemType.ValueType  # 5

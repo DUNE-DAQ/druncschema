@@ -4,7 +4,7 @@ package dunedaq.drunc_messages;
 
 import "drunc_messages/request_response.proto";
 
-service ProcessManager {
+service ProcessOrchestrator {
   rpc describe  (Request) returns (Response) {}
   rpc boot      (Request) returns (Response) {}
   rpc terminate (Request) returns (Response) {}
