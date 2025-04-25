@@ -1,7 +1,10 @@
-exclude = ["tests/*"]
+exclude = [
+    "python_not_for_dunedaq/druncschema.egg-info",
+    "python_not_for_dunedaq/*/*_pb2.py*",
+    "python_not_for_dunedaq/*/*_pb2_grpc.py",
+]
 
 [lint]
-ignore = ["ALL"]
 select = [
     "F",  # PyFlakes
     "I"   # Isort
