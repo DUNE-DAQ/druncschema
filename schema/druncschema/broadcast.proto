@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package dunedaq.druncschema;
+package dunedaq.drunc-messages;
 
-import "druncschema/generic.proto";
-import "druncschema/request_response.proto";
+import "drunc-messages/generic.proto";
+import "drunc-messages/request_response.proto";
 import "google/protobuf/any.proto";
 
 service BroadcastReceiver {

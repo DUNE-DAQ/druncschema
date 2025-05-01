@@ -5,7 +5,7 @@ isort:skip_file
 
 import builtins
 import collections.abc
-import druncschema.token_pb2
+import drunc-messages.token_pb2
 import google.protobuf.any_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
@@ -57,13 +57,13 @@ class Request(google.protobuf.message.Message):
     TOKEN_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
     @property
-    def token(self) -> druncschema.token_pb2.Token: ...
+    def token(self) -> drunc-messages.token_pb2.Token: ...
     @property
     def data(self) -> google.protobuf.any_pb2.Any: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
+        token: drunc-messages.token_pb2.Token | None = ...,
         data: google.protobuf.any_pb2.Any | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]) -> builtins.bool: ...
@@ -87,7 +87,7 @@ class Response(google.protobuf.message.Message):
     flag: global___ResponseFlag.ValueType
     """whether the command was successfull ON SELF ONLY!"""
     @property
-    def token(self) -> druncschema.token_pb2.Token:
+    def token(self) -> drunc-messages.token_pb2.Token:
         """The token of the sender"""
 
     @property
@@ -102,7 +102,7 @@ class Response(google.protobuf.message.Message):
         self,
         *,
         name: builtins.str = ...,
-        token: druncschema.token_pb2.Token | None = ...,
+        token: drunc-messages.token_pb2.Token | None = ...,
         data: google.protobuf.any_pb2.Any | None = ...,
         flag: global___ResponseFlag.ValueType = ...,
         children: collections.abc.Iterable[global___Response] | None = ...,

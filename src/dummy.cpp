@@ -1,5 +1,5 @@
 namespace dunedaq {
-class dummy_druncschema{
+class dummy_drunc-messages{
 
 };
 }

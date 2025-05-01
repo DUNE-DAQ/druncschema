@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package dunedaq.druncschema;
+package dunedaq.drunc-messages;
 
 message Token {
   string token = 1;

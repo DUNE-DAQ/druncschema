@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
+from drunc-messages import request_response_pb2 as drunc-messages_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in druncschema/session_manager_pb2_grpc.py depends on'
+        + f' but the generated code in drunc-messages/session_manager_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -35,34 +35,34 @@ class SessionManagerStub(object):
             channel: A grpc.Channel.
         """
         self.describe = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/describe',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc-messages.SessionManager/describe',
+                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.list_all_sessions = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/list_all_sessions',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc-messages.SessionManager/list_all_sessions',
+                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.start_session = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/start_session',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc-messages.SessionManager/start_session',
+                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.stop_session = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/stop_session',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc-messages.SessionManager/stop_session',
+                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.list_all_configs = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/list_all_configs',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc-messages.SessionManager/list_all_configs',
+                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.load_config = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/load_config',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc-messages.SessionManager/load_config',
+                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
 
 
@@ -110,39 +110,39 @@ def add_SessionManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'list_all_sessions': grpc.unary_unary_rpc_method_handler(
                     servicer.list_all_sessions,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'start_session': grpc.unary_unary_rpc_method_handler(
                     servicer.start_session,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'stop_session': grpc.unary_unary_rpc_method_handler(
                     servicer.stop_session,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'list_all_configs': grpc.unary_unary_rpc_method_handler(
                     servicer.list_all_configs,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'load_config': grpc.unary_unary_rpc_method_handler(
                     servicer.load_config,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.druncschema.SessionManager', rpc_method_handlers)
+            'dunedaq.drunc-messages.SessionManager', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.druncschema.SessionManager', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.drunc-messages.SessionManager', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -163,9 +163,9 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/describe',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc-messages.SessionManager/describe',
+            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc-messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -190,9 +190,9 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/list_all_sessions',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc-messages.SessionManager/list_all_sessions',
+            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc-messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -217,9 +217,9 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/start_session',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc-messages.SessionManager/start_session',
+            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc-messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -244,9 +244,9 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/stop_session',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc-messages.SessionManager/stop_session',
+            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc-messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -271,9 +271,9 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/list_all_configs',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc-messages.SessionManager/list_all_configs',
+            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc-messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -298,9 +298,9 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/load_config',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc-messages.SessionManager/load_config',
+            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc-messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,

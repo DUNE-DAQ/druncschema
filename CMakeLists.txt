@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(druncschema VERSION 0.9.0)
+project(drunc-messages VERSION 0.9.0)
 
 find_package(daq-cmake REQUIRED)
 

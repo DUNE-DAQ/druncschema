@@ -4,7 +4,7 @@ isort:skip_file
 """
 
 import builtins
-import druncschema.token_pb2
+import drunc-messages.token_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.enum_type_wrapper
 import google.protobuf.message
@@ -70,11 +70,11 @@ class AuthoriserRequest(google.protobuf.message.Message):
     action: global___ActionType.ValueType
     system: global___SystemType.ValueType
     @property
-    def token(self) -> druncschema.token_pb2.Token: ...
+    def token(self) -> drunc-messages.token_pb2.Token: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
+        token: drunc-messages.token_pb2.Token | None = ...,
         action: global___ActionType.ValueType = ...,
         system: global___SystemType.ValueType = ...,
     ) -> None: ...
