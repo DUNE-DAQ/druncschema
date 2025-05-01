@@ -3,9 +3,9 @@
 import grpc
 import warnings
 
-from drunc-messages import broadcast_pb2 as drunc-messages_dot_broadcast__pb2
-from drunc-messages import generic_pb2 as drunc-messages_dot_generic__pb2
-from drunc-messages import request_response_pb2 as drunc-messages_dot_request__response__pb2
+from drunc_messages import broadcast_pb2 as drunc_messages_dot_broadcast__pb2
+from drunc_messages import generic_pb2 as drunc_messages_dot_generic__pb2
+from drunc_messages import request_response_pb2 as drunc_messages_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in drunc-messages/broadcast_pb2_grpc.py depends on'
+        + f' but the generated code in drunc_messages/broadcast_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -37,9 +37,9 @@ class BroadcastReceiverStub(object):
             channel: A grpc.Channel.
         """
         self.handle_broadcast = channel.unary_unary(
-                '/dunedaq.drunc-messages.BroadcastReceiver/handle_broadcast',
-                request_serializer=drunc-messages_dot_broadcast__pb2.BroadcastMessage.SerializeToString,
-                response_deserializer=drunc-messages_dot_generic__pb2.Empty.FromString,
+                '/dunedaq.drunc_messages.BroadcastReceiver/handle_broadcast',
+                request_serializer=drunc_messages_dot_broadcast__pb2.BroadcastMessage.SerializeToString,
+                response_deserializer=drunc_messages_dot_generic__pb2.Empty.FromString,
                 _registered_method=True)
 
 
@@ -57,14 +57,14 @@ def add_BroadcastReceiverServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'handle_broadcast': grpc.unary_unary_rpc_method_handler(
                     servicer.handle_broadcast,
-                    request_deserializer=drunc-messages_dot_broadcast__pb2.BroadcastMessage.FromString,
-                    response_serializer=drunc-messages_dot_generic__pb2.Empty.SerializeToString,
+                    request_deserializer=drunc_messages_dot_broadcast__pb2.BroadcastMessage.FromString,
+                    response_serializer=drunc_messages_dot_generic__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.drunc-messages.BroadcastReceiver', rpc_method_handlers)
+            'dunedaq.drunc_messages.BroadcastReceiver', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.drunc-messages.BroadcastReceiver', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.drunc_messages.BroadcastReceiver', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -85,9 +85,9 @@ class BroadcastReceiver(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.BroadcastReceiver/handle_broadcast',
-            drunc-messages_dot_broadcast__pb2.BroadcastMessage.SerializeToString,
-            drunc-messages_dot_generic__pb2.Empty.FromString,
+            '/dunedaq.drunc_messages.BroadcastReceiver/handle_broadcast',
+            drunc_messages_dot_broadcast__pb2.BroadcastMessage.SerializeToString,
+            drunc_messages_dot_generic__pb2.Empty.FromString,
             options,
             channel_credentials,
             insecure,
@@ -109,19 +109,19 @@ class BroadcastSenderStub(object):
             channel: A grpc.Channel.
         """
         self.add_to_broadcast_list = channel.unary_unary(
-                '/dunedaq.drunc-messages.BroadcastSender/add_to_broadcast_list',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.BroadcastSender/add_to_broadcast_list',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.remove_from_broadcast_list = channel.unary_unary(
-                '/dunedaq.drunc-messages.BroadcastSender/remove_from_broadcast_list',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.BroadcastSender/remove_from_broadcast_list',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.get_broadcast_list = channel.unary_unary(
-                '/dunedaq.drunc-messages.BroadcastSender/get_broadcast_list',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.BroadcastSender/get_broadcast_list',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
 
 
@@ -151,24 +151,24 @@ def add_BroadcastSenderServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'add_to_broadcast_list': grpc.unary_unary_rpc_method_handler(
                     servicer.add_to_broadcast_list,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'remove_from_broadcast_list': grpc.unary_unary_rpc_method_handler(
                     servicer.remove_from_broadcast_list,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'get_broadcast_list': grpc.unary_unary_rpc_method_handler(
                     servicer.get_broadcast_list,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.drunc-messages.BroadcastSender', rpc_method_handlers)
+            'dunedaq.drunc_messages.BroadcastSender', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.drunc-messages.BroadcastSender', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.drunc_messages.BroadcastSender', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -189,9 +189,9 @@ class BroadcastSender(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.BroadcastSender/add_to_broadcast_list',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.BroadcastSender/add_to_broadcast_list',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -216,9 +216,9 @@ class BroadcastSender(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.BroadcastSender/remove_from_broadcast_list',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.BroadcastSender/remove_from_broadcast_list',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -243,9 +243,9 @@ class BroadcastSender(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.BroadcastSender/get_broadcast_list',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.BroadcastSender/get_broadcast_list',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,

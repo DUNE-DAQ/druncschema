@@ -2,9 +2,9 @@ from setuptools import setup
 
 # Metadata goes in setup.cfg. These are here for GitHub's dependency graph.
 setup(
-    name="drunc-messages",
+    name="drunc_messages",
     package_data={
-        'drunc-messages': []
+        'drunc_messages': []
     },
     install_requires=[
         "grpcio>=1.68.0",

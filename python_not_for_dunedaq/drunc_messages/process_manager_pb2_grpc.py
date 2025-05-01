@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from drunc-messages import request_response_pb2 as drunc-messages_dot_request__response__pb2
+from drunc_messages import request_response_pb2 as drunc_messages_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -18,7 +18,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in drunc-messages/process_manager_pb2_grpc.py depends on'
+        + f' but the generated code in drunc_messages/process_manager_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -35,44 +35,44 @@ class ProcessManagerStub(object):
             channel: A grpc.Channel.
         """
         self.describe = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/describe',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/describe',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.boot = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/boot',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/boot',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.terminate = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/terminate',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/terminate',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.restart = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/restart',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/restart',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.kill = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/kill',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/kill',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.flush = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/flush',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/flush',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.ps = channel.unary_unary(
-                '/dunedaq.drunc-messages.ProcessManager/ps',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/ps',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.logs = channel.unary_stream(
-                '/dunedaq.drunc-messages.ProcessManager/logs',
-                request_serializer=drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=drunc-messages_dot_request__response__pb2.Response.FromString,
+                '/dunedaq.drunc_messages.ProcessManager/logs',
+                request_serializer=drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=drunc_messages_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
 
 
@@ -132,49 +132,49 @@ def add_ProcessManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'boot': grpc.unary_unary_rpc_method_handler(
                     servicer.boot,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'terminate': grpc.unary_unary_rpc_method_handler(
                     servicer.terminate,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'restart': grpc.unary_unary_rpc_method_handler(
                     servicer.restart,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'kill': grpc.unary_unary_rpc_method_handler(
                     servicer.kill,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'flush': grpc.unary_unary_rpc_method_handler(
                     servicer.flush,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'ps': grpc.unary_unary_rpc_method_handler(
                     servicer.ps,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
             'logs': grpc.unary_stream_rpc_method_handler(
                     servicer.logs,
-                    request_deserializer=drunc-messages_dot_request__response__pb2.Request.FromString,
-                    response_serializer=drunc-messages_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=drunc_messages_dot_request__response__pb2.Request.FromString,
+                    response_serializer=drunc_messages_dot_request__response__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.drunc-messages.ProcessManager', rpc_method_handlers)
+            'dunedaq.drunc_messages.ProcessManager', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.drunc-messages.ProcessManager', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.drunc_messages.ProcessManager', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -195,9 +195,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/describe',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/describe',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -222,9 +222,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/boot',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/boot',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -249,9 +249,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/terminate',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/terminate',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -276,9 +276,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/restart',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/restart',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -303,9 +303,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/kill',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/kill',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -330,9 +330,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/flush',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/flush',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -357,9 +357,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/ps',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/ps',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
@@ -384,9 +384,9 @@ class ProcessManager(object):
         return grpc.experimental.unary_stream(
             request,
             target,
-            '/dunedaq.drunc-messages.ProcessManager/logs',
-            drunc-messages_dot_request__response__pb2.Request.SerializeToString,
-            drunc-messages_dot_request__response__pb2.Response.FromString,
+            '/dunedaq.drunc_messages.ProcessManager/logs',
+            drunc_messages_dot_request__response__pb2.Request.SerializeToString,
+            drunc_messages_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
