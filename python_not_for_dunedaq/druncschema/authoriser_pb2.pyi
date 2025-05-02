@@ -28,6 +28,7 @@ class _ActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._Enu
     READ: _ActionType.ValueType  # 1
     UPDATE: _ActionType.ValueType  # 2
     DELETE: _ActionType.ValueType  # 3
+    EXPERT: _ActionType.ValueType  # 4
 
 class ActionType(_ActionType, metaclass=_ActionTypeEnumTypeWrapper): ...
 
@@ -35,6 +36,7 @@ CREATE: ActionType.ValueType  # 0
 READ: ActionType.ValueType  # 1
 UPDATE: ActionType.ValueType  # 2
 DELETE: ActionType.ValueType  # 3
+EXPERT: ActionType.ValueType  # 4
 global___ActionType = ActionType
 
 class _SystemType:

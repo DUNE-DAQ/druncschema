@@ -10,6 +10,7 @@ import importlib
 import logging
 import os
 import subprocess
+from importlib.resources import files
 from pathlib import Path
 
 import click
@@ -188,25 +189,14 @@ def main(
             "See the druncschema wiki for further clarification."
         )
         log.exception(e)
-    if not any(path.endswith("/druncschema")
-               for path in os.getenv("DUNEDAQ_DB_PATH").split(":")):
-        e = Exception(
-            "druncschema not found in DUNEDAQ_DB_PATH, " \
-            "perhaps you forgot to dbt-build and dbt-workarea-env?"
-        )
-        log.exception(e)
+
     if do_not_compile and not clean:
         e = Exception(
             "Used option -d/--do-not-compile but not -c/--clean, require -c to use -d"
         )
         log.exception(e)
 
-    druncschema_root = Path(
-        next(
-            path for path in os.getenv("DUNEDAQ_DB_PATH").split(":")
-            if path.endswith("/druncschema")
-        )
-    )
+    druncschema_root = files("druncschema").parents[1]
     log.debug(f"Found druncschema directory at {druncschema_root}")
 
     output_dir = druncschema_root / "python_not_for_dunedaq/"
