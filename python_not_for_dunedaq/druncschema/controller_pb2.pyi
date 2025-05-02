@@ -42,6 +42,36 @@ FSM_NOT_EXECUTED_IN_ERROR: FSMResponseFlag.ValueType  # 4
 global___FSMResponseFlag = FSMResponseFlag
 
 @typing.final
+class AddressedCommand(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    COMMAND_NAME_FIELD_NUMBER: builtins.int
+    COMMAND_DATA_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: builtins.int
+    command_name: builtins.str
+    target: builtins.str
+    execute_along_path: builtins.bool
+    execute_on_all_subsequent_children_in_path: builtins.bool
+    @property
+    def command_data(self) -> google.protobuf.any_pb2.Any: ...
+    def __init__(
+        self,
+        *,
+        command_name: builtins.str = ...,
+        command_data: google.protobuf.any_pb2.Any | None = ...,
+        target: builtins.str = ...,
+        execute_along_path: builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data", "command_name", b"command_name", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_command_data", b"_command_data"]) -> typing.Literal["command_data"] | None: ...
+
+global___AddressedCommand = AddressedCommand
+
+@typing.final
 class FSMCommand(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -65,25 +95,21 @@ class FSMCommand(google.protobuf.message.Message):
 
     COMMAND_NAME_FIELD_NUMBER: builtins.int
     ARGUMENTS_FIELD_NUMBER: builtins.int
-    CHILDREN_NODES_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
     command_name: builtins.str
     data: builtins.str
     """unfortunately, this is just some plain old json data introduced by the fsm interfaces"""
     @property
     def arguments(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, google.protobuf.any_pb2.Any]: ...
-    @property
-    def children_nodes(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     def __init__(
         self,
         *,
         command_name: builtins.str = ...,
         arguments: collections.abc.Mapping[builtins.str, google.protobuf.any_pb2.Any] | None = ...,
-        children_nodes: collections.abc.Iterable[builtins.str] | None = ...,
         data: builtins.str | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_data", b"_data", "arguments", b"arguments", "children_nodes", b"children_nodes", "command_name", b"command_name", "data", b"data"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_data", b"_data", "arguments", b"arguments", "command_name", b"command_name", "data", b"data"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
 
 global___FSMCommand = FSMCommand
