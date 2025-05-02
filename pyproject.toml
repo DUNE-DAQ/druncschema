@@ -35,3 +35,21 @@ readme = {file = ["docs/README.md"]}
 
 [tool.setuptools.packages.find]
 where = ["python_not_for_dunedaq"]
+
+[tool.ruff]
+exclude = [
+    "python_not_for_dunedaq/druncschema.egg-info",
+    "python_not_for_dunedaq/*/*_pb2.py*",
+    "python_not_for_dunedaq/*/*_pb2_grpc.py",
+]
+
+[tool.ruff.lint]
+select = [
+    "D",   # pydocstyle
+    "E",   # pycodestyle
+    "F",   # Pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "RUF", # ruff-specific rules
+]
+pydocstyle.convention = "google"
