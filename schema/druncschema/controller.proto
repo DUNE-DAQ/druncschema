@@ -102,4 +102,5 @@ message RunInfo {
   bool disable_data_storage = 4;
   uint32 run_time_at_start = 5;
   uint32 run_time_since_start = 6;
+  string run_config = 7;
 }
