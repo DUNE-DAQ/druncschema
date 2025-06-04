@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x64runcschema/opmon/generic.proto\x12\x13\x64unedaq.drunc.opmon\"\x9c\x01\n\x07RunInfo\x12\x10\n\x08run_type\x18\x01 \x01(\t\x12\x14\n\x0ctrigger_rate\x18\x02 \x01(\x01\x12\x12\n\nrun_number\x18\x03 \x01(\x04\x12\x1c\n\x14\x64isable_data_storage\x18\x04 \x01(\x08\x12\x19\n\x11run_time_at_start\x18\x05 \x01(\r\x12\x1c\n\x14run_time_since_start\x18\x06 \x01(\rb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x64runcschema/opmon/generic.proto\x12\x13\x64unedaq.drunc.opmon\"\xce\x01\n\x07RunInfo\x12\x10\n\x08run_type\x18\x01 \x01(\t\x12\x14\n\x0ctrigger_rate\x18\x02 \x01(\x01\x12\x12\n\nrun_number\x18\x03 \x01(\x04\x12\x1c\n\x14\x64isable_data_storage\x18\x04 \x01(\x08\x12\x19\n\x11run_time_at_start\x18\x05 \x01(\r\x12\x1c\n\x14run_time_since_start\x18\x06 \x01(\r\x12\x17\n\x0frun_config_file\x18\x07 \x01(\t\x12\x17\n\x0frun_config_name\x18\x08 \x01(\tb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,5 +32,5 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'druncschema.opmon.generic_p
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_RUNINFO']._serialized_start=57
-  _globals['_RUNINFO']._serialized_end=213
+  _globals['_RUNINFO']._serialized_end=263
 # @@protoc_insertion_point(module_scope)
