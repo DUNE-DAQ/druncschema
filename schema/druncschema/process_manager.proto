@@ -44,9 +44,9 @@ message LogRequest {
   int32 how_far = 2;
 }
 
-message LogLine {
+message LogLines {
   ProcessUUID uuid = 1;
-  string line = 2;
+  repeated string lines = 2;
 }
 
 message ProcessUUID {
