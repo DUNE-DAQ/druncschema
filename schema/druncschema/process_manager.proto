@@ -12,7 +12,7 @@ service ProcessManager {
   rpc kill      (Request) returns (Response) {}
   rpc flush     (Request) returns (Response) {}
   rpc ps        (Request) returns (Response) {}
-  rpc logs      (Request) returns (stream Response) {}
+  rpc logs      (Request) returns (Response) {}
 }
 
 message ProcessRestriction {
