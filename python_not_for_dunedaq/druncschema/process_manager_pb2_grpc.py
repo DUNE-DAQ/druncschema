@@ -69,7 +69,7 @@ class ProcessManagerStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
-        self.logs = channel.unary_stream(
+        self.logs = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/logs',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
@@ -165,7 +165,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
-            'logs': grpc.unary_stream_rpc_method_handler(
+            'logs': grpc.unary_unary_rpc_method_handler(
                     servicer.logs,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
@@ -381,7 +381,7 @@ class ProcessManager(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(
+        return grpc.experimental.unary_unary(
             request,
             target,
             '/dunedaq.druncschema.ProcessManager/logs',
