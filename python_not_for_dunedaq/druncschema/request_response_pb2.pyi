@@ -36,6 +36,7 @@ class _ResponseFlagEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     DRUNC_EXCEPTION_THROWN: _ResponseFlag.ValueType  # 6
     UNHANDLED_EXCEPTION_THROWN: _ResponseFlag.ValueType  # 7
     NOT_EXECUTED_BAD_REQUEST_FORMAT: _ResponseFlag.ValueType  # 8
+    NOT_EXECUTED_NOT_READY: _ResponseFlag.ValueType  # 9
 
 class ResponseFlag(_ResponseFlag, metaclass=_ResponseFlagEnumTypeWrapper): ...
 
@@ -48,6 +49,7 @@ NOT_EXECUTED_NODE_IN_ERROR: ResponseFlag.ValueType  # 5
 DRUNC_EXCEPTION_THROWN: ResponseFlag.ValueType  # 6
 UNHANDLED_EXCEPTION_THROWN: ResponseFlag.ValueType  # 7
 NOT_EXECUTED_BAD_REQUEST_FORMAT: ResponseFlag.ValueType  # 8
+NOT_EXECUTED_NOT_READY: ResponseFlag.ValueType  # 9
 global___ResponseFlag = ResponseFlag
 
 @typing.final
