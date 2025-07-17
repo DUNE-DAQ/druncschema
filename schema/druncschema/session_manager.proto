@@ -3,8 +3,10 @@ syntax = "proto3";
 package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
+import "druncschema/description.proto";
 
 service SessionManager {
+  rpc new_describe      (Request) returns (NewDescription) {}
   rpc describe          (Request) returns (Response) {}
   rpc list_all_sessions (Request) returns (Response) {}
   rpc start_session     (Request) returns (Response) {}

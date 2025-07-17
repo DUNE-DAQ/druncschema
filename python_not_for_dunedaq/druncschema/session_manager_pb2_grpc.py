@@ -3,6 +3,7 @@
 import grpc
 import warnings
 
+from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
@@ -34,6 +35,11 @@ class SessionManagerStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.new_describe = channel.unary_unary(
+                '/dunedaq.druncschema.SessionManager/new_describe',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_description__pb2.NewDescription.FromString,
+                _registered_method=True)
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
@@ -68,6 +74,12 @@ class SessionManagerStub(object):
 
 class SessionManagerServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def new_describe(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def describe(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -108,6 +120,11 @@ class SessionManagerServicer(object):
 
 def add_SessionManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'new_describe': grpc.unary_unary_rpc_method_handler(
+                    servicer.new_describe,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_description__pb2.NewDescription.SerializeToString,
+            ),
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
@@ -148,6 +165,33 @@ def add_SessionManagerServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class SessionManager(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def new_describe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.SessionManager/new_describe',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_description__pb2.NewDescription.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def describe(request,
