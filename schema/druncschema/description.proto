@@ -23,7 +23,7 @@ message OldDescription {
   optional google.protobuf.Any broadcast = 7;
 }
 
-message NewDescription {
+message Description {
   string type = 1;
   string name = 2;
   string endpoint = 3;

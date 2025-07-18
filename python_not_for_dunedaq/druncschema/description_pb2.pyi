@@ -83,7 +83,7 @@ class OldDescription(google.protobuf.message.Message):
 global___OldDescription = OldDescription
 
 @typing.final
-class NewDescription(google.protobuf.message.Message):
+class Description(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     TYPE_FIELD_NUMBER: builtins.int
@@ -133,4 +133,4 @@ class NewDescription(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
 
-global___NewDescription = NewDescription
+global___Description = Description

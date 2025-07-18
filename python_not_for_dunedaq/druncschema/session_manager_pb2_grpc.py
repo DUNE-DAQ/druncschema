@@ -38,7 +38,7 @@ class SessionManagerStub(object):
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_description__pb2.NewDescription.FromString,
+                response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
         self.list_all_sessions = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/list_all_sessions',
@@ -112,7 +112,7 @@ def add_SessionManagerServicer_to_server(servicer, server):
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_description__pb2.NewDescription.SerializeToString,
+                    response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
             ),
             'list_all_sessions': grpc.unary_unary_rpc_method_handler(
                     servicer.list_all_sessions,
@@ -166,7 +166,7 @@ class SessionManager(object):
             target,
             '/dunedaq.druncschema.SessionManager/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_description__pb2.NewDescription.FromString,
+            druncschema_dot_description__pb2.Description.FromString,
             options,
             channel_credentials,
             insecure,
