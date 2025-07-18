@@ -16,7 +16,7 @@ import typing
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
 @typing.final
-class NewCommandDescription(google.protobuf.message.Message):
+class CommandDescription(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     NAME_FIELD_NUMBER: builtins.int
@@ -38,7 +38,49 @@ class NewCommandDescription(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["data_type", b"data_type", "help", b"help", "name", b"name", "return_type", b"return_type"]) -> None: ...
 
-global___NewCommandDescription = NewCommandDescription
+global___CommandDescription = CommandDescription
+
+@typing.final
+class OldDescription(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TYPE_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    ENDPOINT_FIELD_NUMBER: builtins.int
+    INFO_FIELD_NUMBER: builtins.int
+    SESSION_FIELD_NUMBER: builtins.int
+    COMMANDS_FIELD_NUMBER: builtins.int
+    BROADCAST_FIELD_NUMBER: builtins.int
+    type: builtins.str
+    name: builtins.str
+    endpoint: builtins.str
+    info: builtins.str
+    session: builtins.str
+    @property
+    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
+    @property
+    def broadcast(self) -> google.protobuf.any_pb2.Any: ...
+    def __init__(
+        self,
+        *,
+        type: builtins.str = ...,
+        name: builtins.str = ...,
+        endpoint: builtins.str = ...,
+        info: builtins.str | None = ...,
+        session: builtins.str | None = ...,
+        commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
+        broadcast: google.protobuf.any_pb2.Any | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "info", b"info", "name", b"name", "session", b"session", "type", b"type"]) -> None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_broadcast", b"_broadcast"]) -> typing.Literal["broadcast"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_info", b"_info"]) -> typing.Literal["info"] | None: ...
+    @typing.overload
+    def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
+
+global___OldDescription = OldDescription
 
 @typing.final
 class NewDescription(google.protobuf.message.Message):
@@ -61,7 +103,7 @@ class NewDescription(google.protobuf.message.Message):
     session: builtins.str
     flag: druncschema.request_response_pb2.ResponseFlag.ValueType
     @property
-    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___NewCommandDescription]: ...
+    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
     @property
     def broadcast(self) -> google.protobuf.any_pb2.Any: ...
     @property
@@ -76,7 +118,7 @@ class NewDescription(google.protobuf.message.Message):
         endpoint: builtins.str = ...,
         info: builtins.str | None = ...,
         session: builtins.str | None = ...,
-        commands: collections.abc.Iterable[global___NewCommandDescription] | None = ...,
+        commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
         broadcast: google.protobuf.any_pb2.Any | None = ...,
         children: collections.abc.Iterable[druncschema.request_response_pb2.Response] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,

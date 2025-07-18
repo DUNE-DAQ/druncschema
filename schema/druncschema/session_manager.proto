@@ -6,8 +6,7 @@ import "druncschema/request_response.proto";
 import "druncschema/description.proto";
 
 service SessionManager {
-  rpc new_describe      (Request) returns (NewDescription) {}
-  rpc describe          (Request) returns (Response) {}
+  rpc describe          (Request) returns (NewDescription) {}
   rpc list_all_sessions (Request) returns (Response) {}
   rpc start_session     (Request) returns (Response) {}
   rpc stop_session      (Request) returns (Response) {}
