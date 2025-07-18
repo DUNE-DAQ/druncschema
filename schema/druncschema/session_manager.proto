@@ -4,10 +4,11 @@ package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
+import "druncschema/token.proto";
 
 service SessionManager {
   rpc describe          (Request) returns (Description) {}
-  rpc list_all_sessions (Request) returns (Response) {}
+  rpc list_all_sessions (Request) returns (AllActiveSessions) {}
   rpc start_session     (Request) returns (Response) {}
   rpc stop_session      (Request) returns (Response) {}
   rpc list_all_configs  (Request) returns (Response) {}
@@ -30,5 +31,8 @@ message ActiveSession {
 }
 
 message AllActiveSessions {
-  repeated ActiveSession active_sessions = 1;
+  string name = 1;
+  Token token = 2;
+  repeated ActiveSession active_sessions = 3;
+  ResponseFlag flag = 4;
 }

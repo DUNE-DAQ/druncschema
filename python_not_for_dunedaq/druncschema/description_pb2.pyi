@@ -88,14 +88,14 @@ class Description(google.protobuf.message.Message):
 
     TYPE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
+    TOKEN_FIELD_NUMBER: builtins.int
     ENDPOINT_FIELD_NUMBER: builtins.int
     INFO_FIELD_NUMBER: builtins.int
     SESSION_FIELD_NUMBER: builtins.int
     COMMANDS_FIELD_NUMBER: builtins.int
     BROADCAST_FIELD_NUMBER: builtins.int
-    CHILDREN_FIELD_NUMBER: builtins.int
     FLAG_FIELD_NUMBER: builtins.int
-    TOKEN_FIELD_NUMBER: builtins.int
+    CHILDREN_FIELD_NUMBER: builtins.int
     type: builtins.str
     name: builtins.str
     endpoint: builtins.str
@@ -103,26 +103,26 @@ class Description(google.protobuf.message.Message):
     session: builtins.str
     flag: druncschema.request_response_pb2.ResponseFlag.ValueType
     @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
     def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
     @property
     def broadcast(self) -> google.protobuf.any_pb2.Any: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[druncschema.request_response_pb2.Response]: ...
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Description]: ...
     def __init__(
         self,
         *,
         type: builtins.str = ...,
         name: builtins.str = ...,
+        token: druncschema.token_pb2.Token | None = ...,
         endpoint: builtins.str = ...,
         info: builtins.str | None = ...,
         session: builtins.str | None = ...,
         commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
         broadcast: google.protobuf.any_pb2.Any | None = ...,
-        children: collections.abc.Iterable[druncschema.request_response_pb2.Response] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
-        token: druncschema.token_pb2.Token | None = ...,
+        children: collections.abc.Iterable[global___Description] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "children", b"children", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...

@@ -5,6 +5,8 @@ isort:skip_file
 
 import builtins
 import collections.abc
+import druncschema.request_response_pb2
+import druncschema.token_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
@@ -73,14 +75,25 @@ global___ActiveSession = ActiveSession
 class AllActiveSessions(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    NAME_FIELD_NUMBER: builtins.int
+    TOKEN_FIELD_NUMBER: builtins.int
     ACTIVE_SESSIONS_FIELD_NUMBER: builtins.int
+    FLAG_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
     @property
     def active_sessions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ActiveSession]: ...
     def __init__(
         self,
         *,
+        name: builtins.str = ...,
+        token: druncschema.token_pb2.Token | None = ...,
         active_sessions: collections.abc.Iterable[global___ActiveSession] | None = ...,
+        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["active_sessions", b"active_sessions"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["active_sessions", b"active_sessions", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
 global___AllActiveSessions = AllActiveSessions

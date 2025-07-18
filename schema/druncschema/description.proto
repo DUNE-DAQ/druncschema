@@ -26,12 +26,12 @@ message OldDescription {
 message Description {
   string type = 1;
   string name = 2;
-  string endpoint = 3;
-  optional string info = 4;
-  optional string session = 5;
-  repeated CommandDescription commands = 6;
-  optional google.protobuf.Any broadcast = 7;
-  repeated Response children = 8;
+  Token token = 3;
+  string endpoint = 4;
+  optional string info = 5;
+  optional string session = 6;
+  repeated CommandDescription commands = 7;
+  optional google.protobuf.Any broadcast = 8;
   ResponseFlag flag = 9;
-  Token token = 10;
+  repeated Description children = 10;
 }

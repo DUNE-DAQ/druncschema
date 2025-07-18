@@ -5,6 +5,7 @@ import warnings
 
 from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
+from druncschema import session_manager_pb2 as druncschema_dot_session__manager__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -43,7 +44,7 @@ class SessionManagerStub(object):
         self.list_all_sessions = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/list_all_sessions',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_session__manager__pb2.AllActiveSessions.FromString,
                 _registered_method=True)
         self.start_session = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/start_session',
@@ -117,7 +118,7 @@ def add_SessionManagerServicer_to_server(servicer, server):
             'list_all_sessions': grpc.unary_unary_rpc_method_handler(
                     servicer.list_all_sessions,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_session__manager__pb2.AllActiveSessions.SerializeToString,
             ),
             'start_session': grpc.unary_unary_rpc_method_handler(
                     servicer.start_session,
@@ -193,7 +194,7 @@ class SessionManager(object):
             target,
             '/dunedaq.druncschema.SessionManager/list_all_sessions',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_session__manager__pb2.AllActiveSessions.FromString,
             options,
             channel_credentials,
             insecure,
