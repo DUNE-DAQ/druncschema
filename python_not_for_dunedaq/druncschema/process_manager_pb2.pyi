@@ -131,24 +131,25 @@ class LogRequest(google.protobuf.message.Message):
 global___LogRequest = LogRequest
 
 @typing.final
-class LogLine(google.protobuf.message.Message):
+class LogLines(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
     UUID_FIELD_NUMBER: builtins.int
-    LINE_FIELD_NUMBER: builtins.int
-    line: builtins.str
+    LINES_FIELD_NUMBER: builtins.int
     @property
     def uuid(self) -> global___ProcessUUID: ...
+    @property
+    def lines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     def __init__(
         self,
         *,
         uuid: global___ProcessUUID | None = ...,
-        line: builtins.str = ...,
+        lines: collections.abc.Iterable[builtins.str] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["uuid", b"uuid"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["line", b"line", "uuid", b"uuid"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["lines", b"lines", "uuid", b"uuid"]) -> None: ...
 
-global___LogLine = LogLine
+global___LogLines = LogLines
 
 @typing.final
 class ProcessUUID(google.protobuf.message.Message):

@@ -36,6 +36,7 @@ class _ResponseFlagEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._E
     DRUNC_EXCEPTION_THROWN: _ResponseFlag.ValueType  # 6
     UNHANDLED_EXCEPTION_THROWN: _ResponseFlag.ValueType  # 7
     NOT_EXECUTED_BAD_REQUEST_FORMAT: _ResponseFlag.ValueType  # 8
+    NOT_EXECUTED_NOT_READY: _ResponseFlag.ValueType  # 9
 
 class ResponseFlag(_ResponseFlag, metaclass=_ResponseFlagEnumTypeWrapper): ...
 
@@ -48,6 +49,7 @@ NOT_EXECUTED_NODE_IN_ERROR: ResponseFlag.ValueType  # 5
 DRUNC_EXCEPTION_THROWN: ResponseFlag.ValueType  # 6
 UNHANDLED_EXCEPTION_THROWN: ResponseFlag.ValueType  # 7
 NOT_EXECUTED_BAD_REQUEST_FORMAT: ResponseFlag.ValueType  # 8
+NOT_EXECUTED_NOT_READY: ResponseFlag.ValueType  # 9
 global___ResponseFlag = ResponseFlag
 
 @typing.final
@@ -112,72 +114,3 @@ class Response(google.protobuf.message.Message):
     def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
 
 global___Response = Response
-
-@typing.final
-class CommandDescription(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    NAME_FIELD_NUMBER: builtins.int
-    DATA_TYPE_FIELD_NUMBER: builtins.int
-    HELP_FIELD_NUMBER: builtins.int
-    RETURN_TYPE_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    help: builtins.str
-    return_type: builtins.str
-    @property
-    def data_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
-    def __init__(
-        self,
-        *,
-        name: builtins.str = ...,
-        data_type: collections.abc.Iterable[builtins.str] | None = ...,
-        help: builtins.str = ...,
-        return_type: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data_type", b"data_type", "help", b"help", "name", b"name", "return_type", b"return_type"]) -> None: ...
-
-global___CommandDescription = CommandDescription
-
-@typing.final
-class Description(google.protobuf.message.Message):
-    """Contains static system descriptors"""
-
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TYPE_FIELD_NUMBER: builtins.int
-    NAME_FIELD_NUMBER: builtins.int
-    ENDPOINT_FIELD_NUMBER: builtins.int
-    INFO_FIELD_NUMBER: builtins.int
-    SESSION_FIELD_NUMBER: builtins.int
-    COMMANDS_FIELD_NUMBER: builtins.int
-    BROADCAST_FIELD_NUMBER: builtins.int
-    type: builtins.str
-    name: builtins.str
-    endpoint: builtins.str
-    info: builtins.str
-    session: builtins.str
-    @property
-    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
-    @property
-    def broadcast(self) -> google.protobuf.any_pb2.Any: ...
-    def __init__(
-        self,
-        *,
-        type: builtins.str = ...,
-        name: builtins.str = ...,
-        endpoint: builtins.str = ...,
-        info: builtins.str | None = ...,
-        session: builtins.str | None = ...,
-        commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
-        broadcast: google.protobuf.any_pb2.Any | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "info", b"info", "name", b"name", "session", b"session", "type", b"type"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_broadcast", b"_broadcast"]) -> typing.Literal["broadcast"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_info", b"_info"]) -> typing.Literal["info"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
-
-global___Description = Description

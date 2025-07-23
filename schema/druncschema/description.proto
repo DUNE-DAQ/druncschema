@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package dunedaq.druncschema;
+
+import "druncschema/request_response.proto";
+import "druncschema/token.proto";
+import "google/protobuf/any.proto";
+
+message CommandDescription {
+  string name = 1;
+  repeated string data_type = 2;
+  string help = 3;
+  string return_type = 4;
+}
+
+message OldDescription {
+  string type = 1;
+  string name = 2;
+  string endpoint = 3;
+  optional string info = 4;
+  optional string session = 5;
+  repeated CommandDescription commands = 6;
+  optional google.protobuf.Any broadcast = 7;
+}
+
+message Description {
+  string type = 1;
+  string name = 2;
+  Token token = 3;
+  string endpoint = 4;
+  optional string info = 5;
+  optional string session = 6;
+  repeated CommandDescription commands = 7;
+  optional google.protobuf.Any broadcast = 8;
+  ResponseFlag flag = 9;
+  repeated Description children = 10;
+}

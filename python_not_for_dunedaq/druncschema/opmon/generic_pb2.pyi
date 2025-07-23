@@ -18,10 +18,18 @@ class RunInfo(google.protobuf.message.Message):
     TRIGGER_RATE_FIELD_NUMBER: builtins.int
     RUN_NUMBER_FIELD_NUMBER: builtins.int
     DISABLE_DATA_STORAGE_FIELD_NUMBER: builtins.int
+    RUN_TIME_AT_START_FIELD_NUMBER: builtins.int
+    RUN_TIME_SINCE_START_FIELD_NUMBER: builtins.int
+    RUN_CONFIG_FILE_FIELD_NUMBER: builtins.int
+    RUN_CONFIG_NAME_FIELD_NUMBER: builtins.int
     run_type: builtins.str
     trigger_rate: builtins.float
     run_number: builtins.int
     disable_data_storage: builtins.bool
+    run_time_at_start: builtins.int
+    run_time_since_start: builtins.int
+    run_config_file: builtins.str
+    run_config_name: builtins.str
     def __init__(
         self,
         *,
@@ -29,7 +37,11 @@ class RunInfo(google.protobuf.message.Message):
         trigger_rate: builtins.float = ...,
         run_number: builtins.int = ...,
         disable_data_storage: builtins.bool = ...,
+        run_time_at_start: builtins.int = ...,
+        run_time_since_start: builtins.int = ...,
+        run_config_file: builtins.str = ...,
+        run_config_name: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["disable_data_storage", b"disable_data_storage", "run_number", b"run_number", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["disable_data_storage", b"disable_data_storage", "run_config_file", b"run_config_file", "run_config_name", b"run_config_name", "run_number", b"run_number", "run_time_at_start", b"run_time_at_start", "run_time_since_start", b"run_time_since_start", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]) -> None: ...
 
 global___RunInfo = RunInfo
