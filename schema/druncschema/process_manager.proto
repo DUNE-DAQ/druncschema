@@ -10,7 +10,7 @@ service ProcessManager {
   rpc describe  (Request) returns (Description) {}
   rpc boot      (Request) returns (Response) {}
   rpc terminate (Request) returns (ProcessInstanceList) {}
-  rpc restart   (Request) returns (Response) {}
+  rpc restart   (Request) returns (ProcessInstanceList) {}
   rpc kill      (Request) returns (ProcessInstanceList) {}
   rpc flush     (Request) returns (Response) {}
   rpc ps        (Request) returns (Response) {}
