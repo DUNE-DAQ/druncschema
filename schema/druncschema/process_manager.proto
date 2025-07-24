@@ -3,9 +3,10 @@ syntax = "proto3";
 package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
+import "druncschema/description.proto";
 
 service ProcessManager {
-  rpc describe  (Request) returns (Response) {}
+  rpc describe  (Request) returns (Description) {}
   rpc boot      (Request) returns (Response) {}
   rpc terminate (Request) returns (Response) {}
   rpc restart   (Request) returns (Response) {}
