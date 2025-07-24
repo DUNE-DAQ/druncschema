@@ -4,13 +4,14 @@ package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
+import "druncschema/token.proto";
 
 service ProcessManager {
   rpc describe  (Request) returns (Description) {}
   rpc boot      (Request) returns (Response) {}
-  rpc terminate (Request) returns (Response) {}
+  rpc terminate (Request) returns (ProcessInstanceList) {}
   rpc restart   (Request) returns (Response) {}
-  rpc kill      (Request) returns (Response) {}
+  rpc kill      (Request) returns (ProcessInstanceList) {}
   rpc flush     (Request) returns (Response) {}
   rpc ps        (Request) returns (Response) {}
   rpc logs      (Request) returns (Response) {}
@@ -98,11 +99,14 @@ message ProcessInstance {
   ProcessUUID uuid = 5;
 }
 
-  message BootRequest {
-    ProcessDescription process_description = 1;
-    ProcessRestriction process_restriction = 2;
-  }
+message ProcessInstanceList{
+  string name = 1;
+  Token token = 2;
+  repeated ProcessInstance values = 3;
+  ResponseFlag flag = 4;
+}
 
-  message ProcessInstanceList{
-    repeated ProcessInstance values = 1;
-  }
+message BootRequest {
+  ProcessDescription process_description = 1;
+  ProcessRestriction process_restriction = 2;
+}

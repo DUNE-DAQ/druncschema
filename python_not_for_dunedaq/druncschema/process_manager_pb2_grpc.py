@@ -4,6 +4,7 @@ import grpc
 import warnings
 
 from druncschema import description_pb2 as druncschema_dot_description__pb2
+from druncschema import process_manager_pb2 as druncschema_dot_process__manager__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
@@ -48,7 +49,7 @@ class ProcessManagerStub(object):
         self.terminate = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/terminate',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.restart = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/restart',
@@ -58,7 +59,7 @@ class ProcessManagerStub(object):
         self.kill = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/kill',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.flush = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/flush',
@@ -144,7 +145,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             'terminate': grpc.unary_unary_rpc_method_handler(
                     servicer.terminate,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
             'restart': grpc.unary_unary_rpc_method_handler(
                     servicer.restart,
@@ -154,7 +155,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             'kill': grpc.unary_unary_rpc_method_handler(
                     servicer.kill,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
             'flush': grpc.unary_unary_rpc_method_handler(
                     servicer.flush,
@@ -252,7 +253,7 @@ class ProcessManager(object):
             target,
             '/dunedaq.druncschema.ProcessManager/terminate',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
             insecure,
@@ -306,7 +307,7 @@ class ProcessManager(object):
             target,
             '/dunedaq.druncschema.ProcessManager/kill',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
             insecure,

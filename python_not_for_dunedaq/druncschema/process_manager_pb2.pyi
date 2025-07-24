@@ -5,6 +5,8 @@ isort:skip_file
 
 import builtins
 import collections.abc
+import druncschema.request_response_pb2
+import druncschema.token_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.internal.enum_type_wrapper
@@ -352,6 +354,33 @@ class ProcessInstance(google.protobuf.message.Message):
 global___ProcessInstance = ProcessInstance
 
 @typing.final
+class ProcessInstanceList(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: builtins.int
+    TOKEN_FIELD_NUMBER: builtins.int
+    VALUES_FIELD_NUMBER: builtins.int
+    FLAG_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessInstance]: ...
+    def __init__(
+        self,
+        *,
+        name: builtins.str = ...,
+        token: druncschema.token_pb2.Token | None = ...,
+        values: collections.abc.Iterable[global___ProcessInstance] | None = ...,
+        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["flag", b"flag", "name", b"name", "token", b"token", "values", b"values"]) -> None: ...
+
+global___ProcessInstanceList = ProcessInstanceList
+
+@typing.final
 class BootRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -371,19 +400,3 @@ class BootRequest(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction"]) -> None: ...
 
 global___BootRequest = BootRequest
-
-@typing.final
-class ProcessInstanceList(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    VALUES_FIELD_NUMBER: builtins.int
-    @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessInstance]: ...
-    def __init__(
-        self,
-        *,
-        values: collections.abc.Iterable[global___ProcessInstance] | None = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
-
-global___ProcessInstanceList = ProcessInstanceList
