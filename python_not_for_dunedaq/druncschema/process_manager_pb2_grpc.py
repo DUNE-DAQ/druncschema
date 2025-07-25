@@ -64,12 +64,12 @@ class ProcessManagerStub(object):
         self.flush = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/flush',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.ps = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/ps',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.logs = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/logs',
@@ -160,12 +160,12 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             'flush': grpc.unary_unary_rpc_method_handler(
                     servicer.flush,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
             'ps': grpc.unary_unary_rpc_method_handler(
                     servicer.ps,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
             'logs': grpc.unary_unary_rpc_method_handler(
                     servicer.logs,
@@ -334,7 +334,7 @@ class ProcessManager(object):
             target,
             '/dunedaq.druncschema.ProcessManager/flush',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
             insecure,
@@ -361,7 +361,7 @@ class ProcessManager(object):
             target,
             '/dunedaq.druncschema.ProcessManager/ps',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
             insecure,

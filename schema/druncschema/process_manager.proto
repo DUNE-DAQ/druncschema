@@ -12,8 +12,8 @@ service ProcessManager {
   rpc terminate (Request) returns (ProcessInstanceList) {}
   rpc restart   (Request) returns (ProcessInstanceList) {}
   rpc kill      (Request) returns (ProcessInstanceList) {}
-  rpc flush     (Request) returns (Response) {}
-  rpc ps        (Request) returns (Response) {}
+  rpc flush     (Request) returns (ProcessInstanceList) {}
+  rpc ps        (Request) returns (ProcessInstanceList) {}
   rpc logs      (Request) returns (Response) {}
 }
 
