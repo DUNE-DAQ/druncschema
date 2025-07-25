@@ -44,7 +44,7 @@ class ProcessManagerStub(object):
         self.boot = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/boot',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.terminate = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/terminate',
@@ -140,7 +140,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             'boot': grpc.unary_unary_rpc_method_handler(
                     servicer.boot,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
             'terminate': grpc.unary_unary_rpc_method_handler(
                     servicer.terminate,
@@ -226,7 +226,7 @@ class ProcessManager(object):
             target,
             '/dunedaq.druncschema.ProcessManager/boot',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
             insecure,
