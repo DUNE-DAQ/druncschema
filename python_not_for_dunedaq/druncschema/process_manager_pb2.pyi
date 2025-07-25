@@ -136,8 +136,15 @@ global___LogRequest = LogRequest
 class LogLines(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    NAME_FIELD_NUMBER: builtins.int
+    TOKEN_FIELD_NUMBER: builtins.int
     UUID_FIELD_NUMBER: builtins.int
     LINES_FIELD_NUMBER: builtins.int
+    FLAG_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
     @property
     def uuid(self) -> global___ProcessUUID: ...
     @property
@@ -145,11 +152,14 @@ class LogLines(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        name: builtins.str = ...,
+        token: druncschema.token_pb2.Token | None = ...,
         uuid: global___ProcessUUID | None = ...,
         lines: collections.abc.Iterable[builtins.str] | None = ...,
+        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["uuid", b"uuid"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["lines", b"lines", "uuid", b"uuid"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token", "uuid", b"uuid"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["flag", b"flag", "lines", b"lines", "name", b"name", "token", b"token", "uuid", b"uuid"]) -> None: ...
 
 global___LogLines = LogLines
 

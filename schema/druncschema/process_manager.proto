@@ -14,7 +14,7 @@ service ProcessManager {
   rpc kill      (Request) returns (ProcessInstanceList) {}
   rpc flush     (Request) returns (ProcessInstanceList) {}
   rpc ps        (Request) returns (ProcessInstanceList) {}
-  rpc logs      (Request) returns (Response) {}
+  rpc logs      (Request) returns (LogLines) {}
 }
 
 message ProcessRestriction {
@@ -32,7 +32,7 @@ message GenericNotificationMessage {
 }
 
 message ExceptionNotification {
-  message StackLine{
+  message StackLine {
     string line_text = 1;
     string line_number = 2;
     string file = 3;
@@ -47,8 +47,11 @@ message LogRequest {
 }
 
 message LogLines {
-  ProcessUUID uuid = 1;
-  repeated string lines = 2;
+  string name = 1;
+  Token token = 2;
+  ProcessUUID uuid = 3;
+  repeated string lines = 4;
+  ResponseFlag flag = 5;
 }
 
 message ProcessUUID {
@@ -99,7 +102,7 @@ message ProcessInstance {
   ProcessUUID uuid = 5;
 }
 
-message ProcessInstanceList{
+message ProcessInstanceList {
   string name = 1;
   Token token = 2;
   repeated ProcessInstance values = 3;

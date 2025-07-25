@@ -74,7 +74,7 @@ class ProcessManagerStub(object):
         self.logs = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/logs',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_process__manager__pb2.LogLines.FromString,
                 _registered_method=True)
 
 
@@ -170,7 +170,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             'logs': grpc.unary_unary_rpc_method_handler(
                     servicer.logs,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_process__manager__pb2.LogLines.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -388,7 +388,7 @@ class ProcessManager(object):
             target,
             '/dunedaq.druncschema.ProcessManager/logs',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_process__manager__pb2.LogLines.FromString,
             options,
             channel_credentials,
             insecure,
