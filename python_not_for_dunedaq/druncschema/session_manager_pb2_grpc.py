@@ -4,8 +4,8 @@ import grpc
 import warnings
 
 from druncschema import description_pb2 as druncschema_dot_description__pb2
-from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 from druncschema import session_manager_pb2 as druncschema_dot_session__manager__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
 GRPC_VERSION = grpc.__version__
@@ -38,17 +38,17 @@ class SessionManagerStub(object):
         """
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/describe',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
         self.list_all_sessions = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/list_all_sessions',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=druncschema_dot_session__manager__pb2.AllActiveSessions.FromString,
                 _registered_method=True)
         self.list_all_configs = channel.unary_unary(
                 '/dunedaq.druncschema.SessionManager/list_all_configs',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=druncschema_dot_session__manager__pb2.AllConfigKeys.FromString,
                 _registered_method=True)
 
@@ -79,17 +79,17 @@ def add_SessionManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
             ),
             'list_all_sessions': grpc.unary_unary_rpc_method_handler(
                     servicer.list_all_sessions,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=druncschema_dot_session__manager__pb2.AllActiveSessions.SerializeToString,
             ),
             'list_all_configs': grpc.unary_unary_rpc_method_handler(
                     servicer.list_all_configs,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=druncschema_dot_session__manager__pb2.AllConfigKeys.SerializeToString,
             ),
     }
@@ -118,7 +118,7 @@ class SessionManager(object):
             request,
             target,
             '/dunedaq.druncschema.SessionManager/describe',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             druncschema_dot_description__pb2.Description.FromString,
             options,
             channel_credentials,
@@ -145,7 +145,7 @@ class SessionManager(object):
             request,
             target,
             '/dunedaq.druncschema.SessionManager/list_all_sessions',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             druncschema_dot_session__manager__pb2.AllActiveSessions.FromString,
             options,
             channel_credentials,
@@ -172,7 +172,7 @@ class SessionManager(object):
             request,
             target,
             '/dunedaq.druncschema.SessionManager/list_all_configs',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             druncschema_dot_session__manager__pb2.AllConfigKeys.FromString,
             options,
             channel_credentials,
