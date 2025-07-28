@@ -403,8 +403,11 @@ global___ProcessInstanceList = ProcessInstanceList
 class BootRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
     PROCESS_DESCRIPTION_FIELD_NUMBER: builtins.int
     PROCESS_RESTRICTION_FIELD_NUMBER: builtins.int
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
     @property
     def process_description(self) -> global___ProcessDescription: ...
     @property
@@ -412,10 +415,11 @@ class BootRequest(google.protobuf.message.Message):
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
         process_description: global___ProcessDescription | None = ...,
         process_restriction: global___ProcessRestriction | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]) -> None: ...
 
 global___BootRequest = BootRequest

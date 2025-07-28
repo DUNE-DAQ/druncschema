@@ -8,7 +8,7 @@ import "druncschema/token.proto";
 
 service ProcessManager {
   rpc describe  (Request) returns (Description) {}
-  rpc boot      (Request) returns (ProcessInstanceList) {}
+  rpc boot      (BootRequest) returns (ProcessInstanceList) {}
   rpc terminate (Request) returns (ProcessInstanceList) {}
   rpc restart   (ProcessQuery) returns (ProcessInstanceList) {}
   rpc kill      (ProcessQuery) returns (ProcessInstanceList) {}
@@ -112,6 +112,7 @@ message ProcessInstanceList {
 }
 
 message BootRequest {
-  ProcessDescription process_description = 1;
-  ProcessRestriction process_restriction = 2;
+  Token token = 1;
+  ProcessDescription process_description = 2;
+  ProcessRestriction process_restriction = 3;
 }
