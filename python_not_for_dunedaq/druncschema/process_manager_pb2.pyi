@@ -116,19 +116,23 @@ global___ExceptionNotification = ExceptionNotification
 class LogRequest(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
     QUERY_FIELD_NUMBER: builtins.int
     HOW_FAR_FIELD_NUMBER: builtins.int
     how_far: builtins.int
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
     @property
     def query(self) -> global___ProcessQuery: ...
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
         query: global___ProcessQuery | None = ...,
         how_far: builtins.int = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["query", b"query"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["how_far", b"how_far", "query", b"query"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["query", b"query", "token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["how_far", b"how_far", "query", b"query", "token", b"token"]) -> None: ...
 
 global___LogRequest = LogRequest
 

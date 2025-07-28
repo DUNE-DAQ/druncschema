@@ -58,7 +58,7 @@ class ProcessManagerStub(object):
                 _registered_method=True)
         self.kill = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/kill',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.flush = channel.unary_unary(
@@ -73,7 +73,7 @@ class ProcessManagerStub(object):
                 _registered_method=True)
         self.logs = channel.unary_unary(
                 '/dunedaq.druncschema.ProcessManager/logs',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.LogLines.FromString,
                 _registered_method=True)
 
@@ -154,7 +154,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             ),
             'kill': grpc.unary_unary_rpc_method_handler(
                     servicer.kill,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=druncschema_dot_process__manager__pb2.ProcessQuery.FromString,
                     response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
             'flush': grpc.unary_unary_rpc_method_handler(
@@ -169,7 +169,7 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             ),
             'logs': grpc.unary_unary_rpc_method_handler(
                     servicer.logs,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=druncschema_dot_process__manager__pb2.LogRequest.FromString,
                     response_serializer=druncschema_dot_process__manager__pb2.LogLines.SerializeToString,
             ),
     }
@@ -306,7 +306,7 @@ class ProcessManager(object):
             request,
             target,
             '/dunedaq.druncschema.ProcessManager/kill',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
@@ -387,7 +387,7 @@ class ProcessManager(object):
             request,
             target,
             '/dunedaq.druncschema.ProcessManager/logs',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
             druncschema_dot_process__manager__pb2.LogLines.FromString,
             options,
             channel_credentials,

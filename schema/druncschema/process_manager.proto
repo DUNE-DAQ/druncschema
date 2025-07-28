@@ -11,10 +11,10 @@ service ProcessManager {
   rpc boot      (Request) returns (ProcessInstanceList) {}
   rpc terminate (Request) returns (ProcessInstanceList) {}
   rpc restart   (ProcessQuery) returns (ProcessInstanceList) {}
-  rpc kill      (Request) returns (ProcessInstanceList) {}
+  rpc kill      (ProcessQuery) returns (ProcessInstanceList) {}
   rpc flush     (ProcessQuery) returns (ProcessInstanceList) {}
   rpc ps        (ProcessQuery) returns (ProcessInstanceList) {}
-  rpc logs      (Request) returns (LogLines) {}
+  rpc logs      (LogRequest) returns (LogLines) {}
 }
 
 message ProcessRestriction {
@@ -42,8 +42,9 @@ message ExceptionNotification {
 }
 
 message LogRequest {
-  ProcessQuery query = 1;
-  int32 how_far = 2;
+  Token token = 1;
+  ProcessQuery query = 2;
+  int32 how_far = 3;
 }
 
 message LogLines {
