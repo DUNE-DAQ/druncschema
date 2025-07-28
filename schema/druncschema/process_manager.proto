@@ -10,10 +10,10 @@ service ProcessManager {
   rpc describe  (Request) returns (Description) {}
   rpc boot      (Request) returns (ProcessInstanceList) {}
   rpc terminate (Request) returns (ProcessInstanceList) {}
-  rpc restart   (Request) returns (ProcessInstanceList) {}
+  rpc restart   (ProcessQuery) returns (ProcessInstanceList) {}
   rpc kill      (Request) returns (ProcessInstanceList) {}
-  rpc flush     (Request) returns (ProcessInstanceList) {}
-  rpc ps        (Request) returns (ProcessInstanceList) {}
+  rpc flush     (ProcessQuery) returns (ProcessInstanceList) {}
+  rpc ps        (ProcessQuery) returns (ProcessInstanceList) {}
   rpc logs      (Request) returns (LogLines) {}
 }
 
@@ -68,10 +68,11 @@ message ProcessMetadata {
 }
 
 message ProcessQuery {
-  repeated ProcessUUID uuids = 1;
-  repeated string names = 2;
-  string user = 3;
-  string session = 4;
+  Token token = 1;
+  repeated ProcessUUID uuids = 2;
+  repeated string names = 3;
+  string user = 4;
+  string session = 5;
 }
 
 message ProcessDescription {

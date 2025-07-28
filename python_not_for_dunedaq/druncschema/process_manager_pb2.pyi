@@ -218,6 +218,7 @@ global___ProcessMetadata = ProcessMetadata
 class ProcessQuery(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
     UUIDS_FIELD_NUMBER: builtins.int
     NAMES_FIELD_NUMBER: builtins.int
     USER_FIELD_NUMBER: builtins.int
@@ -225,18 +226,22 @@ class ProcessQuery(google.protobuf.message.Message):
     user: builtins.str
     session: builtins.str
     @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
     def uuids(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessUUID]: ...
     @property
     def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
         uuids: collections.abc.Iterable[global___ProcessUUID] | None = ...,
         names: collections.abc.Iterable[builtins.str] | None = ...,
         user: builtins.str = ...,
         session: builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["names", b"names", "session", b"session", "user", b"user", "uuids", b"uuids"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]) -> None: ...
 
 global___ProcessQuery = ProcessQuery
 
