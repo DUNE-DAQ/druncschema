@@ -5,12 +5,11 @@ package dunedaq.druncschema;
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
 import "druncschema/token.proto";
-import "google/protobuf/empty.proto";
 
 service SessionManager {
-  rpc describe          (google.protobuf.Empty) returns (Description) {}
-  rpc list_all_sessions (google.protobuf.Empty) returns (AllActiveSessions) {}
-  rpc list_all_configs  (google.protobuf.Empty) returns (AllConfigKeys) {}
+  rpc describe          (Request) returns (Description) {}
+  rpc list_all_sessions (Request) returns (AllActiveSessions) {}
+  rpc list_all_configs  (Request) returns (AllConfigKeys) {}
 }
 
 message ConfigKey {
