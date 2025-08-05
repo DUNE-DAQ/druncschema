@@ -3,16 +3,18 @@ syntax = "proto3";
 package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
+import "druncschema/description.proto";
+import "druncschema/token.proto";
 
 service ProcessManager {
-  rpc describe  (Request) returns (Response) {}
-  rpc boot      (Request) returns (Response) {}
-  rpc terminate (Request) returns (Response) {}
-  rpc restart   (Request) returns (Response) {}
-  rpc kill      (Request) returns (Response) {}
-  rpc flush     (Request) returns (Response) {}
-  rpc ps        (Request) returns (Response) {}
-  rpc logs      (Request) returns (Response) {}
+  rpc describe  (Request) returns (Description) {}
+  rpc boot      (BootRequest) returns (ProcessInstanceList) {}
+  rpc terminate (Request) returns (ProcessInstanceList) {}
+  rpc restart   (ProcessQuery) returns (ProcessInstanceList) {}
+  rpc kill      (ProcessQuery) returns (ProcessInstanceList) {}
+  rpc flush     (ProcessQuery) returns (ProcessInstanceList) {}
+  rpc ps        (ProcessQuery) returns (ProcessInstanceList) {}
+  rpc logs      (LogRequest) returns (LogLines) {}
 }
 
 message ProcessRestriction {
@@ -30,7 +32,7 @@ message GenericNotificationMessage {
 }
 
 message ExceptionNotification {
-  message StackLine{
+  message StackLine {
     string line_text = 1;
     string line_number = 2;
     string file = 3;
@@ -40,13 +42,17 @@ message ExceptionNotification {
 }
 
 message LogRequest {
-  ProcessQuery query = 1;
-  int32 how_far = 2;
+  Token token = 1;
+  ProcessQuery query = 2;
+  int32 how_far = 3;
 }
 
 message LogLines {
-  ProcessUUID uuid = 1;
-  repeated string lines = 2;
+  string name = 1;
+  Token token = 2;
+  ProcessUUID uuid = 3;
+  repeated string lines = 4;
+  ResponseFlag flag = 5;
 }
 
 message ProcessUUID {
@@ -63,10 +69,11 @@ message ProcessMetadata {
 }
 
 message ProcessQuery {
-  repeated ProcessUUID uuids = 1;
-  repeated string names = 2;
-  string user = 3;
-  string session = 4;
+  Token token = 1;
+  repeated ProcessUUID uuids = 2;
+  repeated string names = 3;
+  string user = 4;
+  string session = 5;
 }
 
 message ProcessDescription {
@@ -97,11 +104,15 @@ message ProcessInstance {
   ProcessUUID uuid = 5;
 }
 
-  message BootRequest {
-    ProcessDescription process_description = 1;
-    ProcessRestriction process_restriction = 2;
-  }
+message ProcessInstanceList {
+  string name = 1;
+  Token token = 2;
+  repeated ProcessInstance values = 3;
+  ResponseFlag flag = 4;
+}
 
-  message ProcessInstanceList{
-    repeated ProcessInstance values = 1;
-  }
+message BootRequest {
+  Token token = 1;
+  ProcessDescription process_description = 2;
+  ProcessRestriction process_restriction = 3;
+}
