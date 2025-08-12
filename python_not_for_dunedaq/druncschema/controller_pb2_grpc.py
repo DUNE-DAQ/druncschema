@@ -3,6 +3,7 @@
 import grpc
 import warnings
 
+from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
@@ -37,7 +38,7 @@ class ControllerStub(object):
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
         self.status = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/status',
@@ -166,7 +167,7 @@ def add_ControllerServicer_to_server(servicer, server):
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
             ),
             'status': grpc.unary_unary_rpc_method_handler(
                     servicer.status,
@@ -245,7 +246,7 @@ class Controller(object):
             target,
             '/dunedaq.druncschema.Controller/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_description__pb2.Description.FromString,
             options,
             channel_credentials,
             insecure,

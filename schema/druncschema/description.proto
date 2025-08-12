@@ -13,20 +13,10 @@ message CommandDescription {
   string return_type = 4;
 }
 
-message OldDescription {
-  string type = 1;
-  string name = 2;
-  string endpoint = 3;
-  optional string info = 4;
-  optional string session = 5;
-  repeated CommandDescription commands = 6;
-  optional google.protobuf.Any broadcast = 7;
-}
-
 message Description {
-  string type = 1;
-  string name = 2;
-  Token token = 3;
+  Token token = 1;
+  string type = 2;
+  string name = 3;
   string endpoint = 4;
   optional string info = 5;
   optional string session = 6;

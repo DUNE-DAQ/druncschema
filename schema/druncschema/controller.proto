@@ -3,10 +3,11 @@ syntax = "proto3";
 package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
+import "druncschema/description.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc describe                   (Request) returns (Response) {}
+  rpc describe                   (Request) returns (Description) {}
   rpc status                     (Request) returns (Response) {}
 
   rpc describe_fsm               (Request) returns (Response) {}

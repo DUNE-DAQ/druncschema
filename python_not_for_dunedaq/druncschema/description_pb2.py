@@ -27,7 +27,7 @@ from druncschema import token_pb2 as druncschema_dot_token__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/description.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\x1a\x17\x64runcschema/token.proto\x1a\x19google/protobuf/any.proto\"X\n\x12\x43ommandDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x03(\t\x12\x0c\n\x04help\x18\x03 \x01(\t\x12\x13\n\x0breturn_type\x18\x04 \x01(\t\"\xf3\x01\n\x0eOldDescription\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x10\n\x08\x65ndpoint\x18\x03 \x01(\t\x12\x11\n\x04info\x18\x04 \x01(\tH\x00\x88\x01\x01\x12\x14\n\x07session\x18\x05 \x01(\tH\x01\x88\x01\x01\x12\x39\n\x08\x63ommands\x18\x06 \x03(\x0b\x32\'.dunedaq.druncschema.CommandDescription\x12,\n\tbroadcast\x18\x07 \x01(\x0b\x32\x14.google.protobuf.AnyH\x02\x88\x01\x01\x42\x07\n\x05_infoB\n\n\x08_sessionB\x0c\n\n_broadcast\"\x80\x03\n\x0b\x44\x65scription\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12)\n\x05token\x18\x03 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x10\n\x08\x65ndpoint\x18\x04 \x01(\t\x12\x11\n\x04info\x18\x05 \x01(\tH\x00\x88\x01\x01\x12\x14\n\x07session\x18\x06 \x01(\tH\x01\x88\x01\x01\x12\x39\n\x08\x63ommands\x18\x07 \x03(\x0b\x32\'.dunedaq.druncschema.CommandDescription\x12,\n\tbroadcast\x18\x08 \x01(\x0b\x32\x14.google.protobuf.AnyH\x02\x88\x01\x01\x12/\n\x04\x66lag\x18\t \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\x12\x32\n\x08\x63hildren\x18\n \x03(\x0b\x32 .dunedaq.druncschema.DescriptionB\x07\n\x05_infoB\n\n\x08_sessionB\x0c\n\n_broadcastb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/description.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\x1a\x17\x64runcschema/token.proto\x1a\x19google/protobuf/any.proto\"X\n\x12\x43ommandDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x03(\t\x12\x0c\n\x04help\x18\x03 \x01(\t\x12\x13\n\x0breturn_type\x18\x04 \x01(\t\"\x80\x03\n\x0b\x44\x65scription\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x10\n\x08\x65ndpoint\x18\x04 \x01(\t\x12\x11\n\x04info\x18\x05 \x01(\tH\x00\x88\x01\x01\x12\x14\n\x07session\x18\x06 \x01(\tH\x01\x88\x01\x01\x12\x39\n\x08\x63ommands\x18\x07 \x03(\x0b\x32\'.dunedaq.druncschema.CommandDescription\x12,\n\tbroadcast\x18\x08 \x01(\x0b\x32\x14.google.protobuf.AnyH\x02\x88\x01\x01\x12/\n\x04\x66lag\x18\t \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\x12\x32\n\x08\x63hildren\x18\n \x03(\x0b\x32 .dunedaq.druncschema.DescriptionB\x07\n\x05_infoB\n\n\x08_sessionB\x0c\n\n_broadcastb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,8 +36,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_COMMANDDESCRIPTION']._serialized_start=142
   _globals['_COMMANDDESCRIPTION']._serialized_end=230
-  _globals['_OLDDESCRIPTION']._serialized_start=233
-  _globals['_OLDDESCRIPTION']._serialized_end=476
-  _globals['_DESCRIPTION']._serialized_start=479
-  _globals['_DESCRIPTION']._serialized_end=863
+  _globals['_DESCRIPTION']._serialized_start=233
+  _globals['_DESCRIPTION']._serialized_end=617
 # @@protoc_insertion_point(module_scope)

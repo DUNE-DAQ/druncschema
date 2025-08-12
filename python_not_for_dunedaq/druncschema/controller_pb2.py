@@ -23,10 +23,11 @@ _sym_db = _symbol_database.Default()
 
 
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
+from druncschema import description_pb2 as druncschema_dot_description__pb2
 from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x64runcschema/controller.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\x1a\x19google/protobuf/any.proto\"\xca\x01\n\x10\x41\x64\x64ressedCommand\x12\x14\n\x0c\x63ommand_name\x18\x01 \x01(\t\x12/\n\x0c\x63ommand_data\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x12\x0e\n\x06target\x18\x03 \x01(\t\x12\x1a\n\x12\x65xecute_along_path\x18\x04 \x01(\x08\x12\x32\n*execute_on_all_subsequent_children_in_path\x18\x05 \x01(\x08\x42\x0f\n\r_command_data\"\xc9\x01\n\nFSMCommand\x12\x14\n\x0c\x63ommand_name\x18\x01 \x01(\t\x12\x41\n\targuments\x18\x02 \x03(\x0b\x32..dunedaq.druncschema.FSMCommand.ArgumentsEntry\x12\x11\n\x04\x64\x61ta\x18\x04 \x01(\tH\x00\x88\x01\x01\x1a\x46\n\x0e\x41rgumentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\x42\x07\n\x05_data\"\x82\x01\n\x12\x46SMCommandResponse\x12\x32\n\x04\x66lag\x18\x01 \x01(\x0e\x32$.dunedaq.druncschema.FSMResponseFlag\x12\x14\n\x0c\x63ommand_name\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"\xd8\x02\n\x08\x41rgument\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x08presence\x18\x02 \x01(\x0e\x32&.dunedaq.druncschema.Argument.Presence\x12\x30\n\x04type\x18\x03 \x01(\x0e\x32\".dunedaq.druncschema.Argument.Type\x12\x30\n\rdefault_value\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x12%\n\x07\x63hoices\x18\x05 \x03(\x0b\x32\x14.google.protobuf.Any\x12\x0c\n\x04help\x18\x06 \x01(\t\"\'\n\x08Presence\x12\r\n\tMANDATORY\x10\x00\x12\x0c\n\x08OPTIONAL\x10\x01\"0\n\x04Type\x12\x07\n\x03INT\x10\x00\x12\t\n\x05\x46LOAT\x10\x01\x12\n\n\x06STRING\x10\x02\x12\x08\n\x04\x42OOL\x10\x03\x42\x10\n\x0e_default_value\"\x8d\x01\n\x15\x46SMCommandDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x03(\t\x12\x0c\n\x04help\x18\x03 \x01(\t\x12\x13\n\x0breturn_type\x18\x04 \x01(\t\x12\x30\n\targuments\x18\x05 \x03(\x0b\x32\x1d.dunedaq.druncschema.Argument\".\n\x0b\x46SMSequence\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0b\x63ommand_ids\x18\x02 \x03(\t\"\xc9\x01\n\x16\x46SMCommandsDescription\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x14\n\x07session\x18\x03 \x01(\tH\x00\x88\x01\x01\x12<\n\x08\x63ommands\x18\x04 \x03(\x0b\x32*.dunedaq.druncschema.FSMCommandDescription\x12\x33\n\tsequences\x18\x05 \x03(\x0b\x32 .dunedaq.druncschema.FSMSequenceB\n\n\x08_session\"\x90\x01\n\x06Status\x12\r\n\x05state\x18\x02 \x01(\t\x12\x11\n\tsub_state\x18\x03 \x01(\t\x12\x10\n\x08in_error\x18\x04 \x01(\x08\x12\x10\n\x08included\x18\x05 \x01(\x08\x12\x33\n\x08run_info\x18\x06 \x01(\x0b\x32\x1c.dunedaq.druncschema.RunInfoH\x00\x88\x01\x01\x42\x0b\n\t_run_info\"\xce\x01\n\x07RunInfo\x12\x10\n\x08run_type\x18\x01 \x01(\t\x12\x14\n\x0ctrigger_rate\x18\x02 \x01(\x01\x12\x12\n\nrun_number\x18\x03 \x01(\x04\x12\x1c\n\x14\x64isable_data_storage\x18\x04 \x01(\x08\x12\x19\n\x11run_time_at_start\x18\x05 \x01(\r\x12\x1c\n\x14run_time_since_start\x18\x06 \x01(\r\x12\x17\n\x0frun_config_file\x18\x07 \x01(\t\x12\x17\n\x0frun_config_name\x18\x08 \x01(\t*\x9a\x01\n\x0f\x46SMResponseFlag\x12\x1d\n\x19\x46SM_EXECUTED_SUCCESSFULLY\x10\x00\x12\x0e\n\nFSM_FAILED\x10\x01\x12\x1a\n\x16\x46SM_INVALID_TRANSITION\x10\x02\x12\x1d\n\x19\x46SM_NOT_EXECUTED_EXCLUDED\x10\x03\x12\x1d\n\x19\x46SM_NOT_EXECUTED_IN_ERROR\x10\x04\x32\xfb\x06\n\nController\x12I\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12G\n\x06status\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0c\x64\x65scribe_fsm\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12T\n\x13\x65xecute_fsm_command\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12W\n\x16\x65xecute_expert_command\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07include\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07\x65xclude\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10recompute_status\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0ctake_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12R\n\x11surrender_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10who_is_in_charge\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x64runcschema/controller.proto\x12\x13\x64unedaq.druncschema\x1a\"druncschema/request_response.proto\x1a\x1d\x64runcschema/description.proto\x1a\x19google/protobuf/any.proto\"\xca\x01\n\x10\x41\x64\x64ressedCommand\x12\x14\n\x0c\x63ommand_name\x18\x01 \x01(\t\x12/\n\x0c\x63ommand_data\x18\x02 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x12\x0e\n\x06target\x18\x03 \x01(\t\x12\x1a\n\x12\x65xecute_along_path\x18\x04 \x01(\x08\x12\x32\n*execute_on_all_subsequent_children_in_path\x18\x05 \x01(\x08\x42\x0f\n\r_command_data\"\xc9\x01\n\nFSMCommand\x12\x14\n\x0c\x63ommand_name\x18\x01 \x01(\t\x12\x41\n\targuments\x18\x02 \x03(\x0b\x32..dunedaq.druncschema.FSMCommand.ArgumentsEntry\x12\x11\n\x04\x64\x61ta\x18\x04 \x01(\tH\x00\x88\x01\x01\x1a\x46\n\x0e\x41rgumentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.google.protobuf.Any:\x02\x38\x01\x42\x07\n\x05_data\"\x82\x01\n\x12\x46SMCommandResponse\x12\x32\n\x04\x66lag\x18\x01 \x01(\x0e\x32$.dunedaq.druncschema.FSMResponseFlag\x12\x14\n\x0c\x63ommand_name\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"\xd8\x02\n\x08\x41rgument\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x08presence\x18\x02 \x01(\x0e\x32&.dunedaq.druncschema.Argument.Presence\x12\x30\n\x04type\x18\x03 \x01(\x0e\x32\".dunedaq.druncschema.Argument.Type\x12\x30\n\rdefault_value\x18\x04 \x01(\x0b\x32\x14.google.protobuf.AnyH\x00\x88\x01\x01\x12%\n\x07\x63hoices\x18\x05 \x03(\x0b\x32\x14.google.protobuf.Any\x12\x0c\n\x04help\x18\x06 \x01(\t\"\'\n\x08Presence\x12\r\n\tMANDATORY\x10\x00\x12\x0c\n\x08OPTIONAL\x10\x01\"0\n\x04Type\x12\x07\n\x03INT\x10\x00\x12\t\n\x05\x46LOAT\x10\x01\x12\n\n\x06STRING\x10\x02\x12\x08\n\x04\x42OOL\x10\x03\x42\x10\n\x0e_default_value\"\x8d\x01\n\x15\x46SMCommandDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tdata_type\x18\x02 \x03(\t\x12\x0c\n\x04help\x18\x03 \x01(\t\x12\x13\n\x0breturn_type\x18\x04 \x01(\t\x12\x30\n\targuments\x18\x05 \x03(\x0b\x32\x1d.dunedaq.druncschema.Argument\".\n\x0b\x46SMSequence\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0b\x63ommand_ids\x18\x02 \x03(\t\"\xc9\x01\n\x16\x46SMCommandsDescription\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x14\n\x07session\x18\x03 \x01(\tH\x00\x88\x01\x01\x12<\n\x08\x63ommands\x18\x04 \x03(\x0b\x32*.dunedaq.druncschema.FSMCommandDescription\x12\x33\n\tsequences\x18\x05 \x03(\x0b\x32 .dunedaq.druncschema.FSMSequenceB\n\n\x08_session\"\x90\x01\n\x06Status\x12\r\n\x05state\x18\x02 \x01(\t\x12\x11\n\tsub_state\x18\x03 \x01(\t\x12\x10\n\x08in_error\x18\x04 \x01(\x08\x12\x10\n\x08included\x18\x05 \x01(\x08\x12\x33\n\x08run_info\x18\x06 \x01(\x0b\x32\x1c.dunedaq.druncschema.RunInfoH\x00\x88\x01\x01\x42\x0b\n\t_run_info\"\xce\x01\n\x07RunInfo\x12\x10\n\x08run_type\x18\x01 \x01(\t\x12\x14\n\x0ctrigger_rate\x18\x02 \x01(\x01\x12\x12\n\nrun_number\x18\x03 \x01(\x04\x12\x1c\n\x14\x64isable_data_storage\x18\x04 \x01(\x08\x12\x19\n\x11run_time_at_start\x18\x05 \x01(\r\x12\x1c\n\x14run_time_since_start\x18\x06 \x01(\r\x12\x17\n\x0frun_config_file\x18\x07 \x01(\t\x12\x17\n\x0frun_config_name\x18\x08 \x01(\t*\x9a\x01\n\x0f\x46SMResponseFlag\x12\x1d\n\x19\x46SM_EXECUTED_SUCCESSFULLY\x10\x00\x12\x0e\n\nFSM_FAILED\x10\x01\x12\x1a\n\x16\x46SM_INVALID_TRANSITION\x10\x02\x12\x1d\n\x19\x46SM_NOT_EXECUTED_EXCLUDED\x10\x03\x12\x1d\n\x19\x46SM_NOT_EXECUTED_IN_ERROR\x10\x04\x32\xfe\x06\n\nController\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x12G\n\x06status\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0c\x64\x65scribe_fsm\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12T\n\x13\x65xecute_fsm_command\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12W\n\x16\x65xecute_expert_command\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07include\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12H\n\x07\x65xclude\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10recompute_status\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12M\n\x0ctake_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12R\n\x11surrender_control\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12Q\n\x10who_is_in_charge\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,32 +36,32 @@ if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_FSMCOMMAND_ARGUMENTSENTRY']._loaded_options = None
   _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_options = b'8\001'
-  _globals['_FSMRESPONSEFLAG']._serialized_start=1758
-  _globals['_FSMRESPONSEFLAG']._serialized_end=1912
-  _globals['_ADDRESSEDCOMMAND']._serialized_start=117
-  _globals['_ADDRESSEDCOMMAND']._serialized_end=319
-  _globals['_FSMCOMMAND']._serialized_start=322
-  _globals['_FSMCOMMAND']._serialized_end=523
-  _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_start=444
-  _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_end=514
-  _globals['_FSMCOMMANDRESPONSE']._serialized_start=526
-  _globals['_FSMCOMMANDRESPONSE']._serialized_end=656
-  _globals['_ARGUMENT']._serialized_start=659
-  _globals['_ARGUMENT']._serialized_end=1003
-  _globals['_ARGUMENT_PRESENCE']._serialized_start=896
-  _globals['_ARGUMENT_PRESENCE']._serialized_end=935
-  _globals['_ARGUMENT_TYPE']._serialized_start=937
-  _globals['_ARGUMENT_TYPE']._serialized_end=985
-  _globals['_FSMCOMMANDDESCRIPTION']._serialized_start=1006
-  _globals['_FSMCOMMANDDESCRIPTION']._serialized_end=1147
-  _globals['_FSMSEQUENCE']._serialized_start=1149
-  _globals['_FSMSEQUENCE']._serialized_end=1195
-  _globals['_FSMCOMMANDSDESCRIPTION']._serialized_start=1198
-  _globals['_FSMCOMMANDSDESCRIPTION']._serialized_end=1399
-  _globals['_STATUS']._serialized_start=1402
-  _globals['_STATUS']._serialized_end=1546
-  _globals['_RUNINFO']._serialized_start=1549
-  _globals['_RUNINFO']._serialized_end=1755
-  _globals['_CONTROLLER']._serialized_start=1915
-  _globals['_CONTROLLER']._serialized_end=2806
+  _globals['_FSMRESPONSEFLAG']._serialized_start=1789
+  _globals['_FSMRESPONSEFLAG']._serialized_end=1943
+  _globals['_ADDRESSEDCOMMAND']._serialized_start=148
+  _globals['_ADDRESSEDCOMMAND']._serialized_end=350
+  _globals['_FSMCOMMAND']._serialized_start=353
+  _globals['_FSMCOMMAND']._serialized_end=554
+  _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_start=475
+  _globals['_FSMCOMMAND_ARGUMENTSENTRY']._serialized_end=545
+  _globals['_FSMCOMMANDRESPONSE']._serialized_start=557
+  _globals['_FSMCOMMANDRESPONSE']._serialized_end=687
+  _globals['_ARGUMENT']._serialized_start=690
+  _globals['_ARGUMENT']._serialized_end=1034
+  _globals['_ARGUMENT_PRESENCE']._serialized_start=927
+  _globals['_ARGUMENT_PRESENCE']._serialized_end=966
+  _globals['_ARGUMENT_TYPE']._serialized_start=968
+  _globals['_ARGUMENT_TYPE']._serialized_end=1016
+  _globals['_FSMCOMMANDDESCRIPTION']._serialized_start=1037
+  _globals['_FSMCOMMANDDESCRIPTION']._serialized_end=1178
+  _globals['_FSMSEQUENCE']._serialized_start=1180
+  _globals['_FSMSEQUENCE']._serialized_end=1226
+  _globals['_FSMCOMMANDSDESCRIPTION']._serialized_start=1229
+  _globals['_FSMCOMMANDSDESCRIPTION']._serialized_end=1430
+  _globals['_STATUS']._serialized_start=1433
+  _globals['_STATUS']._serialized_end=1577
+  _globals['_RUNINFO']._serialized_start=1580
+  _globals['_RUNINFO']._serialized_end=1786
+  _globals['_CONTROLLER']._serialized_start=1946
+  _globals['_CONTROLLER']._serialized_end=2840
 # @@protoc_insertion_point(module_scope)
