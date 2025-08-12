@@ -5,6 +5,7 @@ isort:skip_file
 
 import builtins
 import collections.abc
+import druncschema.token_pb2
 import google.protobuf.any_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
@@ -45,6 +46,7 @@ global___FSMResponseFlag = FSMResponseFlag
 class AddressedCommand(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
     COMMAND_NAME_FIELD_NUMBER: builtins.int
     COMMAND_DATA_FIELD_NUMBER: builtins.int
     TARGET_FIELD_NUMBER: builtins.int
@@ -55,18 +57,21 @@ class AddressedCommand(google.protobuf.message.Message):
     execute_along_path: builtins.bool
     execute_on_all_subsequent_children_in_path: builtins.bool
     @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
     def command_data(self) -> google.protobuf.any_pb2.Any: ...
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
         command_name: builtins.str = ...,
         command_data: google.protobuf.any_pb2.Any | None = ...,
         target: builtins.str = ...,
         execute_along_path: builtins.bool = ...,
         execute_on_all_subsequent_children_in_path: builtins.bool = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data", "command_name", b"command_name", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data", "token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data", "command_name", b"command_name", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_command_data", b"_command_data"]) -> typing.Literal["command_data"] | None: ...
 
 global___AddressedCommand = AddressedCommand
