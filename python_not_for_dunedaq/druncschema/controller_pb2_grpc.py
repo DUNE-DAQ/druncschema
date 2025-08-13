@@ -3,6 +3,7 @@
 import grpc
 import warnings
 
+from druncschema import controller_pb2 as druncschema_dot_controller__pb2
 from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
@@ -37,7 +38,7 @@ class ControllerStub(object):
         """
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/describe',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
                 response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
         self.status = channel.unary_unary(
@@ -47,8 +48,8 @@ class ControllerStub(object):
                 _registered_method=True)
         self.describe_fsm = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/describe_fsm',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.FSMCommandsDescription.FromString,
                 _registered_method=True)
         self.execute_fsm_command = channel.unary_unary(
                 '/dunedaq.druncschema.Controller/execute_fsm_command',
@@ -166,7 +167,7 @@ def add_ControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
                     response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
             ),
             'status': grpc.unary_unary_rpc_method_handler(
@@ -176,8 +177,8 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'describe_fsm': grpc.unary_unary_rpc_method_handler(
                     servicer.describe_fsm,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.FSMCommandsDescription.SerializeToString,
             ),
             'execute_fsm_command': grpc.unary_unary_rpc_method_handler(
                     servicer.execute_fsm_command,
@@ -245,7 +246,7 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.Controller/describe',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
             druncschema_dot_description__pb2.Description.FromString,
             options,
             channel_credentials,
@@ -299,8 +300,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.Controller/describe_fsm',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
+            druncschema_dot_controller__pb2.FSMCommandsDescription.FromString,
             options,
             channel_credentials,
             insecure,

@@ -8,19 +8,19 @@ import "druncschema/token.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc describe                   (Request) returns (Description) {}
-  rpc status                     (Request) returns (Response) {}
+  rpc describe                (AddressedCommand) returns (Description) {}
+  rpc status                  (Request) returns (Response) {}
 
-  rpc describe_fsm               (Request) returns (Response) {}
-  rpc execute_fsm_command        (Request) returns (Response) {}
-  rpc execute_expert_command     (Request) returns (Response) {}
-  rpc include                    (Request) returns (Response) {}
-  rpc exclude                    (Request) returns (Response) {}
-  rpc recompute_status           (Request) returns (Response) {}
+  rpc describe_fsm            (AddressedCommand) returns (FSMCommandsDescription) {}
+  rpc execute_fsm_command     (Request) returns (Response) {}
+  rpc execute_expert_command  (Request) returns (Response) {}
+  rpc include                 (Request) returns (Response) {}
+  rpc exclude                 (Request) returns (Response) {}
+  rpc recompute_status        (Request) returns (Response) {}
 
-  rpc take_control               (Request) returns (Response) {}
-  rpc surrender_control          (Request) returns (Response) {}
-  rpc who_is_in_charge           (Request) returns (Response) {}
+  rpc take_control            (Request) returns (Response) {}
+  rpc surrender_control       (Request) returns (Response) {}
+  rpc who_is_in_charge        (Request) returns (Response) {}
 }
 
 message AddressedCommand {
@@ -86,11 +86,12 @@ message FSMSequence {
 }
 
 message FSMCommandsDescription {
-  string type = 1;
-  string name = 2;
-  optional string session = 3;
-  repeated FSMCommandDescription commands = 4;
-  repeated FSMSequence sequences = 5; 
+  Token token = 1;
+  string type = 2;
+  string name = 3;
+  optional string session = 4;
+  repeated FSMCommandDescription commands = 5;
+  repeated FSMSequence sequences = 6;
 }
 
 

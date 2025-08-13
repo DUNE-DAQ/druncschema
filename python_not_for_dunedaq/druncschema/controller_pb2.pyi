@@ -258,6 +258,7 @@ global___FSMSequence = FSMSequence
 class FSMCommandsDescription(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     SESSION_FIELD_NUMBER: builtins.int
@@ -267,20 +268,23 @@ class FSMCommandsDescription(google.protobuf.message.Message):
     name: builtins.str
     session: builtins.str
     @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
     def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FSMCommandDescription]: ...
     @property
     def sequences(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FSMSequence]: ...
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
         type: builtins.str = ...,
         name: builtins.str = ...,
         session: builtins.str | None = ...,
         commands: collections.abc.Iterable[global___FSMCommandDescription] | None = ...,
         sequences: collections.abc.Iterable[global___FSMSequence] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_session", b"_session", "session", b"session"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_session", b"_session", "commands", b"commands", "name", b"name", "sequences", b"sequences", "session", b"session", "type", b"type"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_session", b"_session", "session", b"session", "token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_session", b"_session", "commands", b"commands", "name", b"name", "sequences", b"sequences", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
 
 global___FSMCommandsDescription = FSMCommandsDescription
