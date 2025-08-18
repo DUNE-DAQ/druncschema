@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package dunedaq.druncschema;
+package dunedaq.druncschema.session_manager;
 
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";

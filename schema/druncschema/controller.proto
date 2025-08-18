@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package dunedaq.druncschema;
+package dunedaq.druncschema.controller;
 
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
@@ -8,10 +8,10 @@ import "druncschema/token.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc describe                (AddressedCommand) returns (Description) {}
+  rpc describe                (AddressedCommand) returns (DescribeFSMResponse) {}
   rpc status                  (Request) returns (Response) {}
 
-  rpc describe_fsm            (AddressedCommand) returns (FSMCommandsDescription) {}
+  rpc describe_fsm            (AddressedCommand) returns (DescribeFSMResponse) {}
   rpc execute_fsm_command     (Request) returns (Response) {}
   rpc execute_expert_command  (Request) returns (Response) {}
   rpc include                 (Request) returns (Response) {}
@@ -30,6 +30,22 @@ message AddressedCommand {
   string target = 4;
   bool execute_along_path = 5;
   bool execute_on_all_subsequent_children_in_path = 6;
+}
+
+message DescribeResponse {
+  Token token = 1;
+  string name = 2;
+  Description description = 3;
+  repeated Description children = 4;
+  ResponseFlag flag = 5;
+}
+
+message DescribeFSMResponse {
+  Token token = 1;
+  string name = 2;
+  FSMCommandsDescription description = 3;
+  repeated FSMCommandsDescription children = 4;
+  ResponseFlag flag = 5;
 }
 
 message FSMCommand {

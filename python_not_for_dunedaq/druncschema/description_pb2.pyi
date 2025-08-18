@@ -53,7 +53,6 @@ class Description(google.protobuf.message.Message):
     COMMANDS_FIELD_NUMBER: builtins.int
     BROADCAST_FIELD_NUMBER: builtins.int
     FLAG_FIELD_NUMBER: builtins.int
-    CHILDREN_FIELD_NUMBER: builtins.int
     type: builtins.str
     name: builtins.str
     endpoint: builtins.str
@@ -66,8 +65,6 @@ class Description(google.protobuf.message.Message):
     def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
     @property
     def broadcast(self) -> google.protobuf.any_pb2.Any: ...
-    @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Description]: ...
     def __init__(
         self,
         *,
@@ -80,10 +77,9 @@ class Description(google.protobuf.message.Message):
         commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
         broadcast: google.protobuf.any_pb2.Any | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
-        children: collections.abc.Iterable[global___Description] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "children", b"children", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_broadcast", b"_broadcast"]) -> typing.Literal["broadcast"] | None: ...
     @typing.overload

@@ -4,7 +4,6 @@ import grpc
 import warnings
 
 from druncschema import controller_pb2 as druncschema_dot_controller__pb2
-from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.68.0'
@@ -37,57 +36,57 @@ class ControllerStub(object):
             channel: A grpc.Channel.
         """
         self.describe = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/describe',
+                '/dunedaq.druncschema.controller.Controller/describe',
                 request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-                response_deserializer=druncschema_dot_description__pb2.Description.FromString,
+                response_deserializer=druncschema_dot_controller__pb2.DescribeFSMResponse.FromString,
                 _registered_method=True)
         self.status = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/status',
+                '/dunedaq.druncschema.controller.Controller/status',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.describe_fsm = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/describe_fsm',
+                '/dunedaq.druncschema.controller.Controller/describe_fsm',
                 request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-                response_deserializer=druncschema_dot_controller__pb2.FSMCommandsDescription.FromString,
+                response_deserializer=druncschema_dot_controller__pb2.DescribeFSMResponse.FromString,
                 _registered_method=True)
         self.execute_fsm_command = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/execute_fsm_command',
+                '/dunedaq.druncschema.controller.Controller/execute_fsm_command',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.execute_expert_command = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/execute_expert_command',
+                '/dunedaq.druncschema.controller.Controller/execute_expert_command',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.include = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/include',
+                '/dunedaq.druncschema.controller.Controller/include',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.exclude = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/exclude',
+                '/dunedaq.druncschema.controller.Controller/exclude',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.recompute_status = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/recompute_status',
+                '/dunedaq.druncschema.controller.Controller/recompute_status',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.take_control = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/take_control',
+                '/dunedaq.druncschema.controller.Controller/take_control',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.surrender_control = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/surrender_control',
+                '/dunedaq.druncschema.controller.Controller/surrender_control',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.who_is_in_charge = channel.unary_unary(
-                '/dunedaq.druncschema.Controller/who_is_in_charge',
+                '/dunedaq.druncschema.controller.Controller/who_is_in_charge',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
@@ -168,7 +167,7 @@ def add_ControllerServicer_to_server(servicer, server):
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
-                    response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
+                    response_serializer=druncschema_dot_controller__pb2.DescribeFSMResponse.SerializeToString,
             ),
             'status': grpc.unary_unary_rpc_method_handler(
                     servicer.status,
@@ -178,7 +177,7 @@ def add_ControllerServicer_to_server(servicer, server):
             'describe_fsm': grpc.unary_unary_rpc_method_handler(
                     servicer.describe_fsm,
                     request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
-                    response_serializer=druncschema_dot_controller__pb2.FSMCommandsDescription.SerializeToString,
+                    response_serializer=druncschema_dot_controller__pb2.DescribeFSMResponse.SerializeToString,
             ),
             'execute_fsm_command': grpc.unary_unary_rpc_method_handler(
                     servicer.execute_fsm_command,
@@ -222,9 +221,9 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.druncschema.Controller', rpc_method_handlers)
+            'dunedaq.druncschema.controller.Controller', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.druncschema.Controller', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.druncschema.controller.Controller', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -245,9 +244,9 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/describe',
+            '/dunedaq.druncschema.controller.Controller/describe',
             druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-            druncschema_dot_description__pb2.Description.FromString,
+            druncschema_dot_controller__pb2.DescribeFSMResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -272,7 +271,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/status',
+            '/dunedaq.druncschema.controller.Controller/status',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -299,9 +298,9 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/describe_fsm',
+            '/dunedaq.druncschema.controller.Controller/describe_fsm',
             druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-            druncschema_dot_controller__pb2.FSMCommandsDescription.FromString,
+            druncschema_dot_controller__pb2.DescribeFSMResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -326,7 +325,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/execute_fsm_command',
+            '/dunedaq.druncschema.controller.Controller/execute_fsm_command',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -353,7 +352,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/execute_expert_command',
+            '/dunedaq.druncschema.controller.Controller/execute_expert_command',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -380,7 +379,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/include',
+            '/dunedaq.druncschema.controller.Controller/include',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -407,7 +406,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/exclude',
+            '/dunedaq.druncschema.controller.Controller/exclude',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -434,7 +433,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/recompute_status',
+            '/dunedaq.druncschema.controller.Controller/recompute_status',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -461,7 +460,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/take_control',
+            '/dunedaq.druncschema.controller.Controller/take_control',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -488,7 +487,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/surrender_control',
+            '/dunedaq.druncschema.controller.Controller/surrender_control',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
@@ -515,7 +514,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.Controller/who_is_in_charge',
+            '/dunedaq.druncschema.controller.Controller/who_is_in_charge',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,

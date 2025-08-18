@@ -23,5 +23,4 @@ message Description {
   repeated CommandDescription commands = 7;
   optional google.protobuf.Any broadcast = 8;
   ResponseFlag flag = 9;
-  repeated Description children = 10;
 }
