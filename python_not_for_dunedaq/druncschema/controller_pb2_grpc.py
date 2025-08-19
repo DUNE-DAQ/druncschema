@@ -35,15 +35,15 @@ class ControllerStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.status = channel.unary_unary(
+                '/dunedaq.druncschema.controller.Controller/status',
+                request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.StatusResponse.FromString,
+                _registered_method=True)
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/describe',
                 request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-                response_deserializer=druncschema_dot_controller__pb2.DescribeFSMResponse.FromString,
-                _registered_method=True)
-        self.status = channel.unary_unary(
-                '/dunedaq.druncschema.controller.Controller/status',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                response_deserializer=druncschema_dot_controller__pb2.DescribeResponse.FromString,
                 _registered_method=True)
         self.describe_fsm = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/describe_fsm',
@@ -95,13 +95,13 @@ class ControllerStub(object):
 class ControllerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def describe(self, request, context):
+    def status(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def status(self, request, context):
+    def describe(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -164,15 +164,15 @@ class ControllerServicer(object):
 
 def add_ControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'status': grpc.unary_unary_rpc_method_handler(
+                    servicer.status,
+                    request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.StatusResponse.SerializeToString,
+            ),
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
-                    response_serializer=druncschema_dot_controller__pb2.DescribeFSMResponse.SerializeToString,
-            ),
-            'status': grpc.unary_unary_rpc_method_handler(
-                    servicer.status,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    response_serializer=druncschema_dot_controller__pb2.DescribeResponse.SerializeToString,
             ),
             'describe_fsm': grpc.unary_unary_rpc_method_handler(
                     servicer.describe_fsm,
@@ -231,6 +231,33 @@ class Controller(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
+    def status(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.controller.Controller/status',
+            druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
+            druncschema_dot_controller__pb2.StatusResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
     def describe(request,
             target,
             options=(),
@@ -246,34 +273,7 @@ class Controller(object):
             target,
             '/dunedaq.druncschema.controller.Controller/describe',
             druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-            druncschema_dot_controller__pb2.DescribeFSMResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-            _registered_method=True)
-
-    @staticmethod
-    def status(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(
-            request,
-            target,
-            '/dunedaq.druncschema.controller.Controller/status',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.DescribeResponse.FromString,
             options,
             channel_credentials,
             insecure,

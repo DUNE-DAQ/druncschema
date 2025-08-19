@@ -8,10 +8,10 @@ import "druncschema/token.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc describe                (AddressedCommand) returns (DescribeFSMResponse) {}
-  rpc status                  (Request) returns (Response) {}
-
+  rpc status                  (AddressedCommand) returns (StatusResponse) {}
+  rpc describe                (AddressedCommand) returns (DescribeResponse) {}
   rpc describe_fsm            (AddressedCommand) returns (DescribeFSMResponse) {}
+
   rpc execute_fsm_command     (Request) returns (Response) {}
   rpc execute_expert_command  (Request) returns (Response) {}
   rpc include                 (Request) returns (Response) {}
@@ -30,6 +30,14 @@ message AddressedCommand {
   string target = 4;
   bool execute_along_path = 5;
   bool execute_on_all_subsequent_children_in_path = 6;
+}
+
+message StatusResponse {
+  Token token = 1;
+  string name = 2;
+  Status status = 3;
+  repeated Status children = 4;
+  ResponseFlag flag = 5;
 }
 
 message DescribeResponse {
