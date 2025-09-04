@@ -94,14 +94,14 @@ class StatusResponse(google.protobuf.message.Message):
     @property
     def status(self) -> global___Status: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Status]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StatusResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         status: global___Status | None = ...,
-        children: collections.abc.Iterable[global___Status] | None = ...,
+        children: collections.abc.Iterable[global___StatusResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["status", b"status", "token", b"token"]) -> builtins.bool: ...
@@ -125,14 +125,14 @@ class DescribeResponse(google.protobuf.message.Message):
     @property
     def description(self) -> druncschema.description_pb2.Description: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[druncschema.description_pb2.Description]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DescribeResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         description: druncschema.description_pb2.Description | None = ...,
-        children: collections.abc.Iterable[druncschema.description_pb2.Description] | None = ...,
+        children: collections.abc.Iterable[global___DescribeResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["description", b"description", "token", b"token"]) -> builtins.bool: ...
@@ -156,14 +156,14 @@ class DescribeFSMResponse(google.protobuf.message.Message):
     @property
     def description(self) -> global___FSMCommandsDescription: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FSMCommandsDescription]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DescribeFSMResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         description: global___FSMCommandsDescription | None = ...,
-        children: collections.abc.Iterable[global___FSMCommandsDescription] | None = ...,
+        children: collections.abc.Iterable[global___DescribeFSMResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["description", b"description", "token", b"token"]) -> builtins.bool: ...

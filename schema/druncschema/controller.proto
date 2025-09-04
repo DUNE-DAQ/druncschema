@@ -36,7 +36,7 @@ message StatusResponse {
   Token token = 1;
   string name = 2;
   Status status = 3;
-  repeated Status children = 4;
+  repeated StatusResponse children = 4;
   ResponseFlag flag = 5;
 }
 
@@ -44,7 +44,7 @@ message DescribeResponse {
   Token token = 1;
   string name = 2;
   Description description = 3;
-  repeated Description children = 4;
+  repeated DescribeResponse children = 4;
   ResponseFlag flag = 5;
 }
 
@@ -52,7 +52,7 @@ message DescribeFSMResponse {
   Token token = 1;
   string name = 2;
   FSMCommandsDescription description = 3;
-  repeated FSMCommandsDescription children = 4;
+  repeated DescribeFSMResponse children = 4;
   ResponseFlag flag = 5;
 }
 
