@@ -19,6 +19,8 @@ service Controller {
   rpc take_control               (Request) returns (Response) {}
   rpc surrender_control          (Request) returns (Response) {}
   rpc who_is_in_charge           (Request) returns (Response) {}
+
+  rpc to_error                   (Request) returns (Response) {}
 }
 
 message AddressedCommand {
