@@ -73,7 +73,7 @@ class ControllerStub(object):
         self.recompute_status = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/recompute_status',
                 request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-                response_deserializer=druncschema_dot_controller__pb2.StatusResponse.FromString,
+                response_deserializer=druncschema_dot_controller__pb2.RecomputeStatusResponse.FromString,
                 _registered_method=True)
         self.take_control = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/take_control',
@@ -213,7 +213,7 @@ def add_ControllerServicer_to_server(servicer, server):
             'recompute_status': grpc.unary_unary_rpc_method_handler(
                     servicer.recompute_status,
                     request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
-                    response_serializer=druncschema_dot_controller__pb2.StatusResponse.SerializeToString,
+                    response_serializer=druncschema_dot_controller__pb2.RecomputeStatusResponse.SerializeToString,
             ),
             'take_control': grpc.unary_unary_rpc_method_handler(
                     servicer.take_control,
@@ -451,7 +451,7 @@ class Controller(object):
             target,
             '/dunedaq.druncschema.controller.Controller/recompute_status',
             druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
-            druncschema_dot_controller__pb2.StatusResponse.FromString,
+            druncschema_dot_controller__pb2.RecomputeStatusResponse.FromString,
             options,
             channel_credentials,
             insecure,
