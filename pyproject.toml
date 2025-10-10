@@ -7,10 +7,10 @@ name = "druncschema"
 requires-python = ">=3.10"
 dynamic = ["version", "readme"]
 dependencies = [
-    "grpcio==1.68.0",
-    "grpcio-status==1.68.0",
-    "grpcio-tools==1.68.0",
-    "googleapis-common-protos==1.66.0"
+    "grpcio",
+    "grpcio-status",
+    "grpcio-tools",
+    "googleapis-common-protos"
 ]
 authors = [
     {name = "Pierre Lasorak", email = "p.lasorak@imperial.ac.uk"},
