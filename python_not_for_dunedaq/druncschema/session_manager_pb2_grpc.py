@@ -37,17 +37,17 @@ class SessionManagerStub(object):
             channel: A grpc.Channel.
         """
         self.describe = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/describe',
+                '/dunedaq.druncschema.session_manager.SessionManager/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
         self.list_all_sessions = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/list_all_sessions',
+                '/dunedaq.druncschema.session_manager.SessionManager/list_all_sessions',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_session__manager__pb2.AllActiveSessions.FromString,
                 _registered_method=True)
         self.list_all_configs = channel.unary_unary(
-                '/dunedaq.druncschema.SessionManager/list_all_configs',
+                '/dunedaq.druncschema.session_manager.SessionManager/list_all_configs',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_session__manager__pb2.AllConfigKeys.FromString,
                 _registered_method=True)
@@ -94,9 +94,9 @@ def add_SessionManagerServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.druncschema.SessionManager', rpc_method_handlers)
+            'dunedaq.druncschema.session_manager.SessionManager', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.druncschema.SessionManager', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.druncschema.session_manager.SessionManager', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -117,7 +117,7 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/describe',
+            '/dunedaq.druncschema.session_manager.SessionManager/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_description__pb2.Description.FromString,
             options,
@@ -144,7 +144,7 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/list_all_sessions',
+            '/dunedaq.druncschema.session_manager.SessionManager/list_all_sessions',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_session__manager__pb2.AllActiveSessions.FromString,
             options,
@@ -171,7 +171,7 @@ class SessionManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.SessionManager/list_all_configs',
+            '/dunedaq.druncschema.session_manager.SessionManager/list_all_configs',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_session__manager__pb2.AllConfigKeys.FromString,
             options,

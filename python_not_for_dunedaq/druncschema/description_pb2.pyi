@@ -41,61 +41,18 @@ class CommandDescription(google.protobuf.message.Message):
 global___CommandDescription = CommandDescription
 
 @typing.final
-class OldDescription(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TYPE_FIELD_NUMBER: builtins.int
-    NAME_FIELD_NUMBER: builtins.int
-    ENDPOINT_FIELD_NUMBER: builtins.int
-    INFO_FIELD_NUMBER: builtins.int
-    SESSION_FIELD_NUMBER: builtins.int
-    COMMANDS_FIELD_NUMBER: builtins.int
-    BROADCAST_FIELD_NUMBER: builtins.int
-    type: builtins.str
-    name: builtins.str
-    endpoint: builtins.str
-    info: builtins.str
-    session: builtins.str
-    @property
-    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
-    @property
-    def broadcast(self) -> google.protobuf.any_pb2.Any: ...
-    def __init__(
-        self,
-        *,
-        type: builtins.str = ...,
-        name: builtins.str = ...,
-        endpoint: builtins.str = ...,
-        info: builtins.str | None = ...,
-        session: builtins.str | None = ...,
-        commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
-        broadcast: google.protobuf.any_pb2.Any | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "info", b"info", "name", b"name", "session", b"session", "type", b"type"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_broadcast", b"_broadcast"]) -> typing.Literal["broadcast"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_info", b"_info"]) -> typing.Literal["info"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
-
-global___OldDescription = OldDescription
-
-@typing.final
 class Description(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    TOKEN_FIELD_NUMBER: builtins.int
     ENDPOINT_FIELD_NUMBER: builtins.int
     INFO_FIELD_NUMBER: builtins.int
     SESSION_FIELD_NUMBER: builtins.int
     COMMANDS_FIELD_NUMBER: builtins.int
     BROADCAST_FIELD_NUMBER: builtins.int
     FLAG_FIELD_NUMBER: builtins.int
-    CHILDREN_FIELD_NUMBER: builtins.int
     type: builtins.str
     name: builtins.str
     endpoint: builtins.str
@@ -108,24 +65,21 @@ class Description(google.protobuf.message.Message):
     def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
     @property
     def broadcast(self) -> google.protobuf.any_pb2.Any: ...
-    @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Description]: ...
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
         type: builtins.str = ...,
         name: builtins.str = ...,
-        token: druncschema.token_pb2.Token | None = ...,
         endpoint: builtins.str = ...,
         info: builtins.str | None = ...,
         session: builtins.str | None = ...,
         commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
         broadcast: google.protobuf.any_pb2.Any | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
-        children: collections.abc.Iterable[global___Description] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "children", b"children", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_broadcast", b"_broadcast"]) -> typing.Literal["broadcast"] | None: ...
     @typing.overload

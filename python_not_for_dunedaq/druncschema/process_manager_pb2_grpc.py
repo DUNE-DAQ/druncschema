@@ -37,42 +37,42 @@ class ProcessManagerStub(object):
             channel: A grpc.Channel.
         """
         self.describe = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/describe',
+                '/dunedaq.druncschema.process_manager.ProcessManager/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
         self.boot = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/boot',
+                '/dunedaq.druncschema.process_manager.ProcessManager/boot',
                 request_serializer=druncschema_dot_process__manager__pb2.BootRequest.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.terminate = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/terminate',
+                '/dunedaq.druncschema.process_manager.ProcessManager/terminate',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.restart = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/restart',
+                '/dunedaq.druncschema.process_manager.ProcessManager/restart',
                 request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.kill = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/kill',
+                '/dunedaq.druncschema.process_manager.ProcessManager/kill',
                 request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.flush = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/flush',
+                '/dunedaq.druncschema.process_manager.ProcessManager/flush',
                 request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.ps = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/ps',
+                '/dunedaq.druncschema.process_manager.ProcessManager/ps',
                 request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
         self.logs = channel.unary_unary(
-                '/dunedaq.druncschema.ProcessManager/logs',
+                '/dunedaq.druncschema.process_manager.ProcessManager/logs',
                 request_serializer=druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.LogLines.FromString,
                 _registered_method=True)
@@ -174,9 +174,9 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'dunedaq.druncschema.ProcessManager', rpc_method_handlers)
+            'dunedaq.druncschema.process_manager.ProcessManager', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('dunedaq.druncschema.ProcessManager', rpc_method_handlers)
+    server.add_registered_method_handlers('dunedaq.druncschema.process_manager.ProcessManager', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -197,7 +197,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/describe',
+            '/dunedaq.druncschema.process_manager.ProcessManager/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_description__pb2.Description.FromString,
             options,
@@ -224,7 +224,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/boot',
+            '/dunedaq.druncschema.process_manager.ProcessManager/boot',
             druncschema_dot_process__manager__pb2.BootRequest.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
@@ -251,7 +251,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/terminate',
+            '/dunedaq.druncschema.process_manager.ProcessManager/terminate',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
@@ -278,7 +278,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/restart',
+            '/dunedaq.druncschema.process_manager.ProcessManager/restart',
             druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
@@ -305,7 +305,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/kill',
+            '/dunedaq.druncschema.process_manager.ProcessManager/kill',
             druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
@@ -332,7 +332,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/flush',
+            '/dunedaq.druncschema.process_manager.ProcessManager/flush',
             druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
@@ -359,7 +359,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/ps',
+            '/dunedaq.druncschema.process_manager.ProcessManager/ps',
             druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
@@ -386,7 +386,7 @@ class ProcessManager(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.ProcessManager/logs',
+            '/dunedaq.druncschema.process_manager.ProcessManager/logs',
             druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
             druncschema_dot_process__manager__pb2.LogLines.FromString,
             options,
