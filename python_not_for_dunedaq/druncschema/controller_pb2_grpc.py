@@ -52,7 +52,7 @@ class ControllerStub(object):
                 _registered_method=True)
         self.execute_fsm_command = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/execute_fsm_command',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=druncschema_dot_controller__pb2.ExecuteFSMCommandRequest.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.execute_expert_command = channel.unary_unary(
@@ -192,7 +192,7 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'execute_fsm_command': grpc.unary_unary_rpc_method_handler(
                     servicer.execute_fsm_command,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=druncschema_dot_controller__pb2.ExecuteFSMCommandRequest.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
             'execute_expert_command': grpc.unary_unary_rpc_method_handler(
@@ -342,7 +342,7 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/execute_fsm_command',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_controller__pb2.ExecuteFSMCommandRequest.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,

@@ -79,6 +79,36 @@ class AddressedCommand(google.protobuf.message.Message):
 global___AddressedCommand = AddressedCommand
 
 @typing.final
+class ExecuteFSMCommandRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: builtins.int
+    COMMAND_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: builtins.int
+    target: builtins.str
+    execute_along_path: builtins.bool
+    execute_on_all_subsequent_children_in_path: builtins.bool
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
+    def command(self) -> global___FSMCommand: ...
+    def __init__(
+        self,
+        *,
+        token: druncschema.token_pb2.Token | None = ...,
+        command: global___FSMCommand | None = ...,
+        target: builtins.str = ...,
+        execute_along_path: builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["command", b"command", "token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["command", b"command", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
+
+global___ExecuteFSMCommandRequest = ExecuteFSMCommandRequest
+
+@typing.final
 class StatusResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

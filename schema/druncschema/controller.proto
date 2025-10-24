@@ -12,7 +12,7 @@ service Controller {
   rpc status                     (AddressedCommand) returns (StatusResponse) {}
 
   rpc describe_fsm               (AddressedCommand) returns (DescribeFSMResponse) {}
-  rpc execute_fsm_command        (Request) returns (Response) {}
+  rpc execute_fsm_command        (ExecuteFSMCommandRequest) returns (Response) {}
   rpc execute_expert_command     (Request) returns (Response) {}
   rpc include                    (Request) returns (Response) {}
   rpc exclude                    (Request) returns (Response) {}
@@ -32,6 +32,14 @@ message AddressedCommand {
   string target = 4;
   bool execute_along_path = 5;
   bool execute_on_all_subsequent_children_in_path = 6;
+}
+
+message ExecuteFSMCommandRequest {
+  Token token = 1;
+  FSMCommand command = 2;
+  string target = 3;
+  bool execute_along_path = 4;
+  bool execute_on_all_subsequent_children_in_path = 5;
 }
 
 message StatusResponse {
