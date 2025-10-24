@@ -48,7 +48,8 @@ message ExecuteFSMCommandResponse{
   string command_name = 3;
   string data = 4;
   repeated ExecuteFSMCommandResponse children = 5;
-  FSMResponseFlag flag = 6;
+  FSMResponseFlag fsm_flag = 6;
+  ResponseFlag flag = 7;
 }
 
 message FSMCommand {
