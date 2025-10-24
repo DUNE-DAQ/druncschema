@@ -115,10 +115,12 @@ class ExecuteFSMCommandResponse(google.protobuf.message.Message):
     TOKEN_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
     COMMAND_NAME_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
     CHILDREN_FIELD_NUMBER: builtins.int
     FLAG_FIELD_NUMBER: builtins.int
     name: builtins.str
     command_name: builtins.str
+    data: builtins.str
     flag: global___FSMResponseFlag.ValueType
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
@@ -130,11 +132,12 @@ class ExecuteFSMCommandResponse(google.protobuf.message.Message):
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         command_name: builtins.str = ...,
+        data: builtins.str = ...,
         children: collections.abc.Iterable[global___ExecuteFSMCommandResponse] | None = ...,
         flag: global___FSMResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["children", b"children", "command_name", b"command_name", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["children", b"children", "command_name", b"command_name", "data", b"data", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
 global___ExecuteFSMCommandResponse = ExecuteFSMCommandResponse
 

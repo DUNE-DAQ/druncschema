@@ -46,8 +46,9 @@ message ExecuteFSMCommandResponse{
   Token token = 1;
   string name = 2;
   string command_name = 3;
-  repeated ExecuteFSMCommandResponse children = 4;
-  FSMResponseFlag flag = 5;
+  string data = 4;
+  repeated ExecuteFSMCommandResponse children = 5;
+  FSMResponseFlag flag = 6;
 }
 
 message FSMCommand {
