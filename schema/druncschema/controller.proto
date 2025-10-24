@@ -43,9 +43,11 @@ message ExecuteFSMCommandRequest {
 }
 
 message ExecuteFSMCommandResponse{
-  FSMResponseFlag flag = 1;
-  string command_name = 2;
-  google.protobuf.Any data = 3;
+  Token token = 1;
+  string name = 2;
+  string command_name = 3;
+  repeated ExecuteFSMCommandResponse children = 4;
+  FSMResponseFlag flag = 5;
 }
 
 message FSMCommand {
