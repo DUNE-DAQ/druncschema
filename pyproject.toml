@@ -23,7 +23,7 @@ authors = [
 ]
 
 [project.optional-dependencies]
-dev = ["ruff", "pre-commit", "pytest", "mypy-protobuf", "types-protobuf"]
+dev = ["ruff", "pre-commit", "pytest", "pytest-cov", "mypy-protobuf", "types-protobuf"]
 
 [project.urls]
 Documentation = "https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-release/team_repos/?h=druncschema"
@@ -31,6 +31,14 @@ Repository = "https://github.com/DUNE-DAQ/druncschema"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-v --tb=short --cov=druncschema --cov=src/druncschema tests/"
+
+[tool.coverage.run]
+source = ["druncschema"]
+omit = ["tests/*", "scripts/*"]
+
 
 [tool.ruff]
 exclude = [
@@ -47,5 +55,6 @@ select = [
     "I",   # isort
     "UP",  # pyupgrade
     "RUF", # ruff-specific rules
+    "R",   # refactoring suggestions
 ]
 pydocstyle.convention = "google"
