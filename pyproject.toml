@@ -30,7 +30,7 @@ Documentation = "https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-relea
 Repository = "https://github.com/DUNE-DAQ/druncschema"
 
 [project.scripts]
-druncschema-generate-protos = "druncschema.apps.__main_generate_protos__:main"
+druncschema-generate-protos = "druncschema.apps.generate_protos:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
