@@ -199,7 +199,7 @@ def main(
     druncschema_root = files("druncschema").parents[1]
     log.debug(f"Found druncschema directory at {druncschema_root}")
 
-    output_dir = druncschema_root / "python_not_for_dunedaq/"
+    output_dir = druncschema_root / "src/"
     log.debug(f"Set output directory as {output_dir}")
 
     source_path = druncschema_root.parents[1] / "env.sh"

@@ -6,9 +6,9 @@ do
 
     python -m grpc_tools.protoc \
         --proto_path=./schema/ \
-        --python_out=python_not_for_dunedaq/ \
-        --grpc_python_out=python_not_for_dunedaq/ \
-        --mypy_out=python_not_for_dunedaq/ \
+        --python_out=src/ \
+        --grpc_python_out=src/ \
+        --mypy_out=src/ \
         ${FILE}
 
     # FILE_NAME=$(basename -- "$FILE")
@@ -25,8 +25,8 @@ do
 
     python -m grpc_tools.protoc \
         --proto_path=./schema/ \
-        --python_out=python_not_for_dunedaq/ \
-        --mypy_out=python_not_for_dunedaq/ \
+        --python_out=src/ \
+        --mypy_out=src/ \
         ${FILE}
 
     # FILE_NAME=$(basename -- "$FILE")
