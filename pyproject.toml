@@ -29,9 +29,6 @@ dev = ["ruff", "pre-commit", "pytest", "mypy-protobuf", "types-protobuf"]
 Documentation = "https://dune-daq-sw.readthedocs.io/en/latest/packages/daq-release/team_repos/?h=druncschema"
 Repository = "https://github.com/DUNE-DAQ/druncschema"
 
-[project.scripts]
-druncschema-generate-protos = "druncschema.apps.generate_protos:main"
-
 [tool.setuptools.packages.find]
 where = ["src"]
 

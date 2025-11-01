@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """Defines command to compile *.proto files.
 
 Compiles buffers into 
@@ -196,7 +198,7 @@ def main(
         )
         log.exception(e)
 
-    druncschema_root = files("druncschema").parents[1]
+    druncschema_root = Path(f'{os.environ["DBT_AREA_ROOT"]}/sourcecode/druncschema')
     log.debug(f"Found druncschema directory at {druncschema_root}")
 
     output_dir = druncschema_root / "src/"
@@ -225,3 +227,5 @@ def main(
             clean,
             do_not_compile
         )
+
+main()
