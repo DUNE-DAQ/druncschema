@@ -57,7 +57,7 @@ class ControllerStub(object):
                 _registered_method=True)
         self.execute_expert_command = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/execute_expert_command',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                request_serializer=druncschema_dot_controller__pb2.ExecuteExpertCommandRequest.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
         self.include = channel.unary_unary(
@@ -197,7 +197,7 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'execute_expert_command': grpc.unary_unary_rpc_method_handler(
                     servicer.execute_expert_command,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    request_deserializer=druncschema_dot_controller__pb2.ExecuteExpertCommandRequest.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
             'include': grpc.unary_unary_rpc_method_handler(
@@ -369,7 +369,7 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/execute_expert_command',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_controller__pb2.ExecuteExpertCommandRequest.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
