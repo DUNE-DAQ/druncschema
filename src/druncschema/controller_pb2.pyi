@@ -79,6 +79,114 @@ class AddressedCommand(google.protobuf.message.Message):
 global___AddressedCommand = AddressedCommand
 
 @typing.final
+class ExecuteFSMCommandRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: builtins.int
+    COMMAND_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: builtins.int
+    target: builtins.str
+    execute_along_path: builtins.bool
+    execute_on_all_subsequent_children_in_path: builtins.bool
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
+    def command(self) -> global___FSMCommand: ...
+    def __init__(
+        self,
+        *,
+        token: druncschema.token_pb2.Token | None = ...,
+        command: global___FSMCommand | None = ...,
+        target: builtins.str = ...,
+        execute_along_path: builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["command", b"command", "token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["command", b"command", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
+
+global___ExecuteFSMCommandRequest = ExecuteFSMCommandRequest
+
+@typing.final
+class ExecuteFSMCommandResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    COMMAND_NAME_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    CHILDREN_FIELD_NUMBER: builtins.int
+    FSM_FLAG_FIELD_NUMBER: builtins.int
+    FLAG_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    command_name: builtins.str
+    data: builtins.str
+    fsm_flag: global___FSMResponseFlag.ValueType
+    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ExecuteFSMCommandResponse]: ...
+    def __init__(
+        self,
+        *,
+        token: druncschema.token_pb2.Token | None = ...,
+        name: builtins.str = ...,
+        command_name: builtins.str = ...,
+        data: builtins.str = ...,
+        children: collections.abc.Iterable[global___ExecuteFSMCommandResponse] | None = ...,
+        fsm_flag: global___FSMResponseFlag.ValueType = ...,
+        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["children", b"children", "command_name", b"command_name", "data", b"data", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]) -> None: ...
+
+global___ExecuteFSMCommandResponse = ExecuteFSMCommandResponse
+
+@typing.final
+class FSMCommand(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    @typing.final
+    class ArgumentsEntry(google.protobuf.message.Message):
+        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: builtins.int
+        VALUE_FIELD_NUMBER: builtins.int
+        key: builtins.str
+        @property
+        def value(self) -> google.protobuf.any_pb2.Any: ...
+        def __init__(
+            self,
+            *,
+            key: builtins.str = ...,
+            value: google.protobuf.any_pb2.Any | None = ...,
+        ) -> None: ...
+        def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
+        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+
+    COMMAND_NAME_FIELD_NUMBER: builtins.int
+    ARGUMENTS_FIELD_NUMBER: builtins.int
+    DATA_FIELD_NUMBER: builtins.int
+    command_name: builtins.str
+    data: builtins.str
+    @property
+    def arguments(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, google.protobuf.any_pb2.Any]: ...
+    def __init__(
+        self,
+        *,
+        command_name: builtins.str = ...,
+        arguments: collections.abc.Mapping[builtins.str, google.protobuf.any_pb2.Any] | None = ...,
+        data: builtins.str | None = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_data", b"_data", "arguments", b"arguments", "command_name", b"command_name", "data", b"data"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
+
+global___FSMCommand = FSMCommand
+
+@typing.final
 class StatusResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
@@ -201,72 +309,6 @@ class RecomputeStatusResponse(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "status", b"status", "token", b"token"]) -> None: ...
 
 global___RecomputeStatusResponse = RecomputeStatusResponse
-
-@typing.final
-class FSMCommand(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    @typing.final
-    class ArgumentsEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        @property
-        def value(self) -> google.protobuf.any_pb2.Any: ...
-        def __init__(
-            self,
-            *,
-            key: builtins.str = ...,
-            value: google.protobuf.any_pb2.Any | None = ...,
-        ) -> None: ...
-        def HasField(self, field_name: typing.Literal["value", b"value"]) -> builtins.bool: ...
-        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
-
-    COMMAND_NAME_FIELD_NUMBER: builtins.int
-    ARGUMENTS_FIELD_NUMBER: builtins.int
-    DATA_FIELD_NUMBER: builtins.int
-    command_name: builtins.str
-    data: builtins.str
-    """unfortunately, this is just some plain old json data introduced by the fsm interfaces"""
-    @property
-    def arguments(self) -> google.protobuf.internal.containers.MessageMap[builtins.str, google.protobuf.any_pb2.Any]: ...
-    def __init__(
-        self,
-        *,
-        command_name: builtins.str = ...,
-        arguments: collections.abc.Mapping[builtins.str, google.protobuf.any_pb2.Any] | None = ...,
-        data: builtins.str | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_data", b"_data", "arguments", b"arguments", "command_name", b"command_name", "data", b"data"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
-
-global___FSMCommand = FSMCommand
-
-@typing.final
-class FSMCommandResponse(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    FLAG_FIELD_NUMBER: builtins.int
-    COMMAND_NAME_FIELD_NUMBER: builtins.int
-    DATA_FIELD_NUMBER: builtins.int
-    flag: global___FSMResponseFlag.ValueType
-    command_name: builtins.str
-    @property
-    def data(self) -> google.protobuf.any_pb2.Any: ...
-    def __init__(
-        self,
-        *,
-        flag: global___FSMResponseFlag.ValueType = ...,
-        command_name: builtins.str = ...,
-        data: google.protobuf.any_pb2.Any | None = ...,
-    ) -> None: ...
-    def HasField(self, field_name: typing.Literal["data", b"data"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["command_name", b"command_name", "data", b"data", "flag", b"flag"]) -> None: ...
-
-global___FSMCommandResponse = FSMCommandResponse
 
 @typing.final
 class Argument(google.protobuf.message.Message):

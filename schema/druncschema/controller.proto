@@ -12,7 +12,7 @@ service Controller {
   rpc status                     (AddressedCommand) returns (StatusResponse) {}
 
   rpc describe_fsm               (AddressedCommand) returns (DescribeFSMResponse) {}
-  rpc execute_fsm_command        (Request) returns (Response) {}
+  rpc execute_fsm_command        (ExecuteFSMCommandRequest) returns (ExecuteFSMCommandResponse) {}
   rpc execute_expert_command     (Request) returns (Response) {}
   rpc include                    (Request) returns (Response) {}
   rpc exclude                    (Request) returns (Response) {}
@@ -32,6 +32,30 @@ message AddressedCommand {
   string target = 4;
   bool execute_along_path = 5;
   bool execute_on_all_subsequent_children_in_path = 6;
+}
+
+message ExecuteFSMCommandRequest {
+  Token token = 1;
+  FSMCommand command = 2;
+  string target = 3;
+  bool execute_along_path = 4;
+  bool execute_on_all_subsequent_children_in_path = 5;
+}
+
+message ExecuteFSMCommandResponse {
+  Token token = 1;
+  string name = 2;
+  string command_name = 3;
+  string data = 4;
+  repeated ExecuteFSMCommandResponse children = 5;
+  FSMResponseFlag fsm_flag = 6;
+  ResponseFlag flag = 7;
+}
+
+message FSMCommand {
+  string command_name = 1;
+  map<string, google.protobuf.Any> arguments = 2;
+  optional string data = 4;
 }
 
 message StatusResponse {
@@ -66,24 +90,12 @@ message RecomputeStatusResponse {
   ResponseFlag flag = 5;
 }
 
-message FSMCommand {
-  string command_name = 1;
-  map<string, google.protobuf.Any> arguments = 2;
-  optional string data = 4; // unfortunately, this is just some plain old json data introduced by the fsm interfaces
-}
-
 enum FSMResponseFlag {
   FSM_EXECUTED_SUCCESSFULLY = 0;
   FSM_FAILED = 1;
   FSM_INVALID_TRANSITION = 2;
   FSM_NOT_EXECUTED_EXCLUDED = 3;
   FSM_NOT_EXECUTED_IN_ERROR = 4;
-}
-
-message FSMCommandResponse{
-  FSMResponseFlag flag = 1;
-  string command_name = 2;
-  google.protobuf.Any data = 3;
 }
 
 message Argument {
