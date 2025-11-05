@@ -62,13 +62,13 @@ class ControllerStub(object):
                 _registered_method=True)
         self.include = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/include',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.IncludeExcludeRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.IncludeExcludeResponse.FromString,
                 _registered_method=True)
         self.exclude = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/exclude',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.IncludeExcludeRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.IncludeExcludeResponse.FromString,
                 _registered_method=True)
         self.recompute_status = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/recompute_status',
@@ -202,13 +202,13 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'include': grpc.unary_unary_rpc_method_handler(
                     servicer.include,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.IncludeExcludeRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.IncludeExcludeResponse.SerializeToString,
             ),
             'exclude': grpc.unary_unary_rpc_method_handler(
                     servicer.exclude,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.IncludeExcludeRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.IncludeExcludeResponse.SerializeToString,
             ),
             'recompute_status': grpc.unary_unary_rpc_method_handler(
                     servicer.recompute_status,
@@ -396,8 +396,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/include',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.IncludeExcludeRequest.SerializeToString,
+            druncschema_dot_controller__pb2.IncludeExcludeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -423,8 +423,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/exclude',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.IncludeExcludeRequest.SerializeToString,
+            druncschema_dot_controller__pb2.IncludeExcludeResponse.FromString,
             options,
             channel_credentials,
             insecure,
