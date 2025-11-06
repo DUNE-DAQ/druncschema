@@ -83,7 +83,11 @@ message IncludeExcludeRequest {
 }
 
 message IncludeExcludeResponse {
-  string text = 1;
+  Token token = 1;
+  string name = 2;
+  string text = 3;
+  repeated IncludeExcludeRequest children = 4;
+  ResponseFlag flag = 5;
 }
 
 message StatusResponse {

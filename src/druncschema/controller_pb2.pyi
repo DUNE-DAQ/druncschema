@@ -278,14 +278,29 @@ global___IncludeExcludeRequest = IncludeExcludeRequest
 class IncludeExcludeResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 
+    TOKEN_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
     TEXT_FIELD_NUMBER: builtins.int
+    CHILDREN_FIELD_NUMBER: builtins.int
+    FLAG_FIELD_NUMBER: builtins.int
+    name: builtins.str
     text: builtins.str
+    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___IncludeExcludeRequest]: ...
     def __init__(
         self,
         *,
+        token: druncschema.token_pb2.Token | None = ...,
+        name: builtins.str = ...,
         text: builtins.str = ...,
+        children: collections.abc.Iterable[global___IncludeExcludeRequest] | None = ...,
+        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]) -> None: ...
 
 global___IncludeExcludeResponse = IncludeExcludeResponse
 
