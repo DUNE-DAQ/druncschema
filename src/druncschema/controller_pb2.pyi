@@ -289,14 +289,14 @@ class IncludeExcludeResponse(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___IncludeExcludeRequest]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___IncludeExcludeResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         text: builtins.str = ...,
-        children: collections.abc.Iterable[global___IncludeExcludeRequest] | None = ...,
+        children: collections.abc.Iterable[global___IncludeExcludeResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...

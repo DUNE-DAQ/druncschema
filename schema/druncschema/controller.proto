@@ -86,7 +86,7 @@ message IncludeExcludeResponse {
   Token token = 1;
   string name = 2;
   string text = 3;
-  repeated IncludeExcludeRequest children = 4;
+  repeated IncludeExcludeResponse children = 4;
   ResponseFlag flag = 5;
 }
 
