@@ -16,7 +16,7 @@ service Controller {
   rpc execute_expert_command     (ExecuteExpertCommandRequest) returns (ExecuteExpertCommandResponse) {}
   rpc include                    (IncludeExcludeRequest) returns (IncludeExcludeResponse) {}
   rpc exclude                    (IncludeExcludeRequest) returns (IncludeExcludeResponse) {}
-  rpc recompute_status           (AddressedCommand) returns (RecomputeStatusResponse) {}
+  rpc recompute_status           (AddressedCommand) returns (StatusResponse) {}
 
   rpc take_control               (Request) returns (Response) {}
   rpc surrender_control          (Request) returns (Response) {}
@@ -111,14 +111,6 @@ message DescribeFSMResponse {
   string name = 2;
   FSMCommandsDescription description = 3;
   repeated DescribeFSMResponse children = 4;
-  ResponseFlag flag = 5;
-}
-
-message RecomputeStatusResponse {
-  Token token = 1;
-  string name = 2;
-  Status status = 3;
-  repeated StatusResponse children = 4;
   ResponseFlag flag = 5;
 }
 
