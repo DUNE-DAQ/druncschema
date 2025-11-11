@@ -20,6 +20,7 @@ service ProcessManager {
 message ProcessRestriction {
   repeated string allowed_hosts = 1;
   repeated string allowed_host_types = 2;
+  optional string data_mount = 3;
 }
 
 message CommandNotificationMessage {
