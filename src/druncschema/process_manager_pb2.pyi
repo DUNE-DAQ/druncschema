@@ -27,6 +27,8 @@ class ProcessRestriction(google.protobuf.message.Message):
 
     ALLOWED_HOSTS_FIELD_NUMBER: builtins.int
     ALLOWED_HOST_TYPES_FIELD_NUMBER: builtins.int
+    DATA_MOUNT_FIELD_NUMBER: builtins.int
+    data_mount: builtins.str
     @property
     def allowed_hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     @property
@@ -36,8 +38,11 @@ class ProcessRestriction(google.protobuf.message.Message):
         *,
         allowed_hosts: collections.abc.Iterable[builtins.str] | None = ...,
         allowed_host_types: collections.abc.Iterable[builtins.str] | None = ...,
+        data_mount: builtins.str | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["allowed_host_types", b"allowed_host_types", "allowed_hosts", b"allowed_hosts"]) -> None: ...
+    def HasField(self, field_name: typing.Literal["_data_mount", b"_data_mount", "data_mount", b"data_mount"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["_data_mount", b"_data_mount", "allowed_host_types", b"allowed_host_types", "allowed_hosts", b"allowed_hosts", "data_mount", b"data_mount"]) -> None: ...
+    def WhichOneof(self, oneof_group: typing.Literal["_data_mount", b"_data_mount"]) -> typing.Literal["data_mount"] | None: ...
 
 global___ProcessRestriction = ProcessRestriction
 
