@@ -6,7 +6,7 @@ import warnings
 from druncschema import controller_pb2 as druncschema_dot_controller__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
-GRPC_GENERATED_VERSION = '1.68.0'
+GRPC_GENERATED_VERSION = '1.75.0'
 GRPC_VERSION = grpc.__version__
 _version_not_supported = False
 
