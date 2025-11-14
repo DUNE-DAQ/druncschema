@@ -37,7 +37,7 @@ class ControllerStub(object):
         """
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/describe',
-                request_serializer=druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
+                request_serializer=druncschema_dot_controller__pb2.DescribeRequest.SerializeToString,
                 response_deserializer=druncschema_dot_controller__pb2.DescribeResponse.FromString,
                 _registered_method=True)
         self.status = channel.unary_unary(
@@ -177,7 +177,7 @@ def add_ControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
-                    request_deserializer=druncschema_dot_controller__pb2.AddressedCommand.FromString,
+                    request_deserializer=druncschema_dot_controller__pb2.DescribeRequest.FromString,
                     response_serializer=druncschema_dot_controller__pb2.DescribeResponse.SerializeToString,
             ),
             'status': grpc.unary_unary_rpc_method_handler(
@@ -261,7 +261,7 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/describe',
-            druncschema_dot_controller__pb2.AddressedCommand.SerializeToString,
+            druncschema_dot_controller__pb2.DescribeRequest.SerializeToString,
             druncschema_dot_controller__pb2.DescribeResponse.FromString,
             options,
             channel_credentials,

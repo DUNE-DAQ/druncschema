@@ -415,6 +415,32 @@ class RecomputeStatusResponse(google.protobuf.message.Message):
 global___RecomputeStatusResponse = RecomputeStatusResponse
 
 @typing.final
+class DescribeRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: builtins.int
+    target: builtins.str
+    execute_along_path: builtins.bool
+    execute_on_all_subsequent_children_in_path: builtins.bool
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: druncschema.token_pb2.Token | None = ...,
+        target: builtins.str = ...,
+        execute_along_path: builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
+
+global___DescribeRequest = DescribeRequest
+
+@typing.final
 class DescribeResponse(google.protobuf.message.Message):
     DESCRIPTOR: google.protobuf.descriptor.Descriptor
 

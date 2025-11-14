@@ -8,7 +8,7 @@ import "druncschema/token.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc describe                   (AddressedCommand) returns (DescribeResponse) {}
+  rpc describe                   (DescribeRequest) returns (DescribeResponse) {}
   rpc status                     (StatusRequest) returns (StatusResponse) {}
 
   rpc describe_fsm               (AddressedCommand) returns (DescribeFSMResponse) {}
@@ -117,6 +117,13 @@ message RecomputeStatusResponse {
   string name = 2;
   repeated RecomputeStatusResponse children = 3;
   ResponseFlag flag = 4;
+}
+
+message DescribeRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
 }
 
 message DescribeResponse {
