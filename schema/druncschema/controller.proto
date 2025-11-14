@@ -14,8 +14,8 @@ service Controller {
   rpc describe_fsm               (DescribeFSMRequest) returns (DescribeFSMResponse) {}
   rpc execute_fsm_command        (ExecuteFSMCommandRequest) returns (ExecuteFSMCommandResponse) {}
   rpc execute_expert_command     (ExecuteExpertCommandRequest) returns (ExecuteExpertCommandResponse) {}
-  rpc include                    (IncludeExcludeRequest) returns (IncludeExcludeResponse) {}
-  rpc exclude                    (IncludeExcludeRequest) returns (IncludeExcludeResponse) {}
+  rpc include                    (IncludeRequest) returns (IncludeResponse) {}
+  rpc exclude                    (ExcludeRequest) returns (ExcludeResponse) {}
   rpc recompute_status           (RecomputeStatusRequest) returns (RecomputeStatusResponse) {}
 
   rpc take_control               (Request) returns (Response) {}
@@ -75,18 +75,33 @@ message FSMCommand {
   optional string data = 4;
 }
 
-message IncludeExcludeRequest {
+message IncludeRequest {
   Token token = 1;
   string target = 2;
   bool execute_along_path = 3;
   bool execute_on_all_subsequent_children_in_path = 4;
 }
 
-message IncludeExcludeResponse {
+message IncludeResponse {
   Token token = 1;
   string name = 2;
   string text = 3;
-  repeated IncludeExcludeResponse children = 4;
+  repeated IncludeResponse children = 4;
+  ResponseFlag flag = 5;
+}
+
+message ExcludeRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message ExcludeResponse {
+  Token token = 1;
+  string name = 2;
+  string text = 3;
+  repeated ExcludeResponse children = 4;
   ResponseFlag flag = 5;
 }
 
