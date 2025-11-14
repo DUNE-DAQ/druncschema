@@ -9,7 +9,7 @@ import "google/protobuf/any.proto";
 
 service Controller {
   rpc describe                   (AddressedCommand) returns (DescribeResponse) {}
-  rpc status                     (AddressedCommand) returns (StatusResponse) {}
+  rpc status                     (StatusRequest) returns (StatusResponse) {}
 
   rpc describe_fsm               (AddressedCommand) returns (DescribeFSMResponse) {}
   rpc execute_fsm_command        (ExecuteFSMCommandRequest) returns (ExecuteFSMCommandResponse) {}
@@ -90,6 +90,13 @@ message IncludeExcludeResponse {
   ResponseFlag flag = 5;
 }
 
+message StatusRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
 message StatusResponse {
   Token token = 1;
   string name = 2;
@@ -137,7 +144,7 @@ enum FSMResponseFlag {
 }
 
 message Argument {
-  enum Presence{
+  enum Presence {
     MANDATORY = 0;
     OPTIONAL = 1;
   }
@@ -154,7 +161,6 @@ message Argument {
   repeated google.protobuf.Any choices = 5;
   string help = 6;
 }
-
 
 message FSMCommandDescription {
   string name = 1;
@@ -178,12 +184,11 @@ message FSMCommandsDescription {
   repeated FSMSequence sequences = 6;
 }
 
-
-message Status { // Contains dynamic system descriptors
+message Status {
   string state = 2;
   string sub_state = 3;
-  bool   in_error = 4;
-  bool   included = 5;
+  bool in_error = 4;
+  bool included = 5;
   optional RunInfo run_info = 6;
 }
 
