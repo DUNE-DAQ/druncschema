@@ -8,15 +8,15 @@ import "druncschema/token.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
-  rpc describe                   (AddressedCommand) returns (DescribeResponse) {}
-  rpc status                     (AddressedCommand) returns (StatusResponse) {}
+  rpc describe                   (DescribeRequest) returns (DescribeResponse) {}
+  rpc status                     (StatusRequest) returns (StatusResponse) {}
 
-  rpc describe_fsm               (AddressedCommand) returns (DescribeFSMResponse) {}
+  rpc describe_fsm               (DescribeFSMRequest) returns (DescribeFSMResponse) {}
   rpc execute_fsm_command        (ExecuteFSMCommandRequest) returns (ExecuteFSMCommandResponse) {}
   rpc execute_expert_command     (ExecuteExpertCommandRequest) returns (ExecuteExpertCommandResponse) {}
-  rpc include                    (IncludeExcludeRequest) returns (IncludeExcludeResponse) {}
-  rpc exclude                    (IncludeExcludeRequest) returns (IncludeExcludeResponse) {}
-  rpc recompute_status           (AddressedCommand) returns (StatusResponse) {}
+  rpc include                    (IncludeRequest) returns (IncludeResponse) {}
+  rpc exclude                    (ExcludeRequest) returns (ExcludeResponse) {}
+  rpc recompute_status           (RecomputeStatusRequest) returns (RecomputeStatusResponse) {}
 
   rpc take_control               (Request) returns (Response) {}
   rpc surrender_control          (Request) returns (Response) {}
@@ -75,19 +75,41 @@ message FSMCommand {
   optional string data = 4;
 }
 
-message IncludeExcludeRequest {
+message IncludeRequest {
   Token token = 1;
   string target = 2;
   bool execute_along_path = 3;
   bool execute_on_all_subsequent_children_in_path = 4;
 }
 
-message IncludeExcludeResponse {
+message IncludeResponse {
   Token token = 1;
   string name = 2;
   string text = 3;
-  repeated IncludeExcludeResponse children = 4;
+  repeated IncludeResponse children = 4;
   ResponseFlag flag = 5;
+}
+
+message ExcludeRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message ExcludeResponse {
+  Token token = 1;
+  string name = 2;
+  string text = 3;
+  repeated ExcludeResponse children = 4;
+  ResponseFlag flag = 5;
+}
+
+message StatusRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
 }
 
 message StatusResponse {
@@ -98,12 +120,41 @@ message StatusResponse {
   ResponseFlag flag = 5;
 }
 
+message RecomputeStatusRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message RecomputeStatusResponse {
+  Token token = 1;
+  string name = 2;
+  repeated RecomputeStatusResponse children = 3;
+  ResponseFlag flag = 4;
+}
+
+message DescribeRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
 message DescribeResponse {
   Token token = 1;
   string name = 2;
   Description description = 3;
   repeated DescribeResponse children = 4;
   ResponseFlag flag = 5;
+}
+
+message DescribeFSMRequest {
+  Token token = 1;
+  string key = 2;
+  string target = 3;
+  bool execute_along_path = 4;
+  bool execute_on_all_subsequent_children_in_path = 5;
 }
 
 message DescribeFSMResponse {
@@ -123,7 +174,7 @@ enum FSMResponseFlag {
 }
 
 message Argument {
-  enum Presence{
+  enum Presence {
     MANDATORY = 0;
     OPTIONAL = 1;
   }
@@ -140,7 +191,6 @@ message Argument {
   repeated google.protobuf.Any choices = 5;
   string help = 6;
 }
-
 
 message FSMCommandDescription {
   string name = 1;
@@ -164,12 +214,11 @@ message FSMCommandsDescription {
   repeated FSMSequence sequences = 6;
 }
 
-
-message Status { // Contains dynamic system descriptors
+message Status {
   string state = 2;
   string sub_state = 3;
-  bool   in_error = 4;
-  bool   included = 5;
+  bool in_error = 4;
+  bool included = 5;
   optional RunInfo run_info = 6;
 }
 
