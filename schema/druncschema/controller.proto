@@ -160,9 +160,8 @@ message ToErrorRequest {
 message ToErrorResponse {
   Token token = 1;
   string name = 2;
-  string text = 3;
-  repeated ToErrorResponse children = 4;
-  ResponseFlag flag = 5;
+  repeated ToErrorResponse children = 3;
+  ResponseFlag flag = 4;
 }
 
 message StatusRequest {

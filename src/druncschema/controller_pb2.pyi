@@ -560,11 +560,9 @@ class ToErrorResponse(google.protobuf.message.Message):
 
     TOKEN_FIELD_NUMBER: builtins.int
     NAME_FIELD_NUMBER: builtins.int
-    TEXT_FIELD_NUMBER: builtins.int
     CHILDREN_FIELD_NUMBER: builtins.int
     FLAG_FIELD_NUMBER: builtins.int
     name: builtins.str
-    text: builtins.str
     flag: druncschema.request_response_pb2.ResponseFlag.ValueType
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
@@ -575,12 +573,11 @@ class ToErrorResponse(google.protobuf.message.Message):
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
-        text: builtins.str = ...,
         children: collections.abc.Iterable[Global___ToErrorResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]) -> None: ...
+    def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
 Global___ToErrorResponse: typing_extensions.TypeAlias = ToErrorResponse
 
