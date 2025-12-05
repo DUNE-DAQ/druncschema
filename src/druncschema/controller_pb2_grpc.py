@@ -82,8 +82,8 @@ class ControllerStub(object):
                 _registered_method=True)
         self.surrender_control = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/surrender_control',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.SurrenderControlRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.SurrenderControlResponse.FromString,
                 _registered_method=True)
         self.who_is_in_charge = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/who_is_in_charge',
@@ -222,8 +222,8 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'surrender_control': grpc.unary_unary_rpc_method_handler(
                     servicer.surrender_control,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.SurrenderControlRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.SurrenderControlResponse.SerializeToString,
             ),
             'who_is_in_charge': grpc.unary_unary_rpc_method_handler(
                     servicer.who_is_in_charge,
@@ -504,8 +504,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/surrender_control',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.SurrenderControlRequest.SerializeToString,
+            druncschema_dot_controller__pb2.SurrenderControlResponse.FromString,
             options,
             channel_credentials,
             insecure,
