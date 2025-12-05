@@ -4,7 +4,6 @@ import grpc
 import warnings
 
 from druncschema import controller_pb2 as druncschema_dot_controller__pb2
-from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.75.0'
 GRPC_VERSION = grpc.__version__
@@ -92,8 +91,8 @@ class ControllerStub(object):
                 _registered_method=True)
         self.to_error = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/to_error',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.ToErrorResponse.FromString,
                 _registered_method=True)
 
 
@@ -232,8 +231,8 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'to_error': grpc.unary_unary_rpc_method_handler(
                     servicer.to_error,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.ToErrorRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.ToErrorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -558,8 +557,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/to_error',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
+            druncschema_dot_controller__pb2.ToErrorResponse.FromString,
             options,
             channel_credentials,
             insecure,
