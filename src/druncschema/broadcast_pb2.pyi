@@ -63,7 +63,7 @@ CHILD_COMMAND_EXECUTION_START: BroadcastType.ValueType  # 12
 CHILD_COMMAND_EXECUTION_SUCCESS: BroadcastType.ValueType  # 13
 CHILD_COMMAND_EXECUTION_FAILED: BroadcastType.ValueType  # 14
 FSM_STATUS_UPDATE: BroadcastType.ValueType  # 17
-global___BroadcastType = BroadcastType
+Global___BroadcastType: typing_extensions.TypeAlias = BroadcastType
 
 @typing.final
 class KafkaBroadcastHandlerConfiguration(google.protobuf.message.Message):
@@ -81,7 +81,7 @@ class KafkaBroadcastHandlerConfiguration(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["kafka_address", b"kafka_address", "topic", b"topic"]) -> None: ...
 
-global___KafkaBroadcastHandlerConfiguration = KafkaBroadcastHandlerConfiguration
+Global___KafkaBroadcastHandlerConfiguration: typing_extensions.TypeAlias = KafkaBroadcastHandlerConfiguration
 
 @typing.final
 class Emitter(google.protobuf.message.Message):
@@ -99,7 +99,7 @@ class Emitter(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["process", b"process", "session", b"session"]) -> None: ...
 
-global___Emitter = Emitter
+Global___Emitter: typing_extensions.TypeAlias = Emitter
 
 @typing.final
 class BroadcastMessage(google.protobuf.message.Message):
@@ -108,22 +108,22 @@ class BroadcastMessage(google.protobuf.message.Message):
     EMITTER_FIELD_NUMBER: builtins.int
     TYPE_FIELD_NUMBER: builtins.int
     DATA_FIELD_NUMBER: builtins.int
-    type: global___BroadcastType.ValueType
+    type: Global___BroadcastType.ValueType
     @property
-    def emitter(self) -> global___Emitter: ...
+    def emitter(self) -> Global___Emitter: ...
     @property
     def data(self) -> google.protobuf.any_pb2.Any: ...
     def __init__(
         self,
         *,
-        emitter: global___Emitter | None = ...,
-        type: global___BroadcastType.ValueType = ...,
+        emitter: Global___Emitter | None = ...,
+        type: Global___BroadcastType.ValueType = ...,
         data: google.protobuf.any_pb2.Any | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["data", b"data", "emitter", b"emitter"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["data", b"data", "emitter", b"emitter", "type", b"type"]) -> None: ...
 
-global___BroadcastMessage = BroadcastMessage
+Global___BroadcastMessage: typing_extensions.TypeAlias = BroadcastMessage
 
 @typing.final
 class BroadcastRequest(google.protobuf.message.Message):
@@ -138,7 +138,7 @@ class BroadcastRequest(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["broadcast_receiver_address", b"broadcast_receiver_address"]) -> None: ...
 
-global___BroadcastRequest = BroadcastRequest
+Global___BroadcastRequest: typing_extensions.TypeAlias = BroadcastRequest
 
 @typing.final
 class BroadcastResponse(google.protobuf.message.Message):
@@ -153,4 +153,4 @@ class BroadcastResponse(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["success", b"success"]) -> None: ...
 
-global___BroadcastResponse = BroadcastResponse
+Global___BroadcastResponse: typing_extensions.TypeAlias = BroadcastResponse

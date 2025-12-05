@@ -42,7 +42,7 @@ FSM_FAILED: FSMResponseFlag.ValueType  # 1
 FSM_INVALID_TRANSITION: FSMResponseFlag.ValueType  # 2
 FSM_NOT_EXECUTED_EXCLUDED: FSMResponseFlag.ValueType  # 3
 FSM_NOT_EXECUTED_IN_ERROR: FSMResponseFlag.ValueType  # 4
-global___FSMResponseFlag = FSMResponseFlag
+Global___FSMResponseFlag: typing_extensions.TypeAlias = FSMResponseFlag
 
 @typing.final
 class AddressedCommand(google.protobuf.message.Message):
@@ -76,7 +76,7 @@ class AddressedCommand(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_command_data", b"_command_data", "command_data", b"command_data", "command_name", b"command_name", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_command_data", b"_command_data"]) -> typing.Literal["command_data"] | None: ...
 
-global___AddressedCommand = AddressedCommand
+Global___AddressedCommand: typing_extensions.TypeAlias = AddressedCommand
 
 @typing.final
 class ExecuteExpertCommandRequest(google.protobuf.message.Message):
@@ -105,7 +105,7 @@ class ExecuteExpertCommandRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "json_string", b"json_string", "target", b"target", "token", b"token"]) -> None: ...
 
-global___ExecuteExpertCommandRequest = ExecuteExpertCommandRequest
+Global___ExecuteExpertCommandRequest: typing_extensions.TypeAlias = ExecuteExpertCommandRequest
 
 @typing.final
 class ExecuteExpertCommandResponse(google.protobuf.message.Message):
@@ -119,26 +119,26 @@ class ExecuteExpertCommandResponse(google.protobuf.message.Message):
     FLAG_FIELD_NUMBER: builtins.int
     name: builtins.str
     data: builtins.str
-    fsm_flag: global___FSMResponseFlag.ValueType
+    fsm_flag: Global___FSMResponseFlag.ValueType
     flag: druncschema.request_response_pb2.ResponseFlag.ValueType
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ExecuteExpertCommandResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ExecuteExpertCommandResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         data: builtins.str = ...,
-        children: collections.abc.Iterable[global___ExecuteExpertCommandResponse] | None = ...,
-        fsm_flag: global___FSMResponseFlag.ValueType = ...,
+        children: collections.abc.Iterable[Global___ExecuteExpertCommandResponse] | None = ...,
+        fsm_flag: Global___FSMResponseFlag.ValueType = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "data", b"data", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___ExecuteExpertCommandResponse = ExecuteExpertCommandResponse
+Global___ExecuteExpertCommandResponse: typing_extensions.TypeAlias = ExecuteExpertCommandResponse
 
 @typing.final
 class ExecuteFSMCommandRequest(google.protobuf.message.Message):
@@ -155,12 +155,12 @@ class ExecuteFSMCommandRequest(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def command(self) -> global___FSMCommand: ...
+    def command(self) -> Global___FSMCommand: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
-        command: global___FSMCommand | None = ...,
+        command: Global___FSMCommand | None = ...,
         target: builtins.str = ...,
         execute_along_path: builtins.bool = ...,
         execute_on_all_subsequent_children_in_path: builtins.bool = ...,
@@ -168,7 +168,7 @@ class ExecuteFSMCommandRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["command", b"command", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["command", b"command", "execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
 
-global___ExecuteFSMCommandRequest = ExecuteFSMCommandRequest
+Global___ExecuteFSMCommandRequest: typing_extensions.TypeAlias = ExecuteFSMCommandRequest
 
 @typing.final
 class ExecuteFSMCommandResponse(google.protobuf.message.Message):
@@ -184,12 +184,12 @@ class ExecuteFSMCommandResponse(google.protobuf.message.Message):
     name: builtins.str
     command_name: builtins.str
     data: builtins.str
-    fsm_flag: global___FSMResponseFlag.ValueType
+    fsm_flag: Global___FSMResponseFlag.ValueType
     flag: druncschema.request_response_pb2.ResponseFlag.ValueType
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ExecuteFSMCommandResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ExecuteFSMCommandResponse]: ...
     def __init__(
         self,
         *,
@@ -197,14 +197,14 @@ class ExecuteFSMCommandResponse(google.protobuf.message.Message):
         name: builtins.str = ...,
         command_name: builtins.str = ...,
         data: builtins.str = ...,
-        children: collections.abc.Iterable[global___ExecuteFSMCommandResponse] | None = ...,
-        fsm_flag: global___FSMResponseFlag.ValueType = ...,
+        children: collections.abc.Iterable[Global___ExecuteFSMCommandResponse] | None = ...,
+        fsm_flag: Global___FSMResponseFlag.ValueType = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "command_name", b"command_name", "data", b"data", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___ExecuteFSMCommandResponse = ExecuteFSMCommandResponse
+Global___ExecuteFSMCommandResponse: typing_extensions.TypeAlias = ExecuteFSMCommandResponse
 
 @typing.final
 class FSMCommand(google.protobuf.message.Message):
@@ -246,7 +246,7 @@ class FSMCommand(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_data", b"_data", "arguments", b"arguments", "command_name", b"command_name", "data", b"data"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
 
-global___FSMCommand = FSMCommand
+Global___FSMCommand: typing_extensions.TypeAlias = FSMCommand
 
 @typing.final
 class IncludeRequest(google.protobuf.message.Message):
@@ -272,7 +272,7 @@ class IncludeRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
 
-global___IncludeRequest = IncludeRequest
+Global___IncludeRequest: typing_extensions.TypeAlias = IncludeRequest
 
 @typing.final
 class IncludeResponse(google.protobuf.message.Message):
@@ -289,20 +289,20 @@ class IncludeResponse(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___IncludeResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___IncludeResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         text: builtins.str = ...,
-        children: collections.abc.Iterable[global___IncludeResponse] | None = ...,
+        children: collections.abc.Iterable[Global___IncludeResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]) -> None: ...
 
-global___IncludeResponse = IncludeResponse
+Global___IncludeResponse: typing_extensions.TypeAlias = IncludeResponse
 
 @typing.final
 class ExcludeRequest(google.protobuf.message.Message):
@@ -328,7 +328,7 @@ class ExcludeRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
 
-global___ExcludeRequest = ExcludeRequest
+Global___ExcludeRequest: typing_extensions.TypeAlias = ExcludeRequest
 
 @typing.final
 class ExcludeResponse(google.protobuf.message.Message):
@@ -345,20 +345,76 @@ class ExcludeResponse(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ExcludeResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ExcludeResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         text: builtins.str = ...,
-        children: collections.abc.Iterable[global___ExcludeResponse] | None = ...,
+        children: collections.abc.Iterable[Global___ExcludeResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]) -> None: ...
 
-global___ExcludeResponse = ExcludeResponse
+Global___ExcludeResponse: typing_extensions.TypeAlias = ExcludeResponse
+
+@typing.final
+class TakeControlRequest(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: builtins.int
+    TARGET_FIELD_NUMBER: builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: builtins.int
+    target: builtins.str
+    execute_along_path: builtins.bool
+    execute_on_all_subsequent_children_in_path: builtins.bool
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: druncschema.token_pb2.Token | None = ...,
+        target: builtins.str = ...,
+        execute_along_path: builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: builtins.bool = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
+
+Global___TakeControlRequest: typing_extensions.TypeAlias = TakeControlRequest
+
+@typing.final
+class TakeControlResponse(google.protobuf.message.Message):
+    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: builtins.int
+    NAME_FIELD_NUMBER: builtins.int
+    TEXT_FIELD_NUMBER: builtins.int
+    CHILDREN_FIELD_NUMBER: builtins.int
+    FLAG_FIELD_NUMBER: builtins.int
+    name: builtins.str
+    text: builtins.str
+    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
+    @property
+    def token(self) -> druncschema.token_pb2.Token: ...
+    @property
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___TakeControlResponse]: ...
+    def __init__(
+        self,
+        *,
+        token: druncschema.token_pb2.Token | None = ...,
+        name: builtins.str = ...,
+        text: builtins.str = ...,
+        children: collections.abc.Iterable[Global___TakeControlResponse] | None = ...,
+        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
+    ) -> None: ...
+    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
+    def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]) -> None: ...
+
+Global___TakeControlResponse: typing_extensions.TypeAlias = TakeControlResponse
 
 @typing.final
 class StatusRequest(google.protobuf.message.Message):
@@ -384,7 +440,7 @@ class StatusRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
 
-global___StatusRequest = StatusRequest
+Global___StatusRequest: typing_extensions.TypeAlias = StatusRequest
 
 @typing.final
 class StatusResponse(google.protobuf.message.Message):
@@ -400,22 +456,22 @@ class StatusResponse(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def status(self) -> global___Status: ...
+    def status(self) -> Global___Status: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___StatusResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___StatusResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
-        status: global___Status | None = ...,
-        children: collections.abc.Iterable[global___StatusResponse] | None = ...,
+        status: Global___Status | None = ...,
+        children: collections.abc.Iterable[Global___StatusResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["status", b"status", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "status", b"status", "token", b"token"]) -> None: ...
 
-global___StatusResponse = StatusResponse
+Global___StatusResponse: typing_extensions.TypeAlias = StatusResponse
 
 @typing.final
 class RecomputeStatusRequest(google.protobuf.message.Message):
@@ -441,7 +497,7 @@ class RecomputeStatusRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
 
-global___RecomputeStatusRequest = RecomputeStatusRequest
+Global___RecomputeStatusRequest: typing_extensions.TypeAlias = RecomputeStatusRequest
 
 @typing.final
 class RecomputeStatusResponse(google.protobuf.message.Message):
@@ -456,19 +512,19 @@ class RecomputeStatusResponse(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___RecomputeStatusResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___RecomputeStatusResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
-        children: collections.abc.Iterable[global___RecomputeStatusResponse] | None = ...,
+        children: collections.abc.Iterable[Global___RecomputeStatusResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___RecomputeStatusResponse = RecomputeStatusResponse
+Global___RecomputeStatusResponse: typing_extensions.TypeAlias = RecomputeStatusResponse
 
 @typing.final
 class DescribeRequest(google.protobuf.message.Message):
@@ -494,7 +550,7 @@ class DescribeRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "token", b"token"]) -> None: ...
 
-global___DescribeRequest = DescribeRequest
+Global___DescribeRequest: typing_extensions.TypeAlias = DescribeRequest
 
 @typing.final
 class DescribeResponse(google.protobuf.message.Message):
@@ -512,20 +568,20 @@ class DescribeResponse(google.protobuf.message.Message):
     @property
     def description(self) -> druncschema.description_pb2.Description: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DescribeResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___DescribeResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
         description: druncschema.description_pb2.Description | None = ...,
-        children: collections.abc.Iterable[global___DescribeResponse] | None = ...,
+        children: collections.abc.Iterable[Global___DescribeResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["description", b"description", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "description", b"description", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___DescribeResponse = DescribeResponse
+Global___DescribeResponse: typing_extensions.TypeAlias = DescribeResponse
 
 @typing.final
 class DescribeFSMRequest(google.protobuf.message.Message):
@@ -554,7 +610,7 @@ class DescribeFSMRequest(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "key", b"key", "target", b"target", "token", b"token"]) -> None: ...
 
-global___DescribeFSMRequest = DescribeFSMRequest
+Global___DescribeFSMRequest: typing_extensions.TypeAlias = DescribeFSMRequest
 
 @typing.final
 class DescribeFSMResponse(google.protobuf.message.Message):
@@ -570,22 +626,22 @@ class DescribeFSMResponse(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def description(self) -> global___FSMCommandsDescription: ...
+    def description(self) -> Global___FSMCommandsDescription: ...
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___DescribeFSMResponse]: ...
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___DescribeFSMResponse]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
         name: builtins.str = ...,
-        description: global___FSMCommandsDescription | None = ...,
-        children: collections.abc.Iterable[global___DescribeFSMResponse] | None = ...,
+        description: Global___FSMCommandsDescription | None = ...,
+        children: collections.abc.Iterable[Global___DescribeFSMResponse] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["description", b"description", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["children", b"children", "description", b"description", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___DescribeFSMResponse = DescribeFSMResponse
+Global___DescribeFSMResponse: typing_extensions.TypeAlias = DescribeFSMResponse
 
 @typing.final
 class Argument(google.protobuf.message.Message):
@@ -628,8 +684,8 @@ class Argument(google.protobuf.message.Message):
     CHOICES_FIELD_NUMBER: builtins.int
     HELP_FIELD_NUMBER: builtins.int
     name: builtins.str
-    presence: global___Argument.Presence.ValueType
-    type: global___Argument.Type.ValueType
+    presence: Global___Argument.Presence.ValueType
+    type: Global___Argument.Type.ValueType
     help: builtins.str
     @property
     def default_value(self) -> google.protobuf.any_pb2.Any: ...
@@ -639,8 +695,8 @@ class Argument(google.protobuf.message.Message):
         self,
         *,
         name: builtins.str = ...,
-        presence: global___Argument.Presence.ValueType = ...,
-        type: global___Argument.Type.ValueType = ...,
+        presence: Global___Argument.Presence.ValueType = ...,
+        type: Global___Argument.Type.ValueType = ...,
         default_value: google.protobuf.any_pb2.Any | None = ...,
         choices: collections.abc.Iterable[google.protobuf.any_pb2.Any] | None = ...,
         help: builtins.str = ...,
@@ -649,7 +705,7 @@ class Argument(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_default_value", b"_default_value", "choices", b"choices", "default_value", b"default_value", "help", b"help", "name", b"name", "presence", b"presence", "type", b"type"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_default_value", b"_default_value"]) -> typing.Literal["default_value"] | None: ...
 
-global___Argument = Argument
+Global___Argument: typing_extensions.TypeAlias = Argument
 
 @typing.final
 class FSMCommandDescription(google.protobuf.message.Message):
@@ -666,7 +722,7 @@ class FSMCommandDescription(google.protobuf.message.Message):
     @property
     def data_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     @property
-    def arguments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Argument]: ...
+    def arguments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___Argument]: ...
     def __init__(
         self,
         *,
@@ -674,11 +730,11 @@ class FSMCommandDescription(google.protobuf.message.Message):
         data_type: collections.abc.Iterable[builtins.str] | None = ...,
         help: builtins.str = ...,
         return_type: builtins.str = ...,
-        arguments: collections.abc.Iterable[global___Argument] | None = ...,
+        arguments: collections.abc.Iterable[Global___Argument] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["arguments", b"arguments", "data_type", b"data_type", "help", b"help", "name", b"name", "return_type", b"return_type"]) -> None: ...
 
-global___FSMCommandDescription = FSMCommandDescription
+Global___FSMCommandDescription: typing_extensions.TypeAlias = FSMCommandDescription
 
 @typing.final
 class FSMSequence(google.protobuf.message.Message):
@@ -697,7 +753,7 @@ class FSMSequence(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["command_ids", b"command_ids", "id", b"id"]) -> None: ...
 
-global___FSMSequence = FSMSequence
+Global___FSMSequence: typing_extensions.TypeAlias = FSMSequence
 
 @typing.final
 class FSMCommandsDescription(google.protobuf.message.Message):
@@ -715,9 +771,9 @@ class FSMCommandsDescription(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FSMCommandDescription]: ...
+    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___FSMCommandDescription]: ...
     @property
-    def sequences(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___FSMSequence]: ...
+    def sequences(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___FSMSequence]: ...
     def __init__(
         self,
         *,
@@ -725,14 +781,14 @@ class FSMCommandsDescription(google.protobuf.message.Message):
         type: builtins.str = ...,
         name: builtins.str = ...,
         session: builtins.str | None = ...,
-        commands: collections.abc.Iterable[global___FSMCommandDescription] | None = ...,
-        sequences: collections.abc.Iterable[global___FSMSequence] | None = ...,
+        commands: collections.abc.Iterable[Global___FSMCommandDescription] | None = ...,
+        sequences: collections.abc.Iterable[Global___FSMSequence] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_session", b"_session", "session", b"session", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_session", b"_session", "commands", b"commands", "name", b"name", "sequences", b"sequences", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
 
-global___FSMCommandsDescription = FSMCommandsDescription
+Global___FSMCommandsDescription: typing_extensions.TypeAlias = FSMCommandsDescription
 
 @typing.final
 class Status(google.protobuf.message.Message):
@@ -748,7 +804,7 @@ class Status(google.protobuf.message.Message):
     in_error: builtins.bool
     included: builtins.bool
     @property
-    def run_info(self) -> global___RunInfo: ...
+    def run_info(self) -> Global___RunInfo: ...
     def __init__(
         self,
         *,
@@ -756,13 +812,13 @@ class Status(google.protobuf.message.Message):
         sub_state: builtins.str = ...,
         in_error: builtins.bool = ...,
         included: builtins.bool = ...,
-        run_info: global___RunInfo | None = ...,
+        run_info: Global___RunInfo | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_run_info", b"_run_info", "run_info", b"run_info"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_run_info", b"_run_info", "in_error", b"in_error", "included", b"included", "run_info", b"run_info", "state", b"state", "sub_state", b"sub_state"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_run_info", b"_run_info"]) -> typing.Literal["run_info"] | None: ...
 
-global___Status = Status
+Global___Status: typing_extensions.TypeAlias = Status
 
 @typing.final
 class RunInfo(google.protobuf.message.Message):
@@ -798,4 +854,4 @@ class RunInfo(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["disable_data_storage", b"disable_data_storage", "run_config_file", b"run_config_file", "run_config_name", b"run_config_name", "run_number", b"run_number", "run_time_at_start", b"run_time_at_start", "run_time_since_start", b"run_time_since_start", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]) -> None: ...
 
-global___RunInfo = RunInfo
+Global___RunInfo: typing_extensions.TypeAlias = RunInfo

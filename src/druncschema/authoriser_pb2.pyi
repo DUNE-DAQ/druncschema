@@ -37,7 +37,7 @@ READ: ActionType.ValueType  # 1
 UPDATE: ActionType.ValueType  # 2
 DELETE: ActionType.ValueType  # 3
 EXPERT: ActionType.ValueType  # 4
-global___ActionType = ActionType
+Global___ActionType: typing_extensions.TypeAlias = ActionType
 
 class _SystemType:
     ValueType = typing.NewType("ValueType", builtins.int)
@@ -60,7 +60,7 @@ PROCESS_MANAGER: SystemType.ValueType  # 2
 SESSION_MANAGER: SystemType.ValueType  # 3
 RESOURCE_MANAGER: SystemType.ValueType  # 4
 AUTHORISER_SERVICE: SystemType.ValueType  # 5
-global___SystemType = SystemType
+Global___SystemType: typing_extensions.TypeAlias = SystemType
 
 @typing.final
 class AuthoriserRequest(google.protobuf.message.Message):
@@ -69,18 +69,18 @@ class AuthoriserRequest(google.protobuf.message.Message):
     TOKEN_FIELD_NUMBER: builtins.int
     ACTION_FIELD_NUMBER: builtins.int
     SYSTEM_FIELD_NUMBER: builtins.int
-    action: global___ActionType.ValueType
-    system: global___SystemType.ValueType
+    action: Global___ActionType.ValueType
+    system: Global___SystemType.ValueType
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
-        action: global___ActionType.ValueType = ...,
-        system: global___SystemType.ValueType = ...,
+        action: Global___ActionType.ValueType = ...,
+        system: Global___SystemType.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["action", b"action", "system", b"system", "token", b"token"]) -> None: ...
 
-global___AuthoriserRequest = AuthoriserRequest
+Global___AuthoriserRequest: typing_extensions.TypeAlias = AuthoriserRequest

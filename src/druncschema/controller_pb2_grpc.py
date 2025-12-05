@@ -77,8 +77,8 @@ class ControllerStub(object):
                 _registered_method=True)
         self.take_control = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/take_control',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.TakeControlRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.TakeControlResponse.FromString,
                 _registered_method=True)
         self.surrender_control = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/surrender_control',
@@ -217,8 +217,8 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'take_control': grpc.unary_unary_rpc_method_handler(
                     servicer.take_control,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.TakeControlRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.TakeControlResponse.SerializeToString,
             ),
             'surrender_control': grpc.unary_unary_rpc_method_handler(
                     servicer.surrender_control,
@@ -477,8 +477,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/take_control',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.TakeControlRequest.SerializeToString,
+            druncschema_dot_controller__pb2.TakeControlResponse.FromString,
             options,
             channel_credentials,
             insecure,

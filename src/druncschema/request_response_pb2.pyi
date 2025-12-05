@@ -50,7 +50,7 @@ DRUNC_EXCEPTION_THROWN: ResponseFlag.ValueType  # 6
 UNHANDLED_EXCEPTION_THROWN: ResponseFlag.ValueType  # 7
 NOT_EXECUTED_BAD_REQUEST_FORMAT: ResponseFlag.ValueType  # 8
 NOT_EXECUTED_NOT_READY: ResponseFlag.ValueType  # 9
-global___ResponseFlag = ResponseFlag
+Global___ResponseFlag: typing_extensions.TypeAlias = ResponseFlag
 
 @typing.final
 class Request(google.protobuf.message.Message):
@@ -72,7 +72,7 @@ class Request(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
 
-global___Request = Request
+Global___Request: typing_extensions.TypeAlias = Request
 
 @typing.final
 class Response(google.protobuf.message.Message):
@@ -86,7 +86,7 @@ class Response(google.protobuf.message.Message):
     FLAG_FIELD_NUMBER: builtins.int
     CHILDREN_FIELD_NUMBER: builtins.int
     name: builtins.str
-    flag: global___ResponseFlag.ValueType
+    flag: Global___ResponseFlag.ValueType
     """whether the command was successfull ON SELF ONLY!"""
     @property
     def token(self) -> druncschema.token_pb2.Token:
@@ -97,7 +97,7 @@ class Response(google.protobuf.message.Message):
         """Any arbitrary data returned by the command"""
 
     @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Response]:
+    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___Response]:
         """a map of the response flags of the children"""
 
     def __init__(
@@ -106,11 +106,11 @@ class Response(google.protobuf.message.Message):
         name: builtins.str = ...,
         token: druncschema.token_pb2.Token | None = ...,
         data: google.protobuf.any_pb2.Any | None = ...,
-        flag: global___ResponseFlag.ValueType = ...,
-        children: collections.abc.Iterable[global___Response] | None = ...,
+        flag: Global___ResponseFlag.ValueType = ...,
+        children: collections.abc.Iterable[Global___Response] | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["_data", b"_data", "children", b"children", "data", b"data", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
 
-global___Response = Response
+Global___Response: typing_extensions.TypeAlias = Response

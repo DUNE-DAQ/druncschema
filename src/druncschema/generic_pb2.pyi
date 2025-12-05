@@ -8,7 +8,13 @@ import collections.abc
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
+import sys
 import typing
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -20,7 +26,7 @@ class Empty(google.protobuf.message.Message):
         self,
     ) -> None: ...
 
-global___Empty = Empty
+Global___Empty: typing_extensions.TypeAlias = Empty
 
 @typing.final
 class PlainText(google.protobuf.message.Message):
@@ -35,7 +41,7 @@ class PlainText(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
 
-global___PlainText = PlainText
+Global___PlainText: typing_extensions.TypeAlias = PlainText
 
 @typing.final
 class PlainTextVector(google.protobuf.message.Message):
@@ -51,7 +57,7 @@ class PlainTextVector(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
 
-global___PlainTextVector = PlainTextVector
+Global___PlainTextVector: typing_extensions.TypeAlias = PlainTextVector
 
 @typing.final
 class Stacktrace(google.protobuf.message.Message):
@@ -67,7 +73,7 @@ class Stacktrace(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
 
-global___Stacktrace = Stacktrace
+Global___Stacktrace: typing_extensions.TypeAlias = Stacktrace
 
 @typing.final
 class StringStringMap(google.protobuf.message.Message):
@@ -99,7 +105,7 @@ class StringStringMap(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["map", b"map"]) -> None: ...
 
-global___StringStringMap = StringStringMap
+Global___StringStringMap: typing_extensions.TypeAlias = StringStringMap
 
 @typing.final
 class int_msg(google.protobuf.message.Message):
@@ -114,7 +120,7 @@ class int_msg(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
 
-global___int_msg = int_msg
+Global___int_msg: typing_extensions.TypeAlias = int_msg
 
 @typing.final
 class float_msg(google.protobuf.message.Message):
@@ -129,7 +135,7 @@ class float_msg(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
 
-global___float_msg = float_msg
+Global___float_msg: typing_extensions.TypeAlias = float_msg
 
 @typing.final
 class string_msg(google.protobuf.message.Message):
@@ -144,7 +150,7 @@ class string_msg(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
 
-global___string_msg = string_msg
+Global___string_msg: typing_extensions.TypeAlias = string_msg
 
 @typing.final
 class bool_msg(google.protobuf.message.Message):
@@ -159,4 +165,4 @@ class bool_msg(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
 
-global___bool_msg = bool_msg
+Global___bool_msg: typing_extensions.TypeAlias = bool_msg

@@ -11,7 +11,13 @@ import google.protobuf.any_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
+import sys
 import typing
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -38,7 +44,7 @@ class CommandDescription(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["data_type", b"data_type", "help", b"help", "name", b"name", "return_type", b"return_type"]) -> None: ...
 
-global___CommandDescription = CommandDescription
+Global___CommandDescription: typing_extensions.TypeAlias = CommandDescription
 
 @typing.final
 class Description(google.protobuf.message.Message):
@@ -62,7 +68,7 @@ class Description(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
+    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___CommandDescription]: ...
     @property
     def broadcast(self) -> google.protobuf.any_pb2.Any: ...
     def __init__(
@@ -74,7 +80,7 @@ class Description(google.protobuf.message.Message):
         endpoint: builtins.str = ...,
         info: builtins.str | None = ...,
         session: builtins.str | None = ...,
-        commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
+        commands: collections.abc.Iterable[Global___CommandDescription] | None = ...,
         broadcast: google.protobuf.any_pb2.Any | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
@@ -87,4 +93,4 @@ class Description(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
 
-global___Description = Description
+Global___Description: typing_extensions.TypeAlias = Description

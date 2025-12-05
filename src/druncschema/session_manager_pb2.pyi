@@ -10,7 +10,13 @@ import druncschema.token_pb2
 import google.protobuf.descriptor
 import google.protobuf.internal.containers
 import google.protobuf.message
+import sys
 import typing
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -30,7 +36,7 @@ class ConfigKey(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["file", b"file", "session_id", b"session_id"]) -> None: ...
 
-global___ConfigKey = ConfigKey
+Global___ConfigKey: typing_extensions.TypeAlias = ConfigKey
 
 @typing.final
 class AllConfigKeys(google.protobuf.message.Message):
@@ -45,19 +51,19 @@ class AllConfigKeys(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def config_keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ConfigKey]: ...
+    def config_keys(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ConfigKey]: ...
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         token: druncschema.token_pb2.Token | None = ...,
-        config_keys: collections.abc.Iterable[global___ConfigKey] | None = ...,
+        config_keys: collections.abc.Iterable[Global___ConfigKey] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["config_keys", b"config_keys", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___AllConfigKeys = AllConfigKeys
+Global___AllConfigKeys: typing_extensions.TypeAlias = AllConfigKeys
 
 @typing.final
 class ActiveSession(google.protobuf.message.Message):
@@ -69,18 +75,18 @@ class ActiveSession(google.protobuf.message.Message):
     name: builtins.str
     user: builtins.str
     @property
-    def config_key(self) -> global___ConfigKey: ...
+    def config_key(self) -> Global___ConfigKey: ...
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         user: builtins.str = ...,
-        config_key: global___ConfigKey | None = ...,
+        config_key: Global___ConfigKey | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["config_key", b"config_key"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["config_key", b"config_key", "name", b"name", "user", b"user"]) -> None: ...
 
-global___ActiveSession = ActiveSession
+Global___ActiveSession: typing_extensions.TypeAlias = ActiveSession
 
 @typing.final
 class AllActiveSessions(google.protobuf.message.Message):
@@ -95,16 +101,16 @@ class AllActiveSessions(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def active_sessions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ActiveSession]: ...
+    def active_sessions(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ActiveSession]: ...
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         token: druncschema.token_pb2.Token | None = ...,
-        active_sessions: collections.abc.Iterable[global___ActiveSession] | None = ...,
+        active_sessions: collections.abc.Iterable[Global___ActiveSession] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["active_sessions", b"active_sessions", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
 
-global___AllActiveSessions = AllActiveSessions
+Global___AllActiveSessions: typing_extensions.TypeAlias = AllActiveSessions

@@ -6,7 +6,13 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
+import sys
 import typing
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -32,7 +38,7 @@ class FSMStatus(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["in_error", b"in_error", "included", b"included", "state", b"state", "sub_state", b"sub_state"]) -> None: ...
 
-global___FSMStatus = FSMStatus
+Global___FSMStatus: typing_extensions.TypeAlias = FSMStatus
 
 @typing.final
 class CommandTime(google.protobuf.message.Message):
@@ -47,4 +53,4 @@ class CommandTime(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["execution_time_ns", b"execution_time_ns"]) -> None: ...
 
-global___CommandTime = CommandTime
+Global___CommandTime: typing_extensions.TypeAlias = CommandTime

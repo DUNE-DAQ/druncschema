@@ -44,7 +44,7 @@ class ProcessRestriction(google.protobuf.message.Message):
     def ClearField(self, field_name: typing.Literal["_data_mount", b"_data_mount", "allowed_host_types", b"allowed_host_types", "allowed_hosts", b"allowed_hosts", "data_mount", b"data_mount"]) -> None: ...
     def WhichOneof(self, oneof_group: typing.Literal["_data_mount", b"_data_mount"]) -> typing.Literal["data_mount"] | None: ...
 
-global___ProcessRestriction = ProcessRestriction
+Global___ProcessRestriction: typing_extensions.TypeAlias = ProcessRestriction
 
 @typing.final
 class CommandNotificationMessage(google.protobuf.message.Message):
@@ -62,7 +62,7 @@ class CommandNotificationMessage(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["command", b"command", "user", b"user"]) -> None: ...
 
-global___CommandNotificationMessage = CommandNotificationMessage
+Global___CommandNotificationMessage: typing_extensions.TypeAlias = CommandNotificationMessage
 
 @typing.final
 class GenericNotificationMessage(google.protobuf.message.Message):
@@ -77,7 +77,7 @@ class GenericNotificationMessage(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["message", b"message"]) -> None: ...
 
-global___GenericNotificationMessage = GenericNotificationMessage
+Global___GenericNotificationMessage: typing_extensions.TypeAlias = GenericNotificationMessage
 
 @typing.final
 class ExceptionNotification(google.protobuf.message.Message):
@@ -106,16 +106,16 @@ class ExceptionNotification(google.protobuf.message.Message):
     STACK_TRACE_FIELD_NUMBER: builtins.int
     error_text: builtins.str
     @property
-    def stack_trace(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ExceptionNotification.StackLine]: ...
+    def stack_trace(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ExceptionNotification.StackLine]: ...
     def __init__(
         self,
         *,
         error_text: builtins.str = ...,
-        stack_trace: collections.abc.Iterable[global___ExceptionNotification.StackLine] | None = ...,
+        stack_trace: collections.abc.Iterable[Global___ExceptionNotification.StackLine] | None = ...,
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["error_text", b"error_text", "stack_trace", b"stack_trace"]) -> None: ...
 
-global___ExceptionNotification = ExceptionNotification
+Global___ExceptionNotification: typing_extensions.TypeAlias = ExceptionNotification
 
 @typing.final
 class LogRequest(google.protobuf.message.Message):
@@ -128,18 +128,18 @@ class LogRequest(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def query(self) -> global___ProcessQuery: ...
+    def query(self) -> Global___ProcessQuery: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
-        query: global___ProcessQuery | None = ...,
+        query: Global___ProcessQuery | None = ...,
         how_far: builtins.int = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["query", b"query", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["how_far", b"how_far", "query", b"query", "token", b"token"]) -> None: ...
 
-global___LogRequest = LogRequest
+Global___LogRequest: typing_extensions.TypeAlias = LogRequest
 
 @typing.final
 class LogLines(google.protobuf.message.Message):
@@ -155,7 +155,7 @@ class LogLines(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def uuid(self) -> global___ProcessUUID: ...
+    def uuid(self) -> Global___ProcessUUID: ...
     @property
     def lines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     def __init__(
@@ -163,14 +163,14 @@ class LogLines(google.protobuf.message.Message):
         *,
         name: builtins.str = ...,
         token: druncschema.token_pb2.Token | None = ...,
-        uuid: global___ProcessUUID | None = ...,
+        uuid: Global___ProcessUUID | None = ...,
         lines: collections.abc.Iterable[builtins.str] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token", "uuid", b"uuid"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["flag", b"flag", "lines", b"lines", "name", b"name", "token", b"token", "uuid", b"uuid"]) -> None: ...
 
-global___LogLines = LogLines
+Global___LogLines: typing_extensions.TypeAlias = LogLines
 
 @typing.final
 class ProcessUUID(google.protobuf.message.Message):
@@ -185,7 +185,7 @@ class ProcessUUID(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["uuid", b"uuid"]) -> None: ...
 
-global___ProcessUUID = ProcessUUID
+Global___ProcessUUID: typing_extensions.TypeAlias = ProcessUUID
 
 @typing.final
 class ProcessMetadata(google.protobuf.message.Message):
@@ -203,11 +203,11 @@ class ProcessMetadata(google.protobuf.message.Message):
     hostname: builtins.str
     tree_id: builtins.str
     @property
-    def uuid(self) -> global___ProcessUUID: ...
+    def uuid(self) -> Global___ProcessUUID: ...
     def __init__(
         self,
         *,
-        uuid: global___ProcessUUID | None = ...,
+        uuid: Global___ProcessUUID | None = ...,
         user: builtins.str = ...,
         session: builtins.str | None = ...,
         name: builtins.str = ...,
@@ -221,7 +221,7 @@ class ProcessMetadata(google.protobuf.message.Message):
     @typing.overload
     def WhichOneof(self, oneof_group: typing.Literal["_tree_id", b"_tree_id"]) -> typing.Literal["tree_id"] | None: ...
 
-global___ProcessMetadata = ProcessMetadata
+Global___ProcessMetadata: typing_extensions.TypeAlias = ProcessMetadata
 
 @typing.final
 class ProcessQuery(google.protobuf.message.Message):
@@ -237,14 +237,14 @@ class ProcessQuery(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def uuids(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessUUID]: ...
+    def uuids(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ProcessUUID]: ...
     @property
     def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
-        uuids: collections.abc.Iterable[global___ProcessUUID] | None = ...,
+        uuids: collections.abc.Iterable[Global___ProcessUUID] | None = ...,
         names: collections.abc.Iterable[builtins.str] | None = ...,
         user: builtins.str = ...,
         session: builtins.str = ...,
@@ -252,7 +252,7 @@ class ProcessQuery(google.protobuf.message.Message):
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]) -> None: ...
 
-global___ProcessQuery = ProcessQuery
+Global___ProcessQuery: typing_extensions.TypeAlias = ProcessQuery
 
 @typing.final
 class ProcessDescription(google.protobuf.message.Message):
@@ -314,24 +314,24 @@ class ProcessDescription(google.protobuf.message.Message):
     process_logs_path: builtins.str
     """map<string,string> runtime_environment = 4;"""
     @property
-    def metadata(self) -> global___ProcessMetadata: ...
+    def metadata(self) -> Global___ProcessMetadata: ...
     @property
     def env(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
     @property
-    def executable_and_arguments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessDescription.ExecAndArgs]: ...
+    def executable_and_arguments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ProcessDescription.ExecAndArgs]: ...
     def __init__(
         self,
         *,
-        metadata: global___ProcessMetadata | None = ...,
+        metadata: Global___ProcessMetadata | None = ...,
         env: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
-        executable_and_arguments: collections.abc.Iterable[global___ProcessDescription.ExecAndArgs] | None = ...,
+        executable_and_arguments: collections.abc.Iterable[Global___ProcessDescription.ExecAndArgs] | None = ...,
         process_execution_directory: builtins.str = ...,
         process_logs_path: builtins.str = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["metadata", b"metadata"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["env", b"env", "executable_and_arguments", b"executable_and_arguments", "metadata", b"metadata", "process_execution_directory", b"process_execution_directory", "process_logs_path", b"process_logs_path"]) -> None: ...
 
-global___ProcessDescription = ProcessDescription
+Global___ProcessDescription: typing_extensions.TypeAlias = ProcessDescription
 
 @typing.final
 class ProcessInstance(google.protobuf.message.Message):
@@ -355,27 +355,27 @@ class ProcessInstance(google.protobuf.message.Message):
     STATUS_CODE_FIELD_NUMBER: builtins.int
     RETURN_CODE_FIELD_NUMBER: builtins.int
     UUID_FIELD_NUMBER: builtins.int
-    status_code: global___ProcessInstance.StatusCode.ValueType
+    status_code: Global___ProcessInstance.StatusCode.ValueType
     return_code: builtins.int
     @property
-    def process_description(self) -> global___ProcessDescription: ...
+    def process_description(self) -> Global___ProcessDescription: ...
     @property
-    def process_restriction(self) -> global___ProcessRestriction: ...
+    def process_restriction(self) -> Global___ProcessRestriction: ...
     @property
-    def uuid(self) -> global___ProcessUUID: ...
+    def uuid(self) -> Global___ProcessUUID: ...
     def __init__(
         self,
         *,
-        process_description: global___ProcessDescription | None = ...,
-        process_restriction: global___ProcessRestriction | None = ...,
-        status_code: global___ProcessInstance.StatusCode.ValueType = ...,
+        process_description: Global___ProcessDescription | None = ...,
+        process_restriction: Global___ProcessRestriction | None = ...,
+        status_code: Global___ProcessInstance.StatusCode.ValueType = ...,
         return_code: builtins.int = ...,
-        uuid: global___ProcessUUID | None = ...,
+        uuid: Global___ProcessUUID | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "uuid", b"uuid"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "return_code", b"return_code", "status_code", b"status_code", "uuid", b"uuid"]) -> None: ...
 
-global___ProcessInstance = ProcessInstance
+Global___ProcessInstance: typing_extensions.TypeAlias = ProcessInstance
 
 @typing.final
 class ProcessInstanceList(google.protobuf.message.Message):
@@ -390,19 +390,19 @@ class ProcessInstanceList(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessInstance]: ...
+    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[Global___ProcessInstance]: ...
     def __init__(
         self,
         *,
         name: builtins.str = ...,
         token: druncschema.token_pb2.Token | None = ...,
-        values: collections.abc.Iterable[global___ProcessInstance] | None = ...,
+        values: collections.abc.Iterable[Global___ProcessInstance] | None = ...,
         flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["flag", b"flag", "name", b"name", "token", b"token", "values", b"values"]) -> None: ...
 
-global___ProcessInstanceList = ProcessInstanceList
+Global___ProcessInstanceList: typing_extensions.TypeAlias = ProcessInstanceList
 
 @typing.final
 class BootRequest(google.protobuf.message.Message):
@@ -414,17 +414,17 @@ class BootRequest(google.protobuf.message.Message):
     @property
     def token(self) -> druncschema.token_pb2.Token: ...
     @property
-    def process_description(self) -> global___ProcessDescription: ...
+    def process_description(self) -> Global___ProcessDescription: ...
     @property
-    def process_restriction(self) -> global___ProcessRestriction: ...
+    def process_restriction(self) -> Global___ProcessRestriction: ...
     def __init__(
         self,
         *,
         token: druncschema.token_pb2.Token | None = ...,
-        process_description: global___ProcessDescription | None = ...,
-        process_restriction: global___ProcessRestriction | None = ...,
+        process_description: Global___ProcessDescription | None = ...,
+        process_restriction: Global___ProcessRestriction | None = ...,
     ) -> None: ...
     def HasField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]) -> builtins.bool: ...
     def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]) -> None: ...
 
-global___BootRequest = BootRequest
+Global___BootRequest: typing_extensions.TypeAlias = BootRequest

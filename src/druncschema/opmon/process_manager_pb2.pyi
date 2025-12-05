@@ -6,7 +6,13 @@ isort:skip_file
 import builtins
 import google.protobuf.descriptor
 import google.protobuf.message
+import sys
 import typing
+
+if sys.version_info >= (3, 10):
+    import typing as typing_extensions
+else:
+    import typing_extensions
 
 DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
 
@@ -29,4 +35,4 @@ class ProcessStatus(google.protobuf.message.Message):
     ) -> None: ...
     def ClearField(self, field_name: typing.Literal["n_dead", b"n_dead", "n_running", b"n_running", "n_session", b"n_session"]) -> None: ...
 
-global___ProcessStatus = ProcessStatus
+Global___ProcessStatus: typing_extensions.TypeAlias = ProcessStatus
