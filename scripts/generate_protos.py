@@ -167,17 +167,18 @@ def main(
     log.setLevel(log_level)
 
     if not in_dev_mode():
-        e = Exception(
-            "This command is only available in developer mode. Reinstall with `pip install -e .[dev]`."
+        err_str = (
+            "[bold red]This command is only available in developer mode.[/bold red] "
+            "Reinstall druncschema with [bold blue]pip install -e .[dev][/bold blue]"
         )
-        log.exception(e)
+        log.error(err_str)
         sys.exit(1)
 
     if do_not_compile and not clean:
-        e = Exception(
+        err_str = (
             "Used option -d/--do-not-compile but not -c/--clean, require -c to use -d"
         )
-        log.exception(e)
+        log.error(e)
 
     druncschema_root = Path(f'{os.environ["DBT_AREA_ROOT"]}/sourcecode/druncschema')
     log.debug(f"Found druncschema directory at {druncschema_root}")
