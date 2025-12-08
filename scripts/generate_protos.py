@@ -168,8 +168,7 @@ def main(
 
     if not in_dev_mode():
         e = Exception(
-            "This command is only available in developer mode." \
-            "See the druncschema wiki for further clarification."
+            "This command is only available in developer mode. Reinstall with `pip install -e .[dev]`."
         )
         log.exception(e)
         sys.exit(1)
