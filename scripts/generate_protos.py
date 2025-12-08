@@ -179,6 +179,7 @@ def main(
             "Used option -d/--do-not-compile but not -c/--clean, require -c to use -d"
         )
         log.error(e)
+        sys.exit(1)
 
     druncschema_root = Path(f'{os.environ["DBT_AREA_ROOT"]}/sourcecode/druncschema')
     log.debug(f"Found druncschema directory at {druncschema_root}")
