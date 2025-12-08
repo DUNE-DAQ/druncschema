@@ -12,35 +12,16 @@ import importlib
 import logging
 import os
 import subprocess
+import sys
 from importlib.resources import files
 from pathlib import Path
 
 import click
-from rich.console import Console
-from rich.logging import RichHandler
 
-log_levels = {
-    "CRITICAL": logging.CRITICAL,
-    "ERROR": logging.ERROR,
-    "WARNING": logging.WARNING,
-    "INFO": logging.INFO,
-    "DEBUG": logging.DEBUG,
-    "NOTSET": logging.NOTSET,
-}
-log = logging.getLogger("druncschema-generate-protos")
-try:
-    width = os.get_terminal_size()[0]
-except OSError:
-    width = 150
-    
-log.addHandler(RichHandler(
-    console=Console(width=width),
-    omit_repeated_times=False,
-    markup=True,
-    rich_tracebacks=True,
-    show_path=False,
-    tracebacks_width=width,
-))
+from daqpytools.logging.logger import get_daq_logger
+from daqpytools.logging.levels import logging_log_levels
+
+log = get_daq_logger("druncschema-generate-protos", rich_handler=True)
 
 compiled_extensions = ["_pb2.py", "_pb2.pyi", "_pb2_grpc.py"]
 def in_dev_mode():
@@ -160,7 +141,7 @@ def get_files(path: Path) ->list[Path]:
 @click.option(
     "-l",
     "--log-level",
-    type=click.Choice(log_levels.keys(), case_sensitive=False),
+    type=click.Choice(logging_log_levels.keys(), case_sensitive=False),
     default="INFO",
     help="Set the log level",
 )
@@ -191,6 +172,7 @@ def main(
             "See the druncschema wiki for further clarification."
         )
         log.exception(e)
+        sys.exit(1)
 
     if do_not_compile and not clean:
         e = Exception(
