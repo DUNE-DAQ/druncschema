@@ -21,33 +21,62 @@ import click
 from daqpytools.logging.logger import get_daq_logger
 from daqpytools.logging.levels import logging_log_levels
 
-log = get_daq_logger("druncschema-generate-protos", rich_handler=True)
 
+# Setup global tools and variables
+log = get_daq_logger("druncschema-generate-protos", rich_handler=True)
 compiled_extensions = ["_pb2.py", "_pb2.pyi", "_pb2_grpc.py"]
+
 def in_dev_mode():
-    """Check if in dev mode.
+    """
+    Check if in dev mode.
 
     Validate dev mode by attempting to import a library that otherwise would not be
     a part of the stack.
+
+    Args:
+        None
+
+    Returns:
+        True - true if the developer mode is found
+        False - otherwise
+
+    Raises:
+        None
     """
     if importlib.util.find_spec("mypy_protobuf"):
         return True
     return False
 
+
 def generate_protos(
-        source_path: Path,
-        druncschema_root: Path,
-        proto_files: list[Path],
-        output_dir: Path,
-        subdir: Path) -> None:
-    """Compiles the protobuf messages."""
+    environment_path: Path,
+    druncschema_root: Path,
+    proto_files: list[Path],
+    output_dir: Path,
+    subdir: Path
+) -> None:
+    """
+    Compile the protobuf messages.
+    
+    Args:
+        environment_path: path to setup the environment setup script
+        druncschema_root: path to the root of the installed druncschema repository
+        proto_files: list of protobuf schema files to compile
+        output_dir: where to put the generated protobuf files
+
+    Returns:
+        None
+
+    Raises:
+        None
+    """
     for proto_file in proto_files:
         log.info(f"Processing file {proto_file!s} to output dir {output_dir!s}")
         if not str(proto_file).endswith(".proto"):
             raise Exception(f"File names must end in a '.proto', received {proto_file}")
         try:
             cmd = " ".join([
-                f"source {source_path}; cd {druncschema_root}; "
+                f"source {environment_path}; cd {druncschema_root}; "
                 "python -m grpc_tools.protoc",
                 "-I'./schema'",
                 f"--python_out={output_dir!s}",
@@ -67,6 +96,7 @@ def generate_protos(
         except subprocess.CalledProcessError as e:
             log.exception(e)
             log.error(e.stderr)
+            sys.exit(1)
         output_files = [
             output_dir / Path("druncschema") / subdir / Path(
                 Path(proto_file.name).stem + extension
@@ -92,13 +122,13 @@ def clear_previous_compiled_schema(output_dir: Path, output_files: list[Path]) -
                 existing_file.unlink()
 
 def call_generate_protos(
-        source_path: Path,
-        druncschema_root: Path,
-        output_dir: Path,
-        subdir: Path,
-        clean: bool,
-        do_not_compile: bool
-    ) -> None:
+    environment_path: Path,
+    druncschema_root: Path,
+    output_dir: Path,
+    subdir: Path,
+    clean: bool,
+    do_not_compile: bool
+) -> None:
     """Clear existing compiled buffers, compile new buffers.
 
     List *.proto files.
@@ -122,7 +152,7 @@ def call_generate_protos(
             log.error(get_files(output_dir))
             log.exception(e)
     if not do_not_compile:
-        generate_protos(source_path, druncschema_root, proto_files, output_dir, subdir)
+        generate_protos(environment_path, druncschema_root, proto_files, output_dir, subdir)
     return
 
 def get_subdirs(path: Path) ->list[str]:
@@ -182,17 +212,17 @@ def main(
         sys.exit(1)
 
     druncschema_root = Path(f'{os.environ["DBT_AREA_ROOT"]}/sourcecode/druncschema')
-    log.debug(f"Found druncschema directory at {druncschema_root}")
+    log.debug(f"Found druncschema directory at [purple]{str(druncschema_root)}[/purple]")
 
-    output_dir = druncschema_root / "src/"
-    log.debug(f"Set output directory as {output_dir}")
+    output_dir = druncschema_root / "src/druncschema"
+    log.debug(f"Set output directory as [purple]{str(output_dir)}[/purple]")
 
-    source_path = druncschema_root.parents[1] / "env.sh"
-    log.debug(f"Set source path to {source_path=}")
+    environment_path = druncschema_root.parents[1] / "env.sh"
+    log.debug(f"Set environment path to [purple]{str(environment_path)}[/purple]")
 
     subdir = Path()
     call_generate_protos(
-        source_path,
+        environment_path,
         druncschema_root,
         output_dir,
         subdir,
@@ -203,7 +233,7 @@ def main(
     subdirs = get_subdirs(druncschema_root / Path("schema/druncschema"))
     for subdir in subdirs:
         call_generate_protos(
-            source_path,
+            environment_path,
             druncschema_root,
             output_dir,
             subdir,
