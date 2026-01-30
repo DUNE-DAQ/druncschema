@@ -3,33 +3,34 @@
 isort:skip_file
 """
 
-import builtins
-import google.protobuf.descriptor
-import google.protobuf.message
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+import builtins as _builtins
 import sys
-import typing
+import typing as _typing
 
 if sys.version_info >= (3, 10):
-    import typing as typing_extensions
+    from typing import TypeAlias as _TypeAlias
 else:
-    import typing_extensions
+    from typing_extensions import TypeAlias as _TypeAlias
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
-@typing.final
-class Token(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class Token(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    USER_NAME_FIELD_NUMBER: builtins.int
-    token: builtins.str
-    user_name: builtins.str
+    TOKEN_FIELD_NUMBER: _builtins.int
+    USER_NAME_FIELD_NUMBER: _builtins.int
+    token: _builtins.str
+    user_name: _builtins.str
     def __init__(
         self,
         *,
-        token: builtins.str = ...,
-        user_name: builtins.str = ...,
+        token: _builtins.str = ...,
+        user_name: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["token", b"token", "user_name", b"user_name"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["token", b"token", "user_name", b"user_name"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___Token: typing_extensions.TypeAlias = Token
+Global___Token: _TypeAlias = Token  # noqa: Y015

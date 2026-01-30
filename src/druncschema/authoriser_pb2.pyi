@@ -3,27 +3,27 @@
 isort:skip_file
 """
 
-import builtins
-import druncschema.token_pb2
-import google.protobuf.descriptor
-import google.protobuf.internal.enum_type_wrapper
-import google.protobuf.message
+from druncschema import token_pb2 as _token_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+import builtins as _builtins
 import sys
-import typing
+import typing as _typing
 
 if sys.version_info >= (3, 10):
-    import typing as typing_extensions
+    from typing import TypeAlias as _TypeAlias
 else:
-    import typing_extensions
+    from typing_extensions import TypeAlias as _TypeAlias
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
 class _ActionType:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
+    ValueType = _typing.NewType("ValueType", _builtins.int)
+    V: _TypeAlias = ValueType  # noqa: Y015
 
-class _ActionTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ActionType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+class _ActionTypeEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_ActionType.ValueType], _builtins.type):
+    DESCRIPTOR: _descriptor.EnumDescriptor
     CREATE: _ActionType.ValueType  # 0
     READ: _ActionType.ValueType  # 1
     UPDATE: _ActionType.ValueType  # 2
@@ -37,14 +37,14 @@ READ: ActionType.ValueType  # 1
 UPDATE: ActionType.ValueType  # 2
 DELETE: ActionType.ValueType  # 3
 EXPERT: ActionType.ValueType  # 4
-Global___ActionType: typing_extensions.TypeAlias = ActionType
+Global___ActionType: _TypeAlias = ActionType  # noqa: Y015
 
 class _SystemType:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
+    ValueType = _typing.NewType("ValueType", _builtins.int)
+    V: _TypeAlias = ValueType  # noqa: Y015
 
-class _SystemTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_SystemType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+class _SystemTypeEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_SystemType.ValueType], _builtins.type):
+    DESCRIPTOR: _descriptor.EnumDescriptor
     CONTROLLER: _SystemType.ValueType  # 0
     APPLICATION: _SystemType.ValueType  # 1
     PROCESS_MANAGER: _SystemType.ValueType  # 2
@@ -60,27 +60,29 @@ PROCESS_MANAGER: SystemType.ValueType  # 2
 SESSION_MANAGER: SystemType.ValueType  # 3
 RESOURCE_MANAGER: SystemType.ValueType  # 4
 AUTHORISER_SERVICE: SystemType.ValueType  # 5
-Global___SystemType: typing_extensions.TypeAlias = SystemType
+Global___SystemType: _TypeAlias = SystemType  # noqa: Y015
 
-@typing.final
-class AuthoriserRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class AuthoriserRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    ACTION_FIELD_NUMBER: builtins.int
-    SYSTEM_FIELD_NUMBER: builtins.int
+    TOKEN_FIELD_NUMBER: _builtins.int
+    ACTION_FIELD_NUMBER: _builtins.int
+    SYSTEM_FIELD_NUMBER: _builtins.int
     action: Global___ActionType.ValueType
     system: Global___SystemType.ValueType
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
+        token: _token_pb2.Token | None = ...,
         action: Global___ActionType.ValueType = ...,
         system: Global___SystemType.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["action", b"action", "system", b"system", "token", b"token"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["action", b"action", "system", b"system", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___AuthoriserRequest: typing_extensions.TypeAlias = AuthoriserRequest
+Global___AuthoriserRequest: _TypeAlias = AuthoriserRequest  # noqa: Y015

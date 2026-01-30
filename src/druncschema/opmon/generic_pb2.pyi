@@ -3,51 +3,52 @@
 isort:skip_file
 """
 
-import builtins
-import google.protobuf.descriptor
-import google.protobuf.message
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+import builtins as _builtins
 import sys
-import typing
+import typing as _typing
 
 if sys.version_info >= (3, 10):
-    import typing as typing_extensions
+    from typing import TypeAlias as _TypeAlias
 else:
-    import typing_extensions
+    from typing_extensions import TypeAlias as _TypeAlias
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
-@typing.final
-class RunInfo(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class RunInfo(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    RUN_TYPE_FIELD_NUMBER: builtins.int
-    TRIGGER_RATE_FIELD_NUMBER: builtins.int
-    RUN_NUMBER_FIELD_NUMBER: builtins.int
-    DISABLE_DATA_STORAGE_FIELD_NUMBER: builtins.int
-    RUN_TIME_AT_START_FIELD_NUMBER: builtins.int
-    RUN_TIME_SINCE_START_FIELD_NUMBER: builtins.int
-    RUN_CONFIG_FILE_FIELD_NUMBER: builtins.int
-    RUN_CONFIG_NAME_FIELD_NUMBER: builtins.int
-    run_type: builtins.str
-    trigger_rate: builtins.float
-    run_number: builtins.int
-    disable_data_storage: builtins.bool
-    run_time_at_start: builtins.int
-    run_time_since_start: builtins.int
-    run_config_file: builtins.str
-    run_config_name: builtins.str
+    RUN_TYPE_FIELD_NUMBER: _builtins.int
+    TRIGGER_RATE_FIELD_NUMBER: _builtins.int
+    RUN_NUMBER_FIELD_NUMBER: _builtins.int
+    DISABLE_DATA_STORAGE_FIELD_NUMBER: _builtins.int
+    RUN_TIME_AT_START_FIELD_NUMBER: _builtins.int
+    RUN_TIME_SINCE_START_FIELD_NUMBER: _builtins.int
+    RUN_CONFIG_FILE_FIELD_NUMBER: _builtins.int
+    RUN_CONFIG_NAME_FIELD_NUMBER: _builtins.int
+    run_type: _builtins.str
+    trigger_rate: _builtins.float
+    run_number: _builtins.int
+    disable_data_storage: _builtins.bool
+    run_time_at_start: _builtins.int
+    run_time_since_start: _builtins.int
+    run_config_file: _builtins.str
+    run_config_name: _builtins.str
     def __init__(
         self,
         *,
-        run_type: builtins.str = ...,
-        trigger_rate: builtins.float = ...,
-        run_number: builtins.int = ...,
-        disable_data_storage: builtins.bool = ...,
-        run_time_at_start: builtins.int = ...,
-        run_time_since_start: builtins.int = ...,
-        run_config_file: builtins.str = ...,
-        run_config_name: builtins.str = ...,
+        run_type: _builtins.str = ...,
+        trigger_rate: _builtins.float = ...,
+        run_number: _builtins.int = ...,
+        disable_data_storage: _builtins.bool = ...,
+        run_time_at_start: _builtins.int = ...,
+        run_time_since_start: _builtins.int = ...,
+        run_config_file: _builtins.str = ...,
+        run_config_name: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["disable_data_storage", b"disable_data_storage", "run_config_file", b"run_config_file", "run_config_name", b"run_config_name", "run_number", b"run_number", "run_time_at_start", b"run_time_at_start", "run_time_since_start", b"run_time_since_start", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["disable_data_storage", b"disable_data_storage", "run_config_file", b"run_config_file", "run_config_name", b"run_config_name", "run_number", b"run_number", "run_time_at_start", b"run_time_at_start", "run_time_since_start", b"run_time_since_start", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___RunInfo: typing_extensions.TypeAlias = RunInfo
+Global___RunInfo: _TypeAlias = RunInfo  # noqa: Y015

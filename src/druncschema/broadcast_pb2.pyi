@@ -3,27 +3,27 @@
 isort:skip_file
 """
 
-import builtins
-import google.protobuf.any_pb2
-import google.protobuf.descriptor
-import google.protobuf.internal.enum_type_wrapper
-import google.protobuf.message
+from google.protobuf import any_pb2 as _any_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+import builtins as _builtins
 import sys
-import typing
+import typing as _typing
 
 if sys.version_info >= (3, 10):
-    import typing as typing_extensions
+    from typing import TypeAlias as _TypeAlias
 else:
-    import typing_extensions
+    from typing_extensions import TypeAlias as _TypeAlias
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
 class _BroadcastType:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
+    ValueType = _typing.NewType("ValueType", _builtins.int)
+    V: _TypeAlias = ValueType  # noqa: Y015
 
-class _BroadcastTypeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_BroadcastType.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+class _BroadcastTypeEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_BroadcastType.ValueType], _builtins.type):
+    DESCRIPTOR: _descriptor.EnumDescriptor
     ACK: _BroadcastType.ValueType  # 0
     RECEIVER_REMOVED: _BroadcastType.ValueType  # 1
     RECEIVER_ADDED: _BroadcastType.ValueType  # 2
@@ -63,94 +63,100 @@ CHILD_COMMAND_EXECUTION_START: BroadcastType.ValueType  # 12
 CHILD_COMMAND_EXECUTION_SUCCESS: BroadcastType.ValueType  # 13
 CHILD_COMMAND_EXECUTION_FAILED: BroadcastType.ValueType  # 14
 FSM_STATUS_UPDATE: BroadcastType.ValueType  # 17
-Global___BroadcastType: typing_extensions.TypeAlias = BroadcastType
+Global___BroadcastType: _TypeAlias = BroadcastType  # noqa: Y015
 
-@typing.final
-class KafkaBroadcastHandlerConfiguration(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class KafkaBroadcastHandlerConfiguration(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    KAFKA_ADDRESS_FIELD_NUMBER: builtins.int
-    TOPIC_FIELD_NUMBER: builtins.int
-    kafka_address: builtins.str
-    topic: builtins.str
+    KAFKA_ADDRESS_FIELD_NUMBER: _builtins.int
+    TOPIC_FIELD_NUMBER: _builtins.int
+    kafka_address: _builtins.str
+    topic: _builtins.str
     def __init__(
         self,
         *,
-        kafka_address: builtins.str = ...,
-        topic: builtins.str = ...,
+        kafka_address: _builtins.str = ...,
+        topic: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["kafka_address", b"kafka_address", "topic", b"topic"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["kafka_address", b"kafka_address", "topic", b"topic"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___KafkaBroadcastHandlerConfiguration: typing_extensions.TypeAlias = KafkaBroadcastHandlerConfiguration
+Global___KafkaBroadcastHandlerConfiguration: _TypeAlias = KafkaBroadcastHandlerConfiguration  # noqa: Y015
 
-@typing.final
-class Emitter(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class Emitter(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    PROCESS_FIELD_NUMBER: builtins.int
-    SESSION_FIELD_NUMBER: builtins.int
-    process: builtins.str
-    session: builtins.str
+    PROCESS_FIELD_NUMBER: _builtins.int
+    SESSION_FIELD_NUMBER: _builtins.int
+    process: _builtins.str
+    session: _builtins.str
     def __init__(
         self,
         *,
-        process: builtins.str = ...,
-        session: builtins.str = ...,
+        process: _builtins.str = ...,
+        session: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["process", b"process", "session", b"session"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["process", b"process", "session", b"session"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___Emitter: typing_extensions.TypeAlias = Emitter
+Global___Emitter: _TypeAlias = Emitter  # noqa: Y015
 
-@typing.final
-class BroadcastMessage(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class BroadcastMessage(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    EMITTER_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    DATA_FIELD_NUMBER: builtins.int
+    EMITTER_FIELD_NUMBER: _builtins.int
+    TYPE_FIELD_NUMBER: _builtins.int
+    DATA_FIELD_NUMBER: _builtins.int
     type: Global___BroadcastType.ValueType
-    @property
+    @_builtins.property
     def emitter(self) -> Global___Emitter: ...
-    @property
-    def data(self) -> google.protobuf.any_pb2.Any: ...
+    @_builtins.property
+    def data(self) -> _any_pb2.Any: ...
     def __init__(
         self,
         *,
         emitter: Global___Emitter | None = ...,
         type: Global___BroadcastType.ValueType = ...,
-        data: google.protobuf.any_pb2.Any | None = ...,
+        data: _any_pb2.Any | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["data", b"data", "emitter", b"emitter"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["data", b"data", "emitter", b"emitter", "type", b"type"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["data", b"data", "emitter", b"emitter"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["data", b"data", "emitter", b"emitter", "type", b"type"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___BroadcastMessage: typing_extensions.TypeAlias = BroadcastMessage
+Global___BroadcastMessage: _TypeAlias = BroadcastMessage  # noqa: Y015
 
-@typing.final
-class BroadcastRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class BroadcastRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    BROADCAST_RECEIVER_ADDRESS_FIELD_NUMBER: builtins.int
-    broadcast_receiver_address: builtins.str
+    BROADCAST_RECEIVER_ADDRESS_FIELD_NUMBER: _builtins.int
+    broadcast_receiver_address: _builtins.str
     def __init__(
         self,
         *,
-        broadcast_receiver_address: builtins.str = ...,
+        broadcast_receiver_address: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["broadcast_receiver_address", b"broadcast_receiver_address"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["broadcast_receiver_address", b"broadcast_receiver_address"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___BroadcastRequest: typing_extensions.TypeAlias = BroadcastRequest
+Global___BroadcastRequest: _TypeAlias = BroadcastRequest  # noqa: Y015
 
-@typing.final
-class BroadcastResponse(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class BroadcastResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    SUCCESS_FIELD_NUMBER: builtins.int
-    success: builtins.bool
+    SUCCESS_FIELD_NUMBER: _builtins.int
+    success: _builtins.bool
     def __init__(
         self,
         *,
-        success: builtins.bool = ...,
+        success: _builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["success", b"success"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["success", b"success"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-Global___BroadcastResponse: typing_extensions.TypeAlias = BroadcastResponse
+Global___BroadcastResponse: _TypeAlias = BroadcastResponse  # noqa: Y015
