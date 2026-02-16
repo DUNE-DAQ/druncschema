@@ -3,30 +3,37 @@
 isort:skip_file
 """
 
-import builtins
-import google.protobuf.descriptor
-import google.protobuf.message
-import typing
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+import builtins as _builtins
+import sys
+import typing as _typing
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+if sys.version_info >= (3, 10):
+    from typing import TypeAlias as _TypeAlias
+else:
+    from typing_extensions import TypeAlias as _TypeAlias
 
-@typing.final
-class ProcessStatus(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
-    N_RUNNING_FIELD_NUMBER: builtins.int
-    N_DEAD_FIELD_NUMBER: builtins.int
-    N_SESSION_FIELD_NUMBER: builtins.int
-    n_running: builtins.int
-    n_dead: builtins.int
-    n_session: builtins.int
+@_typing.final
+class ProcessStatus(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    N_RUNNING_FIELD_NUMBER: _builtins.int
+    N_DEAD_FIELD_NUMBER: _builtins.int
+    N_SESSION_FIELD_NUMBER: _builtins.int
+    n_running: _builtins.int
+    n_dead: _builtins.int
+    n_session: _builtins.int
     def __init__(
         self,
         *,
-        n_running: builtins.int = ...,
-        n_dead: builtins.int = ...,
-        n_session: builtins.int = ...,
+        n_running: _builtins.int = ...,
+        n_dead: _builtins.int = ...,
+        n_session: _builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["n_dead", b"n_dead", "n_running", b"n_running", "n_session", b"n_session"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["n_dead", b"n_dead", "n_running", b"n_running", "n_session", b"n_session"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ProcessStatus = ProcessStatus
+Global___ProcessStatus: _TypeAlias = ProcessStatus  # noqa: Y015

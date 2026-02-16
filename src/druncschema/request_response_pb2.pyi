@@ -3,30 +3,30 @@
 isort:skip_file
 """
 
-import builtins
-import collections.abc
-import druncschema.token_pb2
-import google.protobuf.any_pb2
-import google.protobuf.descriptor
-import google.protobuf.internal.containers
-import google.protobuf.internal.enum_type_wrapper
-import google.protobuf.message
+from collections import abc as _abc
+from druncschema import token_pb2 as _token_pb2
+from google.protobuf import any_pb2 as _any_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+import builtins as _builtins
 import sys
-import typing
+import typing as _typing
 
 if sys.version_info >= (3, 10):
-    import typing as typing_extensions
+    from typing import TypeAlias as _TypeAlias
 else:
-    import typing_extensions
+    from typing_extensions import TypeAlias as _TypeAlias
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
 class _ResponseFlag:
-    ValueType = typing.NewType("ValueType", builtins.int)
-    V: typing_extensions.TypeAlias = ValueType
+    ValueType = _typing.NewType("ValueType", _builtins.int)
+    V: _TypeAlias = ValueType  # noqa: Y015
 
-class _ResponseFlagEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[_ResponseFlag.ValueType], builtins.type):
-    DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+class _ResponseFlagEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_ResponseFlag.ValueType], _builtins.type):
+    DESCRIPTOR: _descriptor.EnumDescriptor
     EXECUTED_SUCCESSFULLY: _ResponseFlag.ValueType  # 0
     FAILED: _ResponseFlag.ValueType  # 1
     NOT_EXECUTED_NOT_IMPLEMENTED: _ResponseFlag.ValueType  # 2
@@ -50,67 +50,75 @@ DRUNC_EXCEPTION_THROWN: ResponseFlag.ValueType  # 6
 UNHANDLED_EXCEPTION_THROWN: ResponseFlag.ValueType  # 7
 NOT_EXECUTED_BAD_REQUEST_FORMAT: ResponseFlag.ValueType  # 8
 NOT_EXECUTED_NOT_READY: ResponseFlag.ValueType  # 9
-global___ResponseFlag = ResponseFlag
+Global___ResponseFlag: _TypeAlias = ResponseFlag  # noqa: Y015
 
-@typing.final
-class Request(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class Request(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    DATA_FIELD_NUMBER: builtins.int
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def data(self) -> google.protobuf.any_pb2.Any: ...
+    TOKEN_FIELD_NUMBER: _builtins.int
+    DATA_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def data(self) -> _any_pb2.Any: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
-        data: google.protobuf.any_pb2.Any | None = ...,
+        token: _token_pb2.Token | None = ...,
+        data: _any_pb2.Any | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__data: _TypeAlias = _typing.Literal["data"]  # noqa: Y015
+    _WhichOneofArgType__data: _TypeAlias = _typing.Literal["_data", b"_data"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__data) -> _WhichOneofReturnType__data | None: ...
 
-global___Request = Request
+Global___Request: _TypeAlias = Request  # noqa: Y015
 
-@typing.final
-class Response(google.protobuf.message.Message):
+@_typing.final
+class Response(_message.Message):
     """The "decoded" version (i.e. without Any) of this message is defined at the top of drunc/src/utils/shell_utils.py, modify it there if you want to change the format"""
 
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    DESCRIPTOR: _descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    TOKEN_FIELD_NUMBER: builtins.int
-    DATA_FIELD_NUMBER: builtins.int
-    FLAG_FIELD_NUMBER: builtins.int
-    CHILDREN_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    flag: global___ResponseFlag.ValueType
+    NAME_FIELD_NUMBER: _builtins.int
+    TOKEN_FIELD_NUMBER: _builtins.int
+    DATA_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    CHILDREN_FIELD_NUMBER: _builtins.int
+    name: _builtins.str
+    flag: Global___ResponseFlag.ValueType
     """whether the command was successfull ON SELF ONLY!"""
-    @property
-    def token(self) -> druncschema.token_pb2.Token:
+    @_builtins.property
+    def token(self) -> _token_pb2.Token:
         """The token of the sender"""
 
-    @property
-    def data(self) -> google.protobuf.any_pb2.Any:
+    @_builtins.property
+    def data(self) -> _any_pb2.Any:
         """Any arbitrary data returned by the command"""
 
-    @property
-    def children(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___Response]:
+    @_builtins.property
+    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___Response]:
         """a map of the response flags of the children"""
 
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
-        token: druncschema.token_pb2.Token | None = ...,
-        data: google.protobuf.any_pb2.Any | None = ...,
-        flag: global___ResponseFlag.ValueType = ...,
-        children: collections.abc.Iterable[global___Response] | None = ...,
+        name: _builtins.str = ...,
+        token: _token_pb2.Token | None = ...,
+        data: _any_pb2.Any | None = ...,
+        flag: Global___ResponseFlag.ValueType = ...,
+        children: _abc.Iterable[Global___Response] | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_data", b"_data", "children", b"children", "data", b"data", "flag", b"flag", "name", b"name", "token", b"token"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["_data", b"_data"]) -> typing.Literal["data"] | None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_data", b"_data", "data", b"data", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_data", b"_data", "children", b"children", "data", b"data", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__data: _TypeAlias = _typing.Literal["data"]  # noqa: Y015
+    _WhichOneofArgType__data: _TypeAlias = _typing.Literal["_data", b"_data"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__data) -> _WhichOneofReturnType__data | None: ...
 
-global___Response = Response
+Global___Response: _TypeAlias = Response  # noqa: Y015

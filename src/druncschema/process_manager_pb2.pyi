@@ -3,346 +3,372 @@
 isort:skip_file
 """
 
-import builtins
-import collections.abc
-import druncschema.request_response_pb2
-import druncschema.token_pb2
-import google.protobuf.descriptor
-import google.protobuf.internal.containers
-import google.protobuf.internal.enum_type_wrapper
-import google.protobuf.message
+from collections import abc as _abc
+from druncschema import request_response_pb2 as _request_response_pb2
+from druncschema import token_pb2 as _token_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+import builtins as _builtins
 import sys
-import typing
+import typing as _typing
 
 if sys.version_info >= (3, 10):
-    import typing as typing_extensions
+    from typing import TypeAlias as _TypeAlias
 else:
-    import typing_extensions
+    from typing_extensions import TypeAlias as _TypeAlias
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
-@typing.final
-class ProcessRestriction(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessRestriction(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    ALLOWED_HOSTS_FIELD_NUMBER: builtins.int
-    ALLOWED_HOST_TYPES_FIELD_NUMBER: builtins.int
-    DATA_MOUNT_FIELD_NUMBER: builtins.int
-    data_mount: builtins.str
-    @property
-    def allowed_hosts(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
-    @property
-    def allowed_host_types(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    ALLOWED_HOSTS_FIELD_NUMBER: _builtins.int
+    ALLOWED_HOST_TYPES_FIELD_NUMBER: _builtins.int
+    DATA_MOUNT_FIELD_NUMBER: _builtins.int
+    data_mount: _builtins.str
+    @_builtins.property
+    def allowed_hosts(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
+    @_builtins.property
+    def allowed_host_types(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
     def __init__(
         self,
         *,
-        allowed_hosts: collections.abc.Iterable[builtins.str] | None = ...,
-        allowed_host_types: collections.abc.Iterable[builtins.str] | None = ...,
-        data_mount: builtins.str | None = ...,
+        allowed_hosts: _abc.Iterable[_builtins.str] | None = ...,
+        allowed_host_types: _abc.Iterable[_builtins.str] | None = ...,
+        data_mount: _builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_data_mount", b"_data_mount", "data_mount", b"data_mount"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_data_mount", b"_data_mount", "allowed_host_types", b"allowed_host_types", "allowed_hosts", b"allowed_hosts", "data_mount", b"data_mount"]) -> None: ...
-    def WhichOneof(self, oneof_group: typing.Literal["_data_mount", b"_data_mount"]) -> typing.Literal["data_mount"] | None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_data_mount", b"_data_mount", "data_mount", b"data_mount"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_data_mount", b"_data_mount", "allowed_host_types", b"allowed_host_types", "allowed_hosts", b"allowed_hosts", "data_mount", b"data_mount"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__data_mount: _TypeAlias = _typing.Literal["data_mount"]  # noqa: Y015
+    _WhichOneofArgType__data_mount: _TypeAlias = _typing.Literal["_data_mount", b"_data_mount"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__data_mount) -> _WhichOneofReturnType__data_mount | None: ...
 
-global___ProcessRestriction = ProcessRestriction
+Global___ProcessRestriction: _TypeAlias = ProcessRestriction  # noqa: Y015
 
-@typing.final
-class CommandNotificationMessage(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class CommandNotificationMessage(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    USER_FIELD_NUMBER: builtins.int
-    COMMAND_FIELD_NUMBER: builtins.int
-    user: builtins.str
-    command: builtins.str
+    USER_FIELD_NUMBER: _builtins.int
+    COMMAND_FIELD_NUMBER: _builtins.int
+    user: _builtins.str
+    command: _builtins.str
     def __init__(
         self,
         *,
-        user: builtins.str = ...,
-        command: builtins.str = ...,
+        user: _builtins.str = ...,
+        command: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["command", b"command", "user", b"user"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["command", b"command", "user", b"user"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___CommandNotificationMessage = CommandNotificationMessage
+Global___CommandNotificationMessage: _TypeAlias = CommandNotificationMessage  # noqa: Y015
 
-@typing.final
-class GenericNotificationMessage(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class GenericNotificationMessage(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    MESSAGE_FIELD_NUMBER: builtins.int
-    message: builtins.str
+    MESSAGE_FIELD_NUMBER: _builtins.int
+    message: _builtins.str
     def __init__(
         self,
         *,
-        message: builtins.str = ...,
+        message: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["message", b"message"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["message", b"message"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___GenericNotificationMessage = GenericNotificationMessage
+Global___GenericNotificationMessage: _TypeAlias = GenericNotificationMessage  # noqa: Y015
 
-@typing.final
-class ExceptionNotification(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ExceptionNotification(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    @typing.final
-    class StackLine(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    @_typing.final
+    class StackLine(_message.Message):
+        DESCRIPTOR: _descriptor.Descriptor
 
-        LINE_TEXT_FIELD_NUMBER: builtins.int
-        LINE_NUMBER_FIELD_NUMBER: builtins.int
-        FILE_FIELD_NUMBER: builtins.int
-        line_text: builtins.str
-        line_number: builtins.str
-        file: builtins.str
+        LINE_TEXT_FIELD_NUMBER: _builtins.int
+        LINE_NUMBER_FIELD_NUMBER: _builtins.int
+        FILE_FIELD_NUMBER: _builtins.int
+        line_text: _builtins.str
+        line_number: _builtins.str
+        file: _builtins.str
         def __init__(
             self,
             *,
-            line_text: builtins.str = ...,
-            line_number: builtins.str = ...,
-            file: builtins.str = ...,
+            line_text: _builtins.str = ...,
+            line_number: _builtins.str = ...,
+            file: _builtins.str = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["file", b"file", "line_number", b"line_number", "line_text", b"line_text"]) -> None: ...
+        _ClearFieldArgType: _TypeAlias = _typing.Literal["file", b"file", "line_number", b"line_number", "line_text", b"line_text"]  # noqa: Y015
+        def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-    ERROR_TEXT_FIELD_NUMBER: builtins.int
-    STACK_TRACE_FIELD_NUMBER: builtins.int
-    error_text: builtins.str
-    @property
-    def stack_trace(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ExceptionNotification.StackLine]: ...
+    ERROR_TEXT_FIELD_NUMBER: _builtins.int
+    STACK_TRACE_FIELD_NUMBER: _builtins.int
+    error_text: _builtins.str
+    @_builtins.property
+    def stack_trace(self) -> _containers.RepeatedCompositeFieldContainer[Global___ExceptionNotification.StackLine]: ...
     def __init__(
         self,
         *,
-        error_text: builtins.str = ...,
-        stack_trace: collections.abc.Iterable[global___ExceptionNotification.StackLine] | None = ...,
+        error_text: _builtins.str = ...,
+        stack_trace: _abc.Iterable[Global___ExceptionNotification.StackLine] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["error_text", b"error_text", "stack_trace", b"stack_trace"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["error_text", b"error_text", "stack_trace", b"stack_trace"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ExceptionNotification = ExceptionNotification
+Global___ExceptionNotification: _TypeAlias = ExceptionNotification  # noqa: Y015
 
-@typing.final
-class LogRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class LogRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    QUERY_FIELD_NUMBER: builtins.int
-    HOW_FAR_FIELD_NUMBER: builtins.int
-    how_far: builtins.int
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def query(self) -> global___ProcessQuery: ...
+    TOKEN_FIELD_NUMBER: _builtins.int
+    QUERY_FIELD_NUMBER: _builtins.int
+    HOW_FAR_FIELD_NUMBER: _builtins.int
+    how_far: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def query(self) -> Global___ProcessQuery: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
-        query: global___ProcessQuery | None = ...,
-        how_far: builtins.int = ...,
+        token: _token_pb2.Token | None = ...,
+        query: Global___ProcessQuery | None = ...,
+        how_far: _builtins.int = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["query", b"query", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["how_far", b"how_far", "query", b"query", "token", b"token"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["query", b"query", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["how_far", b"how_far", "query", b"query", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___LogRequest = LogRequest
+Global___LogRequest: _TypeAlias = LogRequest  # noqa: Y015
 
-@typing.final
-class LogLines(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class LogLines(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    TOKEN_FIELD_NUMBER: builtins.int
-    UUID_FIELD_NUMBER: builtins.int
-    LINES_FIELD_NUMBER: builtins.int
-    FLAG_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def uuid(self) -> global___ProcessUUID: ...
-    @property
-    def lines(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    NAME_FIELD_NUMBER: _builtins.int
+    TOKEN_FIELD_NUMBER: _builtins.int
+    UUID_FIELD_NUMBER: _builtins.int
+    LINES_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    name: _builtins.str
+    flag: _request_response_pb2.ResponseFlag.ValueType
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def uuid(self) -> Global___ProcessUUID: ...
+    @_builtins.property
+    def lines(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
-        token: druncschema.token_pb2.Token | None = ...,
-        uuid: global___ProcessUUID | None = ...,
-        lines: collections.abc.Iterable[builtins.str] | None = ...,
-        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
+        name: _builtins.str = ...,
+        token: _token_pb2.Token | None = ...,
+        uuid: Global___ProcessUUID | None = ...,
+        lines: _abc.Iterable[_builtins.str] | None = ...,
+        flag: _request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["token", b"token", "uuid", b"uuid"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["flag", b"flag", "lines", b"lines", "name", b"name", "token", b"token", "uuid", b"uuid"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token", "uuid", b"uuid"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag", "lines", b"lines", "name", b"name", "token", b"token", "uuid", b"uuid"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___LogLines = LogLines
+Global___LogLines: _TypeAlias = LogLines  # noqa: Y015
 
-@typing.final
-class ProcessUUID(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessUUID(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    UUID_FIELD_NUMBER: builtins.int
-    uuid: builtins.str
+    UUID_FIELD_NUMBER: _builtins.int
+    uuid: _builtins.str
     def __init__(
         self,
         *,
-        uuid: builtins.str = ...,
+        uuid: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["uuid", b"uuid"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["uuid", b"uuid"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ProcessUUID = ProcessUUID
+Global___ProcessUUID: _TypeAlias = ProcessUUID  # noqa: Y015
 
-@typing.final
-class ProcessMetadata(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessMetadata(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    UUID_FIELD_NUMBER: builtins.int
-    USER_FIELD_NUMBER: builtins.int
-    SESSION_FIELD_NUMBER: builtins.int
-    NAME_FIELD_NUMBER: builtins.int
-    HOSTNAME_FIELD_NUMBER: builtins.int
-    TREE_ID_FIELD_NUMBER: builtins.int
-    user: builtins.str
-    session: builtins.str
-    name: builtins.str
-    hostname: builtins.str
-    tree_id: builtins.str
-    @property
-    def uuid(self) -> global___ProcessUUID: ...
+    UUID_FIELD_NUMBER: _builtins.int
+    USER_FIELD_NUMBER: _builtins.int
+    SESSION_FIELD_NUMBER: _builtins.int
+    NAME_FIELD_NUMBER: _builtins.int
+    HOSTNAME_FIELD_NUMBER: _builtins.int
+    TREE_ID_FIELD_NUMBER: _builtins.int
+    user: _builtins.str
+    session: _builtins.str
+    name: _builtins.str
+    hostname: _builtins.str
+    tree_id: _builtins.str
+    @_builtins.property
+    def uuid(self) -> Global___ProcessUUID: ...
     def __init__(
         self,
         *,
-        uuid: global___ProcessUUID | None = ...,
-        user: builtins.str = ...,
-        session: builtins.str | None = ...,
-        name: builtins.str = ...,
-        hostname: builtins.str = ...,
-        tree_id: builtins.str | None = ...,
+        uuid: Global___ProcessUUID | None = ...,
+        user: _builtins.str = ...,
+        session: _builtins.str | None = ...,
+        name: _builtins.str = ...,
+        hostname: _builtins.str = ...,
+        tree_id: _builtins.str | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_session", b"_session", "_tree_id", b"_tree_id", "session", b"session", "tree_id", b"tree_id", "uuid", b"uuid"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_session", b"_session", "_tree_id", b"_tree_id", "hostname", b"hostname", "name", b"name", "session", b"session", "tree_id", b"tree_id", "user", b"user", "uuid", b"uuid"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_tree_id", b"_tree_id"]) -> typing.Literal["tree_id"] | None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_session", b"_session", "_tree_id", b"_tree_id", "session", b"session", "tree_id", b"tree_id", "uuid", b"uuid"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_session", b"_session", "_tree_id", b"_tree_id", "hostname", b"hostname", "name", b"name", "session", b"session", "tree_id", b"tree_id", "user", b"user", "uuid", b"uuid"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__session: _TypeAlias = _typing.Literal["session"]  # noqa: Y015
+    _WhichOneofArgType__session: _TypeAlias = _typing.Literal["_session", b"_session"]  # noqa: Y015
+    _WhichOneofReturnType__tree_id: _TypeAlias = _typing.Literal["tree_id"]  # noqa: Y015
+    _WhichOneofArgType__tree_id: _TypeAlias = _typing.Literal["_tree_id", b"_tree_id"]  # noqa: Y015
+    @_typing.overload
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__session) -> _WhichOneofReturnType__session | None: ...
+    @_typing.overload
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__tree_id) -> _WhichOneofReturnType__tree_id | None: ...
 
-global___ProcessMetadata = ProcessMetadata
+Global___ProcessMetadata: _TypeAlias = ProcessMetadata  # noqa: Y015
 
-@typing.final
-class ProcessQuery(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessQuery(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    UUIDS_FIELD_NUMBER: builtins.int
-    NAMES_FIELD_NUMBER: builtins.int
-    USER_FIELD_NUMBER: builtins.int
-    SESSION_FIELD_NUMBER: builtins.int
-    user: builtins.str
-    session: builtins.str
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def uuids(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessUUID]: ...
-    @property
-    def names(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    TOKEN_FIELD_NUMBER: _builtins.int
+    UUIDS_FIELD_NUMBER: _builtins.int
+    NAMES_FIELD_NUMBER: _builtins.int
+    USER_FIELD_NUMBER: _builtins.int
+    SESSION_FIELD_NUMBER: _builtins.int
+    user: _builtins.str
+    session: _builtins.str
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def uuids(self) -> _containers.RepeatedCompositeFieldContainer[Global___ProcessUUID]: ...
+    @_builtins.property
+    def names(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
-        uuids: collections.abc.Iterable[global___ProcessUUID] | None = ...,
-        names: collections.abc.Iterable[builtins.str] | None = ...,
-        user: builtins.str = ...,
-        session: builtins.str = ...,
+        token: _token_pb2.Token | None = ...,
+        uuids: _abc.Iterable[Global___ProcessUUID] | None = ...,
+        names: _abc.Iterable[_builtins.str] | None = ...,
+        user: _builtins.str = ...,
+        session: _builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ProcessQuery = ProcessQuery
+Global___ProcessQuery: _TypeAlias = ProcessQuery  # noqa: Y015
 
-@typing.final
-class ProcessDescription(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessDescription(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    @typing.final
-    class StringList(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    @_typing.final
+    class StringList(_message.Message):
+        DESCRIPTOR: _descriptor.Descriptor
 
-        VALUES_FIELD_NUMBER: builtins.int
-        @property
-        def values(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+        VALUES_FIELD_NUMBER: _builtins.int
+        @_builtins.property
+        def values(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
         def __init__(
             self,
             *,
-            values: collections.abc.Iterable[builtins.str] | None = ...,
+            values: _abc.Iterable[_builtins.str] | None = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["values", b"values"]) -> None: ...
+        _ClearFieldArgType: _TypeAlias = _typing.Literal["values", b"values"]  # noqa: Y015
+        def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-    @typing.final
-    class ExecAndArgs(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    @_typing.final
+    class ExecAndArgs(_message.Message):
+        DESCRIPTOR: _descriptor.Descriptor
 
-        EXEC_FIELD_NUMBER: builtins.int
-        ARGS_FIELD_NUMBER: builtins.int
-        exec: builtins.str
-        @property
-        def args(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+        EXEC_FIELD_NUMBER: _builtins.int
+        ARGS_FIELD_NUMBER: _builtins.int
+        exec: _builtins.str
+        @_builtins.property
+        def args(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
         def __init__(
             self,
             *,
-            exec: builtins.str = ...,
-            args: collections.abc.Iterable[builtins.str] | None = ...,
+            exec: _builtins.str = ...,
+            args: _abc.Iterable[_builtins.str] | None = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["args", b"args", "exec", b"exec"]) -> None: ...
+        _ClearFieldArgType: _TypeAlias = _typing.Literal["args", b"args", "exec", b"exec"]  # noqa: Y015
+        def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-    @typing.final
-    class EnvEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    @_typing.final
+    class EnvEntry(_message.Message):
+        DESCRIPTOR: _descriptor.Descriptor
 
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
+        KEY_FIELD_NUMBER: _builtins.int
+        VALUE_FIELD_NUMBER: _builtins.int
+        key: _builtins.str
+        value: _builtins.str
         def __init__(
             self,
             *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
+            key: _builtins.str = ...,
+            value: _builtins.str = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+        _ClearFieldArgType: _TypeAlias = _typing.Literal["key", b"key", "value", b"value"]  # noqa: Y015
+        def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-    METADATA_FIELD_NUMBER: builtins.int
-    ENV_FIELD_NUMBER: builtins.int
-    EXECUTABLE_AND_ARGUMENTS_FIELD_NUMBER: builtins.int
-    PROCESS_EXECUTION_DIRECTORY_FIELD_NUMBER: builtins.int
-    PROCESS_LOGS_PATH_FIELD_NUMBER: builtins.int
-    process_execution_directory: builtins.str
-    process_logs_path: builtins.str
+    METADATA_FIELD_NUMBER: _builtins.int
+    ENV_FIELD_NUMBER: _builtins.int
+    EXECUTABLE_AND_ARGUMENTS_FIELD_NUMBER: _builtins.int
+    PROCESS_EXECUTION_DIRECTORY_FIELD_NUMBER: _builtins.int
+    PROCESS_LOGS_PATH_FIELD_NUMBER: _builtins.int
+    process_execution_directory: _builtins.str
+    process_logs_path: _builtins.str
     """map<string,string> runtime_environment = 4;"""
-    @property
-    def metadata(self) -> global___ProcessMetadata: ...
-    @property
-    def env(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
-    @property
-    def executable_and_arguments(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessDescription.ExecAndArgs]: ...
+    @_builtins.property
+    def metadata(self) -> Global___ProcessMetadata: ...
+    @_builtins.property
+    def env(self) -> _containers.ScalarMap[_builtins.str, _builtins.str]: ...
+    @_builtins.property
+    def executable_and_arguments(self) -> _containers.RepeatedCompositeFieldContainer[Global___ProcessDescription.ExecAndArgs]: ...
     def __init__(
         self,
         *,
-        metadata: global___ProcessMetadata | None = ...,
-        env: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
-        executable_and_arguments: collections.abc.Iterable[global___ProcessDescription.ExecAndArgs] | None = ...,
-        process_execution_directory: builtins.str = ...,
-        process_logs_path: builtins.str = ...,
+        metadata: Global___ProcessMetadata | None = ...,
+        env: _abc.Mapping[_builtins.str, _builtins.str] | None = ...,
+        executable_and_arguments: _abc.Iterable[Global___ProcessDescription.ExecAndArgs] | None = ...,
+        process_execution_directory: _builtins.str = ...,
+        process_logs_path: _builtins.str = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["metadata", b"metadata"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["env", b"env", "executable_and_arguments", b"executable_and_arguments", "metadata", b"metadata", "process_execution_directory", b"process_execution_directory", "process_logs_path", b"process_logs_path"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["metadata", b"metadata"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["env", b"env", "executable_and_arguments", b"executable_and_arguments", "metadata", b"metadata", "process_execution_directory", b"process_execution_directory", "process_logs_path", b"process_logs_path"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ProcessDescription = ProcessDescription
+Global___ProcessDescription: _TypeAlias = ProcessDescription  # noqa: Y015
 
-@typing.final
-class ProcessInstance(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessInstance(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
     class _StatusCode:
-        ValueType = typing.NewType("ValueType", builtins.int)
-        V: typing_extensions.TypeAlias = ValueType
+        ValueType = _typing.NewType("ValueType", _builtins.int)
+        V: _TypeAlias = ValueType  # noqa: Y015
 
-    class _StatusCodeEnumTypeWrapper(google.protobuf.internal.enum_type_wrapper._EnumTypeWrapper[ProcessInstance._StatusCode.ValueType], builtins.type):
-        DESCRIPTOR: google.protobuf.descriptor.EnumDescriptor
+    class _StatusCodeEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[ProcessInstance._StatusCode.ValueType], _builtins.type):
+        DESCRIPTOR: _descriptor.EnumDescriptor
         RUNNING: ProcessInstance._StatusCode.ValueType  # 0
         DEAD: ProcessInstance._StatusCode.ValueType  # 1
 
@@ -350,81 +376,87 @@ class ProcessInstance(google.protobuf.message.Message):
     RUNNING: ProcessInstance.StatusCode.ValueType  # 0
     DEAD: ProcessInstance.StatusCode.ValueType  # 1
 
-    PROCESS_DESCRIPTION_FIELD_NUMBER: builtins.int
-    PROCESS_RESTRICTION_FIELD_NUMBER: builtins.int
-    STATUS_CODE_FIELD_NUMBER: builtins.int
-    RETURN_CODE_FIELD_NUMBER: builtins.int
-    UUID_FIELD_NUMBER: builtins.int
-    status_code: global___ProcessInstance.StatusCode.ValueType
-    return_code: builtins.int
-    @property
-    def process_description(self) -> global___ProcessDescription: ...
-    @property
-    def process_restriction(self) -> global___ProcessRestriction: ...
-    @property
-    def uuid(self) -> global___ProcessUUID: ...
+    PROCESS_DESCRIPTION_FIELD_NUMBER: _builtins.int
+    PROCESS_RESTRICTION_FIELD_NUMBER: _builtins.int
+    STATUS_CODE_FIELD_NUMBER: _builtins.int
+    RETURN_CODE_FIELD_NUMBER: _builtins.int
+    UUID_FIELD_NUMBER: _builtins.int
+    status_code: Global___ProcessInstance.StatusCode.ValueType
+    return_code: _builtins.int
+    @_builtins.property
+    def process_description(self) -> Global___ProcessDescription: ...
+    @_builtins.property
+    def process_restriction(self) -> Global___ProcessRestriction: ...
+    @_builtins.property
+    def uuid(self) -> Global___ProcessUUID: ...
     def __init__(
         self,
         *,
-        process_description: global___ProcessDescription | None = ...,
-        process_restriction: global___ProcessRestriction | None = ...,
-        status_code: global___ProcessInstance.StatusCode.ValueType = ...,
-        return_code: builtins.int = ...,
-        uuid: global___ProcessUUID | None = ...,
+        process_description: Global___ProcessDescription | None = ...,
+        process_restriction: Global___ProcessRestriction | None = ...,
+        status_code: Global___ProcessInstance.StatusCode.ValueType = ...,
+        return_code: _builtins.int = ...,
+        uuid: Global___ProcessUUID | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "uuid", b"uuid"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "return_code", b"return_code", "status_code", b"status_code", "uuid", b"uuid"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "uuid", b"uuid"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "return_code", b"return_code", "status_code", b"status_code", "uuid", b"uuid"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ProcessInstance = ProcessInstance
+Global___ProcessInstance: _TypeAlias = ProcessInstance  # noqa: Y015
 
-@typing.final
-class ProcessInstanceList(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class ProcessInstanceList(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    TOKEN_FIELD_NUMBER: builtins.int
-    VALUES_FIELD_NUMBER: builtins.int
-    FLAG_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def values(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___ProcessInstance]: ...
+    NAME_FIELD_NUMBER: _builtins.int
+    TOKEN_FIELD_NUMBER: _builtins.int
+    VALUES_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    name: _builtins.str
+    flag: _request_response_pb2.ResponseFlag.ValueType
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def values(self) -> _containers.RepeatedCompositeFieldContainer[Global___ProcessInstance]: ...
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
-        token: druncschema.token_pb2.Token | None = ...,
-        values: collections.abc.Iterable[global___ProcessInstance] | None = ...,
-        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
+        name: _builtins.str = ...,
+        token: _token_pb2.Token | None = ...,
+        values: _abc.Iterable[Global___ProcessInstance] | None = ...,
+        flag: _request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["flag", b"flag", "name", b"name", "token", b"token", "values", b"values"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag", "name", b"name", "token", b"token", "values", b"values"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___ProcessInstanceList = ProcessInstanceList
+Global___ProcessInstanceList: _TypeAlias = ProcessInstanceList  # noqa: Y015
 
-@typing.final
-class BootRequest(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class BootRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    PROCESS_DESCRIPTION_FIELD_NUMBER: builtins.int
-    PROCESS_RESTRICTION_FIELD_NUMBER: builtins.int
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def process_description(self) -> global___ProcessDescription: ...
-    @property
-    def process_restriction(self) -> global___ProcessRestriction: ...
+    TOKEN_FIELD_NUMBER: _builtins.int
+    PROCESS_DESCRIPTION_FIELD_NUMBER: _builtins.int
+    PROCESS_RESTRICTION_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def process_description(self) -> Global___ProcessDescription: ...
+    @_builtins.property
+    def process_restriction(self) -> Global___ProcessRestriction: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
-        process_description: global___ProcessDescription | None = ...,
-        process_restriction: global___ProcessRestriction | None = ...,
+        token: _token_pb2.Token | None = ...,
+        process_description: Global___ProcessDescription | None = ...,
+        process_restriction: Global___ProcessRestriction | None = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___BootRequest = BootRequest
+Global___BootRequest: _TypeAlias = BootRequest  # noqa: Y015

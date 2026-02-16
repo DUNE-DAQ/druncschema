@@ -4,7 +4,6 @@ import grpc
 import warnings
 
 from druncschema import controller_pb2 as druncschema_dot_controller__pb2
-from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 GRPC_GENERATED_VERSION = '1.75.0'
 GRPC_VERSION = grpc.__version__
@@ -77,23 +76,23 @@ class ControllerStub(object):
                 _registered_method=True)
         self.take_control = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/take_control',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.TakeControlRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.TakeControlResponse.FromString,
                 _registered_method=True)
         self.surrender_control = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/surrender_control',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.SurrenderControlRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.SurrenderControlResponse.FromString,
                 _registered_method=True)
         self.who_is_in_charge = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/who_is_in_charge',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.WhoIsInChargeRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.WhoIsInChargeResponse.FromString,
                 _registered_method=True)
         self.to_error = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/to_error',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                request_serializer=druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.ToErrorResponse.FromString,
                 _registered_method=True)
 
 
@@ -217,23 +216,23 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'take_control': grpc.unary_unary_rpc_method_handler(
                     servicer.take_control,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.TakeControlRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.TakeControlResponse.SerializeToString,
             ),
             'surrender_control': grpc.unary_unary_rpc_method_handler(
                     servicer.surrender_control,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.SurrenderControlRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.SurrenderControlResponse.SerializeToString,
             ),
             'who_is_in_charge': grpc.unary_unary_rpc_method_handler(
                     servicer.who_is_in_charge,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.WhoIsInChargeRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.WhoIsInChargeResponse.SerializeToString,
             ),
             'to_error': grpc.unary_unary_rpc_method_handler(
                     servicer.to_error,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+                    request_deserializer=druncschema_dot_controller__pb2.ToErrorRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.ToErrorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -477,8 +476,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/take_control',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.TakeControlRequest.SerializeToString,
+            druncschema_dot_controller__pb2.TakeControlResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -504,8 +503,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/surrender_control',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.SurrenderControlRequest.SerializeToString,
+            druncschema_dot_controller__pb2.SurrenderControlResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -531,8 +530,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/who_is_in_charge',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.WhoIsInChargeRequest.SerializeToString,
+            druncschema_dot_controller__pb2.WhoIsInChargeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -558,8 +557,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/to_error',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_request__response__pb2.Response.FromString,
+            druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
+            druncschema_dot_controller__pb2.ToErrorResponse.FromString,
             options,
             channel_credentials,
             insecure,

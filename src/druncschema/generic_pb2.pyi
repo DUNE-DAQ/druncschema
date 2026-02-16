@@ -3,160 +3,175 @@
 isort:skip_file
 """
 
-import builtins
-import collections.abc
-import google.protobuf.descriptor
-import google.protobuf.internal.containers
-import google.protobuf.message
-import typing
+from collections import abc as _abc
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf.internal import containers as _containers
+import builtins as _builtins
+import sys
+import typing as _typing
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+if sys.version_info >= (3, 10):
+    from typing import TypeAlias as _TypeAlias
+else:
+    from typing_extensions import TypeAlias as _TypeAlias
 
-@typing.final
-class Empty(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+DESCRIPTOR: _descriptor.FileDescriptor
+
+@_typing.final
+class Empty(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
     def __init__(
         self,
     ) -> None: ...
 
-global___Empty = Empty
+Global___Empty: _TypeAlias = Empty  # noqa: Y015
 
-@typing.final
-class PlainText(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class PlainText(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TEXT_FIELD_NUMBER: builtins.int
-    text: builtins.str
-    def __init__(
-        self,
-        *,
-        text: builtins.str = ...,
-    ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
-
-global___PlainText = PlainText
-
-@typing.final
-class PlainTextVector(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
-
-    TEXT_FIELD_NUMBER: builtins.int
-    @property
-    def text(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    TEXT_FIELD_NUMBER: _builtins.int
+    text: _builtins.str
     def __init__(
         self,
         *,
-        text: collections.abc.Iterable[builtins.str] | None = ...,
+        text: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["text", b"text"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___PlainTextVector = PlainTextVector
+Global___PlainText: _TypeAlias = PlainText  # noqa: Y015
 
-@typing.final
-class Stacktrace(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class PlainTextVector(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TEXT_FIELD_NUMBER: builtins.int
-    @property
-    def text(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+    TEXT_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def text(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
     def __init__(
         self,
         *,
-        text: collections.abc.Iterable[builtins.str] | None = ...,
+        text: _abc.Iterable[_builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["text", b"text"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["text", b"text"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___Stacktrace = Stacktrace
+Global___PlainTextVector: _TypeAlias = PlainTextVector  # noqa: Y015
 
-@typing.final
-class StringStringMap(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class Stacktrace(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    @typing.final
-    class MapEntry(google.protobuf.message.Message):
-        DESCRIPTOR: google.protobuf.descriptor.Descriptor
+    TEXT_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def text(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
+    def __init__(
+        self,
+        *,
+        text: _abc.Iterable[_builtins.str] | None = ...,
+    ) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["text", b"text"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-        KEY_FIELD_NUMBER: builtins.int
-        VALUE_FIELD_NUMBER: builtins.int
-        key: builtins.str
-        value: builtins.str
+Global___Stacktrace: _TypeAlias = Stacktrace  # noqa: Y015
+
+@_typing.final
+class StringStringMap(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    @_typing.final
+    class MapEntry(_message.Message):
+        DESCRIPTOR: _descriptor.Descriptor
+
+        KEY_FIELD_NUMBER: _builtins.int
+        VALUE_FIELD_NUMBER: _builtins.int
+        key: _builtins.str
+        value: _builtins.str
         def __init__(
             self,
             *,
-            key: builtins.str = ...,
-            value: builtins.str = ...,
+            key: _builtins.str = ...,
+            value: _builtins.str = ...,
         ) -> None: ...
-        def ClearField(self, field_name: typing.Literal["key", b"key", "value", b"value"]) -> None: ...
+        _ClearFieldArgType: _TypeAlias = _typing.Literal["key", b"key", "value", b"value"]  # noqa: Y015
+        def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-    MAP_FIELD_NUMBER: builtins.int
-    @property
-    def map(self) -> google.protobuf.internal.containers.ScalarMap[builtins.str, builtins.str]: ...
+    MAP_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def map(self) -> _containers.ScalarMap[_builtins.str, _builtins.str]: ...
     def __init__(
         self,
         *,
-        map: collections.abc.Mapping[builtins.str, builtins.str] | None = ...,
+        map: _abc.Mapping[_builtins.str, _builtins.str] | None = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["map", b"map"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["map", b"map"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___StringStringMap = StringStringMap
+Global___StringStringMap: _TypeAlias = StringStringMap  # noqa: Y015
 
-@typing.final
-class int_msg(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class int_msg(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.int
+    VALUE_FIELD_NUMBER: _builtins.int
+    value: _builtins.int
     def __init__(
         self,
         *,
-        value: builtins.int = ...,
+        value: _builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___int_msg = int_msg
+Global___int_msg: _TypeAlias = int_msg  # noqa: Y015
 
-@typing.final
-class float_msg(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class float_msg(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.float
+    VALUE_FIELD_NUMBER: _builtins.int
+    value: _builtins.float
     def __init__(
         self,
         *,
-        value: builtins.float = ...,
+        value: _builtins.float = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___float_msg = float_msg
+Global___float_msg: _TypeAlias = float_msg  # noqa: Y015
 
-@typing.final
-class string_msg(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class string_msg(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.str
+    VALUE_FIELD_NUMBER: _builtins.int
+    value: _builtins.str
     def __init__(
         self,
         *,
-        value: builtins.str = ...,
+        value: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___string_msg = string_msg
+Global___string_msg: _TypeAlias = string_msg  # noqa: Y015
 
-@typing.final
-class bool_msg(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class bool_msg(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    VALUE_FIELD_NUMBER: builtins.int
-    value: builtins.bool
+    VALUE_FIELD_NUMBER: _builtins.int
+    value: _builtins.bool
     def __init__(
         self,
         *,
-        value: builtins.bool = ...,
+        value: _builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["value", b"value"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___bool_msg = bool_msg
+Global___bool_msg: _TypeAlias = bool_msg  # noqa: Y015

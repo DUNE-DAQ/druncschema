@@ -18,11 +18,11 @@ service Controller {
   rpc exclude                    (ExcludeRequest) returns (ExcludeResponse) {}
   rpc recompute_status           (RecomputeStatusRequest) returns (RecomputeStatusResponse) {}
 
-  rpc take_control               (Request) returns (Response) {}
-  rpc surrender_control          (Request) returns (Response) {}
-  rpc who_is_in_charge           (Request) returns (Response) {}
+  rpc take_control               (TakeControlRequest) returns (TakeControlResponse) {}
+  rpc surrender_control          (SurrenderControlRequest) returns (SurrenderControlResponse) {}
+  rpc who_is_in_charge           (WhoIsInChargeRequest) returns (WhoIsInChargeResponse) {}
 
-  rpc to_error                   (Request) returns (Response) {}
+  rpc to_error                   (ToErrorRequest) returns (ToErrorResponse) {}
 }
 
 message AddressedCommand {
@@ -103,6 +103,65 @@ message ExcludeResponse {
   string text = 3;
   repeated ExcludeResponse children = 4;
   ResponseFlag flag = 5;
+}
+
+message TakeControlRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message TakeControlResponse {
+  Token token = 1;
+  string name = 2;
+  string text = 3;
+  repeated TakeControlResponse children = 4;
+  ResponseFlag flag = 5;
+}
+
+message SurrenderControlRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message SurrenderControlResponse {
+  Token token = 1;
+  string name = 2;
+  string text = 3;
+  repeated SurrenderControlResponse children = 4;
+  ResponseFlag flag = 5;
+}
+
+message WhoIsInChargeRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message WhoIsInChargeResponse {
+  Token token = 1;
+  string name = 2;
+  string text = 3;
+  repeated WhoIsInChargeResponse children = 4;
+  ResponseFlag flag = 5;
+}
+
+message ToErrorRequest {
+  Token token = 1;
+  string target = 2;
+  bool execute_along_path = 3;
+  bool execute_on_all_subsequent_children_in_path = 4;
+}
+
+message ToErrorResponse {
+  Token token = 1;
+  string name = 2;
+  repeated ToErrorResponse children = 3;
+  ResponseFlag flag = 4;
 }
 
 message StatusRequest {

@@ -3,48 +3,56 @@
 isort:skip_file
 """
 
-import builtins
-import google.protobuf.descriptor
-import google.protobuf.message
-import typing
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+import builtins as _builtins
+import sys
+import typing as _typing
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+if sys.version_info >= (3, 10):
+    from typing import TypeAlias as _TypeAlias
+else:
+    from typing_extensions import TypeAlias as _TypeAlias
 
-@typing.final
-class FSMStatus(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
-    STATE_FIELD_NUMBER: builtins.int
-    SUB_STATE_FIELD_NUMBER: builtins.int
-    IN_ERROR_FIELD_NUMBER: builtins.int
-    INCLUDED_FIELD_NUMBER: builtins.int
-    state: builtins.str
-    sub_state: builtins.str
-    in_error: builtins.bool
-    included: builtins.bool
+@_typing.final
+class FSMStatus(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    STATE_FIELD_NUMBER: _builtins.int
+    SUB_STATE_FIELD_NUMBER: _builtins.int
+    IN_ERROR_FIELD_NUMBER: _builtins.int
+    INCLUDED_FIELD_NUMBER: _builtins.int
+    state: _builtins.str
+    sub_state: _builtins.str
+    in_error: _builtins.bool
+    included: _builtins.bool
     def __init__(
         self,
         *,
-        state: builtins.str = ...,
-        sub_state: builtins.str = ...,
-        in_error: builtins.bool = ...,
-        included: builtins.bool = ...,
+        state: _builtins.str = ...,
+        sub_state: _builtins.str = ...,
+        in_error: _builtins.bool = ...,
+        included: _builtins.bool = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["in_error", b"in_error", "included", b"included", "state", b"state", "sub_state", b"sub_state"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["in_error", b"in_error", "included", b"included", "state", b"state", "sub_state", b"sub_state"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___FSMStatus = FSMStatus
+Global___FSMStatus: _TypeAlias = FSMStatus  # noqa: Y015
 
-@typing.final
-class CommandTime(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class CommandTime(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    EXECUTION_TIME_NS_FIELD_NUMBER: builtins.int
-    execution_time_ns: builtins.int
+    EXECUTION_TIME_NS_FIELD_NUMBER: _builtins.int
+    execution_time_ns: _builtins.int
     def __init__(
         self,
         *,
-        execution_time_ns: builtins.int = ...,
+        execution_time_ns: _builtins.int = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["execution_time_ns", b"execution_time_ns"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["execution_time_ns", b"execution_time_ns"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___CommandTime = CommandTime
+Global___CommandTime: _TypeAlias = CommandTime  # noqa: Y015

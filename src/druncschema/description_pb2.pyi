@@ -3,88 +3,103 @@
 isort:skip_file
 """
 
-import builtins
-import collections.abc
-import druncschema.request_response_pb2
-import druncschema.token_pb2
-import google.protobuf.any_pb2
-import google.protobuf.descriptor
-import google.protobuf.internal.containers
-import google.protobuf.message
-import typing
+from collections import abc as _abc
+from druncschema import request_response_pb2 as _request_response_pb2
+from druncschema import token_pb2 as _token_pb2
+from google.protobuf import any_pb2 as _any_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from google.protobuf.internal import containers as _containers
+import builtins as _builtins
+import sys
+import typing as _typing
 
-DESCRIPTOR: google.protobuf.descriptor.FileDescriptor
+if sys.version_info >= (3, 10):
+    from typing import TypeAlias as _TypeAlias
+else:
+    from typing_extensions import TypeAlias as _TypeAlias
 
-@typing.final
-class CommandDescription(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+DESCRIPTOR: _descriptor.FileDescriptor
 
-    NAME_FIELD_NUMBER: builtins.int
-    DATA_TYPE_FIELD_NUMBER: builtins.int
-    HELP_FIELD_NUMBER: builtins.int
-    RETURN_TYPE_FIELD_NUMBER: builtins.int
-    name: builtins.str
-    help: builtins.str
-    return_type: builtins.str
-    @property
-    def data_type(self) -> google.protobuf.internal.containers.RepeatedScalarFieldContainer[builtins.str]: ...
+@_typing.final
+class CommandDescription(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    NAME_FIELD_NUMBER: _builtins.int
+    DATA_TYPE_FIELD_NUMBER: _builtins.int
+    HELP_FIELD_NUMBER: _builtins.int
+    RETURN_TYPE_FIELD_NUMBER: _builtins.int
+    name: _builtins.str
+    help: _builtins.str
+    return_type: _builtins.str
+    @_builtins.property
+    def data_type(self) -> _containers.RepeatedScalarFieldContainer[_builtins.str]: ...
     def __init__(
         self,
         *,
-        name: builtins.str = ...,
-        data_type: collections.abc.Iterable[builtins.str] | None = ...,
-        help: builtins.str = ...,
-        return_type: builtins.str = ...,
+        name: _builtins.str = ...,
+        data_type: _abc.Iterable[_builtins.str] | None = ...,
+        help: _builtins.str = ...,
+        return_type: _builtins.str = ...,
     ) -> None: ...
-    def ClearField(self, field_name: typing.Literal["data_type", b"data_type", "help", b"help", "name", b"name", "return_type", b"return_type"]) -> None: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["data_type", b"data_type", "help", b"help", "name", b"name", "return_type", b"return_type"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
-global___CommandDescription = CommandDescription
+Global___CommandDescription: _TypeAlias = CommandDescription  # noqa: Y015
 
-@typing.final
-class Description(google.protobuf.message.Message):
-    DESCRIPTOR: google.protobuf.descriptor.Descriptor
+@_typing.final
+class Description(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
 
-    TOKEN_FIELD_NUMBER: builtins.int
-    TYPE_FIELD_NUMBER: builtins.int
-    NAME_FIELD_NUMBER: builtins.int
-    ENDPOINT_FIELD_NUMBER: builtins.int
-    INFO_FIELD_NUMBER: builtins.int
-    SESSION_FIELD_NUMBER: builtins.int
-    COMMANDS_FIELD_NUMBER: builtins.int
-    BROADCAST_FIELD_NUMBER: builtins.int
-    FLAG_FIELD_NUMBER: builtins.int
-    type: builtins.str
-    name: builtins.str
-    endpoint: builtins.str
-    info: builtins.str
-    session: builtins.str
-    flag: druncschema.request_response_pb2.ResponseFlag.ValueType
-    @property
-    def token(self) -> druncschema.token_pb2.Token: ...
-    @property
-    def commands(self) -> google.protobuf.internal.containers.RepeatedCompositeFieldContainer[global___CommandDescription]: ...
-    @property
-    def broadcast(self) -> google.protobuf.any_pb2.Any: ...
+    TOKEN_FIELD_NUMBER: _builtins.int
+    TYPE_FIELD_NUMBER: _builtins.int
+    NAME_FIELD_NUMBER: _builtins.int
+    ENDPOINT_FIELD_NUMBER: _builtins.int
+    INFO_FIELD_NUMBER: _builtins.int
+    SESSION_FIELD_NUMBER: _builtins.int
+    COMMANDS_FIELD_NUMBER: _builtins.int
+    BROADCAST_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    type: _builtins.str
+    name: _builtins.str
+    endpoint: _builtins.str
+    info: _builtins.str
+    session: _builtins.str
+    flag: _request_response_pb2.ResponseFlag.ValueType
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def commands(self) -> _containers.RepeatedCompositeFieldContainer[Global___CommandDescription]: ...
+    @_builtins.property
+    def broadcast(self) -> _any_pb2.Any: ...
     def __init__(
         self,
         *,
-        token: druncschema.token_pb2.Token | None = ...,
-        type: builtins.str = ...,
-        name: builtins.str = ...,
-        endpoint: builtins.str = ...,
-        info: builtins.str | None = ...,
-        session: builtins.str | None = ...,
-        commands: collections.abc.Iterable[global___CommandDescription] | None = ...,
-        broadcast: google.protobuf.any_pb2.Any | None = ...,
-        flag: druncschema.request_response_pb2.ResponseFlag.ValueType = ...,
+        token: _token_pb2.Token | None = ...,
+        type: _builtins.str = ...,
+        name: _builtins.str = ...,
+        endpoint: _builtins.str = ...,
+        info: _builtins.str | None = ...,
+        session: _builtins.str | None = ...,
+        commands: _abc.Iterable[Global___CommandDescription] | None = ...,
+        broadcast: _any_pb2.Any | None = ...,
+        flag: _request_response_pb2.ResponseFlag.ValueType = ...,
     ) -> None: ...
-    def HasField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session", "token", b"token"]) -> builtins.bool: ...
-    def ClearField(self, field_name: typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]) -> None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_broadcast", b"_broadcast"]) -> typing.Literal["broadcast"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_info", b"_info"]) -> typing.Literal["info"] | None: ...
-    @typing.overload
-    def WhichOneof(self, oneof_group: typing.Literal["_session", b"_session"]) -> typing.Literal["session"] | None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "info", b"info", "session", b"session", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_broadcast", b"_broadcast", "_info", b"_info", "_session", b"_session", "broadcast", b"broadcast", "commands", b"commands", "endpoint", b"endpoint", "flag", b"flag", "info", b"info", "name", b"name", "session", b"session", "token", b"token", "type", b"type"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__broadcast: _TypeAlias = _typing.Literal["broadcast"]  # noqa: Y015
+    _WhichOneofArgType__broadcast: _TypeAlias = _typing.Literal["_broadcast", b"_broadcast"]  # noqa: Y015
+    _WhichOneofReturnType__info: _TypeAlias = _typing.Literal["info"]  # noqa: Y015
+    _WhichOneofArgType__info: _TypeAlias = _typing.Literal["_info", b"_info"]  # noqa: Y015
+    _WhichOneofReturnType__session: _TypeAlias = _typing.Literal["session"]  # noqa: Y015
+    _WhichOneofArgType__session: _TypeAlias = _typing.Literal["_session", b"_session"]  # noqa: Y015
+    @_typing.overload
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__broadcast) -> _WhichOneofReturnType__broadcast | None: ...
+    @_typing.overload
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__info) -> _WhichOneofReturnType__info | None: ...
+    @_typing.overload
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__session) -> _WhichOneofReturnType__session | None: ...
 
-global___Description = Description
+Global___Description: _TypeAlias = Description  # noqa: Y015
