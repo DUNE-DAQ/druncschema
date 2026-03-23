@@ -269,12 +269,15 @@ class ProcessQuery(_message.Message):
         names: _abc.Iterable[_builtins.str] | None = ...,
         user: _builtins.str = ...,
         session: _builtins.str = ...,
-        crash: _builtins.bool = ...,
+        crash: _builtins.bool | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_crash", b"_crash", "crash", b"crash", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["crash", b"crash", "names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_crash", b"_crash", "crash", b"crash", "names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__crash: _TypeAlias = _typing.Literal["crash"]  # noqa: Y015
+    _WhichOneofArgType__crash: _TypeAlias = _typing.Literal["_crash", b"_crash"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__crash) -> _WhichOneofReturnType__crash | None: ...
 
 Global___ProcessQuery: _TypeAlias = ProcessQuery  # noqa: Y015
 

@@ -75,7 +75,7 @@ message ProcessQuery {
   repeated string names = 3;
   string user = 4;
   string session = 5;
-  bool crash = 6;
+  optional bool crash = 6;
 }
 
 message ProcessDescription {
