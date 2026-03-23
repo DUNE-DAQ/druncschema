@@ -251,8 +251,10 @@ class ProcessQuery(_message.Message):
     NAMES_FIELD_NUMBER: _builtins.int
     USER_FIELD_NUMBER: _builtins.int
     SESSION_FIELD_NUMBER: _builtins.int
+    CRASH_FIELD_NUMBER: _builtins.int
     user: _builtins.str
     session: _builtins.str
+    crash: _builtins.bool
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
@@ -267,10 +269,11 @@ class ProcessQuery(_message.Message):
         names: _abc.Iterable[_builtins.str] | None = ...,
         user: _builtins.str = ...,
         session: _builtins.str = ...,
+        crash: _builtins.bool = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["crash", b"crash", "names", b"names", "session", b"session", "token", b"token", "user", b"user", "uuids", b"uuids"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
 
 Global___ProcessQuery: _TypeAlias = ProcessQuery  # noqa: Y015
