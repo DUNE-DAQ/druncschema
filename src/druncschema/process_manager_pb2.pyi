@@ -387,8 +387,10 @@ class ProcessInstance(_message.Message):
     STATUS_CODE_FIELD_NUMBER: _builtins.int
     RETURN_CODE_FIELD_NUMBER: _builtins.int
     UUID_FIELD_NUMBER: _builtins.int
+    REMOTE_PID_FIELD_NUMBER: _builtins.int
     status_code: Global___ProcessInstance.StatusCode.ValueType
     return_code: _builtins.int
+    remote_pid: _builtins.str
     @_builtins.property
     def process_description(self) -> Global___ProcessDescription: ...
     @_builtins.property
@@ -403,11 +405,15 @@ class ProcessInstance(_message.Message):
         status_code: Global___ProcessInstance.StatusCode.ValueType = ...,
         return_code: _builtins.int = ...,
         uuid: Global___ProcessUUID | None = ...,
+        remote_pid: _builtins.str | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "uuid", b"uuid"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_remote_pid", b"_remote_pid", "process_description", b"process_description", "process_restriction", b"process_restriction", "remote_pid", b"remote_pid", "uuid", b"uuid"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["process_description", b"process_description", "process_restriction", b"process_restriction", "return_code", b"return_code", "status_code", b"status_code", "uuid", b"uuid"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_remote_pid", b"_remote_pid", "process_description", b"process_description", "process_restriction", b"process_restriction", "remote_pid", b"remote_pid", "return_code", b"return_code", "status_code", b"status_code", "uuid", b"uuid"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType__remote_pid: _TypeAlias = _typing.Literal["remote_pid"]  # noqa: Y015
+    _WhichOneofArgType__remote_pid: _TypeAlias = _typing.Literal["_remote_pid", b"_remote_pid"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__remote_pid) -> _WhichOneofReturnType__remote_pid | None: ...
 
 Global___ProcessInstance: _TypeAlias = ProcessInstance  # noqa: Y015
 
