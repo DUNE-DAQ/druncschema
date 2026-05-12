@@ -8,7 +8,7 @@ import "druncschema/token.proto";
 import "druncschema/generic.proto";
 
 service ProcessManager {
-  rpc send_random (Request) returns (Empty) {}
+  rpc send_msg  (Request) returns (OutcomeStatus) {}
   rpc describe  (Request) returns (Description) {}
   rpc boot      (BootRequest) returns (ProcessInstanceList) {}
   rpc terminate (Request) returns (ProcessInstanceList) {}

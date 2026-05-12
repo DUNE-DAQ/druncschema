@@ -2,6 +2,14 @@ syntax = "proto3";
 
 package dunedaq.druncschema;
 
+
+enum OutcomeFlag {
+  SUCCESS = 0;
+  FAIL = 1;
+  UNKNOWN = 2;
+}
+
+
 message Empty { }
 
 message PlainText {
@@ -30,4 +38,8 @@ message string_msg{
 }
 message bool_msg{
   bool value=1;
+}
+
+message OutcomeStatus{
+  OutcomeFlag flag=1;
 }
