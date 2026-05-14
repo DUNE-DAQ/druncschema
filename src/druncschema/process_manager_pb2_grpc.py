@@ -4,6 +4,7 @@ import grpc
 import warnings
 
 from druncschema import description_pb2 as druncschema_dot_description__pb2
+from druncschema import generic_pb2 as druncschema_dot_generic__pb2
 from druncschema import process_manager_pb2 as druncschema_dot_process__manager__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
@@ -36,6 +37,11 @@ class ProcessManagerStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.send_msg = channel.unary_unary(
+                '/dunedaq.druncschema.process_manager.ProcessManager/send_msg',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_generic__pb2.OutcomeStatus.FromString,
+                _registered_method=True)
         self.describe = channel.unary_unary(
                 '/dunedaq.druncschema.process_manager.ProcessManager/describe',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
@@ -80,6 +86,12 @@ class ProcessManagerStub(object):
 
 class ProcessManagerServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def send_msg(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def describe(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -132,6 +144,11 @@ class ProcessManagerServicer(object):
 
 def add_ProcessManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'send_msg': grpc.unary_unary_rpc_method_handler(
+                    servicer.send_msg,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_generic__pb2.OutcomeStatus.SerializeToString,
+            ),
             'describe': grpc.unary_unary_rpc_method_handler(
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
@@ -182,6 +199,33 @@ def add_ProcessManagerServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class ProcessManager(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def send_msg(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.process_manager.ProcessManager/send_msg',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_generic__pb2.OutcomeStatus.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def describe(request,

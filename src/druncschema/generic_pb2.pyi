@@ -7,16 +7,34 @@ from collections import abc as _abc
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 import builtins as _builtins
 import sys
 import typing as _typing
 
-if sys.version_info >= (3, 10):
-    from typing import TypeAlias as _TypeAlias
+if sys.version_info >= (3, 11):
+    from typing import TypeAlias as _TypeAlias, Never as _Never
 else:
-    from typing_extensions import TypeAlias as _TypeAlias
+    from typing_extensions import TypeAlias as _TypeAlias, Never as _Never
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class _OutcomeFlag:
+    ValueType = _typing.NewType("ValueType", _builtins.int)
+    V: _TypeAlias = ValueType  # noqa: Y015
+
+class _OutcomeFlagEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_OutcomeFlag.ValueType], _builtins.type):
+    DESCRIPTOR: _descriptor.EnumDescriptor
+    SUCCESS: _OutcomeFlag.ValueType  # 0
+    FAIL: _OutcomeFlag.ValueType  # 1
+    UNKNOWN: _OutcomeFlag.ValueType  # 2
+
+class OutcomeFlag(_OutcomeFlag, metaclass=_OutcomeFlagEnumTypeWrapper): ...
+
+SUCCESS: OutcomeFlag.ValueType  # 0
+FAIL: OutcomeFlag.ValueType  # 1
+UNKNOWN: OutcomeFlag.ValueType  # 2
+Global___OutcomeFlag: _TypeAlias = OutcomeFlag  # noqa: Y015
 
 @_typing.final
 class Empty(_message.Message):
@@ -25,6 +43,11 @@ class Empty(_message.Message):
     def __init__(
         self,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___Empty: _TypeAlias = Empty  # noqa: Y015
 
@@ -39,8 +62,11 @@ class PlainText(_message.Message):
         *,
         text: _builtins.str = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["text", b"text"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___PlainText: _TypeAlias = PlainText  # noqa: Y015
 
@@ -56,8 +82,11 @@ class PlainTextVector(_message.Message):
         *,
         text: _abc.Iterable[_builtins.str] | None = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["text", b"text"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___PlainTextVector: _TypeAlias = PlainTextVector  # noqa: Y015
 
@@ -73,8 +102,11 @@ class Stacktrace(_message.Message):
         *,
         text: _abc.Iterable[_builtins.str] | None = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["text", b"text"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___Stacktrace: _TypeAlias = Stacktrace  # noqa: Y015
 
@@ -96,8 +128,11 @@ class StringStringMap(_message.Message):
             key: _builtins.str = ...,
             value: _builtins.str = ...,
         ) -> None: ...
+        _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+        def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
         _ClearFieldArgType: _TypeAlias = _typing.Literal["key", b"key", "value", b"value"]  # noqa: Y015
         def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+        def WhichOneof(self, oneof_group: _Never) -> None: ...
 
     MAP_FIELD_NUMBER: _builtins.int
     @_builtins.property
@@ -107,8 +142,11 @@ class StringStringMap(_message.Message):
         *,
         map: _abc.Mapping[_builtins.str, _builtins.str] | None = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["map", b"map"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___StringStringMap: _TypeAlias = StringStringMap  # noqa: Y015
 
@@ -123,8 +161,11 @@ class int_msg(_message.Message):
         *,
         value: _builtins.int = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___int_msg: _TypeAlias = int_msg  # noqa: Y015
 
@@ -139,8 +180,11 @@ class float_msg(_message.Message):
         *,
         value: _builtins.float = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___float_msg: _TypeAlias = float_msg  # noqa: Y015
 
@@ -155,8 +199,11 @@ class string_msg(_message.Message):
         *,
         value: _builtins.str = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___string_msg: _TypeAlias = string_msg  # noqa: Y015
 
@@ -171,7 +218,29 @@ class bool_msg(_message.Message):
         *,
         value: _builtins.bool = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___bool_msg: _TypeAlias = bool_msg  # noqa: Y015
+
+@_typing.final
+class OutcomeStatus(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    FLAG_FIELD_NUMBER: _builtins.int
+    flag: Global___OutcomeFlag.ValueType
+    def __init__(
+        self,
+        *,
+        flag: Global___OutcomeFlag.ValueType = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___OutcomeStatus: _TypeAlias = OutcomeStatus  # noqa: Y015

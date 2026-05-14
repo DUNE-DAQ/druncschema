@@ -9,10 +9,10 @@ import builtins as _builtins
 import sys
 import typing as _typing
 
-if sys.version_info >= (3, 10):
-    from typing import TypeAlias as _TypeAlias
+if sys.version_info >= (3, 11):
+    from typing import TypeAlias as _TypeAlias, Never as _Never
 else:
-    from typing_extensions import TypeAlias as _TypeAlias
+    from typing_extensions import TypeAlias as _TypeAlias, Never as _Never
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -48,7 +48,10 @@ class RunInfo(_message.Message):
         run_config_file: _builtins.str = ...,
         run_config_name: _builtins.str = ...,
     ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
     _ClearFieldArgType: _TypeAlias = _typing.Literal["disable_data_storage", b"disable_data_storage", "run_config_file", b"run_config_file", "run_config_name", b"run_config_name", "run_number", b"run_number", "run_time_at_start", b"run_time_at_start", "run_time_since_start", b"run_time_since_start", "run_type", b"run_type", "trigger_rate", b"trigger_rate"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___RunInfo: _TypeAlias = RunInfo  # noqa: Y015
