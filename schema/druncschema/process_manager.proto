@@ -104,7 +104,7 @@ message ProcessInstance {
     DEAD = 1;
   };
   StatusCode status_code = 3;
-  int32 return_code = 4;
+  optional int32 return_code = 4;
   ProcessUUID uuid = 5;
   optional string remote_pid = 6;
 }
