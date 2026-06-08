@@ -24,7 +24,7 @@ service Controller {
 
   rpc to_error                   (ToErrorRequest) returns (ToErrorResponse) {}
 
-  rpc log                        (LogRequest) returns (LogResponse) {}
+  rpc log_on_server              (LogRequest) returns (LogResponse) {}
 }
 
 message AddressedCommand {
@@ -297,9 +297,10 @@ message RunInfo {
 message LogRequest {
   Token token = 1;
   string text = 2;
-  string target = 3;
-  bool execute_along_path = 4;
-  bool execute_on_all_subsequent_children_in_path = 5;
+  string severity = 3;
+  string target = 4;
+  bool execute_along_path = 5;
+  bool execute_on_all_subsequent_children_in_path = 6;
 }
 
 message LogResponse {

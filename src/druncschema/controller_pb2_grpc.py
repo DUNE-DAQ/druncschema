@@ -94,8 +94,8 @@ class ControllerStub(object):
                 request_serializer=druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
                 response_deserializer=druncschema_dot_controller__pb2.ToErrorResponse.FromString,
                 _registered_method=True)
-        self.log = channel.unary_unary(
-                '/dunedaq.druncschema.controller.Controller/log',
+        self.log_on_server = channel.unary_unary(
+                '/dunedaq.druncschema.controller.Controller/log_on_server',
                 request_serializer=druncschema_dot_controller__pb2.LogRequest.SerializeToString,
                 response_deserializer=druncschema_dot_controller__pb2.LogResponse.FromString,
                 _registered_method=True)
@@ -176,7 +176,7 @@ class ControllerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def log(self, request, context):
+    def log_on_server(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -245,8 +245,8 @@ def add_ControllerServicer_to_server(servicer, server):
                     request_deserializer=druncschema_dot_controller__pb2.ToErrorRequest.FromString,
                     response_serializer=druncschema_dot_controller__pb2.ToErrorResponse.SerializeToString,
             ),
-            'log': grpc.unary_unary_rpc_method_handler(
-                    servicer.log,
+            'log_on_server': grpc.unary_unary_rpc_method_handler(
+                    servicer.log_on_server,
                     request_deserializer=druncschema_dot_controller__pb2.LogRequest.FromString,
                     response_serializer=druncschema_dot_controller__pb2.LogResponse.SerializeToString,
             ),
@@ -586,7 +586,7 @@ class Controller(object):
             _registered_method=True)
 
     @staticmethod
-    def log(request,
+    def log_on_server(request,
             target,
             options=(),
             channel_credentials=None,
@@ -599,7 +599,7 @@ class Controller(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.controller.Controller/log',
+            '/dunedaq.druncschema.controller.Controller/log_on_server',
             druncschema_dot_controller__pb2.LogRequest.SerializeToString,
             druncschema_dot_controller__pb2.LogResponse.FromString,
             options,

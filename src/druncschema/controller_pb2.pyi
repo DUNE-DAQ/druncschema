@@ -1134,10 +1134,12 @@ class LogRequest(_message.Message):
 
     TOKEN_FIELD_NUMBER: _builtins.int
     TEXT_FIELD_NUMBER: _builtins.int
+    SEVERITY_FIELD_NUMBER: _builtins.int
     TARGET_FIELD_NUMBER: _builtins.int
     EXECUTE_ALONG_PATH_FIELD_NUMBER: _builtins.int
     EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: _builtins.int
     text: _builtins.str
+    severity: _builtins.str
     target: _builtins.str
     execute_along_path: _builtins.bool
     execute_on_all_subsequent_children_in_path: _builtins.bool
@@ -1148,13 +1150,14 @@ class LogRequest(_message.Message):
         *,
         token: _token_pb2.Token | None = ...,
         text: _builtins.str = ...,
+        severity: _builtins.str = ...,
         target: _builtins.str = ...,
         execute_along_path: _builtins.bool = ...,
         execute_on_all_subsequent_children_in_path: _builtins.bool = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "severity", b"severity", "target", b"target", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
