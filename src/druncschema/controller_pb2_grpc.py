@@ -94,6 +94,11 @@ class ControllerStub(object):
                 request_serializer=druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
                 response_deserializer=druncschema_dot_controller__pb2.ToErrorResponse.FromString,
                 _registered_method=True)
+        self.log = channel.unary_unary(
+                '/dunedaq.druncschema.controller.Controller/log',
+                request_serializer=druncschema_dot_controller__pb2.LogRequest.SerializeToString,
+                response_deserializer=druncschema_dot_controller__pb2.LogResponse.FromString,
+                _registered_method=True)
 
 
 class ControllerServicer(object):
@@ -171,6 +176,12 @@ class ControllerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def log(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ControllerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -233,6 +244,11 @@ def add_ControllerServicer_to_server(servicer, server):
                     servicer.to_error,
                     request_deserializer=druncschema_dot_controller__pb2.ToErrorRequest.FromString,
                     response_serializer=druncschema_dot_controller__pb2.ToErrorResponse.SerializeToString,
+            ),
+            'log': grpc.unary_unary_rpc_method_handler(
+                    servicer.log,
+                    request_deserializer=druncschema_dot_controller__pb2.LogRequest.FromString,
+                    response_serializer=druncschema_dot_controller__pb2.LogResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -559,6 +575,33 @@ class Controller(object):
             '/dunedaq.druncschema.controller.Controller/to_error',
             druncschema_dot_controller__pb2.ToErrorRequest.SerializeToString,
             druncschema_dot_controller__pb2.ToErrorResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def log(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.controller.Controller/log',
+            druncschema_dot_controller__pb2.LogRequest.SerializeToString,
+            druncschema_dot_controller__pb2.LogResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -1127,3 +1127,65 @@ class RunInfo(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___RunInfo: _TypeAlias = RunInfo  # noqa: Y015
+
+@_typing.final
+class LogRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    TEXT_FIELD_NUMBER: _builtins.int
+    TARGET_FIELD_NUMBER: _builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: _builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: _builtins.int
+    text: _builtins.str
+    target: _builtins.str
+    execute_along_path: _builtins.bool
+    execute_on_all_subsequent_children_in_path: _builtins.bool
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        text: _builtins.str = ...,
+        target: _builtins.str = ...,
+        execute_along_path: _builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: _builtins.bool = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "target", b"target", "text", b"text", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___LogRequest: _TypeAlias = LogRequest  # noqa: Y015
+
+@_typing.final
+class LogResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    NAME_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    CHILDREN_FIELD_NUMBER: _builtins.int
+    name: _builtins.str
+    flag: _request_response_pb2.ResponseFlag.ValueType
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___LogResponse]: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        name: _builtins.str = ...,
+        flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        children: _abc.Iterable[Global___LogResponse] | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___LogResponse: _TypeAlias = LogResponse  # noqa: Y015
