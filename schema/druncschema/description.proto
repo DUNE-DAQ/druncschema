@@ -4,7 +4,6 @@ package dunedaq.druncschema;
 
 import "druncschema/request_response.proto";
 import "druncschema/token.proto";
-import "google/protobuf/any.proto";
 
 message CommandDescription {
   string name = 1;
@@ -21,6 +20,5 @@ message Description {
   optional string info = 5;
   optional string session = 6;
   repeated CommandDescription commands = 7;
-  optional google.protobuf.Any broadcast = 8;
-  ResponseFlag flag = 9;
+  ResponseFlag flag = 8;
 }
