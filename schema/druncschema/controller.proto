@@ -5,6 +5,7 @@ package dunedaq.druncschema.controller;
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
 import "druncschema/token.proto";
+import "druncschema/common.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
@@ -292,20 +293,4 @@ message RunInfo {
   uint32 run_time_since_start = 6;
   string run_config_file = 7;
   string run_config_name = 8;
-}
-
-message LogRequest {
-  Token token = 1;
-  string text = 2;
-  string severity = 3;
-  string target = 4;
-  bool execute_along_path = 5;
-  bool execute_on_all_subsequent_children_in_path = 6;
-}
-
-message LogResponse {
-  Token token = 1;
-  string name = 2;
-  ResponseFlag flag = 3;
-  repeated LogResponse children = 4;
 }

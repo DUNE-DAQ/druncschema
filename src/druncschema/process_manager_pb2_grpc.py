@@ -3,6 +3,7 @@
 import grpc
 import warnings
 
+from druncschema import common_pb2 as druncschema_dot_common__pb2
 from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import generic_pb2 as druncschema_dot_generic__pb2
 from druncschema import process_manager_pb2 as druncschema_dot_process__manager__pb2
@@ -82,6 +83,11 @@ class ProcessManagerStub(object):
                 request_serializer=druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.LogLines.FromString,
                 _registered_method=True)
+        self.log_on_server = channel.unary_unary(
+                '/dunedaq.druncschema.process_manager.ProcessManager/log_on_server',
+                request_serializer=druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
+                response_deserializer=druncschema_dot_common__pb2.LogResponse.FromString,
+                _registered_method=True)
 
 
 class ProcessManagerServicer(object):
@@ -141,6 +147,12 @@ class ProcessManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def log_on_server(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ProcessManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -188,6 +200,11 @@ def add_ProcessManagerServicer_to_server(servicer, server):
                     servicer.logs,
                     request_deserializer=druncschema_dot_process__manager__pb2.LogRequest.FromString,
                     response_serializer=druncschema_dot_process__manager__pb2.LogLines.SerializeToString,
+            ),
+            'log_on_server': grpc.unary_unary_rpc_method_handler(
+                    servicer.log_on_server,
+                    request_deserializer=druncschema_dot_process__manager__pb2.LogRequest.FromString,
+                    response_serializer=druncschema_dot_common__pb2.LogResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -433,6 +450,33 @@ class ProcessManager(object):
             '/dunedaq.druncschema.process_manager.ProcessManager/logs',
             druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
             druncschema_dot_process__manager__pb2.LogLines.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def log_on_server(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.process_manager.ProcessManager/log_on_server',
+            druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
+            druncschema_dot_common__pb2.LogResponse.FromString,
             options,
             channel_credentials,
             insecure,
