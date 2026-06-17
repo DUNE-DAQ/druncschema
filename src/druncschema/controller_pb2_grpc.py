@@ -97,8 +97,8 @@ class ControllerStub(object):
                 _registered_method=True)
         self.log_on_server = channel.unary_unary(
                 '/dunedaq.druncschema.controller.Controller/log_on_server',
-                request_serializer=druncschema_dot_common__pb2.LogRequest.SerializeToString,
-                response_deserializer=druncschema_dot_common__pb2.LogResponse.FromString,
+                request_serializer=druncschema_dot_common__pb2.LogOnServerRequest.SerializeToString,
+                response_deserializer=druncschema_dot_common__pb2.LogOnServerResponse.FromString,
                 _registered_method=True)
 
 
@@ -248,8 +248,8 @@ def add_ControllerServicer_to_server(servicer, server):
             ),
             'log_on_server': grpc.unary_unary_rpc_method_handler(
                     servicer.log_on_server,
-                    request_deserializer=druncschema_dot_common__pb2.LogRequest.FromString,
-                    response_serializer=druncschema_dot_common__pb2.LogResponse.SerializeToString,
+                    request_deserializer=druncschema_dot_common__pb2.LogOnServerRequest.FromString,
+                    response_serializer=druncschema_dot_common__pb2.LogOnServerResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -601,8 +601,8 @@ class Controller(object):
             request,
             target,
             '/dunedaq.druncschema.controller.Controller/log_on_server',
-            druncschema_dot_common__pb2.LogRequest.SerializeToString,
-            druncschema_dot_common__pb2.LogResponse.FromString,
+            druncschema_dot_common__pb2.LogOnServerRequest.SerializeToString,
+            druncschema_dot_common__pb2.LogOnServerResponse.FromString,
             options,
             channel_credentials,
             insecure,

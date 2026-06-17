@@ -25,7 +25,7 @@ service Controller {
 
   rpc to_error                   (ToErrorRequest) returns (ToErrorResponse) {}
 
-  rpc log_on_server              (LogRequest) returns (LogResponse) {}
+  rpc log_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
 }
 
 message AddressedCommand {

@@ -21,7 +21,7 @@ else:
 DESCRIPTOR: _descriptor.FileDescriptor
 
 @_typing.final
-class LogRequest(_message.Message):
+class LogOnServerRequest(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: _builtins.int
@@ -53,10 +53,10 @@ class LogRequest(_message.Message):
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
-Global___LogRequest: _TypeAlias = LogRequest  # noqa: Y015
+Global___LogOnServerRequest: _TypeAlias = LogOnServerRequest  # noqa: Y015
 
 @_typing.final
-class LogResponse(_message.Message):
+class LogOnServerResponse(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: _builtins.int
@@ -68,14 +68,14 @@ class LogResponse(_message.Message):
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
-    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___LogResponse]: ...
+    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___LogOnServerResponse]: ...
     def __init__(
         self,
         *,
         token: _token_pb2.Token | None = ...,
         name: _builtins.str = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
-        children: _abc.Iterable[Global___LogResponse] | None = ...,
+        children: _abc.Iterable[Global___LogOnServerResponse] | None = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
@@ -83,4 +83,4 @@ class LogResponse(_message.Message):
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
-Global___LogResponse: _TypeAlias = LogResponse  # noqa: Y015
+Global___LogOnServerResponse: _TypeAlias = LogOnServerResponse  # noqa: Y015
