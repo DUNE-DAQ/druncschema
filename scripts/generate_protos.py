@@ -2,7 +2,7 @@
 
 """Defines command to compile *.proto files.
 
-Compiles buffers into 
+Compiles buffers into
     - *pb2.py.
     - *pb2.pyi.
     - pb2_grpc.py.
@@ -12,7 +12,6 @@ import importlib
 import logging
 import os
 import subprocess
-from importlib.resources import files
 from pathlib import Path
 
 import click
@@ -32,17 +31,21 @@ try:
     width = os.get_terminal_size()[0]
 except OSError:
     width = 150
-    
-log.addHandler(RichHandler(
-    console=Console(width=width),
-    omit_repeated_times=False,
-    markup=True,
-    rich_tracebacks=True,
-    show_path=False,
-    tracebacks_width=width,
-))
 
-compiled_extensions = ["_pb2.py", "_pb2.pyi", "_pb2_grpc.py"]
+log.addHandler(
+    RichHandler(
+        console=Console(width=width),
+        omit_repeated_times=False,
+        markup=True,
+        rich_tracebacks=True,
+        show_path=False,
+        tracebacks_width=width,
+    )
+)
+
+compiled_extensions = ["_pb2.py", "_pb2.pyi", "_pb2_grpc.py", "_pb2_grpc.pyi"]
+
+
 def in_dev_mode():
     """Check if in dev mode.
 
@@ -53,27 +56,32 @@ def in_dev_mode():
         return True
     return False
 
+
 def generate_protos(
-        source_path: Path,
-        druncschema_root: Path,
-        proto_files: list[Path],
-        output_dir: Path,
-        subdir: Path) -> None:
+    source_path: Path,
+    druncschema_root: Path,
+    proto_files: list[Path],
+    output_dir: Path,
+    subdir: Path,
+) -> None:
     """Compiles the protobuf messages."""
     for proto_file in proto_files:
         log.info(f"Processing file {proto_file!s} to output dir {output_dir!s}")
         if not str(proto_file).endswith(".proto"):
             raise Exception(f"File names must end in a '.proto', received {proto_file}")
         try:
-            cmd = " ".join([
-                f"source {source_path}; cd {druncschema_root}; "
-                "python -m grpc_tools.protoc",
-                "-I'./schema'",
-                f"--python_out={output_dir!s}",
-                f"--grpc_python_out={output_dir!s}",
-                f"--mypy_out={output_dir!s}",
-                str(proto_file),
-            ])
+            cmd = " ".join(
+                [
+                    f"source {source_path}; cd {druncschema_root}; "
+                    "python -m grpc_tools.protoc",
+                    "-I'./schema'",
+                    f"--python_out={output_dir!s}",
+                    f"--grpc_python_out={output_dir!s}",
+                    f"--mypy_out={output_dir!s}",
+                    f"--mypy_grpc_out={output_dir!s}",
+                    str(proto_file),
+                ]
+            )
             log.debug(cmd)
             subprocess.run(
                 cmd,
@@ -81,15 +89,16 @@ def generate_protos(
                 text=True,
                 check=True,
                 shell=True,
-                executable="/bin/bash"
+                executable="/bin/bash",
             )
         except subprocess.CalledProcessError as e:
             log.exception(e)
             log.error(e.stderr)
         output_files = [
-            output_dir / Path("druncschema") / subdir / Path(
-                Path(proto_file.name).stem + extension
-            )
+            output_dir
+            / Path("druncschema")
+            / subdir
+            / Path(Path(proto_file.name).stem + extension)
             for extension in compiled_extensions
         ]
         for output_file in output_files:
@@ -100,24 +109,27 @@ def generate_protos(
             else:
                 log.debug(f"Generated {output_file}")
 
+
 def clear_previous_compiled_schema(output_dir: Path, output_files: list[Path]) -> None:
     """Delete previous results of schema compilation."""
     for output_file in output_files:
         for compiled_extension in compiled_extensions:
             existing_file = output_dir / output_file.with_name(
-                output_file.stem + compiled_extension)
+                output_file.stem + compiled_extension
+            )
             if existing_file.exists():
                 log.info(f"Deleting file {existing_file}")
                 existing_file.unlink()
 
+
 def call_generate_protos(
-        source_path: Path,
-        druncschema_root: Path,
-        output_dir: Path,
-        subdir: Path,
-        clean: bool,
-        do_not_compile: bool
-    ) -> None:
+    source_path: Path,
+    druncschema_root: Path,
+    output_dir: Path,
+    subdir: Path,
+    clean: bool,
+    do_not_compile: bool,
+) -> None:
     """Clear existing compiled buffers, compile new buffers.
 
     List *.proto files.
@@ -126,15 +138,14 @@ def call_generate_protos(
     """
     proto_relative_path = Path("schema/druncschema")
     proto_files = [
-        proto_relative_path / subdir / Path(f.name) 
+        proto_relative_path / subdir / Path(f.name)
         for f in (druncschema_root / proto_relative_path / subdir).glob("*.proto")
     ]
     if not proto_files:
         return
     if clean:
         clear_previous_compiled_schema(
-            output_dir / Path("druncschema") / subdir,
-            proto_files
+            output_dir / Path("druncschema") / subdir, proto_files
         )
         if get_files(output_dir):
             e = Exception("Not all files removed, exiting")
@@ -144,17 +155,28 @@ def call_generate_protos(
         generate_protos(source_path, druncschema_root, proto_files, output_dir, subdir)
     return
 
-def get_subdirs(path: Path) ->list[str]:
-    """Generate list of relevant directories."""
-    return [Path(p.name) for p in path.iterdir() 
-            if p.is_dir() and not str(p.name).endswith("__") 
-            and not str(p.name).endswith("apps")]
 
-def get_files(path: Path) ->list[Path]:
+def get_subdirs(path: Path) -> list[str]:
+    """Generate list of relevant directories."""
+    return [
+        Path(p.name)
+        for p in path.iterdir()
+        if p.is_dir()
+        and not str(p.name).endswith("__")
+        and not str(p.name).endswith("apps")
+    ]
+
+
+def get_files(path: Path) -> list[Path]:
     """Generate list of *.proto files."""
-    return [Path(p.name) for p in path.iterdir() 
-            if p.is_file() and not str(p.name).endswith("__.py") 
-            and not str(p.name).endswith("typed")]
+    return [
+        Path(p.name)
+        for p in path.iterdir()
+        if p.is_file()
+        and not str(p.name).endswith("__.py")
+        and not str(p.name).endswith("typed")
+    ]
+
 
 @click.command()
 @click.option(
@@ -168,7 +190,7 @@ def get_files(path: Path) ->list[Path]:
     "-c",
     "--clean",
     is_flag=True,
-    help="Explicitly deletes the existing compiled schemas " \
+    help="Explicitly deletes the existing compiled schemas "
     "before starting the compile the new ones",
 )
 @click.option(
@@ -181,13 +203,13 @@ def main(
     log_level: str,
     clean: bool,
     do_not_compile: bool,
-    ) -> None:
+) -> None:
     """Compile the protobuf message schema into the relevant python code."""
     log.setLevel(log_level)
 
     if not in_dev_mode():
         e = Exception(
-            "This command is only available in developer mode." \
+            "This command is only available in developer mode."
             "See the druncschema wiki for further clarification."
         )
         log.exception(e)
@@ -198,7 +220,7 @@ def main(
         )
         log.exception(e)
 
-    druncschema_root = Path(f'{os.environ["DBT_AREA_ROOT"]}/sourcecode/druncschema')
+    druncschema_root = Path(f"{os.environ['DBT_AREA_ROOT']}/sourcecode/druncschema")
     log.debug(f"Found druncschema directory at {druncschema_root}")
 
     output_dir = druncschema_root / "src/"
@@ -209,23 +231,14 @@ def main(
 
     subdir = Path()
     call_generate_protos(
-        source_path,
-        druncschema_root,
-        output_dir,
-        subdir,
-        clean,
-        do_not_compile
+        source_path, druncschema_root, output_dir, subdir, clean, do_not_compile
     )
 
     subdirs = get_subdirs(druncschema_root / Path("schema/druncschema"))
     for subdir in subdirs:
         call_generate_protos(
-            source_path,
-            druncschema_root,
-            output_dir,
-            subdir,
-            clean,
-            do_not_compile
+            source_path, druncschema_root, output_dir, subdir, clean, do_not_compile
         )
+
 
 main()

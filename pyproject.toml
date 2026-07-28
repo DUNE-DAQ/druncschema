@@ -1,26 +1,26 @@
 [build-system]
-requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 61.0"]
 
 [project]
-name = "druncschema"
+authors = [
+  {name = "Pierre Lasorak", email = "p.lasorak@imperial.ac.uk"},
+  {name = "Pawel Plesniak", email = "pawel.plesniak15@imperial.ac.uk"},
+  {name = "Claudia Su", email = "claudia.su@physics.ox.ac.uk"},
+]
+dependencies = [
+  "click",
+  "grpcio",
+  "grpcio-status",
+  "grpcio-tools",
+  "googleapis-common-protos",
+  "rich",
+]
 description = "Schema definitions and compilation script for drunc"
-version = "1.1.0"
+name = "druncschema"
 readme = "docs/README.md"
 requires-python = ">=3.10"
-dependencies = [
-    "click",
-    "grpcio",
-    "grpcio-status",
-    "grpcio-tools",
-    "googleapis-common-protos",
-    "rich",
-]
-authors = [
-    {name = "Pierre Lasorak", email = "p.lasorak@imperial.ac.uk"},
-    {name = "Pawel Plesniak", email = "pawel.plesniak15@imperial.ac.uk"},
-    {name = "Claudia Su", email = "claudia.su@physics.ox.ac.uk"}
-]
+version = "1.1.0"
 
 [project.optional-dependencies]
 dev = ["ruff", "pre-commit", "pytest", "pytest-cov", "mypy-protobuf", "types-protobuf"]
@@ -36,25 +36,24 @@ where = ["src"]
 addopts = "-v --tb=short --cov=druncschema --cov=src/druncschema tests/"
 
 [tool.coverage.run]
-source = ["druncschema"]
 omit = ["tests/*", "scripts/*"]
-
+source = ["druncschema"]
 
 [tool.ruff]
 exclude = [
-    "src/druncschema.egg-info",
-    "src/druncschema/*_pb2.py*",
-    "src/druncschema/*_pb2_grpc.py",
+  "src/druncschema.egg-info",
+  "src/druncschema/*_pb2.py*",
+  "src/druncschema/*_pb2_grpc.py*",
 ]
 
 [tool.ruff.lint]
-select = [
-    "D",   # pydocstyle
-    "E",   # pycodestyle
-    "F",   # Pyflakes
-    "I",   # isort
-    "UP",  # pyupgrade
-    "RUF", # ruff-specific rules
-    "R",   # refactoring suggestions
-]
 pydocstyle.convention = "google"
+select = [
+  "D", # pydocstyle
+  "E", # pycodestyle
+  "F", # Pyflakes
+  "I", # isort
+  "UP", # pyupgrade
+  "RUF", # ruff-specific rules
+  "R", # refactoring suggestions
+]
