@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package dunedaq.druncschema.run_control;
+
+import "druncschema/token.proto";
+
+service RunControl {
+    rpc validate_session (ValidateSessionRequest) returns (ValidateSessionResponse) {}
+    rpc start_session (StartSessionRequest) returns (StartSessionResponse) {}
+    rpc end_session (EndSessionRequest) returns (StartSessionResponse) {}
+}
+
+message DeploySessionResponseFlag {
+    enum Flag {
+        SUCCESS = 0;
+        FAILURE_CONFIGURATION_FILE_NOT_FOUND = 1;
+        FAILURE_SESSION_ID_NOT_FOUND = 2;
+        FAILURE_SESSION_NAME_IN_USE = 3;
+        FAILURE_SESSION_NAME_INVALID = 4;
+        FAILURE_RESOURCES_CANNOT_BE_ALLOCATED = 5;
+        FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES = 6;
+        FAILURE_WEB_PROXY_ENABLED = 7;
+        FAILURE_OTHER = 8;
+    }
+    Flag status = 1;
+}
+
+message EndSessionResponseFlag {
+    enum Flag {
+        SUCCESS = 0;
+        FAILURE_APPLICATION_STILL_ALIVE = 1;
+        FAILURE_OTHER = 2;
+    }
+    Flag status = 1;
+}
+
+message ValidateSessionRequest {
+    Token token = 1;
+    string process_manager = 2;
+    string path_to_configuration_file = 3;
+    string ssesion_id = 4;
+    string session_name = 5;
+    map<string, string> options = 6;
+}
+
+message ValidateSessionResponse {
+    Token token = 1;
+    DeploySessionResponseFlag result = 2;
+}
+
+message StartSessionRequest {
+    Token token = 1;
+    string process_manager = 2;
+    string path_to_configuration_file = 3;
+    string ssesion_id = 4;
+    string session_name = 5;
+    map<string, string> options = 6;
+}
+
+message StartSessionResponse {
+    Token token = 1;
+    DeploySessionResponseFlag result = 2;
+}
+
+message EndSessionRequest {
+    Token token = 1;
+    string process_manager = 2;
+    string path_to_configuration_file = 3;
+    string ssesion_id = 4;
+    string session_name = 5;
+    map<string, string> options = 6;
+}
+
+message EndSessionResponse {
+    Token token = 1;
+    EndSessionResponseFlag result = 2;
+}
+
