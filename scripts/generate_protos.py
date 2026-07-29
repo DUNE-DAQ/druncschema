@@ -5,7 +5,8 @@
 Compiles buffers into
     - *pb2.py.
     - *pb2.pyi.
-    - pb2_grpc.py.
+    - *pb2_grpc.py.
+    - *pb2_grpc.pyi.
 """
 
 import importlib

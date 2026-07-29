@@ -7,6 +7,10 @@ authors = [
   {name = "Pierre Lasorak", email = "p.lasorak@imperial.ac.uk"},
   {name = "Pawel Plesniak", email = "pawel.plesniak15@imperial.ac.uk"},
   {name = "Claudia Su", email = "claudia.su@physics.ox.ac.uk"},
+  {name = "Emir Muhammad", email = "e.muhammad@imperial.ac.uk"},
+  {name = "James Turner", email = "james.turner@imperial.ac.uk"},
+  {name = "Aruash Karimi", email = "a.karimi@imperial.ac.uk"},
+  {name = "Miruna Serian", email = "m.serian@imperial.ac.uk"},
 ]
 dependencies = [
   "click",
