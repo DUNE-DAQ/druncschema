@@ -189,14 +189,16 @@ class StartSessionRequest(_message.Message):
     TOKEN_FIELD_NUMBER: _builtins.int
     PROCESS_MANAGER_FIELD_NUMBER: _builtins.int
     PATH_TO_CONFIGURATION_FILE_FIELD_NUMBER: _builtins.int
-    SSESION_ID_FIELD_NUMBER: _builtins.int
+    SESSION_ID_FIELD_NUMBER: _builtins.int
     SESSION_NAME_FIELD_NUMBER: _builtins.int
+    OVERRIDE_LOGS_FIELD_NUMBER: _builtins.int
     CONTROLLER_LOG_LEVEL_FIELD_NUMBER: _builtins.int
     SLEEP_BETWEEN_APP_BOOT_FIELD_NUMBER: _builtins.int
     process_manager: _builtins.str
     path_to_configuration_file: _builtins.str
-    ssesion_id: _builtins.str
+    session_id: _builtins.str
     session_name: _builtins.str
+    override_logs: _builtins.bool
     controller_log_level: _builtins.str
     sleep_between_app_boot: _builtins.float
     @_builtins.property
@@ -207,14 +209,15 @@ class StartSessionRequest(_message.Message):
         token: _token_pb2.Token | None = ...,
         process_manager: _builtins.str = ...,
         path_to_configuration_file: _builtins.str = ...,
-        ssesion_id: _builtins.str = ...,
+        session_id: _builtins.str = ...,
         session_name: _builtins.str = ...,
+        override_logs: _builtins.bool = ...,
         controller_log_level: _builtins.str = ...,
         sleep_between_app_boot: _builtins.float = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["controller_log_level", b"controller_log_level", "path_to_configuration_file", b"path_to_configuration_file", "process_manager", b"process_manager", "session_name", b"session_name", "sleep_between_app_boot", b"sleep_between_app_boot", "ssesion_id", b"ssesion_id", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["controller_log_level", b"controller_log_level", "override_logs", b"override_logs", "path_to_configuration_file", b"path_to_configuration_file", "process_manager", b"process_manager", "session_id", b"session_id", "session_name", b"session_name", "sleep_between_app_boot", b"sleep_between_app_boot", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 

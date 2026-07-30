@@ -56,10 +56,11 @@ message StartSessionRequest {
     Token token = 1;
     string process_manager = 2;
     string path_to_configuration_file = 3;
-    string ssesion_id = 4;
+    string session_id = 4;
     string session_name = 5;
-    string controller_log_level = 6;
-    float sleep_between_app_boot = 7;
+    bool override_logs = 6;
+    string controller_log_level = 7;
+    float sleep_between_app_boot = 8;
 }
 
 message StartSessionResponse {
