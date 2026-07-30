@@ -3,8 +3,6 @@
 import grpc
 import warnings
 
-from druncschema import generic_pb2 as druncschema_dot_generic__pb2
-from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 from druncschema import run_control_pb2 as druncschema_dot_run__control__pb2
 
 GRPC_GENERATED_VERSION = '1.75.0'
@@ -53,8 +51,8 @@ class RunControlStub(object):
                 _registered_method=True)
         self.log_on_server = channel.unary_unary(
                 '/dunedaq.druncschema.run_control.RunControl/log_on_server',
-                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
-                response_deserializer=druncschema_dot_generic__pb2.OutcomeStatus.FromString,
+                request_serializer=druncschema_dot_run__control__pb2.LogOnServerRequest.SerializeToString,
+                response_deserializer=druncschema_dot_run__control__pb2.LogOnServerResponse.FromString,
                 _registered_method=True)
         self.validate_communication = channel.unary_unary(
                 '/dunedaq.druncschema.run_control.RunControl/validate_communication',
@@ -116,8 +114,8 @@ def add_RunControlServicer_to_server(servicer, server):
             ),
             'log_on_server': grpc.unary_unary_rpc_method_handler(
                     servicer.log_on_server,
-                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
-                    response_serializer=druncschema_dot_generic__pb2.OutcomeStatus.SerializeToString,
+                    request_deserializer=druncschema_dot_run__control__pb2.LogOnServerRequest.FromString,
+                    response_serializer=druncschema_dot_run__control__pb2.LogOnServerResponse.SerializeToString,
             ),
             'validate_communication': grpc.unary_unary_rpc_method_handler(
                     servicer.validate_communication,
@@ -231,8 +229,8 @@ class RunControl(object):
             request,
             target,
             '/dunedaq.druncschema.run_control.RunControl/log_on_server',
-            druncschema_dot_request__response__pb2.Request.SerializeToString,
-            druncschema_dot_generic__pb2.OutcomeStatus.FromString,
+            druncschema_dot_run__control__pb2.LogOnServerRequest.SerializeToString,
+            druncschema_dot_run__control__pb2.LogOnServerResponse.FromString,
             options,
             channel_credentials,
             insecure,

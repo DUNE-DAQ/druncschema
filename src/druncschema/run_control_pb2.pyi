@@ -5,6 +5,7 @@ isort:skip_file
 
 from collections import abc as _abc
 from druncschema import generic_pb2 as _generic_pb2
+from druncschema import request_response_pb2 as _request_response_pb2
 from druncschema import token_pb2 as _token_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -185,40 +186,21 @@ Global___ValidateSessionResponse: _TypeAlias = ValidateSessionResponse  # noqa: 
 class StartSessionRequest(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
-    @_typing.final
-    class OptionsEntry(_message.Message):
-        DESCRIPTOR: _descriptor.Descriptor
-
-        KEY_FIELD_NUMBER: _builtins.int
-        VALUE_FIELD_NUMBER: _builtins.int
-        key: _builtins.str
-        value: _builtins.str
-        def __init__(
-            self,
-            *,
-            key: _builtins.str = ...,
-            value: _builtins.str = ...,
-        ) -> None: ...
-        _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
-        def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-        _ClearFieldArgType: _TypeAlias = _typing.Literal["key", b"key", "value", b"value"]  # noqa: Y015
-        def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-        def WhichOneof(self, oneof_group: _Never) -> None: ...
-
     TOKEN_FIELD_NUMBER: _builtins.int
     PROCESS_MANAGER_FIELD_NUMBER: _builtins.int
     PATH_TO_CONFIGURATION_FILE_FIELD_NUMBER: _builtins.int
     SSESION_ID_FIELD_NUMBER: _builtins.int
     SESSION_NAME_FIELD_NUMBER: _builtins.int
-    OPTIONS_FIELD_NUMBER: _builtins.int
+    CONTROLLER_LOG_LEVEL_FIELD_NUMBER: _builtins.int
+    SLEEP_BETWEEN_APP_BOOT_FIELD_NUMBER: _builtins.int
     process_manager: _builtins.str
     path_to_configuration_file: _builtins.str
     ssesion_id: _builtins.str
     session_name: _builtins.str
+    controller_log_level: _builtins.str
+    sleep_between_app_boot: _builtins.float
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
-    @_builtins.property
-    def options(self) -> _containers.ScalarMap[_builtins.str, _builtins.str]: ...
     def __init__(
         self,
         *,
@@ -227,11 +209,12 @@ class StartSessionRequest(_message.Message):
         path_to_configuration_file: _builtins.str = ...,
         ssesion_id: _builtins.str = ...,
         session_name: _builtins.str = ...,
-        options: _abc.Mapping[_builtins.str, _builtins.str] | None = ...,
+        controller_log_level: _builtins.str = ...,
+        sleep_between_app_boot: _builtins.float = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["options", b"options", "path_to_configuration_file", b"path_to_configuration_file", "process_manager", b"process_manager", "session_name", b"session_name", "ssesion_id", b"ssesion_id", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["controller_log_level", b"controller_log_level", "path_to_configuration_file", b"path_to_configuration_file", "process_manager", b"process_manager", "session_name", b"session_name", "sleep_between_app_boot", b"sleep_between_app_boot", "ssesion_id", b"ssesion_id", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
@@ -383,3 +366,68 @@ class ValidateCommunicationResponse(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___ValidateCommunicationResponse: _TypeAlias = ValidateCommunicationResponse  # noqa: Y015
+
+@_typing.final
+class LogOnServerRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    TEXT_FIELD_NUMBER: _builtins.int
+    SEVERITY_FIELD_NUMBER: _builtins.int
+    TARGET_FIELD_NUMBER: _builtins.int
+    EXECUTE_ALONG_PATH_FIELD_NUMBER: _builtins.int
+    EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: _builtins.int
+    text: _builtins.str
+    severity: _builtins.str
+    target: _builtins.str
+    execute_along_path: _builtins.bool
+    execute_on_all_subsequent_children_in_path: _builtins.bool
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        text: _builtins.str = ...,
+        severity: _builtins.str = ...,
+        target: _builtins.str = ...,
+        execute_along_path: _builtins.bool = ...,
+        execute_on_all_subsequent_children_in_path: _builtins.bool = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "severity", b"severity", "target", b"target", "text", b"text", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___LogOnServerRequest: _TypeAlias = LogOnServerRequest  # noqa: Y015
+
+@_typing.final
+class LogOnServerResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    NAME_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    CHILDREN_FIELD_NUMBER: _builtins.int
+    name: _builtins.str
+    flag: _request_response_pb2.ResponseFlag.ValueType
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___LogOnServerResponse]: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        name: _builtins.str = ...,
+        flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        children: _abc.Iterable[Global___LogOnServerResponse] | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___LogOnServerResponse: _TypeAlias = LogOnServerResponse  # noqa: Y015
