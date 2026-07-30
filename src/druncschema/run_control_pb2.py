@@ -22,10 +22,12 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 from druncschema import token_pb2 as druncschema_dot_token__pb2
+from druncschema import generic_pb2 as druncschema_dot_generic__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/run_control.proto\x12\x1f\x64unedaq.druncschema.run_control\x1a\x17\x64runcschema/token.proto\"\xa4\x03\n\x19\x44\x65ploySessionResponseFlag\x12O\n\x06status\x18\x01 \x01(\x0e\x32?.dunedaq.druncschema.run_control.DeploySessionResponseFlag.Flag\"\xb5\x02\n\x04\x46lag\x12\x0b\n\x07SUCCESS\x10\x00\x12(\n$FAILURE_CONFIGURATION_FILE_NOT_FOUND\x10\x01\x12 \n\x1c\x46\x41ILURE_SESSION_ID_NOT_FOUND\x10\x02\x12\x1f\n\x1b\x46\x41ILURE_SESSION_NAME_IN_USE\x10\x03\x12 \n\x1c\x46\x41ILURE_SESSION_NAME_INVALID\x10\x04\x12)\n%FAILURE_RESOURCES_CANNOT_BE_ALLOCATED\x10\x05\x12\x34\n0FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES\x10\x06\x12\x1d\n\x19\x46\x41ILURE_WEB_PROXY_ENABLED\x10\x07\x12\x11\n\rFAILURE_OTHER\x10\x08\"\xb3\x01\n\x16\x45ndSessionResponseFlag\x12L\n\x06status\x18\x01 \x01(\x0e\x32<.dunedaq.druncschema.run_control.EndSessionResponseFlag.Flag\"K\n\x04\x46lag\x12\x0b\n\x07SUCCESS\x10\x00\x12#\n\x1f\x46\x41ILURE_APPLICATION_STILL_ALIVE\x10\x01\x12\x11\n\rFAILURE_OTHER\x10\x02\"\xb1\x02\n\x16ValidateSessionRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x17\n\x0fprocess_manager\x18\x02 \x01(\t\x12\"\n\x1apath_to_configuration_file\x18\x03 \x01(\t\x12\x12\n\nssesion_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12U\n\x07options\x18\x06 \x03(\x0b\x32\x44.dunedaq.druncschema.run_control.ValidateSessionRequest.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x90\x01\n\x17ValidateSessionResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12J\n\x06result\x18\x02 \x01(\x0b\x32:.dunedaq.druncschema.run_control.DeploySessionResponseFlag\"\xab\x02\n\x13StartSessionRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x17\n\x0fprocess_manager\x18\x02 \x01(\t\x12\"\n\x1apath_to_configuration_file\x18\x03 \x01(\t\x12\x12\n\nssesion_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12R\n\x07options\x18\x06 \x03(\x0b\x32\x41.dunedaq.druncschema.run_control.StartSessionRequest.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x8d\x01\n\x14StartSessionResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12J\n\x06result\x18\x02 \x01(\x0b\x32:.dunedaq.druncschema.run_control.DeploySessionResponseFlag\"\xa7\x02\n\x11\x45ndSessionRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x17\n\x0fprocess_manager\x18\x02 \x01(\t\x12\"\n\x1apath_to_configuration_file\x18\x03 \x01(\t\x12\x12\n\nssesion_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12P\n\x07options\x18\x06 \x03(\x0b\x32?.dunedaq.druncschema.run_control.EndSessionRequest.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x88\x01\n\x12\x45ndSessionResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12G\n\x06result\x18\x02 \x01(\x0b\x32\x37.dunedaq.druncschema.run_control.EndSessionResponseFlag2\x92\x03\n\nRunControl\x12\x87\x01\n\x10validate_session\x12\x37.dunedaq.druncschema.run_control.ValidateSessionRequest\x1a\x38.dunedaq.druncschema.run_control.ValidateSessionResponse\"\x00\x12~\n\rstart_session\x12\x34.dunedaq.druncschema.run_control.StartSessionRequest\x1a\x35.dunedaq.druncschema.run_control.StartSessionResponse\"\x00\x12z\n\x0b\x65nd_session\x12\x32.dunedaq.druncschema.run_control.EndSessionRequest\x1a\x35.dunedaq.druncschema.run_control.StartSessionResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/run_control.proto\x12\x1f\x64unedaq.druncschema.run_control\x1a\"druncschema/request_response.proto\x1a\x17\x64runcschema/token.proto\x1a\x19\x64runcschema/generic.proto\"\xa4\x03\n\x19\x44\x65ploySessionResponseFlag\x12O\n\x06status\x18\x01 \x01(\x0e\x32?.dunedaq.druncschema.run_control.DeploySessionResponseFlag.Flag\"\xb5\x02\n\x04\x46lag\x12\x0b\n\x07SUCCESS\x10\x00\x12(\n$FAILURE_CONFIGURATION_FILE_NOT_FOUND\x10\x01\x12 \n\x1c\x46\x41ILURE_SESSION_ID_NOT_FOUND\x10\x02\x12\x1f\n\x1b\x46\x41ILURE_SESSION_NAME_IN_USE\x10\x03\x12 \n\x1c\x46\x41ILURE_SESSION_NAME_INVALID\x10\x04\x12)\n%FAILURE_RESOURCES_CANNOT_BE_ALLOCATED\x10\x05\x12\x34\n0FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES\x10\x06\x12\x1d\n\x19\x46\x41ILURE_WEB_PROXY_ENABLED\x10\x07\x12\x11\n\rFAILURE_OTHER\x10\x08\"\xb3\x01\n\x16\x45ndSessionResponseFlag\x12L\n\x06status\x18\x01 \x01(\x0e\x32<.dunedaq.druncschema.run_control.EndSessionResponseFlag.Flag\"K\n\x04\x46lag\x12\x0b\n\x07SUCCESS\x10\x00\x12#\n\x1f\x46\x41ILURE_APPLICATION_STILL_ALIVE\x10\x01\x12\x11\n\rFAILURE_OTHER\x10\x02\"\xb1\x02\n\x16ValidateSessionRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x17\n\x0fprocess_manager\x18\x02 \x01(\t\x12\"\n\x1apath_to_configuration_file\x18\x03 \x01(\t\x12\x12\n\nssesion_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12U\n\x07options\x18\x06 \x03(\x0b\x32\x44.dunedaq.druncschema.run_control.ValidateSessionRequest.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x90\x01\n\x17ValidateSessionResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12J\n\x06result\x18\x02 \x01(\x0b\x32:.dunedaq.druncschema.run_control.DeploySessionResponseFlag\"\xab\x02\n\x13StartSessionRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x17\n\x0fprocess_manager\x18\x02 \x01(\t\x12\"\n\x1apath_to_configuration_file\x18\x03 \x01(\t\x12\x12\n\nssesion_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12R\n\x07options\x18\x06 \x03(\x0b\x32\x41.dunedaq.druncschema.run_control.StartSessionRequest.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x8d\x01\n\x14StartSessionResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12J\n\x06result\x18\x02 \x01(\x0b\x32:.dunedaq.druncschema.run_control.DeploySessionResponseFlag\"\xa7\x02\n\x11\x45ndSessionRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x17\n\x0fprocess_manager\x18\x02 \x01(\t\x12\"\n\x1apath_to_configuration_file\x18\x03 \x01(\t\x12\x12\n\nssesion_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12P\n\x07options\x18\x06 \x03(\x0b\x32?.dunedaq.druncschema.run_control.EndSessionRequest.OptionsEntry\x1a.\n\x0cOptionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x88\x01\n\x12\x45ndSessionResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12G\n\x06result\x18\x02 \x01(\x0b\x32\x37.dunedaq.druncschema.run_control.EndSessionResponseFlag2\xe2\x03\n\nRunControl\x12\x87\x01\n\x10validate_session\x12\x37.dunedaq.druncschema.run_control.ValidateSessionRequest\x1a\x38.dunedaq.druncschema.run_control.ValidateSessionResponse\"\x00\x12~\n\rstart_session\x12\x34.dunedaq.druncschema.run_control.StartSessionRequest\x1a\x35.dunedaq.druncschema.run_control.StartSessionResponse\"\x00\x12z\n\x0b\x65nd_session\x12\x32.dunedaq.druncschema.run_control.EndSessionRequest\x1a\x35.dunedaq.druncschema.run_control.StartSessionResponse\"\x00\x12N\n\x08send_msg\x12\x1c.dunedaq.druncschema.Request\x1a\".dunedaq.druncschema.OutcomeStatus\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,32 +40,32 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_STARTSESSIONREQUEST_OPTIONSENTRY']._serialized_options = b'8\001'
   _globals['_ENDSESSIONREQUEST_OPTIONSENTRY']._loaded_options = None
   _globals['_ENDSESSIONREQUEST_OPTIONSENTRY']._serialized_options = b'8\001'
-  _globals['_DEPLOYSESSIONRESPONSEFLAG']._serialized_start=92
-  _globals['_DEPLOYSESSIONRESPONSEFLAG']._serialized_end=512
-  _globals['_DEPLOYSESSIONRESPONSEFLAG_FLAG']._serialized_start=203
-  _globals['_DEPLOYSESSIONRESPONSEFLAG_FLAG']._serialized_end=512
-  _globals['_ENDSESSIONRESPONSEFLAG']._serialized_start=515
-  _globals['_ENDSESSIONRESPONSEFLAG']._serialized_end=694
-  _globals['_ENDSESSIONRESPONSEFLAG_FLAG']._serialized_start=619
-  _globals['_ENDSESSIONRESPONSEFLAG_FLAG']._serialized_end=694
-  _globals['_VALIDATESESSIONREQUEST']._serialized_start=697
-  _globals['_VALIDATESESSIONREQUEST']._serialized_end=1002
-  _globals['_VALIDATESESSIONREQUEST_OPTIONSENTRY']._serialized_start=956
-  _globals['_VALIDATESESSIONREQUEST_OPTIONSENTRY']._serialized_end=1002
-  _globals['_VALIDATESESSIONRESPONSE']._serialized_start=1005
-  _globals['_VALIDATESESSIONRESPONSE']._serialized_end=1149
-  _globals['_STARTSESSIONREQUEST']._serialized_start=1152
-  _globals['_STARTSESSIONREQUEST']._serialized_end=1451
-  _globals['_STARTSESSIONREQUEST_OPTIONSENTRY']._serialized_start=956
-  _globals['_STARTSESSIONREQUEST_OPTIONSENTRY']._serialized_end=1002
-  _globals['_STARTSESSIONRESPONSE']._serialized_start=1454
-  _globals['_STARTSESSIONRESPONSE']._serialized_end=1595
-  _globals['_ENDSESSIONREQUEST']._serialized_start=1598
-  _globals['_ENDSESSIONREQUEST']._serialized_end=1893
-  _globals['_ENDSESSIONREQUEST_OPTIONSENTRY']._serialized_start=956
-  _globals['_ENDSESSIONREQUEST_OPTIONSENTRY']._serialized_end=1002
-  _globals['_ENDSESSIONRESPONSE']._serialized_start=1896
-  _globals['_ENDSESSIONRESPONSE']._serialized_end=2032
-  _globals['_RUNCONTROL']._serialized_start=2035
-  _globals['_RUNCONTROL']._serialized_end=2437
+  _globals['_DEPLOYSESSIONRESPONSEFLAG']._serialized_start=155
+  _globals['_DEPLOYSESSIONRESPONSEFLAG']._serialized_end=575
+  _globals['_DEPLOYSESSIONRESPONSEFLAG_FLAG']._serialized_start=266
+  _globals['_DEPLOYSESSIONRESPONSEFLAG_FLAG']._serialized_end=575
+  _globals['_ENDSESSIONRESPONSEFLAG']._serialized_start=578
+  _globals['_ENDSESSIONRESPONSEFLAG']._serialized_end=757
+  _globals['_ENDSESSIONRESPONSEFLAG_FLAG']._serialized_start=682
+  _globals['_ENDSESSIONRESPONSEFLAG_FLAG']._serialized_end=757
+  _globals['_VALIDATESESSIONREQUEST']._serialized_start=760
+  _globals['_VALIDATESESSIONREQUEST']._serialized_end=1065
+  _globals['_VALIDATESESSIONREQUEST_OPTIONSENTRY']._serialized_start=1019
+  _globals['_VALIDATESESSIONREQUEST_OPTIONSENTRY']._serialized_end=1065
+  _globals['_VALIDATESESSIONRESPONSE']._serialized_start=1068
+  _globals['_VALIDATESESSIONRESPONSE']._serialized_end=1212
+  _globals['_STARTSESSIONREQUEST']._serialized_start=1215
+  _globals['_STARTSESSIONREQUEST']._serialized_end=1514
+  _globals['_STARTSESSIONREQUEST_OPTIONSENTRY']._serialized_start=1019
+  _globals['_STARTSESSIONREQUEST_OPTIONSENTRY']._serialized_end=1065
+  _globals['_STARTSESSIONRESPONSE']._serialized_start=1517
+  _globals['_STARTSESSIONRESPONSE']._serialized_end=1658
+  _globals['_ENDSESSIONREQUEST']._serialized_start=1661
+  _globals['_ENDSESSIONREQUEST']._serialized_end=1956
+  _globals['_ENDSESSIONREQUEST_OPTIONSENTRY']._serialized_start=1019
+  _globals['_ENDSESSIONREQUEST_OPTIONSENTRY']._serialized_end=1065
+  _globals['_ENDSESSIONRESPONSE']._serialized_start=1959
+  _globals['_ENDSESSIONRESPONSE']._serialized_end=2095
+  _globals['_RUNCONTROL']._serialized_start=2098
+  _globals['_RUNCONTROL']._serialized_end=2580
 # @@protoc_insertion_point(module_scope)

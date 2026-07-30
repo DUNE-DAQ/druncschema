@@ -2,12 +2,15 @@ syntax = "proto3";
 
 package dunedaq.druncschema.run_control;
 
+import "druncschema/request_response.proto";
 import "druncschema/token.proto";
+import "druncschema/generic.proto";
 
 service RunControl {
     rpc validate_session (ValidateSessionRequest) returns (ValidateSessionResponse) {}
     rpc start_session (StartSessionRequest) returns (StartSessionResponse) {}
     rpc end_session (EndSessionRequest) returns (StartSessionResponse) {}
+    rpc send_msg  (Request) returns (OutcomeStatus) {}
 }
 
 message DeploySessionResponseFlag {
