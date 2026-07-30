@@ -51,10 +51,15 @@ class RunControlStub(object):
                 request_serializer=druncschema_dot_run__control__pb2.EndSessionRequest.SerializeToString,
                 response_deserializer=druncschema_dot_run__control__pb2.StartSessionResponse.FromString,
                 _registered_method=True)
-        self.send_msg = channel.unary_unary(
-                '/dunedaq.druncschema.run_control.RunControl/send_msg',
+        self.log_on_server = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/log_on_server',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_generic__pb2.OutcomeStatus.FromString,
+                _registered_method=True)
+        self.validate_communication = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/validate_communication',
+                request_serializer=druncschema_dot_run__control__pb2.ValidateCommunicationRequest.SerializeToString,
+                response_deserializer=druncschema_dot_run__control__pb2.ValidateCommunicationResponse.FromString,
                 _registered_method=True)
 
 
@@ -79,7 +84,13 @@ class RunControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def send_msg(self, request, context):
+    def log_on_server(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def validate_communication(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -103,10 +114,15 @@ def add_RunControlServicer_to_server(servicer, server):
                     request_deserializer=druncschema_dot_run__control__pb2.EndSessionRequest.FromString,
                     response_serializer=druncschema_dot_run__control__pb2.StartSessionResponse.SerializeToString,
             ),
-            'send_msg': grpc.unary_unary_rpc_method_handler(
-                    servicer.send_msg,
+            'log_on_server': grpc.unary_unary_rpc_method_handler(
+                    servicer.log_on_server,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_generic__pb2.OutcomeStatus.SerializeToString,
+            ),
+            'validate_communication': grpc.unary_unary_rpc_method_handler(
+                    servicer.validate_communication,
+                    request_deserializer=druncschema_dot_run__control__pb2.ValidateCommunicationRequest.FromString,
+                    response_serializer=druncschema_dot_run__control__pb2.ValidateCommunicationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -201,7 +217,7 @@ class RunControl(object):
             _registered_method=True)
 
     @staticmethod
-    def send_msg(request,
+    def log_on_server(request,
             target,
             options=(),
             channel_credentials=None,
@@ -214,9 +230,36 @@ class RunControl(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.run_control.RunControl/send_msg',
+            '/dunedaq.druncschema.run_control.RunControl/log_on_server',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_generic__pb2.OutcomeStatus.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def validate_communication(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/validate_communication',
+            druncschema_dot_run__control__pb2.ValidateCommunicationRequest.SerializeToString,
+            druncschema_dot_run__control__pb2.ValidateCommunicationResponse.FromString,
             options,
             channel_credentials,
             insecure,

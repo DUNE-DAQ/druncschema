@@ -10,7 +10,8 @@ service RunControl {
     rpc validate_session (ValidateSessionRequest) returns (ValidateSessionResponse) {}
     rpc start_session (StartSessionRequest) returns (StartSessionResponse) {}
     rpc end_session (EndSessionRequest) returns (StartSessionResponse) {}
-    rpc send_msg  (Request) returns (OutcomeStatus) {}
+    rpc log_on_server  (Request) returns (OutcomeStatus) {}
+    rpc validate_communication (ValidateCommunicationRequest) returns (ValidateCommunicationResponse) {}
 }
 
 message DeploySessionResponseFlag {
@@ -79,3 +80,11 @@ message EndSessionResponse {
     EndSessionResponseFlag result = 2;
 }
 
+message ValidateCommunicationRequest {
+    Token token = 1;
+}
+
+message ValidateCommunicationResponse {
+    Token token = 1;
+    OutcomeFlag status = 2;
+}

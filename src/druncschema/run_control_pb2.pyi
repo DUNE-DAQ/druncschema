@@ -4,6 +4,7 @@ isort:skip_file
 """
 
 from collections import abc as _abc
+from druncschema import generic_pb2 as _generic_pb2
 from druncschema import token_pb2 as _token_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -339,3 +340,46 @@ class EndSessionResponse(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___EndSessionResponse: _TypeAlias = EndSessionResponse  # noqa: Y015
+
+@_typing.final
+class ValidateCommunicationRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___ValidateCommunicationRequest: _TypeAlias = ValidateCommunicationRequest  # noqa: Y015
+
+@_typing.final
+class ValidateCommunicationResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    STATUS_FIELD_NUMBER: _builtins.int
+    status: _generic_pb2.OutcomeFlag.ValueType
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        status: _generic_pb2.OutcomeFlag.ValueType = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["status", b"status", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___ValidateCommunicationResponse: _TypeAlias = ValidateCommunicationResponse  # noqa: Y015
