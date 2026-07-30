@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package dunedaq.druncschema.run_control;
 
+import "druncschema/process_manager.proto";
 import "druncschema/request_response.proto";
 import "druncschema/token.proto";
 import "druncschema/generic.proto";
@@ -10,7 +11,8 @@ service RunControl {
     rpc validate_session (ValidateSessionRequest) returns (ValidateSessionResponse) {}
     rpc start_session (StartSessionRequest) returns (StartSessionResponse) {}
     rpc end_session (EndSessionRequest) returns (StartSessionResponse) {}
-    rpc log_on_server  (LogOnServerRequest) returns (LogOnServerResponse) {}
+    rpc logs (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
+    rpc log_on_server (LogOnServerRequest) returns (LogOnServerResponse) {}
     rpc validate_communication (ValidateCommunicationRequest) returns (ValidateCommunicationResponse) {}
 }
 
