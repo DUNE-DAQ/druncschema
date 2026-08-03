@@ -10,6 +10,7 @@ service SessionManager {
   rpc describe          (Request) returns (Description) {}
   rpc list_all_sessions (Request) returns (AllActiveSessions) {}
   rpc list_all_configs  (Request) returns (AllConfigKeys) {}
+  rpc load_session      (LoadSessionRequest) returns (LoadSessionResponse) {}
 }
 
 message ConfigKey {
@@ -35,4 +36,12 @@ message AllActiveSessions {
   Token token = 2;
   repeated ActiveSession active_sessions = 3;
   ResponseFlag flag = 4;
+}
+
+message LoadSessionRequest {
+  ConfigKey config_key = 1;
+}
+
+message LoadSessionResponse {
+  string name = 1;
 }

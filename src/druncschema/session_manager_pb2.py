@@ -27,7 +27,7 @@ from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import token_pb2 as druncschema_dot_token__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!druncschema/session_manager.proto\x12#dunedaq.druncschema.session_manager\x1a\"druncschema/request_response.proto\x1a\x1d\x64runcschema/description.proto\x1a\x17\x64runcschema/token.proto\"-\n\tConfigKey\x12\x0c\n\x04\x66ile\x18\x01 \x01(\t\x12\x12\n\nsession_id\x18\x02 \x01(\t\"\xbe\x01\n\rAllConfigKeys\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\x05token\x18\x02 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x43\n\x0b\x63onfig_keys\x18\x03 \x03(\x0b\x32..dunedaq.druncschema.session_manager.ConfigKey\x12/\n\x04\x66lag\x18\x04 \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\"o\n\rActiveSession\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04user\x18\x02 \x01(\t\x12\x42\n\nconfig_key\x18\x03 \x01(\x0b\x32..dunedaq.druncschema.session_manager.ConfigKey\"\xca\x01\n\x11\x41llActiveSessions\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\x05token\x18\x02 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12K\n\x0f\x61\x63tive_sessions\x18\x03 \x03(\x0b\x32\x32.dunedaq.druncschema.session_manager.ActiveSession\x12/\n\x04\x66lag\x18\x04 \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag2\xb3\x02\n\x0eSessionManager\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x12k\n\x11list_all_sessions\x12\x1c.dunedaq.druncschema.Request\x1a\x36.dunedaq.druncschema.session_manager.AllActiveSessions\"\x00\x12\x66\n\x10list_all_configs\x12\x1c.dunedaq.druncschema.Request\x1a\x32.dunedaq.druncschema.session_manager.AllConfigKeys\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!druncschema/session_manager.proto\x12#dunedaq.druncschema.session_manager\x1a\"druncschema/request_response.proto\x1a\x1d\x64runcschema/description.proto\x1a\x17\x64runcschema/token.proto\"-\n\tConfigKey\x12\x0c\n\x04\x66ile\x18\x01 \x01(\t\x12\x12\n\nsession_id\x18\x02 \x01(\t\"\xbe\x01\n\rAllConfigKeys\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\x05token\x18\x02 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x43\n\x0b\x63onfig_keys\x18\x03 \x03(\x0b\x32..dunedaq.druncschema.session_manager.ConfigKey\x12/\n\x04\x66lag\x18\x04 \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\"o\n\rActiveSession\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04user\x18\x02 \x01(\t\x12\x42\n\nconfig_key\x18\x03 \x01(\x0b\x32..dunedaq.druncschema.session_manager.ConfigKey\"\xca\x01\n\x11\x41llActiveSessions\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\x05token\x18\x02 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12K\n\x0f\x61\x63tive_sessions\x18\x03 \x03(\x0b\x32\x32.dunedaq.druncschema.session_manager.ActiveSession\x12/\n\x04\x66lag\x18\x04 \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\"X\n\x12LoadSessionRequest\x12\x42\n\nconfig_key\x18\x01 \x01(\x0b\x32..dunedaq.druncschema.session_manager.ConfigKey\"#\n\x13LoadSessionResponse\x12\x0c\n\x04name\x18\x01 \x01(\t2\xb9\x03\n\x0eSessionManager\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x12k\n\x11list_all_sessions\x12\x1c.dunedaq.druncschema.Request\x1a\x36.dunedaq.druncschema.session_manager.AllActiveSessions\"\x00\x12\x66\n\x10list_all_configs\x12\x1c.dunedaq.druncschema.Request\x1a\x32.dunedaq.druncschema.session_manager.AllConfigKeys\"\x00\x12\x83\x01\n\x0cload_session\x12\x37.dunedaq.druncschema.session_manager.LoadSessionRequest\x1a\x38.dunedaq.druncschema.session_manager.LoadSessionResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,6 +42,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ACTIVESESSION']._serialized_end=517
   _globals['_ALLACTIVESESSIONS']._serialized_start=520
   _globals['_ALLACTIVESESSIONS']._serialized_end=722
-  _globals['_SESSIONMANAGER']._serialized_start=725
-  _globals['_SESSIONMANAGER']._serialized_end=1032
+  _globals['_LOADSESSIONREQUEST']._serialized_start=724
+  _globals['_LOADSESSIONREQUEST']._serialized_end=812
+  _globals['_LOADSESSIONRESPONSE']._serialized_start=814
+  _globals['_LOADSESSIONRESPONSE']._serialized_end=849
+  _globals['_SESSIONMANAGER']._serialized_start=852
+  _globals['_SESSIONMANAGER']._serialized_end=1293
 # @@protoc_insertion_point(module_scope)
