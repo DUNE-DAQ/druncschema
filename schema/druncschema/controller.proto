@@ -5,6 +5,7 @@ package dunedaq.druncschema.controller;
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
 import "druncschema/token.proto";
+import "druncschema/common.proto";
 import "google/protobuf/any.proto";
 
 service Controller {
@@ -23,6 +24,8 @@ service Controller {
   rpc who_is_in_charge           (WhoIsInChargeRequest) returns (WhoIsInChargeResponse) {}
 
   rpc to_error                   (ToErrorRequest) returns (ToErrorResponse) {}
+
+  rpc log_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
 }
 
 message AddressedCommand {
