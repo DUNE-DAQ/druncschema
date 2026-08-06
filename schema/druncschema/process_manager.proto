@@ -5,6 +5,7 @@ package dunedaq.druncschema.process_manager;
 import "druncschema/request_response.proto";
 import "druncschema/description.proto";
 import "druncschema/token.proto";
+import "druncschema/common.proto";
 import "druncschema/generic.proto";
 
 service ProcessManager {
@@ -17,6 +18,7 @@ service ProcessManager {
   rpc flush     (ProcessQuery) returns (ProcessInstanceList) {}
   rpc ps        (ProcessQuery) returns (ProcessInstanceList) {}
   rpc logs      (LogRequest) returns (LogLines) {}
+  rpc log_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
 }
 
 message ProcessRestriction {
