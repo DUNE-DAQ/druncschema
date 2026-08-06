@@ -152,16 +152,17 @@ Global___LoadSessionRequest: _TypeAlias = LoadSessionRequest  # noqa: Y015
 class LoadSessionResponse(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
-    NAME_FIELD_NUMBER: _builtins.int
-    name: _builtins.str
+    SESSION_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def session(self) -> Global___ActiveSession: ...
     def __init__(
         self,
         *,
-        name: _builtins.str = ...,
+        session: Global___ActiveSession | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["session", b"session"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["name", b"name"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["session", b"session"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
