@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package dunedaq.druncschema.run_control;
+
+import "druncschema/process_manager.proto";
+import "druncschema/request_response.proto";
+import "druncschema/token.proto";
+import "druncschema/generic.proto";
+
+service RunControl {
+    rpc validate_session (ValidateSessionRequest) returns (ValidateSessionResponse) {}
+    rpc start_session (StartSessionRequest) returns (StartSessionResponse) {}
+    rpc end_session (EndSessionRequest) returns (StartSessionResponse) {}
+    rpc logs (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
+    rpc boot (RunControlBootRequest) returns (RunControlBootResponse) {}
+    rpc terminate (RunControlTerminateRequest) returns (RunControlTerminateResponse) {}
+    rpc log_on_server (LogOnServerRequest) returns (LogOnServerResponse) {}
+    rpc validate_communication (ValidateCommunicationRequest) returns (ValidateCommunicationResponse) {}
+}
+
+message DeploySessionResponseFlag {
+    enum Flag {
+        SUCCESS = 0;
+        FAILURE_CONFIGURATION_FILE_NOT_FOUND = 1;
+        FAILURE_SESSION_ID_NOT_FOUND = 2;
+        FAILURE_SESSION_NAME_IN_USE = 3;
+        FAILURE_SESSION_NAME_INVALID = 4;
+        FAILURE_RESOURCES_CANNOT_BE_ALLOCATED = 5;
+        FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES = 6;
+        FAILURE_WEB_PROXY_ENABLED = 7;
+        FAILURE_OTHER = 8;
+        FAILURE_SESSION_APPS_ALREADY_RUNNING = 9;
+    }
+    Flag status = 1;
+}
+
+message EndSessionResponseFlag {
+    enum Flag {
+        SUCCESS = 0;
+        FAILURE_APPLICATION_STILL_ALIVE = 1;
+        FAILURE_OTHER = 2;
+    }
+    Flag status = 1;
+}
+
+message ValidateSessionRequest {
+    Token token = 1;
+    string process_manager = 2;
+    string path_to_configuration_file = 3;
+    string ssesion_id = 4;
+    string session_name = 5;
+    map<string, string> options = 6;
+}
+
+message ValidateSessionResponse {
+    Token token = 1;
+    DeploySessionResponseFlag result = 2;
+}
+
+message StartSessionRequest {
+    Token token = 1;
+    string process_manager = 2;
+    string path_to_configuration_file = 3;
+    string session_id = 4;
+    string session_name = 5;
+    bool override_logs = 6;
+    string controller_log_level = 7;
+    float sleep_between_app_boot = 8;
+}
+
+message StartSessionResponse {
+    Token token = 1;
+    DeploySessionResponseFlag result = 2;
+}
+
+message EndSessionRequest {
+    Token token = 1;
+    string process_manager = 2;
+    string path_to_configuration_file = 3;
+    string ssesion_id = 4;
+    string session_name = 5;
+    map<string, string> options = 6;
+}
+
+message EndSessionResponse {
+    Token token = 1;
+    EndSessionResponseFlag result = 2;
+}
+
+message ValidateCommunicationRequest {
+    Token token = 1;
+}
+
+message ValidateCommunicationResponse {
+    Token token = 1;
+    OutcomeFlag status = 2;
+}
+
+message LogOnServerRequest {
+  Token token = 1;
+  string text = 2;
+  string severity = 3;
+  string target = 4;
+  bool execute_along_path = 5;
+  bool execute_on_all_subsequent_children_in_path = 6;
+}
+
+message LogOnServerResponse {
+  Token token = 1;
+  string name = 2;
+  ResponseFlag flag = 3;
+  repeated LogOnServerResponse children = 4;
+}
+
+message RunControlBootRequest {
+  Token token = 1;
+}
+
+message RunControlBootResponse {
+  Token token = 1;
+  DeploySessionResponseFlag flag = 2;
+}
+
+message RunControlTerminateRequest {
+  Token token = 1;
+}
+
+message RunControlTerminateResponse {
+  Token token = 1;
+  DeploySessionResponseFlag flag = 2;
+}
