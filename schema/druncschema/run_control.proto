@@ -12,6 +12,8 @@ service RunControl {
     rpc start_session (StartSessionRequest) returns (StartSessionResponse) {}
     rpc end_session (EndSessionRequest) returns (StartSessionResponse) {}
     rpc logs (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
+    rpc boot (RunControlBootRequest) returns (RunControlBootResponse) {}
+    rpc terminate (RunControlTerminateRequest) returns (RunControlTerminateResponse) {}
     rpc log_on_server (LogOnServerRequest) returns (LogOnServerResponse) {}
     rpc validate_communication (ValidateCommunicationRequest) returns (ValidateCommunicationResponse) {}
 }
@@ -27,6 +29,7 @@ message DeploySessionResponseFlag {
         FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES = 6;
         FAILURE_WEB_PROXY_ENABLED = 7;
         FAILURE_OTHER = 8;
+        FAILURE_SESSION_APPS_ALREADY_RUNNING = 9;
     }
     Flag status = 1;
 }
@@ -107,4 +110,22 @@ message LogOnServerResponse {
   string name = 2;
   ResponseFlag flag = 3;
   repeated LogOnServerResponse children = 4;
+}
+
+message RunControlBootRequest {
+  Token token = 1;
+}
+
+message RunControlBootResponse {
+  Token token = 1;
+  DeploySessionResponseFlag flag = 2;
+}
+
+message RunControlTerminateRequest {
+  Token token = 1;
+}
+
+message RunControlTerminateResponse {
+  Token token = 1;
+  DeploySessionResponseFlag flag = 2;
 }

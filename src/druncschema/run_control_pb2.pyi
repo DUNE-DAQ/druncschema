@@ -41,6 +41,7 @@ class DeploySessionResponseFlag(_message.Message):
         FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES: DeploySessionResponseFlag._Flag.ValueType  # 6
         FAILURE_WEB_PROXY_ENABLED: DeploySessionResponseFlag._Flag.ValueType  # 7
         FAILURE_OTHER: DeploySessionResponseFlag._Flag.ValueType  # 8
+        FAILURE_SESSION_APPS_ALREADY_RUNNING: DeploySessionResponseFlag._Flag.ValueType  # 9
 
     class Flag(_Flag, metaclass=_FlagEnumTypeWrapper): ...
     SUCCESS: DeploySessionResponseFlag.Flag.ValueType  # 0
@@ -52,6 +53,7 @@ class DeploySessionResponseFlag(_message.Message):
     FAILURE_INSUFFICIENT_PRIVILEGES_TO_USE_RESOURCES: DeploySessionResponseFlag.Flag.ValueType  # 6
     FAILURE_WEB_PROXY_ENABLED: DeploySessionResponseFlag.Flag.ValueType  # 7
     FAILURE_OTHER: DeploySessionResponseFlag.Flag.ValueType  # 8
+    FAILURE_SESSION_APPS_ALREADY_RUNNING: DeploySessionResponseFlag.Flag.ValueType  # 9
 
     STATUS_FIELD_NUMBER: _builtins.int
     status: Global___DeploySessionResponseFlag.Flag.ValueType
@@ -434,3 +436,91 @@ class LogOnServerResponse(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___LogOnServerResponse: _TypeAlias = LogOnServerResponse  # noqa: Y015
+
+@_typing.final
+class RunControlBootRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___RunControlBootRequest: _TypeAlias = RunControlBootRequest  # noqa: Y015
+
+@_typing.final
+class RunControlBootResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def flag(self) -> Global___DeploySessionResponseFlag: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        flag: Global___DeploySessionResponseFlag | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___RunControlBootResponse: _TypeAlias = RunControlBootResponse  # noqa: Y015
+
+@_typing.final
+class RunControlTerminateRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___RunControlTerminateRequest: _TypeAlias = RunControlTerminateRequest  # noqa: Y015
+
+@_typing.final
+class RunControlTerminateResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    FLAG_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    @_builtins.property
+    def flag(self) -> Global___DeploySessionResponseFlag: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        flag: Global___DeploySessionResponseFlag | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag", "token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["flag", b"flag", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___RunControlTerminateResponse: _TypeAlias = RunControlTerminateResponse  # noqa: Y015

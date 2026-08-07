@@ -55,6 +55,16 @@ class RunControlStub(object):
                 request_serializer=druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.LogLines.FromString,
                 _registered_method=True)
+        self.boot = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/boot',
+                request_serializer=druncschema_dot_run__control__pb2.RunControlBootRequest.SerializeToString,
+                response_deserializer=druncschema_dot_run__control__pb2.RunControlBootResponse.FromString,
+                _registered_method=True)
+        self.terminate = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/terminate',
+                request_serializer=druncschema_dot_run__control__pb2.RunControlTerminateRequest.SerializeToString,
+                response_deserializer=druncschema_dot_run__control__pb2.RunControlTerminateResponse.FromString,
+                _registered_method=True)
         self.log_on_server = channel.unary_unary(
                 '/dunedaq.druncschema.run_control.RunControl/log_on_server',
                 request_serializer=druncschema_dot_run__control__pb2.LogOnServerRequest.SerializeToString,
@@ -94,6 +104,18 @@ class RunControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def boot(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def terminate(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def log_on_server(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -128,6 +150,16 @@ def add_RunControlServicer_to_server(servicer, server):
                     servicer.logs,
                     request_deserializer=druncschema_dot_process__manager__pb2.LogRequest.FromString,
                     response_serializer=druncschema_dot_process__manager__pb2.LogLines.SerializeToString,
+            ),
+            'boot': grpc.unary_unary_rpc_method_handler(
+                    servicer.boot,
+                    request_deserializer=druncschema_dot_run__control__pb2.RunControlBootRequest.FromString,
+                    response_serializer=druncschema_dot_run__control__pb2.RunControlBootResponse.SerializeToString,
+            ),
+            'terminate': grpc.unary_unary_rpc_method_handler(
+                    servicer.terminate,
+                    request_deserializer=druncschema_dot_run__control__pb2.RunControlTerminateRequest.FromString,
+                    response_serializer=druncschema_dot_run__control__pb2.RunControlTerminateResponse.SerializeToString,
             ),
             'log_on_server': grpc.unary_unary_rpc_method_handler(
                     servicer.log_on_server,
@@ -248,6 +280,60 @@ class RunControl(object):
             '/dunedaq.druncschema.run_control.RunControl/logs',
             druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
             druncschema_dot_process__manager__pb2.LogLines.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def boot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/boot',
+            druncschema_dot_run__control__pb2.RunControlBootRequest.SerializeToString,
+            druncschema_dot_run__control__pb2.RunControlBootResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def terminate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/terminate',
+            druncschema_dot_run__control__pb2.RunControlTerminateRequest.SerializeToString,
+            druncschema_dot_run__control__pb2.RunControlTerminateResponse.FromString,
             options,
             channel_credentials,
             insecure,
