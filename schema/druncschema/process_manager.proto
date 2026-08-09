@@ -19,6 +19,7 @@ service ProcessManager {
   rpc ps        (ProcessQuery) returns (ProcessInstanceList) {}
   rpc logs      (LogRequest) returns (LogLines) {}
   rpc log_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
+  rpc echo_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
 }
 
 message ProcessRestriction {
