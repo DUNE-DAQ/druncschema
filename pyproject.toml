@@ -24,7 +24,7 @@ description = "Schema definitions and compilation script for drunc"
 name = "druncschema"
 readme = "docs/README.md"
 requires-python = ">=3.10"
-version = "1.1.0"
+version = "1.2.0"
 
 [project.optional-dependencies]
 dev = ["ruff", "pre-commit", "pytest", "pytest-cov", "mypy-protobuf", "types-protobuf"]
