@@ -127,3 +127,43 @@ class AllActiveSessions(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___AllActiveSessions: _TypeAlias = AllActiveSessions  # noqa: Y015
+
+@_typing.final
+class LoadSessionRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    CONFIG_KEY_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def config_key(self) -> Global___ConfigKey: ...
+    def __init__(
+        self,
+        *,
+        config_key: Global___ConfigKey | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["config_key", b"config_key"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["config_key", b"config_key"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___LoadSessionRequest: _TypeAlias = LoadSessionRequest  # noqa: Y015
+
+@_typing.final
+class LoadSessionResponse(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    SESSION_FIELD_NUMBER: _builtins.int
+    @_builtins.property
+    def session(self) -> Global___ActiveSession: ...
+    def __init__(
+        self,
+        *,
+        session: Global___ActiveSession | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["session", b"session"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["session", b"session"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___LoadSessionResponse: _TypeAlias = LoadSessionResponse  # noqa: Y015
