@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package dunedaq.druncschema;
 
+import "google/protobuf/any.proto";
 
 enum OutcomeFlag {
   SUCCESS = 0;
@@ -42,4 +43,9 @@ message bool_msg{
 
 message OutcomeStatus{
   OutcomeFlag flag=1;
+}
+
+message ResponseError {
+  string message = 1;
+  repeated google.protobuf.Any details = 2;
 }
