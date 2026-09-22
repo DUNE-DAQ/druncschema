@@ -6,7 +6,6 @@ isort:skip_file
 from collections import abc as _abc
 from druncschema import common_pb2 as _common_pb2
 from druncschema import description_pb2 as _description_pb2
-from druncschema import generic_pb2 as _generic_pb2
 from druncschema import process_manager_pb2 as _process_manager_pb2
 from druncschema import request_response_pb2 as _request_response_pb2
 from grpc import aio as _aio
@@ -35,7 +34,6 @@ class ProcessManagerStub:
     def __new__(cls, channel: _grpc.Channel) -> _Self: ...
     @_typing.overload
     def __new__(cls, channel: _aio.Channel) -> ProcessManagerAsyncStub: ...
-    send_msg: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _generic_pb2.OutcomeStatus]
     describe: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]
     boot: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.BootRequest, _process_manager_pb2.ProcessInstanceList]
     terminate: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _process_manager_pb2.ProcessInstanceList]
@@ -44,13 +42,11 @@ class ProcessManagerStub:
     flush: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]
     ps: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]
     logs: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.LogRequest, _process_manager_pb2.LogLines]
-    log_on_server: _grpc.UnaryUnaryMultiCallable[_common_pb2.LogOnServerRequest, _common_pb2.LogOnServerResponse]
-    echo_on_server: _grpc.UnaryUnaryMultiCallable[_common_pb2.LogOnServerRequest, _common_pb2.LogOnServerResponse]
+    send_log: _grpc.UnaryUnaryMultiCallable[_common_pb2.SendLogRequest, _common_pb2.SendLogResponse]
 
 @_typing.type_check_only
 class ProcessManagerAsyncStub(ProcessManagerStub):
     def __init__(self, channel: _aio.Channel) -> None: ...
-    send_msg: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _generic_pb2.OutcomeStatus]  # type: ignore[assignment]
     describe: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]  # type: ignore[assignment]
     boot: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.BootRequest, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
     terminate: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
@@ -59,17 +55,9 @@ class ProcessManagerAsyncStub(ProcessManagerStub):
     flush: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
     ps: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
     logs: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.LogRequest, _process_manager_pb2.LogLines]  # type: ignore[assignment]
-    log_on_server: _aio.UnaryUnaryMultiCallable[_common_pb2.LogOnServerRequest, _common_pb2.LogOnServerResponse]  # type: ignore[assignment]
-    echo_on_server: _aio.UnaryUnaryMultiCallable[_common_pb2.LogOnServerRequest, _common_pb2.LogOnServerResponse]  # type: ignore[assignment]
+    send_log: _aio.UnaryUnaryMultiCallable[_common_pb2.SendLogRequest, _common_pb2.SendLogResponse]  # type: ignore[assignment]
 
 class ProcessManagerServicer(metaclass=_abc_1.ABCMeta):
-    @_abc_1.abstractmethod
-    def send_msg(
-        self,
-        request: _request_response_pb2.Request,
-        context: _ServicerContext,
-    ) -> _typing.Union[_generic_pb2.OutcomeStatus, _abc.Awaitable[_generic_pb2.OutcomeStatus]]: ...
-
     @_abc_1.abstractmethod
     def describe(
         self,
@@ -127,17 +115,10 @@ class ProcessManagerServicer(metaclass=_abc_1.ABCMeta):
     ) -> _typing.Union[_process_manager_pb2.LogLines, _abc.Awaitable[_process_manager_pb2.LogLines]]: ...
 
     @_abc_1.abstractmethod
-    def log_on_server(
+    def send_log(
         self,
-        request: _common_pb2.LogOnServerRequest,
+        request: _common_pb2.SendLogRequest,
         context: _ServicerContext,
-    ) -> _typing.Union[_common_pb2.LogOnServerResponse, _abc.Awaitable[_common_pb2.LogOnServerResponse]]: ...
-
-    @_abc_1.abstractmethod
-    def echo_on_server(
-        self,
-        request: _common_pb2.LogOnServerRequest,
-        context: _ServicerContext,
-    ) -> _typing.Union[_common_pb2.LogOnServerResponse, _abc.Awaitable[_common_pb2.LogOnServerResponse]]: ...
+    ) -> _typing.Union[_common_pb2.SendLogResponse, _abc.Awaitable[_common_pb2.SendLogResponse]]: ...
 
 def add_ProcessManagerServicer_to_server(servicer: ProcessManagerServicer, server: _typing.Union[_grpc.Server, _aio.Server]) -> None: ...
