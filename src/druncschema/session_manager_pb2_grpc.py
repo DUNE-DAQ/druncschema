@@ -51,6 +51,11 @@ class SessionManagerStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_session__manager__pb2.AllConfigKeys.FromString,
                 _registered_method=True)
+        self.load_session = channel.unary_unary(
+                '/dunedaq.druncschema.session_manager.SessionManager/load_session',
+                request_serializer=druncschema_dot_session__manager__pb2.LoadSessionRequest.SerializeToString,
+                response_deserializer=druncschema_dot_session__manager__pb2.LoadSessionResponse.FromString,
+                _registered_method=True)
 
 
 class SessionManagerServicer(object):
@@ -74,6 +79,12 @@ class SessionManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def load_session(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SessionManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -91,6 +102,11 @@ def add_SessionManagerServicer_to_server(servicer, server):
                     servicer.list_all_configs,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_session__manager__pb2.AllConfigKeys.SerializeToString,
+            ),
+            'load_session': grpc.unary_unary_rpc_method_handler(
+                    servicer.load_session,
+                    request_deserializer=druncschema_dot_session__manager__pb2.LoadSessionRequest.FromString,
+                    response_serializer=druncschema_dot_session__manager__pb2.LoadSessionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -174,6 +190,33 @@ class SessionManager(object):
             '/dunedaq.druncschema.session_manager.SessionManager/list_all_configs',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_session__manager__pb2.AllConfigKeys.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def load_session(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.session_manager.SessionManager/load_session',
+            druncschema_dot_session__manager__pb2.LoadSessionRequest.SerializeToString,
+            druncschema_dot_session__manager__pb2.LoadSessionResponse.FromString,
             options,
             channel_credentials,
             insecure,
