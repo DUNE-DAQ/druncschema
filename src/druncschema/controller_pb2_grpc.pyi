@@ -4,6 +4,7 @@ isort:skip_file
 """
 
 from collections import abc as _abc
+from druncschema import common_pb2 as _common_pb2
 from druncschema import controller_pb2 as _controller_pb2
 from grpc import aio as _aio
 import abc as _abc_1
@@ -43,6 +44,7 @@ class ControllerStub:
     surrender_control: _grpc.UnaryUnaryMultiCallable[_controller_pb2.SurrenderControlRequest, _controller_pb2.SurrenderControlResponse]
     who_is_in_charge: _grpc.UnaryUnaryMultiCallable[_controller_pb2.WhoIsInChargeRequest, _controller_pb2.WhoIsInChargeResponse]
     to_error: _grpc.UnaryUnaryMultiCallable[_controller_pb2.ToErrorRequest, _controller_pb2.ToErrorResponse]
+    log_on_server: _grpc.UnaryUnaryMultiCallable[_common_pb2.LogOnServerRequest, _common_pb2.LogOnServerResponse]
 
 @_typing.type_check_only
 class ControllerAsyncStub(ControllerStub):
@@ -59,6 +61,7 @@ class ControllerAsyncStub(ControllerStub):
     surrender_control: _aio.UnaryUnaryMultiCallable[_controller_pb2.SurrenderControlRequest, _controller_pb2.SurrenderControlResponse]  # type: ignore[assignment]
     who_is_in_charge: _aio.UnaryUnaryMultiCallable[_controller_pb2.WhoIsInChargeRequest, _controller_pb2.WhoIsInChargeResponse]  # type: ignore[assignment]
     to_error: _aio.UnaryUnaryMultiCallable[_controller_pb2.ToErrorRequest, _controller_pb2.ToErrorResponse]  # type: ignore[assignment]
+    log_on_server: _aio.UnaryUnaryMultiCallable[_common_pb2.LogOnServerRequest, _common_pb2.LogOnServerResponse]  # type: ignore[assignment]
 
 class ControllerServicer(metaclass=_abc_1.ABCMeta):
     @_abc_1.abstractmethod
@@ -144,5 +147,12 @@ class ControllerServicer(metaclass=_abc_1.ABCMeta):
         request: _controller_pb2.ToErrorRequest,
         context: _ServicerContext,
     ) -> _typing.Union[_controller_pb2.ToErrorResponse, _abc.Awaitable[_controller_pb2.ToErrorResponse]]: ...
+
+    @_abc_1.abstractmethod
+    def log_on_server(
+        self,
+        request: _common_pb2.LogOnServerRequest,
+        context: _ServicerContext,
+    ) -> _typing.Union[_common_pb2.LogOnServerResponse, _abc.Awaitable[_common_pb2.LogOnServerResponse]]: ...
 
 def add_ControllerServicer_to_server(servicer: ControllerServicer, server: _typing.Union[_grpc.Server, _aio.Server]) -> None: ...

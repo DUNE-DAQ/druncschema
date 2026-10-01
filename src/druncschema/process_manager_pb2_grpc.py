@@ -88,6 +88,11 @@ class ProcessManagerStub(object):
                 request_serializer=druncschema_dot_common__pb2.LogOnServerRequest.SerializeToString,
                 response_deserializer=druncschema_dot_common__pb2.LogOnServerResponse.FromString,
                 _registered_method=True)
+        self.echo_on_server = channel.unary_unary(
+                '/dunedaq.druncschema.process_manager.ProcessManager/echo_on_server',
+                request_serializer=druncschema_dot_common__pb2.LogOnServerRequest.SerializeToString,
+                response_deserializer=druncschema_dot_common__pb2.LogOnServerResponse.FromString,
+                _registered_method=True)
 
 
 class ProcessManagerServicer(object):
@@ -153,6 +158,12 @@ class ProcessManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def echo_on_server(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ProcessManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -203,6 +214,11 @@ def add_ProcessManagerServicer_to_server(servicer, server):
             ),
             'log_on_server': grpc.unary_unary_rpc_method_handler(
                     servicer.log_on_server,
+                    request_deserializer=druncschema_dot_common__pb2.LogOnServerRequest.FromString,
+                    response_serializer=druncschema_dot_common__pb2.LogOnServerResponse.SerializeToString,
+            ),
+            'echo_on_server': grpc.unary_unary_rpc_method_handler(
+                    servicer.echo_on_server,
                     request_deserializer=druncschema_dot_common__pb2.LogOnServerRequest.FromString,
                     response_serializer=druncschema_dot_common__pb2.LogOnServerResponse.SerializeToString,
             ),
@@ -475,6 +491,33 @@ class ProcessManager(object):
             request,
             target,
             '/dunedaq.druncschema.process_manager.ProcessManager/log_on_server',
+            druncschema_dot_common__pb2.LogOnServerRequest.SerializeToString,
+            druncschema_dot_common__pb2.LogOnServerResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def echo_on_server(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.process_manager.ProcessManager/echo_on_server',
             druncschema_dot_common__pb2.LogOnServerRequest.SerializeToString,
             druncschema_dot_common__pb2.LogOnServerResponse.FromString,
             options,
