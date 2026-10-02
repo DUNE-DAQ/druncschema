@@ -51,6 +51,7 @@ class _SystemTypeEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_SystemType
     SESSION_MANAGER: _SystemType.ValueType  # 3
     RESOURCE_MANAGER: _SystemType.ValueType  # 4
     AUTHORISER_SERVICE: _SystemType.ValueType  # 5
+    RUN_CONTROL: _SystemType.ValueType  # 6
 
 class SystemType(_SystemType, metaclass=_SystemTypeEnumTypeWrapper): ...
 
@@ -60,6 +61,7 @@ PROCESS_MANAGER: SystemType.ValueType  # 2
 SESSION_MANAGER: SystemType.ValueType  # 3
 RESOURCE_MANAGER: SystemType.ValueType  # 4
 AUTHORISER_SERVICE: SystemType.ValueType  # 5
+RUN_CONTROL: SystemType.ValueType  # 6
 Global___SystemType: _TypeAlias = SystemType  # noqa: Y015
 
 @_typing.final
