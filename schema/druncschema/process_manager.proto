@@ -9,7 +9,6 @@ import "druncschema/common.proto";
 import "druncschema/generic.proto";
 
 service ProcessManager {
-  rpc send_msg  (Request) returns (OutcomeStatus) {}
   rpc describe  (Request) returns (Description) {}
   rpc boot      (BootRequest) returns (ProcessInstanceList) {}
   rpc terminate (Request) returns (ProcessInstanceList) {}
@@ -18,8 +17,7 @@ service ProcessManager {
   rpc flush     (ProcessQuery) returns (ProcessInstanceList) {}
   rpc ps        (ProcessQuery) returns (ProcessInstanceList) {}
   rpc logs      (LogRequest) returns (LogLines) {}
-  rpc log_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
-  rpc echo_on_server              (LogOnServerRequest) returns (LogOnServerResponse) {}
+  rpc send_log  (SendLogRequest) returns (SendLogResponse) {}
 }
 
 message ProcessRestriction {
