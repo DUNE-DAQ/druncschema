@@ -27,15 +27,17 @@ from druncschema import token_pb2 as druncschema_dot_token__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x64runcschema/common.proto\x12\x13\x64unedaq.druncschema\x1a\x19\x64runcschema/generic.proto\x1a\x17\x64runcschema/token.proto\x1a\"druncschema/request_response.proto\"\xbf\x01\n\x12LogOnServerRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0c\n\x04text\x18\x02 \x01(\t\x12\x10\n\x08severity\x18\x03 \x01(\t\x12\x0e\n\x06target\x18\x04 \x01(\t\x12\x1a\n\x12\x65xecute_along_path\x18\x05 \x01(\x08\x12\x32\n*execute_on_all_subsequent_children_in_path\x18\x06 \x01(\x08\"\xbb\x01\n\x13LogOnServerResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0c\n\x04name\x18\x02 \x01(\t\x12/\n\x04\x66lag\x18\x03 \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\x12:\n\x08\x63hildren\x18\x04 \x03(\x0b\x32(.dunedaq.druncschema.LogOnServerResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x64runcschema/common.proto\x12\x13\x64unedaq.druncschema\x1a\x19\x64runcschema/generic.proto\x1a\x17\x64runcschema/token.proto\x1a\"druncschema/request_response.proto\"\xee\x01\n\x0eSendLogRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0c\n\x04text\x18\x02 \x01(\t\x12\x10\n\x08severity\x18\x03 \x01(\t\x12\x0e\n\x06target\x18\x04 \x01(\t\x12\x1a\n\x12\x65xecute_along_path\x18\x05 \x01(\x08\x12\x32\n*execute_on_all_subsequent_children_in_path\x18\x06 \x01(\x08\x12\x31\n\x06logger\x18\x07 \x01(\x0e\x32!.dunedaq.druncschema.LoggerTarget\"\xb3\x01\n\x0fSendLogResponse\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0c\n\x04name\x18\x02 \x01(\t\x12/\n\x04\x66lag\x18\x03 \x01(\x0e\x32!.dunedaq.druncschema.ResponseFlag\x12\x36\n\x08\x63hildren\x18\x04 \x03(\x0b\x32$.dunedaq.druncschema.SendLogResponse*\"\n\x0cLoggerTarget\x12\x08\n\x04MAIN\x10\x00\x12\x08\n\x04\x45\x43HO\x10\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'druncschema.common_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_LOGONSERVERREQUEST']._serialized_start=138
-  _globals['_LOGONSERVERREQUEST']._serialized_end=329
-  _globals['_LOGONSERVERRESPONSE']._serialized_start=332
-  _globals['_LOGONSERVERRESPONSE']._serialized_end=519
+  _globals['_LOGGERTARGET']._serialized_start=560
+  _globals['_LOGGERTARGET']._serialized_end=594
+  _globals['_SENDLOGREQUEST']._serialized_start=138
+  _globals['_SENDLOGREQUEST']._serialized_end=376
+  _globals['_SENDLOGRESPONSE']._serialized_start=379
+  _globals['_SENDLOGRESPONSE']._serialized_end=558
 # @@protoc_insertion_point(module_scope)

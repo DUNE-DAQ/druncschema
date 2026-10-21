@@ -9,6 +9,7 @@ from druncschema import token_pb2 as _token_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 import builtins as _builtins
 import sys
 import typing as _typing
@@ -20,8 +21,23 @@ else:
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class _LoggerTarget:
+    ValueType = _typing.NewType("ValueType", _builtins.int)
+    V: _TypeAlias = ValueType  # noqa: Y015
+
+class _LoggerTargetEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_LoggerTarget.ValueType], _builtins.type):
+    DESCRIPTOR: _descriptor.EnumDescriptor
+    MAIN: _LoggerTarget.ValueType  # 0
+    ECHO: _LoggerTarget.ValueType  # 1
+
+class LoggerTarget(_LoggerTarget, metaclass=_LoggerTargetEnumTypeWrapper): ...
+
+MAIN: LoggerTarget.ValueType  # 0
+ECHO: LoggerTarget.ValueType  # 1
+Global___LoggerTarget: _TypeAlias = LoggerTarget  # noqa: Y015
+
 @_typing.final
-class LogOnServerRequest(_message.Message):
+class SendLogRequest(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: _builtins.int
@@ -30,11 +46,13 @@ class LogOnServerRequest(_message.Message):
     TARGET_FIELD_NUMBER: _builtins.int
     EXECUTE_ALONG_PATH_FIELD_NUMBER: _builtins.int
     EXECUTE_ON_ALL_SUBSEQUENT_CHILDREN_IN_PATH_FIELD_NUMBER: _builtins.int
+    LOGGER_FIELD_NUMBER: _builtins.int
     text: _builtins.str
     severity: _builtins.str
     target: _builtins.str
     execute_along_path: _builtins.bool
     execute_on_all_subsequent_children_in_path: _builtins.bool
+    logger: Global___LoggerTarget.ValueType
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
     def __init__(
@@ -46,17 +64,18 @@ class LogOnServerRequest(_message.Message):
         target: _builtins.str = ...,
         execute_along_path: _builtins.bool = ...,
         execute_on_all_subsequent_children_in_path: _builtins.bool = ...,
+        logger: Global___LoggerTarget.ValueType = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "severity", b"severity", "target", b"target", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["execute_along_path", b"execute_along_path", "execute_on_all_subsequent_children_in_path", b"execute_on_all_subsequent_children_in_path", "logger", b"logger", "severity", b"severity", "target", b"target", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
-Global___LogOnServerRequest: _TypeAlias = LogOnServerRequest  # noqa: Y015
+Global___SendLogRequest: _TypeAlias = SendLogRequest  # noqa: Y015
 
 @_typing.final
-class LogOnServerResponse(_message.Message):
+class SendLogResponse(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
     TOKEN_FIELD_NUMBER: _builtins.int
@@ -68,14 +87,14 @@ class LogOnServerResponse(_message.Message):
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
-    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___LogOnServerResponse]: ...
+    def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___SendLogResponse]: ...
     def __init__(
         self,
         *,
         token: _token_pb2.Token | None = ...,
         name: _builtins.str = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
-        children: _abc.Iterable[Global___LogOnServerResponse] | None = ...,
+        children: _abc.Iterable[Global___SendLogResponse] | None = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
@@ -83,4 +102,4 @@ class LogOnServerResponse(_message.Message):
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
-Global___LogOnServerResponse: _TypeAlias = LogOnServerResponse  # noqa: Y015
+Global___SendLogResponse: _TypeAlias = SendLogResponse  # noqa: Y015
