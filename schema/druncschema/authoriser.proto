@@ -20,6 +20,7 @@ enum SystemType {
   SESSION_MANAGER = 3;
   RESOURCE_MANAGER = 4;
   AUTHORISER_SERVICE = 5;
+  RUN_CONTROL = 6;
 };
 
 
