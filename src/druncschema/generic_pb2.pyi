@@ -4,6 +4,7 @@ isort:skip_file
 """
 
 from collections import abc as _abc
+from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf.internal import containers as _containers
@@ -244,3 +245,26 @@ class OutcomeStatus(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___OutcomeStatus: _TypeAlias = OutcomeStatus  # noqa: Y015
+
+@_typing.final
+class ResponseError(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    MESSAGE_FIELD_NUMBER: _builtins.int
+    DETAILS_FIELD_NUMBER: _builtins.int
+    message: _builtins.str
+    @_builtins.property
+    def details(self) -> _containers.RepeatedCompositeFieldContainer[_any_pb2.Any]: ...
+    def __init__(
+        self,
+        *,
+        message: _builtins.str = ...,
+        details: _abc.Iterable[_any_pb2.Any] | None = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _Never  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["details", b"details", "message", b"message"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___ResponseError: _TypeAlias = ResponseError  # noqa: Y015

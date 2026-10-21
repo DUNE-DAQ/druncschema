@@ -5,6 +5,7 @@ isort:skip_file
 
 from collections import abc as _abc
 from druncschema import description_pb2 as _description_pb2
+from druncschema import generic_pb2 as _generic_pb2
 from druncschema import request_response_pb2 as _request_response_pb2
 from druncschema import token_pb2 as _token_pb2
 from google.protobuf import any_pb2 as _any_pb2
@@ -124,6 +125,7 @@ class ExecuteExpertCommandResponse(_message.Message):
     CHILDREN_FIELD_NUMBER: _builtins.int
     FSM_FLAG_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     data: _builtins.str
     fsm_flag: Global___FSMResponseFlag.ValueType
@@ -132,6 +134,8 @@ class ExecuteExpertCommandResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___ExecuteExpertCommandResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -141,12 +145,15 @@ class ExecuteExpertCommandResponse(_message.Message):
         children: _abc.Iterable[Global___ExecuteExpertCommandResponse] | None = ...,
         fsm_flag: Global___FSMResponseFlag.ValueType = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "data", b"data", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "data", b"data", "error", b"error", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___ExecuteExpertCommandResponse: _TypeAlias = ExecuteExpertCommandResponse  # noqa: Y015
 
@@ -194,6 +201,7 @@ class ExecuteFSMCommandResponse(_message.Message):
     CHILDREN_FIELD_NUMBER: _builtins.int
     FSM_FLAG_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     command_name: _builtins.str
     data: _builtins.str
@@ -203,6 +211,8 @@ class ExecuteFSMCommandResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___ExecuteFSMCommandResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -213,12 +223,15 @@ class ExecuteFSMCommandResponse(_message.Message):
         children: _abc.Iterable[Global___ExecuteFSMCommandResponse] | None = ...,
         fsm_flag: Global___FSMResponseFlag.ValueType = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "command_name", b"command_name", "data", b"data", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "command_name", b"command_name", "data", b"data", "error", b"error", "flag", b"flag", "fsm_flag", b"fsm_flag", "name", b"name", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___ExecuteFSMCommandResponse: _TypeAlias = ExecuteFSMCommandResponse  # noqa: Y015
 
@@ -309,6 +322,7 @@ class IncludeResponse(_message.Message):
     TEXT_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     text: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
@@ -316,6 +330,8 @@ class IncludeResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___IncludeResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -324,12 +340,15 @@ class IncludeResponse(_message.Message):
         text: _builtins.str = ...,
         children: _abc.Iterable[Global___IncludeResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___IncludeResponse: _TypeAlias = IncludeResponse  # noqa: Y015
 
@@ -371,6 +390,7 @@ class ExcludeResponse(_message.Message):
     TEXT_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     text: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
@@ -378,6 +398,8 @@ class ExcludeResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___ExcludeResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -386,12 +408,15 @@ class ExcludeResponse(_message.Message):
         text: _builtins.str = ...,
         children: _abc.Iterable[Global___ExcludeResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___ExcludeResponse: _TypeAlias = ExcludeResponse  # noqa: Y015
 
@@ -433,6 +458,7 @@ class TakeControlResponse(_message.Message):
     TEXT_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     text: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
@@ -440,6 +466,8 @@ class TakeControlResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___TakeControlResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -448,12 +476,15 @@ class TakeControlResponse(_message.Message):
         text: _builtins.str = ...,
         children: _abc.Iterable[Global___TakeControlResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___TakeControlResponse: _TypeAlias = TakeControlResponse  # noqa: Y015
 
@@ -495,6 +526,7 @@ class SurrenderControlResponse(_message.Message):
     TEXT_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     text: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
@@ -502,6 +534,8 @@ class SurrenderControlResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___SurrenderControlResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -510,12 +544,15 @@ class SurrenderControlResponse(_message.Message):
         text: _builtins.str = ...,
         children: _abc.Iterable[Global___SurrenderControlResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___SurrenderControlResponse: _TypeAlias = SurrenderControlResponse  # noqa: Y015
 
@@ -557,6 +594,7 @@ class WhoIsInChargeResponse(_message.Message):
     TEXT_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     text: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
@@ -564,6 +602,8 @@ class WhoIsInChargeResponse(_message.Message):
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___WhoIsInChargeResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -572,12 +612,15 @@ class WhoIsInChargeResponse(_message.Message):
         text: _builtins.str = ...,
         children: _abc.Iterable[Global___WhoIsInChargeResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "text", b"text", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___WhoIsInChargeResponse: _TypeAlias = WhoIsInChargeResponse  # noqa: Y015
 
@@ -618,12 +661,15 @@ class ToErrorResponse(_message.Message):
     NAME_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___ToErrorResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -631,12 +677,15 @@ class ToErrorResponse(_message.Message):
         name: _builtins.str = ...,
         children: _abc.Iterable[Global___ToErrorResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___ToErrorResponse: _TypeAlias = ToErrorResponse  # noqa: Y015
 
@@ -678,6 +727,7 @@ class StatusResponse(_message.Message):
     STATUS_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
     @_builtins.property
@@ -686,6 +736,8 @@ class StatusResponse(_message.Message):
     def status(self) -> Global___Status: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___StatusResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -694,12 +746,15 @@ class StatusResponse(_message.Message):
         status: Global___Status | None = ...,
         children: _abc.Iterable[Global___StatusResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["status", b"status", "token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "status", b"status", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "status", b"status", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "status", b"status", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___StatusResponse: _TypeAlias = StatusResponse  # noqa: Y015
 
@@ -740,12 +795,15 @@ class RecomputeStatusResponse(_message.Message):
     NAME_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
     @_builtins.property
     def token(self) -> _token_pb2.Token: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___RecomputeStatusResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -753,12 +811,15 @@ class RecomputeStatusResponse(_message.Message):
         name: _builtins.str = ...,
         children: _abc.Iterable[Global___RecomputeStatusResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "error", b"error", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___RecomputeStatusResponse: _TypeAlias = RecomputeStatusResponse  # noqa: Y015
 
@@ -800,6 +861,7 @@ class DescribeResponse(_message.Message):
     DESCRIPTION_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
     @_builtins.property
@@ -808,6 +870,8 @@ class DescribeResponse(_message.Message):
     def description(self) -> _description_pb2.Description: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___DescribeResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -816,12 +880,15 @@ class DescribeResponse(_message.Message):
         description: _description_pb2.Description | None = ...,
         children: _abc.Iterable[Global___DescribeResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["description", b"description", "token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "description", b"description", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "description", b"description", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "description", b"description", "error", b"error", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___DescribeResponse: _TypeAlias = DescribeResponse  # noqa: Y015
 
@@ -866,6 +933,7 @@ class DescribeFSMResponse(_message.Message):
     DESCRIPTION_FIELD_NUMBER: _builtins.int
     CHILDREN_FIELD_NUMBER: _builtins.int
     FLAG_FIELD_NUMBER: _builtins.int
+    ERROR_FIELD_NUMBER: _builtins.int
     name: _builtins.str
     flag: _request_response_pb2.ResponseFlag.ValueType
     @_builtins.property
@@ -874,6 +942,8 @@ class DescribeFSMResponse(_message.Message):
     def description(self) -> Global___FSMCommandsDescription: ...
     @_builtins.property
     def children(self) -> _containers.RepeatedCompositeFieldContainer[Global___DescribeFSMResponse]: ...
+    @_builtins.property
+    def error(self) -> _generic_pb2.ResponseError: ...
     def __init__(
         self,
         *,
@@ -882,12 +952,15 @@ class DescribeFSMResponse(_message.Message):
         description: Global___FSMCommandsDescription | None = ...,
         children: _abc.Iterable[Global___DescribeFSMResponse] | None = ...,
         flag: _request_response_pb2.ResponseFlag.ValueType = ...,
+        error: _generic_pb2.ResponseError | None = ...,
     ) -> None: ...
-    _HasFieldArgType: _TypeAlias = _typing.Literal["description", b"description", "token", b"token"]  # noqa: Y015
+    _HasFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "description", b"description", "error", b"error", "token", b"token"]  # noqa: Y015
     def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
-    _ClearFieldArgType: _TypeAlias = _typing.Literal["children", b"children", "description", b"description", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["_error", b"_error", "children", b"children", "description", b"description", "error", b"error", "flag", b"flag", "name", b"name", "token", b"token"]  # noqa: Y015
     def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
-    def WhichOneof(self, oneof_group: _Never) -> None: ...
+    _WhichOneofReturnType__error: _TypeAlias = _typing.Literal["error"]  # noqa: Y015
+    _WhichOneofArgType__error: _TypeAlias = _typing.Literal["_error", b"_error"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType__error) -> _WhichOneofReturnType__error | None: ...
 
 Global___DescribeFSMResponse: _TypeAlias = DescribeFSMResponse  # noqa: Y015
 
