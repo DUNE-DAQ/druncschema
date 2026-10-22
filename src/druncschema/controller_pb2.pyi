@@ -45,6 +45,36 @@ FSM_NOT_EXECUTED_IN_ERROR: FSMResponseFlag.ValueType  # 4
 Global___FSMResponseFlag: _TypeAlias = FSMResponseFlag  # noqa: Y015
 
 @_typing.final
+class ScalarArgument(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    INT_VAL_FIELD_NUMBER: _builtins.int
+    FLOAT_VAL_FIELD_NUMBER: _builtins.int
+    STRING_VAL_FIELD_NUMBER: _builtins.int
+    BOOL_VAL_FIELD_NUMBER: _builtins.int
+    int_val: _builtins.int
+    float_val: _builtins.float
+    string_val: _builtins.str
+    bool_val: _builtins.bool
+    def __init__(
+        self,
+        *,
+        int_val: _builtins.int = ...,
+        float_val: _builtins.float = ...,
+        string_val: _builtins.str = ...,
+        bool_val: _builtins.bool = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["bool_val", b"bool_val", "float_val", b"float_val", "int_val", b"int_val", "string_val", b"string_val", "value", b"value"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["bool_val", b"bool_val", "float_val", b"float_val", "int_val", b"int_val", "string_val", b"string_val", "value", b"value"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    _WhichOneofReturnType_value: _TypeAlias = _typing.Literal["int_val", "float_val", "string_val", "bool_val"]  # noqa: Y015
+    _WhichOneofArgType_value: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
+    def WhichOneof(self, oneof_group: _WhichOneofArgType_value) -> _WhichOneofReturnType_value | None: ...
+
+Global___ScalarArgument: _TypeAlias = ScalarArgument  # noqa: Y015
+
+@_typing.final
 class AddressedCommand(_message.Message):
     DESCRIPTOR: _descriptor.Descriptor
 
@@ -234,12 +264,12 @@ class FSMCommand(_message.Message):
         VALUE_FIELD_NUMBER: _builtins.int
         key: _builtins.str
         @_builtins.property
-        def value(self) -> _any_pb2.Any: ...
+        def value(self) -> Global___ScalarArgument: ...
         def __init__(
             self,
             *,
             key: _builtins.str = ...,
-            value: _any_pb2.Any | None = ...,
+            value: Global___ScalarArgument | None = ...,
         ) -> None: ...
         _HasFieldArgType: _TypeAlias = _typing.Literal["value", b"value"]  # noqa: Y015
         def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
@@ -253,12 +283,12 @@ class FSMCommand(_message.Message):
     command_name: _builtins.str
     data: _builtins.str
     @_builtins.property
-    def arguments(self) -> _containers.MessageMap[_builtins.str, _any_pb2.Any]: ...
+    def arguments(self) -> _containers.MessageMap[_builtins.str, Global___ScalarArgument]: ...
     def __init__(
         self,
         *,
         command_name: _builtins.str = ...,
-        arguments: _abc.Mapping[_builtins.str, _any_pb2.Any] | None = ...,
+        arguments: _abc.Mapping[_builtins.str, Global___ScalarArgument] | None = ...,
         data: _builtins.str | None = ...,
     ) -> None: ...
     _HasFieldArgType: _TypeAlias = _typing.Literal["_data", b"_data", "data", b"data"]  # noqa: Y015
