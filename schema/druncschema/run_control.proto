@@ -7,8 +7,16 @@ package dunedaq.druncschema.run_control;
 import "druncschema/common.proto";
 import "druncschema/description.proto";
 import "druncschema/request_response.proto";
+import "druncschema/token.proto";
 
 service RunControl{
     rpc send_log  (SendLogRequest) returns (SendLogResponse) {}
     rpc describe  (Request) returns (Description) {}
+
+    rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
+}
+
+message ConnectToPMRequest {
+    dunedaq.druncschema.Token token = 1;
+    string address = 2;
 }
