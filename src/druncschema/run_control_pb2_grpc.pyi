@@ -7,6 +7,7 @@ from collections import abc as _abc
 from druncschema import common_pb2 as _common_pb2
 from druncschema import description_pb2 as _description_pb2
 from druncschema import request_response_pb2 as _request_response_pb2
+from druncschema import run_control_pb2 as _run_control_pb2
 from grpc import aio as _aio
 import abc as _abc_1
 import grpc as _grpc
@@ -35,12 +36,14 @@ class RunControlStub:
     def __new__(cls, channel: _aio.Channel) -> RunControlAsyncStub: ...
     send_log: _grpc.UnaryUnaryMultiCallable[_common_pb2.SendLogRequest, _common_pb2.SendLogResponse]
     describe: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]
+    connect_to_pm: _grpc.UnaryUnaryMultiCallable[_run_control_pb2.ConnectToPMRequest, _request_response_pb2.Response]
 
 @_typing.type_check_only
 class RunControlAsyncStub(RunControlStub):
     def __init__(self, channel: _aio.Channel) -> None: ...
     send_log: _aio.UnaryUnaryMultiCallable[_common_pb2.SendLogRequest, _common_pb2.SendLogResponse]  # type: ignore[assignment]
     describe: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]  # type: ignore[assignment]
+    connect_to_pm: _aio.UnaryUnaryMultiCallable[_run_control_pb2.ConnectToPMRequest, _request_response_pb2.Response]  # type: ignore[assignment]
 
 class RunControlServicer(metaclass=_abc_1.ABCMeta):
     @_abc_1.abstractmethod
@@ -56,5 +59,12 @@ class RunControlServicer(metaclass=_abc_1.ABCMeta):
         request: _request_response_pb2.Request,
         context: _ServicerContext,
     ) -> _typing.Union[_description_pb2.Description, _abc.Awaitable[_description_pb2.Description]]: ...
+
+    @_abc_1.abstractmethod
+    def connect_to_pm(
+        self,
+        request: _run_control_pb2.ConnectToPMRequest,
+        context: _ServicerContext,
+    ) -> _typing.Union[_request_response_pb2.Response, _abc.Awaitable[_request_response_pb2.Response]]: ...
 
 def add_RunControlServicer_to_server(servicer: RunControlServicer, server: _typing.Union[_grpc.Server, _aio.Server]) -> None: ...

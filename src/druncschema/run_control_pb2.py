@@ -25,15 +25,18 @@ _sym_db = _symbol_database.Default()
 from druncschema import common_pb2 as druncschema_dot_common__pb2
 from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
+from druncschema import token_pb2 as druncschema_dot_token__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/run_control.proto\x12\x1f\x64unedaq.druncschema.run_control\x1a\x18\x64runcschema/common.proto\x1a\x1d\x64runcschema/description.proto\x1a\"druncschema/request_response.proto2\xb3\x01\n\nRunControl\x12W\n\x08send_log\x12#.dunedaq.druncschema.SendLogRequest\x1a$.dunedaq.druncschema.SendLogResponse\"\x00\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/run_control.proto\x12\x1f\x64unedaq.druncschema.run_control\x1a\x18\x64runcschema/common.proto\x1a\x1d\x64runcschema/description.proto\x1a\"druncschema/request_response.proto\x1a\x17\x64runcschema/token.proto\"P\n\x12\x43onnectToPMRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t2\x9a\x02\n\nRunControl\x12W\n\x08send_log\x12#.dunedaq.druncschema.SendLogRequest\x1a$.dunedaq.druncschema.SendLogResponse\"\x00\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x12\x65\n\rconnect_to_pm\x12\x33.dunedaq.druncschema.run_control.ConnectToPMRequest\x1a\x1d.dunedaq.druncschema.Response\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'druncschema.run_control_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_RUNCONTROL']._serialized_start=160
-  _globals['_RUNCONTROL']._serialized_end=339
+  _globals['_CONNECTTOPMREQUEST']._serialized_start=184
+  _globals['_CONNECTTOPMREQUEST']._serialized_end=264
+  _globals['_RUNCONTROL']._serialized_start=267
+  _globals['_RUNCONTROL']._serialized_end=549
 # @@protoc_insertion_point(module_scope)

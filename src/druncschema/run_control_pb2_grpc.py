@@ -6,6 +6,7 @@ import warnings
 from druncschema import common_pb2 as druncschema_dot_common__pb2
 from druncschema import description_pb2 as druncschema_dot_description__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
+from druncschema import run_control_pb2 as druncschema_dot_run__control__pb2
 
 GRPC_GENERATED_VERSION = '1.75.0'
 GRPC_VERSION = grpc.__version__
@@ -46,6 +47,11 @@ class RunControlStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
+        self.connect_to_pm = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/connect_to_pm',
+                request_serializer=druncschema_dot_run__control__pb2.ConnectToPMRequest.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
 
 
 class RunControlServicer(object):
@@ -63,6 +69,12 @@ class RunControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def connect_to_pm(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RunControlServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -75,6 +87,11 @@ def add_RunControlServicer_to_server(servicer, server):
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
+            ),
+            'connect_to_pm': grpc.unary_unary_rpc_method_handler(
+                    servicer.connect_to_pm,
+                    request_deserializer=druncschema_dot_run__control__pb2.ConnectToPMRequest.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -131,6 +148,33 @@ class RunControl(object):
             '/dunedaq.druncschema.run_control.RunControl/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_description__pb2.Description.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def connect_to_pm(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/connect_to_pm',
+            druncschema_dot_run__control__pb2.ConnectToPMRequest.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
