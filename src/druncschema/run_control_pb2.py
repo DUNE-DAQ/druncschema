@@ -29,7 +29,7 @@ from druncschema import token_pb2 as druncschema_dot_token__pb2
 from druncschema import process_manager_pb2 as druncschema_dot_process__manager__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/run_control.proto\x12\x1f\x64unedaq.druncschema.run_control\x1a\x18\x64runcschema/common.proto\x1a\x1d\x64runcschema/description.proto\x1a\"druncschema/request_response.proto\x1a\x17\x64runcschema/token.proto\x1a!druncschema/process_manager.proto\"P\n\x12\x43onnectToPMRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t2\x8f\x03\n\nRunControl\x12W\n\x08send_log\x12#.dunedaq.druncschema.SendLogRequest\x1a$.dunedaq.druncschema.SendLogResponse\"\x00\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x12\x65\n\rconnect_to_pm\x12\x33.dunedaq.druncschema.run_control.ConnectToPMRequest\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12s\n\x02ps\x12\x31.dunedaq.druncschema.process_manager.ProcessQuery\x1a\x38.dunedaq.druncschema.process_manager.ProcessInstanceList\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1d\x64runcschema/run_control.proto\x12\x1f\x64unedaq.druncschema.run_control\x1a\x18\x64runcschema/common.proto\x1a\x1d\x64runcschema/description.proto\x1a\"druncschema/request_response.proto\x1a\x17\x64runcschema/token.proto\x1a!druncschema/process_manager.proto\"P\n\x12\x43onnectToPMRequest\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\"\x9c\x01\n\x14SessionConfiguration\x12)\n\x05token\x18\x01 \x01(\x0b\x32\x1a.dunedaq.druncschema.Token\x12\x1a\n\x12\x63onfiguration_file\x18\x03 \x01(\t\x12\x18\n\x10\x63onfiguration_id\x18\x04 \x01(\t\x12\x14\n\x0csession_name\x18\x05 \x01(\t\x12\r\n\x05valid\x18\x06 \x01(\x08\x32\xb4\x05\n\nRunControl\x12W\n\x08send_log\x12#.dunedaq.druncschema.SendLogRequest\x1a$.dunedaq.druncschema.SendLogResponse\"\x00\x12L\n\x08\x64\x65scribe\x12\x1c.dunedaq.druncschema.Request\x1a .dunedaq.druncschema.Description\"\x00\x12l\n\x12set_session_config\x12\x35.dunedaq.druncschema.run_control.SessionConfiguration\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12m\n\x14print_session_config\x12\x1c.dunedaq.druncschema.Request\x1a\x35.dunedaq.druncschema.run_control.SessionConfiguration\"\x00\x12\x46\n\x05valid\x12\x1c.dunedaq.druncschema.Request\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12\x65\n\rconnect_to_pm\x12\x33.dunedaq.druncschema.run_control.ConnectToPMRequest\x1a\x1d.dunedaq.druncschema.Response\"\x00\x12s\n\x02ps\x12\x31.dunedaq.druncschema.process_manager.ProcessQuery\x1a\x38.dunedaq.druncschema.process_manager.ProcessInstanceList\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,6 +38,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_CONNECTTOPMREQUEST']._serialized_start=219
   _globals['_CONNECTTOPMREQUEST']._serialized_end=299
-  _globals['_RUNCONTROL']._serialized_start=302
-  _globals['_RUNCONTROL']._serialized_end=701
+  _globals['_SESSIONCONFIGURATION']._serialized_start=302
+  _globals['_SESSIONCONFIGURATION']._serialized_end=458
+  _globals['_RUNCONTROL']._serialized_start=461
+  _globals['_RUNCONTROL']._serialized_end=1153
 # @@protoc_insertion_point(module_scope)

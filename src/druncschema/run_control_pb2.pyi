@@ -39,3 +39,35 @@ class ConnectToPMRequest(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___ConnectToPMRequest: _TypeAlias = ConnectToPMRequest  # noqa: Y015
+
+@_typing.final
+class SessionConfiguration(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    CONFIGURATION_FILE_FIELD_NUMBER: _builtins.int
+    CONFIGURATION_ID_FIELD_NUMBER: _builtins.int
+    SESSION_NAME_FIELD_NUMBER: _builtins.int
+    VALID_FIELD_NUMBER: _builtins.int
+    configuration_file: _builtins.str
+    configuration_id: _builtins.str
+    session_name: _builtins.str
+    valid: _builtins.bool
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        configuration_file: _builtins.str = ...,
+        configuration_id: _builtins.str = ...,
+        session_name: _builtins.str = ...,
+        valid: _builtins.bool = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["configuration_file", b"configuration_file", "configuration_id", b"configuration_id", "session_name", b"session_name", "token", b"token", "valid", b"valid"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___SessionConfiguration: _TypeAlias = SessionConfiguration  # noqa: Y015
