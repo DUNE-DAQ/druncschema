@@ -6,6 +6,7 @@ isort:skip_file
 from collections import abc as _abc
 from druncschema import common_pb2 as _common_pb2
 from druncschema import description_pb2 as _description_pb2
+from druncschema import process_manager_pb2 as _process_manager_pb2
 from druncschema import request_response_pb2 as _request_response_pb2
 from druncschema import run_control_pb2 as _run_control_pb2
 from grpc import aio as _aio
@@ -37,6 +38,7 @@ class RunControlStub:
     send_log: _grpc.UnaryUnaryMultiCallable[_common_pb2.SendLogRequest, _common_pb2.SendLogResponse]
     describe: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]
     connect_to_pm: _grpc.UnaryUnaryMultiCallable[_run_control_pb2.ConnectToPMRequest, _request_response_pb2.Response]
+    ps: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]
 
 @_typing.type_check_only
 class RunControlAsyncStub(RunControlStub):
@@ -44,6 +46,7 @@ class RunControlAsyncStub(RunControlStub):
     send_log: _aio.UnaryUnaryMultiCallable[_common_pb2.SendLogRequest, _common_pb2.SendLogResponse]  # type: ignore[assignment]
     describe: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]  # type: ignore[assignment]
     connect_to_pm: _aio.UnaryUnaryMultiCallable[_run_control_pb2.ConnectToPMRequest, _request_response_pb2.Response]  # type: ignore[assignment]
+    ps: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
 
 class RunControlServicer(metaclass=_abc_1.ABCMeta):
     @_abc_1.abstractmethod
@@ -66,5 +69,12 @@ class RunControlServicer(metaclass=_abc_1.ABCMeta):
         request: _run_control_pb2.ConnectToPMRequest,
         context: _ServicerContext,
     ) -> _typing.Union[_request_response_pb2.Response, _abc.Awaitable[_request_response_pb2.Response]]: ...
+
+    @_abc_1.abstractmethod
+    def ps(
+        self,
+        request: _process_manager_pb2.ProcessQuery,
+        context: _ServicerContext,
+    ) -> _typing.Union[_process_manager_pb2.ProcessInstanceList, _abc.Awaitable[_process_manager_pb2.ProcessInstanceList]]: ...
 
 def add_RunControlServicer_to_server(servicer: RunControlServicer, server: _typing.Union[_grpc.Server, _aio.Server]) -> None: ...
