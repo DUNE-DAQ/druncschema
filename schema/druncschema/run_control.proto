@@ -17,7 +17,7 @@ service RunControl{
 
     rpc set_session_config (SessionConfiguration) returns (Response) {}
     rpc print_session_config (Request) returns (SessionConfiguration) {}
-    rpc valid (Request) returns (Response) {}
+    rpc validate (Request) returns (Response) {}
     rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
     rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
 }
