@@ -14,6 +14,10 @@ service RunControl{
     rpc send_log  (SendLogRequest) returns (SendLogResponse) {}
     rpc describe  (Request) returns (Description) {}
 
+
+    rpc set_session_config (SessionConfiguration) returns (Response) {}
+    rpc print_session_config (Request) returns (SessionConfiguration) {}
+    rpc valid (Request) returns (Response) {}
     rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
     rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
 }
@@ -21,4 +25,13 @@ service RunControl{
 message ConnectToPMRequest {
     dunedaq.druncschema.Token token = 1;
     string address = 2;
+}
+
+
+message SessionConfiguration {
+    Token token = 1;
+    string configuration_file = 3;
+    string configuration_id = 4;
+    string session_name = 5;   
+    bool valid = 6;
 }
