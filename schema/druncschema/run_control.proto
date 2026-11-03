@@ -8,12 +8,14 @@ import "druncschema/common.proto";
 import "druncschema/description.proto";
 import "druncschema/request_response.proto";
 import "druncschema/token.proto";
+import "druncschema/process_manager.proto";
 
 service RunControl{
     rpc send_log  (SendLogRequest) returns (SendLogResponse) {}
     rpc describe  (Request) returns (Description) {}
 
     rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
+    rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
 }
 
 message ConnectToPMRequest {
