@@ -58,8 +58,8 @@ class RunControlStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_run__control__pb2.SessionConfiguration.FromString,
                 _registered_method=True)
-        self.valid = channel.unary_unary(
-                '/dunedaq.druncschema.run_control.RunControl/valid',
+        self.validate = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/validate',
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
                 _registered_method=True)
@@ -102,7 +102,7 @@ class RunControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def valid(self, request, context):
+    def validate(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -143,8 +143,8 @@ def add_RunControlServicer_to_server(servicer, server):
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_run__control__pb2.SessionConfiguration.SerializeToString,
             ),
-            'valid': grpc.unary_unary_rpc_method_handler(
-                    servicer.valid,
+            'validate': grpc.unary_unary_rpc_method_handler(
+                    servicer.validate,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
@@ -278,7 +278,7 @@ class RunControl(object):
             _registered_method=True)
 
     @staticmethod
-    def valid(request,
+    def validate(request,
             target,
             options=(),
             channel_credentials=None,
@@ -291,7 +291,7 @@ class RunControl(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/dunedaq.druncschema.run_control.RunControl/valid',
+            '/dunedaq.druncschema.run_control.RunControl/validate',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_request__response__pb2.Response.FromString,
             options,

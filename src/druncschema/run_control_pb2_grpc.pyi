@@ -39,7 +39,7 @@ class RunControlStub:
     describe: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]
     set_session_config: _grpc.UnaryUnaryMultiCallable[_run_control_pb2.SessionConfiguration, _request_response_pb2.Response]
     print_session_config: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _run_control_pb2.SessionConfiguration]
-    valid: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _request_response_pb2.Response]
+    validate: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _request_response_pb2.Response]
     connect_to_pm: _grpc.UnaryUnaryMultiCallable[_run_control_pb2.ConnectToPMRequest, _request_response_pb2.Response]
     ps: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]
 
@@ -50,7 +50,7 @@ class RunControlAsyncStub(RunControlStub):
     describe: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _description_pb2.Description]  # type: ignore[assignment]
     set_session_config: _aio.UnaryUnaryMultiCallable[_run_control_pb2.SessionConfiguration, _request_response_pb2.Response]  # type: ignore[assignment]
     print_session_config: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _run_control_pb2.SessionConfiguration]  # type: ignore[assignment]
-    valid: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _request_response_pb2.Response]  # type: ignore[assignment]
+    validate: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _request_response_pb2.Response]  # type: ignore[assignment]
     connect_to_pm: _aio.UnaryUnaryMultiCallable[_run_control_pb2.ConnectToPMRequest, _request_response_pb2.Response]  # type: ignore[assignment]
     ps: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
 
@@ -84,7 +84,7 @@ class RunControlServicer(metaclass=_abc_1.ABCMeta):
     ) -> _typing.Union[_run_control_pb2.SessionConfiguration, _abc.Awaitable[_run_control_pb2.SessionConfiguration]]: ...
 
     @_abc_1.abstractmethod
-    def valid(
+    def validate(
         self,
         request: _request_response_pb2.Request,
         context: _ServicerContext,
