@@ -23,8 +23,8 @@ service RunControl{
 
     rpc logs      (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
 
-
     rpc boot (RCBootRequest) returns (Response) {} 
+    rpc terminate (Request) returns (dunedaq.druncschema.process_manager.ProcessInstanceList){}
 }
 
 message ConnectToPMRequest {
@@ -47,5 +47,4 @@ message RCBootRequest {
     string log_level = 3;
     bool override_logs = 4;
     float sleep_between_app_boot = 5;
-
 }
