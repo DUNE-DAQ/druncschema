@@ -3,6 +3,103 @@
 isort:skip_file
 """
 
+from druncschema import token_pb2 as _token_pb2
 from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+import builtins as _builtins
+import sys
+import typing as _typing
+
+if sys.version_info >= (3, 11):
+    from typing import TypeAlias as _TypeAlias, Never as _Never
+else:
+    from typing_extensions import TypeAlias as _TypeAlias, Never as _Never
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+@_typing.final
+class ConnectToPMRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    ADDRESS_FIELD_NUMBER: _builtins.int
+    address: _builtins.str
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        address: _builtins.str = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["address", b"address", "token", b"token"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___ConnectToPMRequest: _TypeAlias = ConnectToPMRequest  # noqa: Y015
+
+@_typing.final
+class SessionConfiguration(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    CONFIGURATION_FILE_FIELD_NUMBER: _builtins.int
+    CONFIGURATION_ID_FIELD_NUMBER: _builtins.int
+    SESSION_NAME_FIELD_NUMBER: _builtins.int
+    VALID_FIELD_NUMBER: _builtins.int
+    configuration_file: _builtins.str
+    configuration_id: _builtins.str
+    session_name: _builtins.str
+    valid: _builtins.bool
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        configuration_file: _builtins.str = ...,
+        configuration_id: _builtins.str = ...,
+        session_name: _builtins.str = ...,
+        valid: _builtins.bool = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["configuration_file", b"configuration_file", "configuration_id", b"configuration_id", "session_name", b"session_name", "token", b"token", "valid", b"valid"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___SessionConfiguration: _TypeAlias = SessionConfiguration  # noqa: Y015
+
+@_typing.final
+class RCBootRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    USER_FIELD_NUMBER: _builtins.int
+    LOG_LEVEL_FIELD_NUMBER: _builtins.int
+    OVERRIDE_LOGS_FIELD_NUMBER: _builtins.int
+    SLEEP_BETWEEN_APP_BOOT_FIELD_NUMBER: _builtins.int
+    user: _builtins.str
+    log_level: _builtins.str
+    override_logs: _builtins.bool
+    sleep_between_app_boot: _builtins.float
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        user: _builtins.str = ...,
+        log_level: _builtins.str = ...,
+        override_logs: _builtins.bool = ...,
+        sleep_between_app_boot: _builtins.float = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["log_level", b"log_level", "override_logs", b"override_logs", "sleep_between_app_boot", b"sleep_between_app_boot", "token", b"token", "user", b"user"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___RCBootRequest: _TypeAlias = RCBootRequest  # noqa: Y015

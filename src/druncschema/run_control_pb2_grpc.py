@@ -5,7 +5,9 @@ import warnings
 
 from druncschema import common_pb2 as druncschema_dot_common__pb2
 from druncschema import description_pb2 as druncschema_dot_description__pb2
+from druncschema import process_manager_pb2 as druncschema_dot_process__manager__pb2
 from druncschema import request_response_pb2 as druncschema_dot_request__response__pb2
+from druncschema import run_control_pb2 as druncschema_dot_run__control__pb2
 
 GRPC_GENERATED_VERSION = '1.75.0'
 GRPC_VERSION = grpc.__version__
@@ -46,6 +48,46 @@ class RunControlStub(object):
                 request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
                 response_deserializer=druncschema_dot_description__pb2.Description.FromString,
                 _registered_method=True)
+        self.set_session_config = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/set_session_config',
+                request_serializer=druncschema_dot_run__control__pb2.SessionConfiguration.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
+        self.print_session_config = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/print_session_config',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_run__control__pb2.SessionConfiguration.FromString,
+                _registered_method=True)
+        self.validate = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/validate',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
+        self.connect_to_pm = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/connect_to_pm',
+                request_serializer=druncschema_dot_run__control__pb2.ConnectToPMRequest.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
+        self.ps = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/ps',
+                request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
+                _registered_method=True)
+        self.logs = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/logs',
+                request_serializer=druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
+                response_deserializer=druncschema_dot_process__manager__pb2.LogLines.FromString,
+                _registered_method=True)
+        self.boot = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/boot',
+                request_serializer=druncschema_dot_run__control__pb2.RCBootRequest.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
+        self.terminate = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/terminate',
+                request_serializer=druncschema_dot_request__response__pb2.Request.SerializeToString,
+                response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
+                _registered_method=True)
 
 
 class RunControlServicer(object):
@@ -63,6 +105,54 @@ class RunControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def set_session_config(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def print_session_config(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def validate(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def connect_to_pm(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ps(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def logs(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def boot(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def terminate(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RunControlServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -75,6 +165,46 @@ def add_RunControlServicer_to_server(servicer, server):
                     servicer.describe,
                     request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
                     response_serializer=druncschema_dot_description__pb2.Description.SerializeToString,
+            ),
+            'set_session_config': grpc.unary_unary_rpc_method_handler(
+                    servicer.set_session_config,
+                    request_deserializer=druncschema_dot_run__control__pb2.SessionConfiguration.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+            ),
+            'print_session_config': grpc.unary_unary_rpc_method_handler(
+                    servicer.print_session_config,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_run__control__pb2.SessionConfiguration.SerializeToString,
+            ),
+            'validate': grpc.unary_unary_rpc_method_handler(
+                    servicer.validate,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+            ),
+            'connect_to_pm': grpc.unary_unary_rpc_method_handler(
+                    servicer.connect_to_pm,
+                    request_deserializer=druncschema_dot_run__control__pb2.ConnectToPMRequest.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+            ),
+            'ps': grpc.unary_unary_rpc_method_handler(
+                    servicer.ps,
+                    request_deserializer=druncschema_dot_process__manager__pb2.ProcessQuery.FromString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
+            ),
+            'logs': grpc.unary_unary_rpc_method_handler(
+                    servicer.logs,
+                    request_deserializer=druncschema_dot_process__manager__pb2.LogRequest.FromString,
+                    response_serializer=druncschema_dot_process__manager__pb2.LogLines.SerializeToString,
+            ),
+            'boot': grpc.unary_unary_rpc_method_handler(
+                    servicer.boot,
+                    request_deserializer=druncschema_dot_run__control__pb2.RCBootRequest.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
+            ),
+            'terminate': grpc.unary_unary_rpc_method_handler(
+                    servicer.terminate,
+                    request_deserializer=druncschema_dot_request__response__pb2.Request.FromString,
+                    response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -131,6 +261,222 @@ class RunControl(object):
             '/dunedaq.druncschema.run_control.RunControl/describe',
             druncschema_dot_request__response__pb2.Request.SerializeToString,
             druncschema_dot_description__pb2.Description.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def set_session_config(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/set_session_config',
+            druncschema_dot_run__control__pb2.SessionConfiguration.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def print_session_config(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/print_session_config',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_run__control__pb2.SessionConfiguration.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def validate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/validate',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def connect_to_pm(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/connect_to_pm',
+            druncschema_dot_run__control__pb2.ConnectToPMRequest.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def ps(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/ps',
+            druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def logs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/logs',
+            druncschema_dot_process__manager__pb2.LogRequest.SerializeToString,
+            druncschema_dot_process__manager__pb2.LogLines.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def boot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/boot',
+            druncschema_dot_run__control__pb2.RCBootRequest.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def terminate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/terminate',
+            druncschema_dot_request__response__pb2.Request.SerializeToString,
+            druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
             options,
             channel_credentials,
             insecure,

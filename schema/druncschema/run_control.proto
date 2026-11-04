@@ -7,8 +7,44 @@ package dunedaq.druncschema.run_control;
 import "druncschema/common.proto";
 import "druncschema/description.proto";
 import "druncschema/request_response.proto";
+import "druncschema/token.proto";
+import "druncschema/process_manager.proto";
 
 service RunControl{
     rpc send_log  (SendLogRequest) returns (SendLogResponse) {}
     rpc describe  (Request) returns (Description) {}
+
+
+    rpc set_session_config (SessionConfiguration) returns (Response) {}
+    rpc print_session_config (Request) returns (SessionConfiguration) {}
+    rpc validate (Request) returns (Response) {}
+    rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
+    rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
+
+    rpc logs      (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
+
+    rpc boot (RCBootRequest) returns (Response) {} 
+    rpc terminate (Request) returns (dunedaq.druncschema.process_manager.ProcessInstanceList){}
+}
+
+message ConnectToPMRequest {
+    dunedaq.druncschema.Token token = 1;
+    string address = 2;
+}
+
+
+message SessionConfiguration {
+    Token token = 1;
+    string configuration_file = 3;
+    string configuration_id = 4;
+    string session_name = 5;   
+    bool valid = 6;
+}
+
+message RCBootRequest {
+    dunedaq.druncschema.Token token = 1;
+    string user = 2;
+    string log_level = 3;
+    bool override_logs = 4;
+    float sleep_between_app_boot = 5;
 }
