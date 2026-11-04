@@ -21,6 +21,8 @@ service RunControl{
     rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
     rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
 
+    rpc logs      (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
+
 
     rpc boot (RCBootRequest) returns (Response) {} 
 }
