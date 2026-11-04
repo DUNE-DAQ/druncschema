@@ -20,6 +20,9 @@ service RunControl{
     rpc validate (Request) returns (Response) {}
     rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
     rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
+
+
+    rpc boot (RCBootRequest) returns (Response) {} 
 }
 
 message ConnectToPMRequest {
@@ -34,4 +37,13 @@ message SessionConfiguration {
     string configuration_id = 4;
     string session_name = 5;   
     bool valid = 6;
+}
+
+message RCBootRequest {
+    dunedaq.druncschema.Token token = 1;
+    string user = 2;
+    string log_level = 3;
+    bool override_logs = 4;
+    float sleep_between_app_boot = 5;
+
 }
