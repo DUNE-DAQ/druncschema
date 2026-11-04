@@ -71,3 +71,35 @@ class SessionConfiguration(_message.Message):
     def WhichOneof(self, oneof_group: _Never) -> None: ...
 
 Global___SessionConfiguration: _TypeAlias = SessionConfiguration  # noqa: Y015
+
+@_typing.final
+class RCBootRequest(_message.Message):
+    DESCRIPTOR: _descriptor.Descriptor
+
+    TOKEN_FIELD_NUMBER: _builtins.int
+    USER_FIELD_NUMBER: _builtins.int
+    LOG_LEVEL_FIELD_NUMBER: _builtins.int
+    OVERRIDE_LOGS_FIELD_NUMBER: _builtins.int
+    SLEEP_BETWEEN_APP_BOOT_FIELD_NUMBER: _builtins.int
+    user: _builtins.str
+    log_level: _builtins.str
+    override_logs: _builtins.bool
+    sleep_between_app_boot: _builtins.float
+    @_builtins.property
+    def token(self) -> _token_pb2.Token: ...
+    def __init__(
+        self,
+        *,
+        token: _token_pb2.Token | None = ...,
+        user: _builtins.str = ...,
+        log_level: _builtins.str = ...,
+        override_logs: _builtins.bool = ...,
+        sleep_between_app_boot: _builtins.float = ...,
+    ) -> None: ...
+    _HasFieldArgType: _TypeAlias = _typing.Literal["token", b"token"]  # noqa: Y015
+    def HasField(self, field_name: _HasFieldArgType) -> _builtins.bool: ...
+    _ClearFieldArgType: _TypeAlias = _typing.Literal["log_level", b"log_level", "override_logs", b"override_logs", "sleep_between_app_boot", b"sleep_between_app_boot", "token", b"token", "user", b"user"]  # noqa: Y015
+    def ClearField(self, field_name: _ClearFieldArgType) -> None: ...
+    def WhichOneof(self, oneof_group: _Never) -> None: ...
+
+Global___RCBootRequest: _TypeAlias = RCBootRequest  # noqa: Y015

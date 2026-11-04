@@ -73,6 +73,11 @@ class RunControlStub(object):
                 request_serializer=druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
                 response_deserializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
                 _registered_method=True)
+        self.boot = channel.unary_unary(
+                '/dunedaq.druncschema.run_control.RunControl/boot',
+                request_serializer=druncschema_dot_run__control__pb2.RCBootRequest.SerializeToString,
+                response_deserializer=druncschema_dot_request__response__pb2.Response.FromString,
+                _registered_method=True)
 
 
 class RunControlServicer(object):
@@ -120,6 +125,12 @@ class RunControlServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def boot(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RunControlServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -157,6 +168,11 @@ def add_RunControlServicer_to_server(servicer, server):
                     servicer.ps,
                     request_deserializer=druncschema_dot_process__manager__pb2.ProcessQuery.FromString,
                     response_serializer=druncschema_dot_process__manager__pb2.ProcessInstanceList.SerializeToString,
+            ),
+            'boot': grpc.unary_unary_rpc_method_handler(
+                    servicer.boot,
+                    request_deserializer=druncschema_dot_run__control__pb2.RCBootRequest.FromString,
+                    response_serializer=druncschema_dot_request__response__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -348,6 +364,33 @@ class RunControl(object):
             '/dunedaq.druncschema.run_control.RunControl/ps',
             druncschema_dot_process__manager__pb2.ProcessQuery.SerializeToString,
             druncschema_dot_process__manager__pb2.ProcessInstanceList.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def boot(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/dunedaq.druncschema.run_control.RunControl/boot',
+            druncschema_dot_run__control__pb2.RCBootRequest.SerializeToString,
+            druncschema_dot_request__response__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
