@@ -44,6 +44,7 @@ class RunControlStub:
     ps: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]
     logs: _grpc.UnaryUnaryMultiCallable[_process_manager_pb2.LogRequest, _process_manager_pb2.LogLines]
     boot: _grpc.UnaryUnaryMultiCallable[_run_control_pb2.RCBootRequest, _request_response_pb2.Response]
+    terminate: _grpc.UnaryUnaryMultiCallable[_request_response_pb2.Request, _process_manager_pb2.ProcessInstanceList]
 
 @_typing.type_check_only
 class RunControlAsyncStub(RunControlStub):
@@ -57,6 +58,7 @@ class RunControlAsyncStub(RunControlStub):
     ps: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.ProcessQuery, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
     logs: _aio.UnaryUnaryMultiCallable[_process_manager_pb2.LogRequest, _process_manager_pb2.LogLines]  # type: ignore[assignment]
     boot: _aio.UnaryUnaryMultiCallable[_run_control_pb2.RCBootRequest, _request_response_pb2.Response]  # type: ignore[assignment]
+    terminate: _aio.UnaryUnaryMultiCallable[_request_response_pb2.Request, _process_manager_pb2.ProcessInstanceList]  # type: ignore[assignment]
 
 class RunControlServicer(metaclass=_abc_1.ABCMeta):
     @_abc_1.abstractmethod
@@ -121,5 +123,12 @@ class RunControlServicer(metaclass=_abc_1.ABCMeta):
         request: _run_control_pb2.RCBootRequest,
         context: _ServicerContext,
     ) -> _typing.Union[_request_response_pb2.Response, _abc.Awaitable[_request_response_pb2.Response]]: ...
+
+    @_abc_1.abstractmethod
+    def terminate(
+        self,
+        request: _request_response_pb2.Request,
+        context: _ServicerContext,
+    ) -> _typing.Union[_process_manager_pb2.ProcessInstanceList, _abc.Awaitable[_process_manager_pb2.ProcessInstanceList]]: ...
 
 def add_RunControlServicer_to_server(servicer: RunControlServicer, server: _typing.Union[_grpc.Server, _aio.Server]) -> None: ...
