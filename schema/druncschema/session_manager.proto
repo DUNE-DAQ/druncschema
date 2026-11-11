@@ -60,5 +60,5 @@ enum SessionDeploymentFlag {
 
 message DeploySessionResponse {
   SessionDeploymentFlag flag = 1;
-  optional string controller_address = 2;
+  optional string address = 2;
 }
