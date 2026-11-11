@@ -11,6 +11,7 @@ service SessionManager {
   rpc list_all_sessions (Request) returns (AllActiveSessions) {}
   rpc list_all_configs  (Request) returns (AllConfigKeys) {}
   rpc load_session      (LoadSessionRequest) returns (LoadSessionResponse) {}
+  rpc deploy_session    (DeploySessionRequest) returns (DeploySessionResponse) {}
 }
 
 message ConfigKey {
@@ -44,4 +45,20 @@ message LoadSessionRequest {
 
 message LoadSessionResponse {
   ActiveSession session = 1;
+}
+
+message DeploySessionRequest {
+  string session_name = 1;
+  string DUNE_DAQ_sw_version = 2;
+  optional string execution_path = 3;
+}
+
+enum SessionDeploymentFlag {
+  SUCCESS = 0;
+  FAILURE = 1;
+}
+
+message DeploySessionResponse {
+  SessionDeploymentFlag flag = 1;
+  optional string controller_address = 2;
 }
