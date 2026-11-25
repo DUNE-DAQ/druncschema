@@ -15,21 +15,49 @@ service RunControl{
     rpc describe  (Request) returns (Description) {}
 
 
-    rpc set_session_config (SessionConfiguration) returns (Response) {}
-    rpc print_session_config (Request) returns (SessionConfiguration) {}
-    rpc validate (Request) returns (Response) {}
-    rpc connect_to_pm (ConnectToPMRequest) returns (Response) {}
+    rpc set_session_config (SessionConfiguration) returns (RCSessionConfigResponse) {}
+    rpc print_session_config (RCPrintConfigRequest) returns (SessionConfiguration) {}
+    rpc validate (ValidateRequest) returns (ValidateResponse) {}
+    rpc connect_to_pm (ConnectToPMRequest) returns (ConnectToPMResponse) {}
     rpc ps        (dunedaq.druncschema.process_manager.ProcessQuery) returns (dunedaq.druncschema.process_manager.ProcessInstanceList) {}
 
     rpc logs      (dunedaq.druncschema.process_manager.LogRequest) returns (dunedaq.druncschema.process_manager.LogLines) {}
 
-    rpc boot (RCBootRequest) returns (Response) {} 
+    rpc boot (RCBootRequest) returns (RCBootResponse) {}
     rpc terminate (Request) returns (dunedaq.druncschema.process_manager.ProcessInstanceList){}
 }
 
 message ConnectToPMRequest {
     dunedaq.druncschema.Token token = 1;
     string address = 2;
+}
+
+message ConnectToPMResponse {
+    string name = 1;
+    Token token = 2; // The token of the sender
+    ResponseFlag flag = 3; // whether the command was successfull ON SELF ONLY!
+}
+
+
+message ValidateRequest {
+    Token token = 1;
+}
+
+message ValidateResponse {
+    Token token = 1;
+    string name = 2;
+    ResponseFlag flag = 3;
+}
+
+
+message RCSessionConfigResponse {
+    Token token = 1;
+    string name = 2;
+    ResponseFlag flag = 3;
+}
+
+message RCPrintConfigRequest {
+    Token token = 1;
 }
 
 
@@ -47,4 +75,11 @@ message RCBootRequest {
     string log_level = 3;
     bool override_logs = 4;
     float sleep_between_app_boot = 5;
+}
+
+message RCBootResponse {
+    Token token = 1;
+    string name = 2;
+    ResponseFlag flag = 3;
+    optional string message = 4;
 }
