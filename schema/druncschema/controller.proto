@@ -6,7 +6,9 @@ import "druncschema/request_response.proto";
 import "druncschema/description.proto";
 import "druncschema/token.proto";
 import "druncschema/common.proto";
+import "druncschema/generic.proto";
 import "google/protobuf/any.proto";
+
 
 service Controller {
   rpc describe                   (DescribeRequest) returns (DescribeResponse) {}
@@ -61,6 +63,7 @@ message ExecuteExpertCommandResponse {
   repeated ExecuteExpertCommandResponse children = 5;
   FSMResponseFlag fsm_flag = 6;
   ResponseFlag flag = 7;
+  optional ResponseError error = 8;
 }
 
 message ExecuteFSMCommandRequest {
@@ -79,6 +82,7 @@ message ExecuteFSMCommandResponse {
   repeated ExecuteFSMCommandResponse children = 5;
   FSMResponseFlag fsm_flag = 6;
   ResponseFlag flag = 7;
+  optional ResponseError error = 8;
 }
 
 message FSMCommand {
@@ -100,6 +104,7 @@ message IncludeResponse {
   string text = 3;
   repeated IncludeResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
 }
 
 message ExcludeRequest {
@@ -115,6 +120,7 @@ message ExcludeResponse {
   string text = 3;
   repeated ExcludeResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
 }
 
 message TakeControlRequest {
@@ -130,6 +136,7 @@ message TakeControlResponse {
   string text = 3;
   repeated TakeControlResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
 }
 
 message SurrenderControlRequest {
@@ -145,6 +152,7 @@ message SurrenderControlResponse {
   string text = 3;
   repeated SurrenderControlResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
 }
 
 message WhoIsInChargeRequest {
@@ -160,6 +168,7 @@ message WhoIsInChargeResponse {
   string text = 3;
   repeated WhoIsInChargeResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
 }
 
 message ToErrorRequest {
@@ -174,6 +183,7 @@ message ToErrorResponse {
   string name = 2;
   repeated ToErrorResponse children = 3;
   ResponseFlag flag = 4;
+  optional ResponseError error = 5;
 }
 
 message StatusRequest {
@@ -189,6 +199,8 @@ message StatusResponse {
   Status status = 3;
   repeated StatusResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
+
 }
 
 message RecomputeStatusRequest {
@@ -203,6 +215,8 @@ message RecomputeStatusResponse {
   string name = 2;
   repeated RecomputeStatusResponse children = 3;
   ResponseFlag flag = 4;
+  optional ResponseError error = 5;
+
 }
 
 message DescribeRequest {
@@ -218,6 +232,8 @@ message DescribeResponse {
   Description description = 3;
   repeated DescribeResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
+
 }
 
 message DescribeFSMRequest {
@@ -234,6 +250,7 @@ message DescribeFSMResponse {
   FSMCommandsDescription description = 3;
   repeated DescribeFSMResponse children = 4;
   ResponseFlag flag = 5;
+  optional ResponseError error = 6;
 }
 
 enum FSMResponseFlag {

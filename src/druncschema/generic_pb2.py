@@ -22,9 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x64runcschema/generic.proto\x12\x13\x64unedaq.druncschema\"\x07\n\x05\x45mpty\"\x19\n\tPlainText\x12\x0c\n\x04text\x18\x01 \x01(\t\"\x1f\n\x0fPlainTextVector\x12\x0c\n\x04text\x18\x01 \x03(\t\"\x1a\n\nStacktrace\x12\x0c\n\x04text\x18\x01 \x03(\t\"y\n\x0fStringStringMap\x12:\n\x03map\x18\x01 \x03(\x0b\x32-.dunedaq.druncschema.StringStringMap.MapEntry\x1a*\n\x08MapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x18\n\x07int_msg\x12\r\n\x05value\x18\x01 \x01(\x03\"\x1a\n\tfloat_msg\x12\r\n\x05value\x18\x01 \x01(\x02\"\x1b\n\nstring_msg\x12\r\n\x05value\x18\x01 \x01(\t\"\x19\n\x08\x62ool_msg\x12\r\n\x05value\x18\x01 \x01(\x08\"?\n\rOutcomeStatus\x12.\n\x04\x66lag\x18\x01 \x01(\x0e\x32 .dunedaq.druncschema.OutcomeFlag*1\n\x0bOutcomeFlag\x12\x0b\n\x07SUCCESS\x10\x00\x12\x08\n\x04\x46\x41IL\x10\x01\x12\x0b\n\x07UNKNOWN\x10\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x64runcschema/generic.proto\x12\x13\x64unedaq.druncschema\x1a\x19google/protobuf/any.proto\"\x07\n\x05\x45mpty\"\x19\n\tPlainText\x12\x0c\n\x04text\x18\x01 \x01(\t\"\x1f\n\x0fPlainTextVector\x12\x0c\n\x04text\x18\x01 \x03(\t\"\x1a\n\nStacktrace\x12\x0c\n\x04text\x18\x01 \x03(\t\"y\n\x0fStringStringMap\x12:\n\x03map\x18\x01 \x03(\x0b\x32-.dunedaq.druncschema.StringStringMap.MapEntry\x1a*\n\x08MapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x18\n\x07int_msg\x12\r\n\x05value\x18\x01 \x01(\x03\"\x1a\n\tfloat_msg\x12\r\n\x05value\x18\x01 \x01(\x02\"\x1b\n\nstring_msg\x12\r\n\x05value\x18\x01 \x01(\t\"\x19\n\x08\x62ool_msg\x12\r\n\x05value\x18\x01 \x01(\x08\"?\n\rOutcomeStatus\x12.\n\x04\x66lag\x18\x01 \x01(\x0e\x32 .dunedaq.druncschema.OutcomeFlag\"G\n\rResponseError\x12\x0f\n\x07message\x18\x01 \x01(\t\x12%\n\x07\x64\x65tails\x18\x02 \x03(\x0b\x32\x14.google.protobuf.Any*1\n\x0bOutcomeFlag\x12\x0b\n\x07SUCCESS\x10\x00\x12\x08\n\x04\x46\x41IL\x10\x01\x12\x0b\n\x07UNKNOWN\x10\x02\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,28 +34,30 @@ if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_STRINGSTRINGMAP_MAPENTRY']._loaded_options = None
   _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_options = b'8\001'
-  _globals['_OUTCOMEFLAG']._serialized_start=445
-  _globals['_OUTCOMEFLAG']._serialized_end=494
-  _globals['_EMPTY']._serialized_start=50
-  _globals['_EMPTY']._serialized_end=57
-  _globals['_PLAINTEXT']._serialized_start=59
-  _globals['_PLAINTEXT']._serialized_end=84
-  _globals['_PLAINTEXTVECTOR']._serialized_start=86
-  _globals['_PLAINTEXTVECTOR']._serialized_end=117
-  _globals['_STACKTRACE']._serialized_start=119
-  _globals['_STACKTRACE']._serialized_end=145
-  _globals['_STRINGSTRINGMAP']._serialized_start=147
-  _globals['_STRINGSTRINGMAP']._serialized_end=268
-  _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_start=226
-  _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_end=268
-  _globals['_INT_MSG']._serialized_start=270
-  _globals['_INT_MSG']._serialized_end=294
-  _globals['_FLOAT_MSG']._serialized_start=296
-  _globals['_FLOAT_MSG']._serialized_end=322
-  _globals['_STRING_MSG']._serialized_start=324
-  _globals['_STRING_MSG']._serialized_end=351
-  _globals['_BOOL_MSG']._serialized_start=353
-  _globals['_BOOL_MSG']._serialized_end=378
-  _globals['_OUTCOMESTATUS']._serialized_start=380
-  _globals['_OUTCOMESTATUS']._serialized_end=443
+  _globals['_OUTCOMEFLAG']._serialized_start=545
+  _globals['_OUTCOMEFLAG']._serialized_end=594
+  _globals['_EMPTY']._serialized_start=77
+  _globals['_EMPTY']._serialized_end=84
+  _globals['_PLAINTEXT']._serialized_start=86
+  _globals['_PLAINTEXT']._serialized_end=111
+  _globals['_PLAINTEXTVECTOR']._serialized_start=113
+  _globals['_PLAINTEXTVECTOR']._serialized_end=144
+  _globals['_STACKTRACE']._serialized_start=146
+  _globals['_STACKTRACE']._serialized_end=172
+  _globals['_STRINGSTRINGMAP']._serialized_start=174
+  _globals['_STRINGSTRINGMAP']._serialized_end=295
+  _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_start=253
+  _globals['_STRINGSTRINGMAP_MAPENTRY']._serialized_end=295
+  _globals['_INT_MSG']._serialized_start=297
+  _globals['_INT_MSG']._serialized_end=321
+  _globals['_FLOAT_MSG']._serialized_start=323
+  _globals['_FLOAT_MSG']._serialized_end=349
+  _globals['_STRING_MSG']._serialized_start=351
+  _globals['_STRING_MSG']._serialized_end=378
+  _globals['_BOOL_MSG']._serialized_start=380
+  _globals['_BOOL_MSG']._serialized_end=405
+  _globals['_OUTCOMESTATUS']._serialized_start=407
+  _globals['_OUTCOMESTATUS']._serialized_end=470
+  _globals['_RESPONSEERROR']._serialized_start=472
+  _globals['_RESPONSEERROR']._serialized_end=543
 # @@protoc_insertion_point(module_scope)
